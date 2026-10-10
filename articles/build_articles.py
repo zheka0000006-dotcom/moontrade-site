@@ -26,7 +26,7 @@ import json, os, re, random, html, glob, datetime
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = '/home/claude/moontrade-site'
 BASE = 'https://moontrade.community'
-TG = 'https://t.me/+ubz6helIhwsxMGVi'
+TG = 'https://t.me/+qmdQe3VskkA5OTcy'
 LEARN = 'https://learn.moontrade.community/'
 COL = {'moon': '#cdbdff', 'mint': '#3fe0a0', 'rose': '#ff6b8a', 'amber': '#ffc85c', 'white': '#ffffff', 'violet': '#8b5cf6'}
 TODAY = datetime.date.today().isoformat()
