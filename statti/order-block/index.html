@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Block: що це і як знайти на графіку — MoonTrade</title>
+<meta name="description" content="Order block простими словами: що це за зона, як знайти бичачий і ведмежий ордер-блок, як відрізнити сильний від слабкого і коли зона вже не працює.">
+<link rel="canonical" href="https://moontrade.community/statti/order-block/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0d0a1f">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="MoonTrade">
+<meta property="og:title" content="Order Block: що це і як знайти">
+<meta property="og:description" content="Order block простими словами: що це за зона, як знайти бичачий і ведмежий ордер-блок, як відрізнити сильний від слабкого і коли зона вже не працює.">
+<meta property="og:url" content="https://moontrade.community/statti/order-block/">
+<meta property="og:image" content="https://moontrade.community/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Order Block: що це і як знайти", "description": "Order block простими словами: що це за зона, як знайти бичачий і ведмежий ордер-блок, як відрізнити сильний від слабкого і коли зона вже не працює.", "inLanguage": "uk", "mainEntityOfPage": "https://moontrade.community/statti/order-block/", "datePublished": "2026-10-10", "dateModified": "2026-10-10", "author": {"@type": "Organization", "name": "MoonTrade", "url": "https://moontrade.community/"}, "publisher": {"@type": "Organization", "name": "MoonTrade", "logo": {"@type": "ImageObject", "url": "https://moontrade.community/assets/logo.jpg"}}, "image": "https://moontrade.community/assets/og.jpg"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Що таке order block?", "acceptedAnswer": {"@type": "Answer", "text": "Остання протилежна свічка перед сильним імпульсом, який зламав структуру: остання червона перед ривком угору (бичачий) або остання зелена перед ривком униз (ведмежий)."}}, {"@type": "Question", "name": "Як знайти бичачий order block?", "acceptedAnswer": {"@type": "Answer", "text": "Знайди імпульс угору, що закрився тілом вище важливого максимуму, і візьми останню червону свічку перед ним. Зона — від її мінімуму до максимуму."}}, {"@type": "Question", "name": "Коли order block вважається зламаним?", "acceptedAnswer": {"@type": "Answer", "text": "Коли тіло свічки закрилося за зоною: для бичачого — нижче мінімуму зони, для ведмежого — вище максимуму. Після цього сценарій від зони скасований."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "MoonTrade", "item": "https://moontrade.community/"}, {"@type": "ListItem", "position": 2, "name": "Order Block: що це і як знайти", "item": "https://moontrade.community/statti/order-block/"}]}]}</script>
+<style>:root{--night:#0d0a1f;--deep:#151032;--line:#2c2554;--moon:#cdbdff;--violet:#8b5cf6;--violet-2:#6d3df0;--ink:#f1ecff;--muted:#a99fcc;--mint:#3fe0a0;--rose:#ff6b8a;--amber:#ffc85c;--display:"Unbounded",system-ui,sans-serif;--body:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font:400 18px/1.75 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--moon)}
+:focus-visible{outline:2px solid var(--moon);outline-offset:3px;border-radius:6px}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+.top{position:sticky;top:0;z-index:10;background:rgba(13,10,31,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{max-width:1080px;display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:700 17px/1 var(--display)}
+.brand img{border-radius:9px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 16px/1 var(--body);text-decoration:none;padding:16px 22px;border-radius:999px;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff;box-shadow:0 10px 30px rgba(109,61,240,.35)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn-sm{padding:10px 16px;font-size:14px}
+.art{padding-top:28px;padding-bottom:40px}
+.crumbs{font-size:14px;color:var(--muted)}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs span{margin:0 4px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.01em;line-height:1.2;margin:0}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:700;margin:16px 0 18px}
+h2{font-size:clamp(21px,2.6vw,27px);font-weight:700;margin:52px 0 16px}
+h3{font-size:19px;font-weight:500;margin:28px 0 10px}
+p{margin:0 0 16px}
+.lead{font-size:20px;color:var(--ink);padding:18px 20px;border-left:3px solid var(--violet);background:linear-gradient(90deg,rgba(139,92,246,.12),transparent);border-radius:0 12px 12px 0}
+.toc{margin:28px 0 8px;padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:var(--deep);font-size:16px}
+.toc b{display:block;margin-bottom:6px}
+.toc ol{margin:0;padding-left:20px}
+.toc a{color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--ink)}
+ul,ol{padding-left:22px}
+li{margin-bottom:8px}
+strong{color:#fff}
+.note{padding:14px 18px;border-radius:14px;background:rgba(63,224,160,.08);border:1px solid rgba(63,224,160,.3);font-size:16.5px}
+.warn{padding:14px 18px;border-radius:14px;background:rgba(255,107,138,.08);border:1px solid rgba(255,107,138,.3);font-size:16.5px}
+table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:16px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--moon);font-weight:700}
+.fig{margin:22px 0 26px}
+.fig svg{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.fig figcaption{color:var(--muted);font-size:15px;margin-top:10px}
+.mist{list-style:none;padding:0}
+.mist li{position:relative;padding:12px 16px 12px 40px;border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.mist li::before{content:"";position:absolute;left:16px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--rose);box-shadow:0 0 10px rgba(255,107,138,.6)}
+.quiz details{border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.quiz summary{cursor:pointer;list-style:none;padding:14px 46px 14px 18px;font-weight:700;position:relative}
+.quiz summary::-webkit-details-marker{display:none}
+.quiz summary::after{content:"+";position:absolute;right:16px;top:9px;font:500 24px/1 var(--display);color:var(--moon)}
+.quiz details[open] summary::after{content:"−"}
+.quiz details p{padding:0 18px 14px;margin:0;color:var(--muted)}
+.cta{margin:56px 0 10px;padding:30px;border-radius:24px;border:1px solid var(--line);background:radial-gradient(circle at 92% 10%,rgba(205,189,255,.2),transparent 45%),linear-gradient(135deg,#251a5a,#151032);display:grid;gap:18px}
+.cta h2{margin:0 0 8px;font-size:22px}
+.cta p{color:var(--muted);margin:0}
+.cta-b{display:flex;flex-wrap:wrap;gap:10px}
+.related h2{font-size:20px;margin-top:44px}
+.rels{display:grid;gap:12px}
+.rel{display:block;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:var(--deep);text-decoration:none;color:var(--ink)}
+.rel b{display:block;margin-bottom:4px}
+.rel span{color:var(--muted);font-size:15px}
+.rel:hover{border-color:var(--moon)}
+.risk{margin-top:40px;color:var(--muted);font-size:13.5px;line-height:1.6}
+.foot{display:flex;justify-content:space-between;align-items:center;padding:30px 22px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);max-width:800px}
+@media (max-width:600px){.fig{margin-left:-14px;margin-right:-14px}.fig svg{border-radius:12px}.fig figcaption{padding:0 14px}body{font-size:17px}.lead{font-size:18px}.cta{padding:22px}.btn{width:100%}.top .btn{width:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="32" height="32">MoonTrade</a>
+<a class="btn btn-primary btn-sm" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Долучитися</a></div></header>
+<main class="wrap art">
+<nav class="crumbs" aria-label="Навігація"><a href="/">MoonTrade</a> <span>/</span> <span>Статті</span></nav>
+<h1>Order Block: що це і як знайти</h1>
+<p class="lead">Order block (OB) — це остання протилежна свічка перед сильним імпульсом, який зламав структуру: остання червона перед ривком угору або остання зелена перед обвалом. Вважається, що в цій зоні великий учасник набирав позицію, тому ціна часто повертається туди й дає реакцію. Але не кожна така свічка — робоча зона, і нижче я покажу, як їх відрізняти.</p>
+<nav class="toc" aria-label="Зміст"><b>У статті</b><ol><li><a href="#s1">Що таке order block простими словами</a></li><li><a href="#s2">Чому ціна повертається в order block</a></li><li><a href="#s3">Як знайти order block: покроково</a></li><li><a href="#s4">Бичачий і ведмежий order block</a></li><li><a href="#s5">Як відрізнити сильний order block від слабкого</a></li><li><a href="#s6">Коли order block перестає працювати</a></li><li><a href="#s7">Як я працюю з order block на практиці</a></li><li><a href="#mistakes">Типові помилки</a></li><li><a href="#quiz">Перевір себе</a></li></ol></nav>
+<section id="s1"><h2>Що таке order block простими словами</h2><p>Order block дослівно — «блок заявок». Це зона на графіку, з якої почався сильний рух. На практиці її знаходять за однією свічкою:</p><ul><li><strong>Бичачий order block</strong> — остання червона свічка перед імпульсом угору.</li><li><strong>Ведмежий order block</strong> — остання зелена свічка перед імпульсом униз.</li></ul><p>Головна умова, без якої це просто свічка: <strong>імпульс після неї має зламати структуру</strong> — зробити <a href="/statti/bos-choch/">BOS або CHoCH</a>. Червоних свічок перед зростанням на графіку сотні. Order block — лише та, після якої ринок реально змінив або продовжив напрямок із силою.</p><p>У різних авторів межі зони трохи відрізняються. Я беру всю свічку — від мінімуму до максимуму. Дехто бере лише тіло, а дехто — від відкриття до крайньої тіні. Важливо обрати одне правило й не змінювати його залежно від того, як зручніше.</p><p>Order block — родич класичних зон попиту й пропозиції. Різниця в точності: замість широкої зони «десь тут купували» береться конкретна свічка з конкретними межами. Тому одразу видно, де сценарій працює, а де вже скасований.</p></section><section id="s2"><h2>Чому ціна повертається в order block</h2><p>Логіка така. Великий учасник хоче купити великий обсяг. Одразу це зробити неможливо — не вистачить зустрічних продажів (про це докладно в статті про <a href="/statti/likvidnist/">ліквідність</a>). Він набирає частину позиції, ціна різко йде вгору, і частина його заявок лишається невиконаною на тих цінах, звідки почався рух.</p><p>Коли ціна згодом повертається в цю зону, ці заявки знову спрацьовують — і ціна дає реакцію. Повернення в зону називають <strong>mitigation</strong>: учасник «добирає» позицію або закриває збиткову частину без втрат.</p><p>Уяви умовну ситуацію. Великий покупець хоче набрати позицію на 100 одиниць біля ціни 100. Продавців вистачає лише на 40, і після його покупок ціна швидко злітає до 104. Решта 60 одиниць він все ще хоче купити — але не за 104, а за тими самими цінами біля 100. Його заявки чекають там, і коли ціна повертається, вони зустрічають продажі й зупиняють падіння.</p><p>Друга причина простіша: order block бачать багато трейдерів, які пропустили перший рух. Вони чекають відкату саме туди, і їхні заявки теж створюють реакцію.</p><p class="note">Це пояснення — модель. Невиконаних заявок ми не бачимо, тому order block для мене — місце, де я <strong>спостерігаю</strong> за реакцією, а не точка, де ціна зобов’язана розвернутися.</p></section><section id="s3"><h2>Як знайти order block: покроково</h2><ol><li><strong>Знаходжу злам структури.</strong> Шукаю імпульс, який закрився тілом за важливим максимумом чи мінімумом. Без зламу далі не йду.</li><li><strong>Іду до початку імпульсу.</strong> Дивлюся, з якої свічки почався ривок.</li><li><strong>Знаходжу останню протилежну свічку.</strong> Для руху вгору — останню червону перед зеленими, для руху вниз — останню зелену перед червоними.</li><li><strong>Позначаю зону</strong> від мінімуму до максимуму цієї свічки й продовжую її вправо.</li><li><strong>Чекаю повернення.</strong> Сам order block нічого не означає, поки ціна до нього не повернулася. Дивлюся, як вона підходить і що робить у зоні.</li></ol><p>На схемі нижче ціна падала, сформувала нижчий максимум, а потім кілька великих зелених свічок закрилися вище нього — це CHoCH. Остання червона свічка перед цим ривком і є order block. Через кілька свічок ціна відкотилася в зону, затрималася біля її верхньої межі й пішла вгору.</p><p>Якщо перед імпульсом стоїть кілька червоних свічок поспіль, я беру останню — ту, що безпосередньо перед ривком. Якщо вона дуже маленька, дехто розширює зону на дві свічки. Головне — не роздувати зону настільки, що в неї влізе половина графіка.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Бичачий order block: остання червона свічка перед імпульсом, який зламав структуру. Ціна повернулася в зону і дала реакцію вгору." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="197.0" y="251.9" width="295.0" height="60.3" fill="#8b5cf6" fill-opacity=".16" stroke="#8b5cf6" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<line x1="34.8" x2="34.8" y1="118.4" y2="157.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="26.5" y="123.3" width="16.5" height="24.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="64.2" x2="64.2" y1="135.3" y2="195.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="56.0" y="147.4" width="16.5" height="36.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="93.8" x2="93.8" y1="173.9" y2="224.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="85.5" y="183.6" width="16.5" height="36.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="123.2" x2="123.2" y1="179.6" y2="227.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="115.0" y="191.6" width="16.5" height="28.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="152.8" x2="152.8" y1="186.8" y2="233.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="144.5" y="191.6" width="16.5" height="32.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="182.2" x2="182.2" y1="211.7" y2="272.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="174.0" y="223.8" width="16.5" height="36.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="211.8" x2="211.8" y1="251.9" y2="312.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="203.5" y="260.0" width="16.5" height="40.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="241.2" x2="241.2" y1="220.6" y2="304.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="233.0" y="227.8" width="16.5" height="72.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="270.8" x2="270.8" y1="143.4" y2="237.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="262.5" y="151.4" width="16.5" height="76.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="300.2" x2="300.2" y1="119.2" y2="155.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="292.0" y="127.3" width="16.5" height="24.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="329.8" x2="329.8" y1="117.6" y2="156.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="321.5" y="127.3" width="16.5" height="24.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="359.2" x2="359.2" y1="144.2" y2="163.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="351.0" y="151.4" width="16.5" height="8.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="388.8" x2="388.8" y1="154.6" y2="229.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="380.5" y="159.5" width="16.5" height="60.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="418.2" x2="418.2" y1="207.7" y2="272.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="410.0" y="219.8" width="16.5" height="40.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="447.8" x2="447.8" y1="206.1" y2="264.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="439.5" y="215.7" width="16.5" height="44.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="477.2" x2="477.2" y1="160.3" y2="223.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="469.0" y="167.5" width="16.5" height="48.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="506.8" x2="506.8" y1="118.4" y2="177.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="498.5" y="123.3" width="16.5" height="44.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="536.2" x2="536.2" y1="79.0" y2="135.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="528.0" y="91.1" width="16.5" height="32.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="565.8" x2="565.8" y1="81.4" y2="112.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="557.5" y="91.1" width="16.5" height="16.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="595.2" x2="595.2" y1="63.8" y2="114.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="587.0" y="71.0" width="16.5" height="36.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="108.5" x2="285.5" y1="179.6" y2="179.6" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<path d="M418.2 308.0 V282.0 M412.2 290.0 L418.2 282.0 L424.2 290.0" stroke="#3fe0a0" stroke-width="2.2" fill="none"/>
+<rect x="201.0" y="329.2" width="112.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#8b5cf6" stroke-width="1.2"/>
+<text x="210.0" y="349.7" fill="#8b5cf6" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">order block</text>
+<rect x="293.5" y="178.6" width="73.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="302.5" y="199.1" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">CHoCH</text>
+</svg><figcaption>Бичачий order block: остання червона свічка перед імпульсом, який зламав структуру. Ціна повернулася в зону і дала реакцію вгору.</figcaption></figure></section><section id="s4"><h2>Бичачий і ведмежий order block</h2><p>Обидва типи будуються однаково, просто дзеркально.</p><table><thead><tr><th>Тип</th><th>Яка свічка</th><th>Що чекаю</th></tr></thead><tbody><tr><td>Бичачий</td><td>Остання червона перед імпульсом угору, що зламав максимум</td><td>Відкат зверху в зону й реакцію вгору</td></tr><tr><td>Ведмежий</td><td>Остання зелена перед імпульсом униз, що зламав мінімум</td><td>Відкат знизу в зону й реакцію вниз</td></tr></tbody></table><p>На схемі — ведмежий варіант. Ціна росла, остання зелена свічка дала новий максимум, а потім дві великі червоні свічки закрилися нижче ключового мінімуму. Зелена свічка перед обвалом — order block. Після обвалу ціна кілька свічок постояла внизу, потім повернулася до зони знизу, ледь зайшла в неї і продовжила падіння.</p><p>Зверни увагу: реакція почалася біля першої межі зони, а не в її середині. Так буває часто, тому я не чекаю, що ціна обов’язково пройде всю зону до кінця.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Ведмежий order block: остання зелена свічка перед обвалом, який закрився нижче мінімуму. Повернення в зону знизу — і продовження падіння." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="160.5" y="63.8" width="337.1" height="63.6" fill="#ff6b8a" fill-opacity=".16" stroke="#ff6b8a" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<line x1="34.0" x2="34.0" y1="216.4" y2="252.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="26.2" y="220.9" width="15.7" height="22.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="62.1" x2="62.1" y1="168.5" y2="232.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="54.3" y="179.8" width="15.7" height="41.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="90.2" x2="90.2" y1="170.8" y2="198.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="82.4" y="179.8" width="15.7" height="7.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="118.3" x2="118.3" y1="146.8" y2="194.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="110.5" y="153.6" width="15.7" height="33.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="146.4" x2="146.4" y1="115.4" y2="162.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="138.6" y="119.9" width="15.7" height="33.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="174.5" x2="174.5" y1="63.8" y2="127.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="166.7" y="78.7" width="15.7" height="41.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="202.6" x2="202.6" y1="71.2" y2="146.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="194.8" y="78.7" width="15.7" height="63.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="230.7" x2="230.7" y1="135.6" y2="235.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="222.8" y="142.3" width="15.7" height="86.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="258.8" x2="258.8" y1="224.7" y2="254.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="250.9" y="228.4" width="15.7" height="15.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="286.9" x2="286.9" y1="220.9" y2="254.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="279.0" y="232.2" width="15.7" height="11.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="315.0" x2="315.0" y1="228.4" y2="251.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="307.1" y="232.2" width="15.7" height="15.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="343.1" x2="343.1" y1="199.2" y2="253.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="335.2" y="206.0" width="15.7" height="41.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="371.2" x2="371.2" y1="156.6" y2="214.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="363.3" y="161.1" width="15.7" height="44.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="399.3" x2="399.3" y1="101.2" y2="172.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="391.4" y="108.7" width="15.7" height="52.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="427.4" x2="427.4" y1="99.7" y2="154.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="419.5" y="108.7" width="15.7" height="41.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="455.5" x2="455.5" y1="143.1" y2="201.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="447.6" y="149.8" width="15.7" height="44.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="483.6" x2="483.6" y1="190.2" y2="244.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="475.7" y="194.7" width="15.7" height="41.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="511.7" x2="511.7" y1="224.7" y2="273.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="503.8" y="235.9" width="15.7" height="29.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="539.8" x2="539.8" y1="238.1" y2="270.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="531.9" y="247.1" width="15.7" height="18.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="567.9" x2="567.9" y1="240.4" y2="287.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="560.0" y="247.1" width="15.7" height="33.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="596.0" x2="596.0" y1="276.3" y2="312.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="588.1" y="280.8" width="15.7" height="22.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="160.5" x2="497.6" y1="63.8" y2="63.8" stroke="#ff6b8a" stroke-width="1.8"/>
+<line x1="76.2" x2="244.8" y1="198.5" y2="198.5" stroke="#ff6b8a" stroke-width="1.8" stroke-dasharray="6 5"/>
+<path d="M399.3 65.2 V91.2 M393.3 83.2 L399.3 91.2 L405.3 83.2" stroke="#ff6b8a" stroke-width="2.2" fill="none"/>
+<rect x="505.6" y="48.8" width="112.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="514.6" y="69.3" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">order block</text>
+<rect x="252.8" y="183.5" width="73.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="261.8" y="204.0" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">CHoCH</text>
+</svg><figcaption>Ведмежий order block: остання зелена свічка перед обвалом, який закрився нижче мінімуму. Повернення в зону знизу — і продовження падіння.</figcaption></figure></section><section id="s5"><h2>Як відрізнити сильний order block від слабкого</h2><p>На будь-якому графіку order block можна знайти майже скрізь. Тому я оцінюю кожен за набором ознак. Що більше ознак збігається, то більше уваги заслуговує зона:</p><ul><li><strong>Імпульс зламав структуру.</strong> Обов’язкова умова. Без BOS чи CHoCH це просто свічка.</li><li><strong>Перед імпульсом зняли ліквідність.</strong> Ціна спершу вийшла за помітний мінімум, а вже потім пішла вгору. Такий order block часто включає саму свічку зі зняттям.</li><li><strong>Імпульс лишив імбаланс.</strong> Якщо одразу після order block є <a href="/statti/imbalans-fvg/">FVG</a>, рух був по-справжньому різким.</li><li><strong>Зона свіжа.</strong> Ціна ще не поверталася в неї. Кожен наступний дотик зону послаблює.</li><li><strong>Розташування в русі.</strong> Бичачий order block у нижній половині руху (discount) сильніший, ніж у верхній (premium). Про це — в огляді <a href="/statti/smc-ukrainskoiu/">SMC українською</a>.</li><li><strong>Збіг зі старшим таймфреймом.</strong> Order block за напрямком старшого руху працює частіше, ніж проти нього.</li></ul><p>Для прикладу порівняй дві зони. Перша: ціна зняла рівні мінімуми, різко пішла вгору, лишила імбаланс і зламала максимум, а зона стоїть у discount за напрямком H1. Друга: звичайна червона свічка посеред діапазону, після якої ціна повільно піднялася на кілька пунктів. Формально обидві — «остання червона перед зростанням», але вага в них зовсім різна.</p><p class="warn">Навіть зона з усіма ознаками не дає певності. Вона лише показує, де варто чекати реакції й перевіряти умови стратегії.</p></section><section id="s6"><h2>Коли order block перестає працювати</h2><p>Зону треба не лише знайти, а й вчасно «списати». Я перестаю на неї зважати в таких випадках:</p><ul><li><strong>Тіло свічки закрилося за зоною.</strong> Для бичачого order block — нижче його мінімуму. Це означає, що покупців тут більше немає, і сценарій скасований.</li><li><strong>Зону вже відпрацювали.</strong> Ціна повернулася, дала реакцію й пішла далі. Повторні дотики зазвичай слабші.</li><li><strong>Змінилася структура.</strong> Якщо після зони з’явився CHoCH проти неї, стара зона втрачає вагу.</li></ul><p>На схемі ціна повернулася в бичачий order block, дала слабку зелену свічку — і на цьому реакція закінчилася. Наступна свічка закрилася тілом нижче зони. У такий момент я не шукаю «новий order block трохи нижче», щоб урятувати ідею, а просто визнаю: сценарій не спрацював.</p><p>Цікавий момент: зламаний order block іноді змінює роль. Колишня зона покупок, яку пробили тілом, може стати зоною продажів, коли ціна повернеться до неї знизу. Таку зону називають <strong>breaker block</strong>. Логіка та сама, що й у <a href="/statti/probiy-i-retest/">пробої та ретесті</a> рівня: колишня підтримка стає опором.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Зона перестала працювати: після слабкої реакції свічка закрилася тілом нижче order block — сценарій на покупку скасований." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="144.2" y="146.3" width="341.6" height="56.3" fill="#8b5cf6" fill-opacity=".16" stroke="#8b5cf6" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<line x1="35.5" x2="35.5" y1="66.8" y2="106.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="26.8" y="71.3" width="17.4" height="26.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="66.6" x2="66.6" y1="86.3" y2="142.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="57.9" y="97.5" width="17.4" height="33.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="97.6" x2="97.6" y1="101.3" y2="135.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="88.9" y="112.6" width="17.4" height="18.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="128.7" x2="128.7" y1="105.8" y2="156.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="120.0" y="112.6" width="17.4" height="37.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="159.7" x2="159.7" y1="146.3" y2="202.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="151.0" y="150.1" width="17.4" height="37.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="190.8" x2="190.8" y1="116.3" y2="191.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="182.1" y="127.6" width="17.4" height="60.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="221.8" x2="221.8" y1="75.0" y2="132.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="213.1" y="82.5" width="17.4" height="45.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="252.9" x2="252.9" y1="63.8" y2="84.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="244.2" y="71.3" width="17.4" height="11.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="283.9" x2="283.9" y1="66.8" y2="82.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="275.3" y="71.3" width="17.4" height="7.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="315.0" x2="315.0" y1="67.5" y2="153.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="306.3" y="78.8" width="17.4" height="63.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="346.1" x2="346.1" y1="133.6" y2="187.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="337.4" y="142.6" width="17.4" height="33.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="377.1" x2="377.1" y1="150.8" y2="183.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="368.4" y="157.6" width="17.4" height="18.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="408.2" x2="408.2" y1="153.1" y2="189.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="399.5" y="157.6" width="17.4" height="22.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="439.2" x2="439.2" y1="168.9" y2="236.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="430.5" y="180.1" width="17.4" height="48.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="470.3" x2="470.3" y1="219.9" y2="259.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="461.6" y="228.9" width="17.4" height="26.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="501.3" x2="501.3" y1="225.9" y2="261.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="492.6" y="232.7" width="17.4" height="22.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="532.4" x2="532.4" y1="228.2" y2="271.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="523.7" y="232.7" width="17.4" height="30.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="563.4" x2="563.4" y1="251.4" y2="296.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="554.7" y="262.7" width="17.4" height="22.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="594.5" x2="594.5" y1="276.2" y2="312.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="585.8" y="285.2" width="17.4" height="22.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="82.1" x2="237.4" y1="101.3" y2="101.3" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="470.3" cy="259.7" r="6" fill="none" stroke="#ff6b8a" stroke-width="2"/>
+<rect x="148.2" y="219.6" width="112.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#8b5cf6" stroke-width="1.2"/>
+<text x="157.2" y="240.1" fill="#8b5cf6" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">order block</text>
+<rect x="245.4" y="26.3" width="73.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="254.4" y="46.8" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">CHoCH</text>
+<rect x="395.5" y="280.7" width="149.5" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="404.5" y="301.2" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">тіло нижче зони</text>
+</svg><figcaption>Зона перестала працювати: після слабкої реакції свічка закрилася тілом нижче order block — сценарій на покупку скасований.</figcaption></figure></section><section id="s7"><h2>Як я працюю з order block на практиці</h2><p>Order block для мене — це адреса, а не команда. Перед тим як щось робити, я відповідаю на кілька питань:</p><ol><li><strong>Куди рухається ринок</strong> на старшому таймфреймі? Зону шукаю за цим напрямком.</li><li><strong>Як ціна підходить до зони?</strong> Плавний відкат — одне, різке падіння великими свічками — інше. Друге частіше пробиває зону.</li><li><strong>Що відбувається в зоні?</strong> Чекаю реакції: довгу тінь, зупинку падіння, злам структури на молодшому графіку.</li><li><strong>Чи є простір до цілі?</strong> Ціль — найближча ліквідність. Якщо вона зовсім поруч, угода не має сенсу.</li><li><strong>Чи виконані умови стратегії</strong> і чи вистачає часу на очікуваний рух?</li></ol><p>Окремо дивлюся на час. Order block на H1 може «чекати» ціну кілька днів, а на M5 — кілька годин. Що старший таймфрейм зони, то сильнішу реакцію від неї зазвичай чекаю, але й тим довше доводиться чекати. Тому зону старшого графіка я використовую як район інтересу, а точніший момент шукаю на молодшому: там, усередині зони, часто з’являється свій маленький CHoCH у бік очікуваного руху.</p><p>І обов’язково — розмір ризику. Навіть найкраща зона іноді не спрацьовує, тому ризик на угоду завжди однаковий і невеликий. Про це — у статті про <a href="/statti/ryzyk-menedzhment/">ризик-менеджмент</a>.</p></section>
+<section id="mistakes"><h2>Типові помилки новачків</h2><ul class="mist"><li>Позначати order block перед імпульсом, який не зламав структуру.</li><li>Брати не останню протилежну свічку, а будь-яку зручну, роздуваючи зону.</li><li>Входити одразу при дотику до зони, не чекаючи реакції.</li><li>Торгувати від зони, яку ціна вже двічі-тричі відпрацювала.</li><li>Ігнорувати закриття тіла за зоною й «пересувати» order block нижче.</li></ul></section>
+<section id="quiz"><h2>Перевір себе</h2><div class="quiz"><details><summary>Що таке order block?</summary><p>Остання протилежна свічка перед сильним імпульсом, який зламав структуру: остання червона перед ривком угору (бичачий) або остання зелена перед ривком униз (ведмежий).</p></details><details><summary>Як знайти бичачий order block?</summary><p>Знайди імпульс угору, що закрився тілом вище важливого максимуму, і візьми останню червону свічку перед ним. Зона — від її мінімуму до максимуму.</p></details><details><summary>Коли order block вважається зламаним?</summary><p>Коли тіло свічки закрилося за зоною: для бичачого — нижче мінімуму зони, для ведмежого — вище максимуму. Після цього сценарій від зони скасований.</p></details></div></section>
+<aside class="cta">
+<div><h2>Хочеш розібратися глибше?</h2><p>Цю тему ми детально розбираємо в безкоштовному навчанні «Трейдинг з нуля» — урок 25. А в Telegram-спільноті — розбори на живому ринку й відповіді на питання.</p></div>
+<div class="cta-b"><a class="btn btn-primary" href="https://learn.moontrade.community/">Безкоштовне навчання</a><a class="btn btn-ghost" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Telegram-спільнота</a></div>
+</aside>
+<section class="related"><h2>Далі за темою</h2><div class="rels"><a class="rel" href="/statti/smc-ukrainskoiu/"><b>SMC українською: основи Smart Money Concepts простими словами</b><span>SMC простими словами: що таке Smart Money Concepts, словник термінів (BOS, CHoCH, order block, FVG, ліквідніст…</span></a><a class="rel" href="/statti/imbalans-fvg/"><b>Імбаланс (FVG): що це за зона після різкого руху</b><span>Що таке імбаланс і FVG (Fair Value Gap) простими словами: як знайти його за трьома свічками, чому ціна поверта…</span></a><a class="rel" href="/statti/bos-choch/"><b>BOS і CHoCH: злам структури простими словами</b><span>BOS і CHoCH простими словами: чим злам структури за трендом відрізняється від зміни характеру руху, чому злам …</span></a></div></section>
+<p class="risk">Матеріал має освітній характер і не є інвестиційною порадою. Торгівля на фінансових ринках пов’язана з високим ризиком втрати коштів. Приклади на схемах навчальні.</p>
+</main>
+<footer class="wrap foot"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="28" height="28">MoonTrade</a><span>© 2026 MoonTrade</span></footer>
+</body>
+</html>

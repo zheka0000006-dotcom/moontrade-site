@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Top-down аналіз: аналіз з кількох таймфреймів — MoonTrade</title>
+<meta name="description" content="Top-down аналіз простими словами: як поєднувати старший і молодший таймфрейми, знаходити напрямок і зону інтересу та чекати умову входу на молодшому графіку.">
+<link rel="canonical" href="https://moontrade.community/statti/top-down-analiz/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0d0a1f">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="MoonTrade">
+<meta property="og:title" content="Аналіз з кількох таймфреймів (top-down)">
+<meta property="og:description" content="Top-down аналіз простими словами: як поєднувати старший і молодший таймфрейми, знаходити напрямок і зону інтересу та чекати умову входу на молодшому графіку.">
+<meta property="og:url" content="https://moontrade.community/statti/top-down-analiz/">
+<meta property="og:image" content="https://moontrade.community/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Аналіз з кількох таймфреймів (top-down)", "description": "Top-down аналіз простими словами: як поєднувати старший і молодший таймфрейми, знаходити напрямок і зону інтересу та чекати умову входу на молодшому графіку.", "inLanguage": "uk", "mainEntityOfPage": "https://moontrade.community/statti/top-down-analiz/", "datePublished": "2026-10-10", "dateModified": "2026-10-10", "author": {"@type": "Organization", "name": "MoonTrade", "url": "https://moontrade.community/"}, "publisher": {"@type": "Organization", "name": "MoonTrade", "logo": {"@type": "ImageObject", "url": "https://moontrade.community/assets/logo.jpg"}}, "image": "https://moontrade.community/assets/og.jpg"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Що таке top-down аналіз?", "acceptedAnswer": {"@type": "Answer", "text": "Аналіз від старшого таймфрейму до молодшого: на старшому визначаєш напрямок і зону інтересу, на молодшому — стежиш за поведінкою ціни в зоні й чекаєш умову стратегії."}}, {"@type": "Question", "name": "Що робити, якщо на M15 зростання, а на M1 падіння?", "acceptedAnswer": {"@type": "Answer", "text": "Найчастіше це відкат усередині зростання. Варто дочекатися, поки ціна дійде до зони інтересу, а на M1 з’явиться злам малого падіння вгору."}}, {"@type": "Question", "name": "Які таймфрейми поєднувати?", "acceptedAnswer": {"@type": "Answer", "text": "Молодший зазвичай у 4–15 разів менший за старший: наприклад, M15 і M1, H1 і M5, H4 і M15. Обери одну зв’язку й не міняй її щодня."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "MoonTrade", "item": "https://moontrade.community/"}, {"@type": "ListItem", "position": 2, "name": "Аналіз з кількох таймфреймів (top-down)", "item": "https://moontrade.community/statti/top-down-analiz/"}]}]}</script>
+<style>:root{--night:#0d0a1f;--deep:#151032;--line:#2c2554;--moon:#cdbdff;--violet:#8b5cf6;--violet-2:#6d3df0;--ink:#f1ecff;--muted:#a99fcc;--mint:#3fe0a0;--rose:#ff6b8a;--amber:#ffc85c;--display:"Unbounded",system-ui,sans-serif;--body:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font:400 18px/1.75 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--moon)}
+:focus-visible{outline:2px solid var(--moon);outline-offset:3px;border-radius:6px}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+.top{position:sticky;top:0;z-index:10;background:rgba(13,10,31,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{max-width:1080px;display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:700 17px/1 var(--display)}
+.brand img{border-radius:9px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 16px/1 var(--body);text-decoration:none;padding:16px 22px;border-radius:999px;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff;box-shadow:0 10px 30px rgba(109,61,240,.35)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn-sm{padding:10px 16px;font-size:14px}
+.art{padding-top:28px;padding-bottom:40px}
+.crumbs{font-size:14px;color:var(--muted)}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs span{margin:0 4px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.01em;line-height:1.2;margin:0}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:700;margin:16px 0 18px}
+h2{font-size:clamp(21px,2.6vw,27px);font-weight:700;margin:52px 0 16px}
+h3{font-size:19px;font-weight:500;margin:28px 0 10px}
+p{margin:0 0 16px}
+.lead{font-size:20px;color:var(--ink);padding:18px 20px;border-left:3px solid var(--violet);background:linear-gradient(90deg,rgba(139,92,246,.12),transparent);border-radius:0 12px 12px 0}
+.toc{margin:28px 0 8px;padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:var(--deep);font-size:16px}
+.toc b{display:block;margin-bottom:6px}
+.toc ol{margin:0;padding-left:20px}
+.toc a{color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--ink)}
+ul,ol{padding-left:22px}
+li{margin-bottom:8px}
+strong{color:#fff}
+.note{padding:14px 18px;border-radius:14px;background:rgba(63,224,160,.08);border:1px solid rgba(63,224,160,.3);font-size:16.5px}
+.warn{padding:14px 18px;border-radius:14px;background:rgba(255,107,138,.08);border:1px solid rgba(255,107,138,.3);font-size:16.5px}
+table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:16px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--moon);font-weight:700}
+.fig{margin:22px 0 26px}
+.fig svg{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.fig figcaption{color:var(--muted);font-size:15px;margin-top:10px}
+.mist{list-style:none;padding:0}
+.mist li{position:relative;padding:12px 16px 12px 40px;border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.mist li::before{content:"";position:absolute;left:16px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--rose);box-shadow:0 0 10px rgba(255,107,138,.6)}
+.quiz details{border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.quiz summary{cursor:pointer;list-style:none;padding:14px 46px 14px 18px;font-weight:700;position:relative}
+.quiz summary::-webkit-details-marker{display:none}
+.quiz summary::after{content:"+";position:absolute;right:16px;top:9px;font:500 24px/1 var(--display);color:var(--moon)}
+.quiz details[open] summary::after{content:"−"}
+.quiz details p{padding:0 18px 14px;margin:0;color:var(--muted)}
+.cta{margin:56px 0 10px;padding:30px;border-radius:24px;border:1px solid var(--line);background:radial-gradient(circle at 92% 10%,rgba(205,189,255,.2),transparent 45%),linear-gradient(135deg,#251a5a,#151032);display:grid;gap:18px}
+.cta h2{margin:0 0 8px;font-size:22px}
+.cta p{color:var(--muted);margin:0}
+.cta-b{display:flex;flex-wrap:wrap;gap:10px}
+.related h2{font-size:20px;margin-top:44px}
+.rels{display:grid;gap:12px}
+.rel{display:block;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:var(--deep);text-decoration:none;color:var(--ink)}
+.rel b{display:block;margin-bottom:4px}
+.rel span{color:var(--muted);font-size:15px}
+.rel:hover{border-color:var(--moon)}
+.risk{margin-top:40px;color:var(--muted);font-size:13.5px;line-height:1.6}
+.foot{display:flex;justify-content:space-between;align-items:center;padding:30px 22px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);max-width:800px}
+@media (max-width:600px){.fig{margin-left:-14px;margin-right:-14px}.fig svg{border-radius:12px}.fig figcaption{padding:0 14px}body{font-size:17px}.lead{font-size:18px}.cta{padding:22px}.btn{width:100%}.top .btn{width:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="32" height="32">MoonTrade</a>
+<a class="btn btn-primary btn-sm" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Долучитися</a></div></header>
+<main class="wrap art">
+<nav class="crumbs" aria-label="Навігація"><a href="/">MoonTrade</a> <span>/</span> <span>Статті</span></nav>
+<h1>Аналіз з кількох таймфреймів (top-down)</h1>
+<p class="lead">Top-down аналіз — це перегляд графіка від старшого таймфрейму до молодшого. На старшому визначаєш загальний напрямок і зону, де цікаво шукати вхід, а на молодшому стежиш, як ціна поводиться в цій зоні, і чекаєш умову своєї стратегії. Так різні таймфрейми перестають «сперечатися» і складаються в одну картину.</p>
+<nav class="toc" aria-label="Зміст"><b>У статті</b><ol><li><a href="#s1">Що таке top-down аналіз простими словами</a></li><li><a href="#s2">Чому на одному таймфреймі ціна росте, а на іншому падає</a></li><li><a href="#s3">Крок 1. Визначаємо напрямок на старшому таймфреймі</a></li><li><a href="#s4">Крок 2. Знаходимо зону інтересу</a></li><li><a href="#s5">Крок 3. Що робить ціна на молодшому таймфреймі</a></li><li><a href="#s6">Контекст і наратив: перевір себе одним реченням</a></li><li><a href="#s7">Які таймфрейми поєднувати</a></li><li><a href="#mistakes">Типові помилки</a></li><li><a href="#quiz">Перевір себе</a></li></ol></nav>
+<section id="s1"><h2>Що таке top-down аналіз простими словами</h2><p>Назва перекладається як «згори донизу». Ти починаєш з великого масштабу, де видно загальну картину, і поступово наближаєшся до деталей. Як із картою: спершу дивишся маршрут через усе місто, а вже потім — потрібний поворот на перехресті.</p><p>Без цього підходу новачок часто дивиться лише на один хвилинний графік. Там він бачить падіння, продає — і не помічає, що на старшому таймфреймі це звичайний відкат у сильному зростанні. Top-down аналіз захищає саме від таких рішень.</p><p>Цей підхід використовують трейдери на будь-яких ринках і на будь-яких масштабах: хтось дивиться тижневий графік перед денним, хтось — п’ятнадцятихвилинний перед хвилинним. Суть однакова: рішення на молодшому графіку ухвалюється тільки в рамках того, що показав старший.</p><p>Уся логіка вміщується в чотири кроки:</p><ol><li>На старшому графіку дивлюся на загальний напрямок.</li><li>Знаходжу область, де мене цікавить реакція ціни, — зону інтересу.</li><li>Переходжу на молодший графік і дивлюся, що ціна робить у цій області.</li><li>Чекаю умову входу конкретної стратегії.</li></ol><figure class="fig"><svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Чотири кроки top-down аналізу"><rect width="720" height="380" rx="18" fill="#0b0820"/><text x="360" y="78" text-anchor="middle" fill="#f1ecff" font-size="22" font-family="Manrope,system-ui,sans-serif" font-weight="700">Від старшого графіка до молодшого</text><rect x="21" y="130" width="150" height="130" rx="16" fill="#cdbdff" fill-opacity=".12" stroke="#cdbdff" stroke-width="2"/><text x="96" y="188" text-anchor="middle" fill="#cdbdff" font-size="20" font-family="Manrope,system-ui,sans-serif" font-weight="700">1. Напрямок</text><text x="96" y="218" text-anchor="middle" fill="#a99fcc" font-size="16" font-family="Manrope,system-ui,sans-serif" font-weight="700">старший ТФ</text><path d="M175 195 H193 M186 188 L193 195 L186 202" stroke="#cdbdff" stroke-width="2.4" fill="none"/><rect x="197" y="130" width="150" height="130" rx="16" fill="#ffc85c" fill-opacity=".12" stroke="#ffc85c" stroke-width="2"/><text x="272" y="188" text-anchor="middle" fill="#ffc85c" font-size="20" font-family="Manrope,system-ui,sans-serif" font-weight="700">2. Зона</text><text x="272" y="218" text-anchor="middle" fill="#a99fcc" font-size="16" font-family="Manrope,system-ui,sans-serif" font-weight="700">де чекати</text><path d="M351 195 H369 M362 188 L369 195 L362 202" stroke="#cdbdff" stroke-width="2.4" fill="none"/><rect x="373" y="130" width="150" height="130" rx="16" fill="#3fe0a0" fill-opacity=".12" stroke="#3fe0a0" stroke-width="2"/><text x="448" y="188" text-anchor="middle" fill="#3fe0a0" font-size="20" font-family="Manrope,system-ui,sans-serif" font-weight="700">3. Поведінка</text><text x="448" y="218" text-anchor="middle" fill="#a99fcc" font-size="16" font-family="Manrope,system-ui,sans-serif" font-weight="700">молодший ТФ</text><path d="M527 195 H545 M538 188 L545 195 L538 202" stroke="#cdbdff" stroke-width="2.4" fill="none"/><rect x="549" y="130" width="150" height="130" rx="16" fill="#8b5cf6" fill-opacity=".12" stroke="#8b5cf6" stroke-width="2"/><text x="624" y="188" text-anchor="middle" fill="#8b5cf6" font-size="20" font-family="Manrope,system-ui,sans-serif" font-weight="700">4. Умова</text><text x="624" y="218" text-anchor="middle" fill="#a99fcc" font-size="16" font-family="Manrope,system-ui,sans-serif" font-weight="700">твоя стратегія</text><text x="360" y="318" text-anchor="middle" fill="#a99fcc" font-size="17" font-family="Manrope,system-ui,sans-serif" font-weight="700">Немає хоча б одного кроку — пропускаю ситуацію</text></svg><figcaption>Чотири кроки top-down аналізу: напрямок, зона, поведінка ціни, умова стратегії.</figcaption></figure></section><section id="s2"><h2>Чому на одному таймфреймі ціна росте, а на іншому падає</h2><p>Ситуація, з якою стикається кожен: на M15 ціна зростає, перемикаєшся на M1 — там падіння. Який графік «правильний»? Обидва. Вони показують той самий рух у різному масштабі.</p><p>Будь-який тренд рухається хвилями: імпульс — відкат — імпульс. Після кожного імпульсу частина учасників фіксує прибуток, і ціна тимчасово йде назад. Відкат, який на M15 займає дві-три свічки, на M1 розгортається в десятки свічок і має власну структуру: нижчі максимуми, нижчі мінімуми. Тобто на M1 ти бачиш маленький низхідний рух <strong>усередині</strong> більшого висхідного.</p><p>Саме тому таймфрейми не суперечать один одному — вони відповідають на різні запитання:</p><ul><li><strong>Старший:</strong> куди загалом іде ціна і де помітні рівні?</li><li><strong>Молодший:</strong> що відбувається просто зараз і чи завершується відкат?</li></ul><p>Детальніше про самі таймфрейми й те, як їх обирати, — у статті <a href="/statti/taimfreimy/">Таймфрейми: що це і який обрати</a>.</p></section><section id="s3"><h2>Крок 1. Визначаємо напрямок на старшому таймфреймі</h2><p>Відкриваю старший графік і відповідаю на одне запитання: ціна зростає, падає чи ходить між межами?</p><ul><li><strong>Зростання</strong> — кожен новий максимум вищий за попередній (HH), і кожен мінімум теж вищий (HL).</li><li><strong>Падіння</strong> — нижчі максимуми й нижчі мінімуми.</li><li><strong>Діапазон</strong> — ціна ходить між підтримкою й опором, не оновлюючи їх.</li></ul><p>Для цього достатньо кількох останніх помітних хвиль: де були попередні максимуми й мінімуми і чи оновлює їх ціна. Не треба аналізувати кожну свічку. Мені важлива загальна картина: якщо напрямок неочевидний за кілька секунд погляду — це вже інформація. На такому графіку я буду обережнішим або взагалі пошукаю інший актив.</p><p>Якщо старший графік у діапазоні, логіка трохи інша: напрямок «дозволений» від меж. Біля підтримки цікаво дивитися на зростання, біля опору — на падіння, а посередині діапазону я здебільшого просто чекаю. Саме середина боковика — місце, де найлегше отримати хаотичні рухи в обидва боки.</p><p>Розібратися з максимумами, мінімумами й зламом тренду допоможе стаття <a href="/statti/struktura-rynku/">Структура ринку: тренд, HH/HL і злам</a>.</p><p class="note">Старший таймфрейм задає «дозволений» напрямок. Якщо на ньому чітке зростання, угоди на падіння за молодшим графіком — це торгівля проти течії, і я такі ситуації здебільшого пропускаю.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Старший таймфрейм: вищі максимуми й мінімуми — зростання. Ціна відкотилася до зони інтересу." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="413.3" y="147.6" width="196.7" height="31.7" fill="#3fe0a0" fill-opacity=".16" stroke="#3fe0a0" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<line x1="44.6" x2="44.6" y1="259.2" y2="312.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="30.8" y="266.3" width="27.5" height="35.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="93.8" x2="93.8" y1="210.9" y2="280.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="80.0" y="222.8" width="27.5" height="43.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="142.9" x2="142.9" y1="163.5" y2="226.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="129.1" y="175.3" width="27.5" height="47.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="192.1" x2="192.1" y1="168.2" y2="213.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="178.3" y="175.3" width="27.5" height="27.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="241.2" x2="241.2" y1="199.1" y2="238.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="227.5" y="203.0" width="27.5" height="23.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="290.4" x2="290.4" y1="166.6" y2="233.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="276.6" y="183.3" width="27.5" height="43.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="339.6" x2="339.6" y1="120.7" y2="193.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="325.8" y="127.9" width="27.5" height="55.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="388.8" x2="388.8" y1="68.5" y2="131.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="375.0" y="80.4" width="27.5" height="47.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="437.9" x2="437.9" y1="63.8" y2="114.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="424.1" y="80.4" width="27.5" height="27.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="487.1" x2="487.1" y1="101.0" y2="150.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="473.3" y="108.1" width="27.5" height="31.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="536.2" x2="536.2" y1="131.8" y2="171.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="522.5" y="139.7" width="27.5" height="19.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="585.4" x2="585.4" y1="131.0" y2="165.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="571.6" y="147.6" width="27.5" height="11.9" rx="1.5" fill="#3fe0a0"/>
+<circle cx="241.2" cy="238.6" r="6" fill="none" stroke="#3fe0a0" stroke-width="2"/>
+<circle cx="388.8" cy="68.5" r="6" fill="none" stroke="#cdbdff" stroke-width="2"/>
+<circle cx="142.9" cy="163.5" r="6" fill="none" stroke="#cdbdff" stroke-width="2"/>
+<rect x="417.3" y="182.3" width="134.8" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="426.3" y="202.8" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">зона інтересу</text>
+<rect x="166.2" y="245.6" width="150.2" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="175.2" y="266.1" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">вищий мін. (HL)</text>
+<rect x="309.0" y="17.5" width="159.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="318.0" y="38.0" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">вищий макс. (HH)</text>
+<rect x="112.6" y="126.5" width="60.6" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="121.6" y="147.0" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">макс.</text>
+</svg><figcaption>Старший таймфрейм: вищі максимуми й мінімуми — зростання. Ціна відкотилася до зони інтересу.</figcaption></figure></section><section id="s4"><h2>Крок 2. Знаходимо зону інтересу</h2><p>Напрямок є — тепер потрібне місце, де я чекатиму ціну. Входити «просто тому, що тренд угору» — погана ідея: можна купити на самій вершині імпульсу, перед корекцією.</p><p><strong>Зона інтересу</strong> — область на старшому графіку, де логічно очікувати реакцію в напрямку загального руху. Це може бути:</p><ul><li>рівень підтримки чи опору з кількома реакціями — див. <a href="/statti/rivni-pidtrymky-i-oporu/">як знаходити рівні</a>;</li><li>пробитий рівень, до якого ціна повертається на ретест;</li><li>область корекції за Фібоначчі;</li><li>імбаланс або POC з профілю об’єму.</li></ul><p>Зону я позначаю заздалегідь, до того як ціна туди дійшла. Тоді рішення спокійне: «ось тут мені цікаво, поки ціна не прийшла — чекаю». Розмітка відповідає на запитання <strong>«де спостерігати?»</strong>, але ще не на запитання «коли входити?».</p><p>Якщо зон кілька, я віддаю перевагу тій, де збігаються кілька причин: наприклад, рівень, від якого ціна вже розверталася, лежить в області звичайного відкату після імпульсу. Що більше незалежних причин в одному місці, то помітніша зона. А ще дивлюся, скільки простору лишається від зони до наступної цілі — до попереднього максимуму у висхідному русі.</p><p class="warn">Перебування ціни в зоні — ще не причина для угоди. Це лише місце, де я починаю придивлятися уважніше.</p></section><section id="s5"><h2>Крок 3. Що робить ціна на молодшому таймфреймі</h2><p>Ціна дійшла до зони інтересу. Тепер я перемикаюся на молодший графік. На ньому, найімовірніше, ще триває падіння — той самий відкат, який на старшому виглядав як кілька червоних свічок.</p><p>Моє завдання — дочекатися ознак, що відкат завершується і загальний рух повертається. У варіанті з підтвердженням послідовність така:</p><ol><li><strong>Злам</strong> — ціна закривається тілом вище останнього локального максимуму малого падіння. Низхідна структура на молодшому графіку зламана.</li><li><strong>Відкат</strong> — після зламу ціна трохи повертається вниз, не оновлюючи мінімум.</li><li><strong>Оновлення максимуму</strong> — ціна знову йде вгору, у напрямку старшого таймфрейму.</li></ol><p>Саме поведінка на молодшому графіку допомагає вирішити, чи з’явилася потрібна умова для входу. Конкретні правила точки входу залежать від стратегії, і їх ми розбираємо в навчанні покроково.</p><p>А якщо злам так і не з’явився? Ціна пройшла зону наскрізь і закріпилася нижче — тоді сценарій скасовується. Можливо, на старшому графіку почалася зміна напрямку, і тоді треба повернутися до кроку 1 та переоцінити картину. Пропуск у такій ситуації — це частина плану, а не невдача.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Молодший таймфрейм у зоні інтересу: мале падіння, злам угору, відкат і новий максимум." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<line x1="42.7" x2="42.7" y1="63.8" y2="125.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="30.0" y="74.1" width="25.4" height="41.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="88.1" x2="88.1" y1="94.8" y2="167.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="75.4" y="115.5" width="25.4" height="41.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="133.5" x2="133.5" y1="121.7" y2="173.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="120.8" y="136.2" width="25.4" height="20.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="178.8" x2="178.8" y1="132.1" y2="208.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="166.1" y="136.2" width="25.4" height="62.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="224.2" x2="224.2" y1="188.0" y2="254.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="211.5" y="198.4" width="25.4" height="41.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="269.6" x2="269.6" y1="194.2" y2="248.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="256.9" y="219.1" width="25.4" height="20.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="315.0" x2="315.0" y1="208.7" y2="277.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="302.3" y="219.1" width="25.4" height="41.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="360.4" x2="360.4" y1="250.1" y2="312.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="347.7" y="260.5" width="25.4" height="31.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="405.8" x2="405.8" y1="229.4" y2="301.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="393.1" y="239.8" width="25.4" height="51.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="451.2" x2="451.2" y1="161.1" y2="248.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="438.4" y="173.5" width="25.4" height="66.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="496.5" x2="496.5" y1="169.4" y2="223.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="483.8" y="173.5" width="25.4" height="35.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="541.9" x2="541.9" y1="148.7" y2="219.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="529.2" y="156.9" width="25.4" height="51.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="587.3" x2="587.3" y1="103.1" y2="165.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="574.6" y="115.5" width="25.4" height="41.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="156.2" x2="473.8" y1="194.2" y2="194.2" stroke="#ffc85c" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="451.2" cy="161.1" r="6" fill="none" stroke="#ffc85c" stroke-width="2"/>
+<circle cx="496.5" cy="223.2" r="6" fill="none" stroke="#ff6b8a" stroke-width="2"/>
+<circle cx="587.3" cy="103.1" r="6" fill="none" stroke="#3fe0a0" stroke-width="2"/>
+<rect x="423.6" y="124.1" width="55.1" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="432.6" y="144.6" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">злам</text>
+<rect x="459.7" y="258.2" width="73.7" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="468.7" y="278.7" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">відкат</text>
+<rect x="531.1" y="66.1" width="112.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="540.1" y="86.6" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">новий макс.</text>
+</svg><figcaption>Молодший таймфрейм у зоні інтересу: мале падіння, злам угору, відкат і новий максимум.</figcaption></figure></section><section id="s6"><h2>Контекст і наратив: перевір себе одним реченням</h2><p>Коли всі кроки пройдено, я збираю картину в одне ціле. <strong>Контекст</strong> — це напрямок, зона і поточна поведінка ціни разом. <strong>Наратив</strong> — моє коротке пояснення сценарію словами.</p><p>Приклад наративу: «На M15 загалом зростаємо, зараз відкат. Ціна в зоні інтересу. На M1 чекаю злам малого падіння вгору і новий відкат для входу».</p><p>Наратив корисно проговорювати або записувати ще до входу. Він дисциплінує: якщо ситуація змінилася — наприклад, ціна пробила зону вниз, — ти одразу бачиш, що твоє пояснення більше не відповідає графіку. А в журналі угод такі записи згодом показують, які сценарії у тебе спрацьовують, а які — ні.</p><p>Перевірка дуже проста — спробуй закінчити речення: <strong>«Я розглядаю цей вхід, тому що…»</strong>. Далі мають іти конкретні ознаки твоєї стратегії. Якщо замість них виходить «ну тут ніби має піти», повертаюся до аналізу або пропускаю ситуацію.</p><p>Ще кілька запитань перед входом:</p><ul><li>Де я очікую продовження і яка найближча ціль?</li><li>Чи достатньо простору до цілі, чи ціна вже майже там?</li><li>Чи відповідає час угоди масштабу руху, який я очікую?</li></ul><p class="note">Не додавай нові індикатори після кожного сумніву, щоб «переконати» себе. Частина з них показує ту саму зміну ціни, тож їхня кількість не дорівнює кількості незалежних підтверджень.</p></section><section id="s7"><h2>Які таймфрейми поєднувати</h2><p>Чіткого правила немає, але є орієнтир: молодший таймфрейм зазвичай у 4–15 разів менший за старший. Надто близькі таймфрейми показують майже те саме, а надто далекі втрачають зв’язок між собою.</p><table><tr><th>Старший</th><th>Молодший</th><th>Кому підходить</th></tr><tr><td>M15</td><td>M1</td><td>Короткі угоди протягом сесії</td></tr><tr><td>H1</td><td>M5</td><td>Угоди на десятки хвилин</td></tr><tr><td>H4</td><td>M15</td><td>Угоди на кілька годин</td></tr><tr><td>D1</td><td>H1</td><td>Довші угоди, рідший аналіз</td></tr></table><p>Пара M15 і M1 — лише приклад масштабу, а не вимога. Обери одну зв’язку під свій час і стиль і тримайся її хоча б кілька тижнів, ведучи записи. Так око звикає до масштабу, а результати стає можливо порівнювати.</p><p>Важливо й те, щоб час угоди відповідав молодшому таймфрейму, на якому ти знайшов умову. Якщо підтвердження сформувалося на M1, очікувати годинного руху нелогічно. Якщо на M5 попередня реакція тривала п’ять-шість свічок, це хороший орієнтир для тривалості угоди з невеликим запасом.</p><p>Для ще ширшої картини деякі трейдери додають третій, найстарший таймфрейм — наприклад, H4 перед H1 і M5. Але на старті двох цілком достатньо: що більше графіків, то легше заплутатися.</p></section>
+<section id="mistakes"><h2>Типові помилки новачків</h2><ul class="mist"><li>Аналізувати лише хвилинний графік і продавати відкат у сильному зростанні.</li><li>Входити, щойно ціна дійшла до зони інтересу, не чекаючи поведінки на молодшому графіку.</li><li>Перемикати таймфрейми в пошуках того, який «підтвердить» бажану угоду.</li><li>Брати надто близькі (M1 і M3) або надто далекі (D1 і M1) таймфрейми.</li><li>Не могти пояснити вхід одним реченням з конкретними ознаками стратегії.</li></ul></section>
+<section id="quiz"><h2>Перевір себе</h2><div class="quiz"><details><summary>Що таке top-down аналіз?</summary><p>Аналіз від старшого таймфрейму до молодшого: на старшому визначаєш напрямок і зону інтересу, на молодшому — стежиш за поведінкою ціни в зоні й чекаєш умову стратегії.</p></details><details><summary>Що робити, якщо на M15 зростання, а на M1 падіння?</summary><p>Найчастіше це відкат усередині зростання. Варто дочекатися, поки ціна дійде до зони інтересу, а на M1 з’явиться злам малого падіння вгору.</p></details><details><summary>Які таймфрейми поєднувати?</summary><p>Молодший зазвичай у 4–15 разів менший за старший: наприклад, M15 і M1, H1 і M5, H4 і M15. Обери одну зв’язку й не міняй її щодня.</p></details></div></section>
+<aside class="cta">
+<div><h2>Хочеш розібратися глибше?</h2><p>Цю тему ми детально розбираємо в безкоштовному навчанні «Трейдинг з нуля» — урок 23, 31. А в Telegram-спільноті — розбори на живому ринку й відповіді на питання.</p></div>
+<div class="cta-b"><a class="btn btn-primary" href="https://learn.moontrade.community/">Безкоштовне навчання</a><a class="btn btn-ghost" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Telegram-спільнота</a></div>
+</aside>
+<section class="related"><h2>Далі за темою</h2><div class="rels"><a class="rel" href="/statti/taimfreimy/"><b>Таймфрейми: що це і який обрати новачку</b><span>Що таке таймфрейм у трейдингу, чим M1 відрізняється від M15 і H1, чому на різних графіках різний напрямок і як…</span></a><a class="rel" href="/statti/struktura-rynku/"><b>Структура ринку: тренд, HH/HL і злам простими словами</b><span>Що таке структура ринку, як читати HH, HL, LH, LL, відрізнити тренд від діапазону і корекцію від зламу. Покрок…</span></a><a class="rel" href="/statti/rivni-pidtrymky-i-oporu/"><b>Рівні підтримки й опору: як їх знаходити на графіку</b><span>Що таке рівні підтримки й опору, чому ціна від них реагує, як знайти й намалювати рівень за три кроки та оціни…</span></a></div></section>
+<p class="risk">Матеріал має освітній характер і не є інвестиційною порадою. Торгівля на фінансових ринках пов’язана з високим ризиком втрати коштів. Приклади на схемах навчальні.</p>
+</main>
+<footer class="wrap foot"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="28" height="28">MoonTrade</a><span>© 2026 MoonTrade</span></footer>
+</body>
+</html>

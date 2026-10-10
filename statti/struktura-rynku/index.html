@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Структура ринку: тренд, HH/HL і злам — MoonTrade</title>
+<meta name="description" content="Що таке структура ринку, як читати HH, HL, LH, LL, відрізнити тренд від діапазону і корекцію від зламу. Покрокова розмітка зі схемами українською.">
+<link rel="canonical" href="https://moontrade.community/statti/struktura-rynku/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0d0a1f">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="MoonTrade">
+<meta property="og:title" content="Структура ринку: тренд, HH/HL і злам простими словами">
+<meta property="og:description" content="Що таке структура ринку, як читати HH, HL, LH, LL, відрізнити тренд від діапазону і корекцію від зламу. Покрокова розмітка зі схемами українською.">
+<meta property="og:url" content="https://moontrade.community/statti/struktura-rynku/">
+<meta property="og:image" content="https://moontrade.community/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Структура ринку: тренд, HH/HL і злам простими словами", "description": "Що таке структура ринку, як читати HH, HL, LH, LL, відрізнити тренд від діапазону і корекцію від зламу. Покрокова розмітка зі схемами українською.", "inLanguage": "uk", "mainEntityOfPage": "https://moontrade.community/statti/struktura-rynku/", "datePublished": "2026-10-10", "dateModified": "2026-10-10", "author": {"@type": "Organization", "name": "MoonTrade", "url": "https://moontrade.community/"}, "publisher": {"@type": "Organization", "name": "MoonTrade", "logo": {"@type": "ImageObject", "url": "https://moontrade.community/assets/logo.jpg"}}, "image": "https://moontrade.community/assets/og.jpg"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Що таке структура ринку?", "acceptedAnswer": {"@type": "Answer", "text": "Послідовність максимумів і мінімумів ціни. Вищі максимуми й мінімуми (HH, HL) — висхідна структура, нижчі (LH, LL) — низхідна, однакові межі — діапазон."}}, {"@type": "Question", "name": "Яка точка є ключовою у висхідній структурі?", "acceptedAnswer": {"@type": "Answer", "text": "Останній мінімум (HL), від якого ціна оновила максимум. Закриття тілом нижче нього означає злам висхідної структури."}}, {"@type": "Question", "name": "Тінь свічки пройшла нижче ключового мінімуму. Це злам?", "acceptedAnswer": {"@type": "Answer", "text": "Ні. Якщо свічка закрилася вище мінімуму, це тест ключової точки. Злам фіксуємо лише за закриттям тілом за нею."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "MoonTrade", "item": "https://moontrade.community/"}, {"@type": "ListItem", "position": 2, "name": "Структура ринку: тренд, HH/HL і злам простими словами", "item": "https://moontrade.community/statti/struktura-rynku/"}]}]}</script>
+<style>:root{--night:#0d0a1f;--deep:#151032;--line:#2c2554;--moon:#cdbdff;--violet:#8b5cf6;--violet-2:#6d3df0;--ink:#f1ecff;--muted:#a99fcc;--mint:#3fe0a0;--rose:#ff6b8a;--amber:#ffc85c;--display:"Unbounded",system-ui,sans-serif;--body:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font:400 18px/1.75 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--moon)}
+:focus-visible{outline:2px solid var(--moon);outline-offset:3px;border-radius:6px}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+.top{position:sticky;top:0;z-index:10;background:rgba(13,10,31,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{max-width:1080px;display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:700 17px/1 var(--display)}
+.brand img{border-radius:9px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 16px/1 var(--body);text-decoration:none;padding:16px 22px;border-radius:999px;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff;box-shadow:0 10px 30px rgba(109,61,240,.35)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn-sm{padding:10px 16px;font-size:14px}
+.art{padding-top:28px;padding-bottom:40px}
+.crumbs{font-size:14px;color:var(--muted)}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs span{margin:0 4px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.01em;line-height:1.2;margin:0}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:700;margin:16px 0 18px}
+h2{font-size:clamp(21px,2.6vw,27px);font-weight:700;margin:52px 0 16px}
+h3{font-size:19px;font-weight:500;margin:28px 0 10px}
+p{margin:0 0 16px}
+.lead{font-size:20px;color:var(--ink);padding:18px 20px;border-left:3px solid var(--violet);background:linear-gradient(90deg,rgba(139,92,246,.12),transparent);border-radius:0 12px 12px 0}
+.toc{margin:28px 0 8px;padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:var(--deep);font-size:16px}
+.toc b{display:block;margin-bottom:6px}
+.toc ol{margin:0;padding-left:20px}
+.toc a{color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--ink)}
+ul,ol{padding-left:22px}
+li{margin-bottom:8px}
+strong{color:#fff}
+.note{padding:14px 18px;border-radius:14px;background:rgba(63,224,160,.08);border:1px solid rgba(63,224,160,.3);font-size:16.5px}
+.warn{padding:14px 18px;border-radius:14px;background:rgba(255,107,138,.08);border:1px solid rgba(255,107,138,.3);font-size:16.5px}
+table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:16px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--moon);font-weight:700}
+.fig{margin:22px 0 26px}
+.fig svg{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.fig figcaption{color:var(--muted);font-size:15px;margin-top:10px}
+.mist{list-style:none;padding:0}
+.mist li{position:relative;padding:12px 16px 12px 40px;border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.mist li::before{content:"";position:absolute;left:16px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--rose);box-shadow:0 0 10px rgba(255,107,138,.6)}
+.quiz details{border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.quiz summary{cursor:pointer;list-style:none;padding:14px 46px 14px 18px;font-weight:700;position:relative}
+.quiz summary::-webkit-details-marker{display:none}
+.quiz summary::after{content:"+";position:absolute;right:16px;top:9px;font:500 24px/1 var(--display);color:var(--moon)}
+.quiz details[open] summary::after{content:"−"}
+.quiz details p{padding:0 18px 14px;margin:0;color:var(--muted)}
+.cta{margin:56px 0 10px;padding:30px;border-radius:24px;border:1px solid var(--line);background:radial-gradient(circle at 92% 10%,rgba(205,189,255,.2),transparent 45%),linear-gradient(135deg,#251a5a,#151032);display:grid;gap:18px}
+.cta h2{margin:0 0 8px;font-size:22px}
+.cta p{color:var(--muted);margin:0}
+.cta-b{display:flex;flex-wrap:wrap;gap:10px}
+.related h2{font-size:20px;margin-top:44px}
+.rels{display:grid;gap:12px}
+.rel{display:block;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:var(--deep);text-decoration:none;color:var(--ink)}
+.rel b{display:block;margin-bottom:4px}
+.rel span{color:var(--muted);font-size:15px}
+.rel:hover{border-color:var(--moon)}
+.risk{margin-top:40px;color:var(--muted);font-size:13.5px;line-height:1.6}
+.foot{display:flex;justify-content:space-between;align-items:center;padding:30px 22px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);max-width:800px}
+@media (max-width:600px){.fig{margin-left:-14px;margin-right:-14px}.fig svg{border-radius:12px}.fig figcaption{padding:0 14px}body{font-size:17px}.lead{font-size:18px}.cta{padding:22px}.btn{width:100%}.top .btn{width:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="32" height="32">MoonTrade</a>
+<a class="btn btn-primary btn-sm" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Долучитися</a></div></header>
+<main class="wrap art">
+<nav class="crumbs" aria-label="Навігація"><a href="/">MoonTrade</a> <span>/</span> <span>Статті</span></nav>
+<h1>Структура ринку: тренд, HH/HL і злам простими словами</h1>
+<p class="lead">Структура ринку — це послідовність максимумів і мінімумів ціни. Якщо вони стають вищими (HH і HL), ринок росте, якщо нижчими (LH і LL) — падає, а якщо ціна ходить між тими самими межами — це діапазон. Злам структури я фіксую, коли свічка закривається тілом за ключовою точкою.</p>
+<nav class="toc" aria-label="Зміст"><b>У статті</b><ol><li><a href="#s1">Що таке структура ринку</a></li><li><a href="#s2">HH, HL, LH, LL: що означають ці позначки</a></li><li><a href="#s3">Як розмітити структуру на графіку: покроково</a></li><li><a href="#s4">Структура на різних таймфреймах</a></li><li><a href="#s5">Ключова точка і злам структури</a></li><li><a href="#s6">Корекція, тест чи злам: як не сплутати</a></li><li><a href="#s7">Як структура допомагає в торгівлі</a></li><li><a href="#mistakes">Типові помилки</a></li><li><a href="#quiz">Перевір себе</a></li></ol></nav>
+<section id="s1"><h2>Що таке структура ринку</h2><p>Якщо дивитися на кожну свічку окремо, графік здається хаосом: зелена, червона, знову зелена. Але варто трохи віддалити масштаб — і видно, що ціна рухається <strong>блоками</strong>: пройшла відстань в один бік, відкотилася, знову пішла далі.</p><p>Кожен такий розворот лишає на графіку точку: <strong>максимум</strong> (верхня точка руху) або <strong>мінімум</strong> (нижня). Структура ринку — це те, як нові максимуми й мінімуми розташовані відносно попередніх. Саме ця послідовність і показує, хто зараз веде ціну.</p><p>Розберімо на числах. Ціна піднялася зі 100 до 110, відкотилася до 105, піднялася до 115 і відкотилася до 108. Новий максимум (115) вищий за попередній (110), новий мінімум (108) — вищий за попередній (105). Ми бачимо зростання, навіть якщо всередині були червоні свічки.</p><ul><li>Рух у напрямку структури називаю <strong>імпульсом</strong>: 100 → 110, 105 → 115.</li><li>Тимчасовий відкат проти нього — <strong>корекцією</strong>: 110 → 105, 115 → 108.</li></ul><p>Структура — це фундамент. Рівні, <a href="/statti/fibonacci/">Фібоначчі</a>, індикатори — усе це має сенс тільки тоді, коли ти розумієш, у якому русі зараз ціна.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Висхідна структура: кожен новий максимум (HH) і мінімум (HL) вищий за попередній." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<polyline points="35.5,311.3 159.7,182.5 252.9,247.5 377.1,121.2 470.3,205.4 594.5,63.7" fill="none" stroke="#cdbdff" stroke-width="2" stroke-opacity=".75" stroke-linejoin="round"/>
+<line x1="35.5" x2="35.5" y1="296.6" y2="312.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="26.8" y="299.2" width="17.4" height="13.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="66.6" x2="66.6" y1="274.0" y2="304.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="57.9" y="277.6" width="17.4" height="21.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="97.6" x2="97.6" y1="245.9" y2="279.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="88.9" y="251.1" width="17.4" height="26.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="128.7" x2="128.7" y1="218.6" y2="257.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="120.0" y="219.8" width="17.4" height="31.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="159.7" x2="159.7" y1="182.5" y2="222.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="151.0" y="190.9" width="17.4" height="28.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="190.8" x2="190.8" y1="183.4" y2="213.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="182.1" y="190.9" width="17.4" height="18.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="221.8" x2="221.8" y1="202.4" y2="231.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="213.1" y="209.0" width="17.4" height="18.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="252.9" x2="252.9" y1="221.8" y2="247.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="244.2" y="227.0" width="17.4" height="12.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="283.9" x2="283.9" y1="209.7" y2="245.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="275.3" y="215.0" width="17.4" height="24.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="315.0" x2="315.0" y1="176.7" y2="221.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="306.3" y="181.3" width="17.4" height="33.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="346.1" x2="346.1" y1="146.9" y2="182.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="337.4" y="152.4" width="17.4" height="28.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="377.1" x2="377.1" y1="121.2" y2="157.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="368.4" y="128.4" width="17.4" height="24.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="408.2" x2="408.2" y1="125.2" y2="152.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="399.5" y="128.4" width="17.4" height="22.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="439.2" x2="439.2" y1="144.5" y2="179.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="430.5" y="151.2" width="17.4" height="24.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="470.3" x2="470.3" y1="169.5" y2="205.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="461.6" y="175.3" width="17.4" height="20.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="501.3" x2="501.3" y1="163.5" y2="202.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="492.6" y="169.3" width="17.4" height="26.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="532.4" x2="532.4" y1="131.9" y2="175.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="523.7" y="135.6" width="17.4" height="33.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="563.4" x2="563.4" y1="96.6" y2="142.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="554.7" y="100.7" width="17.4" height="34.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="594.5" x2="594.5" y1="63.8" y2="102.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="585.8" y="70.6" width="17.4" height="30.1" rx="1.5" fill="#3fe0a0"/>
+<circle cx="159.7" cy="182.5" r="6" fill="none" stroke="#cdbdff" stroke-width="2"/>
+<circle cx="252.9" cy="247.5" r="6" fill="none" stroke="#3fe0a0" stroke-width="2"/>
+<circle cx="377.1" cy="121.2" r="6" fill="none" stroke="#3fe0a0" stroke-width="2"/>
+<circle cx="470.3" cy="205.4" r="6" fill="none" stroke="#3fe0a0" stroke-width="2"/>
+<circle cx="594.5" cy="63.8" r="6" fill="none" stroke="#3fe0a0" stroke-width="2"/>
+<rect x="145.0" y="145.5" width="29.5" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="154.0" y="166.0" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">H</text>
+<rect x="232.4" y="254.5" width="41.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="241.4" y="275.0" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">HL</text>
+<rect x="356.6" y="84.2" width="41.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="365.6" y="104.7" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">HH</text>
+<rect x="449.7" y="212.4" width="41.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="458.7" y="232.9" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">HL</text>
+<rect x="574.0" y="26.8" width="41.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="583.0" y="47.3" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">HH</text>
+</svg><figcaption>Висхідна структура: кожен новий максимум (HH) і мінімум (HL) вищий за попередній.</figcaption></figure></section><section id="s2"><h2>HH, HL, LH, LL: що означають ці позначки</h2><p>Щоб не писати щоразу «вищий максимум», трейдери користуються короткими англійськими позначками. Їх варто запам’ятати один раз — далі вони трапляються всюди.</p><table><tr><th>Позначка</th><th>Розшифровка</th><th>Що означає</th></tr><tr><td><strong>HH</strong></td><td>Higher High</td><td>Вищий максимум</td></tr><tr><td><strong>HL</strong></td><td>Higher Low</td><td>Вищий мінімум</td></tr><tr><td><strong>LH</strong></td><td>Lower High</td><td>Нижчий максимум</td></tr><tr><td><strong>LL</strong></td><td>Lower Low</td><td>Нижчий мінімум</td></tr></table><p>Звідси три стани ринку:</p><ul><li><strong>Висхідна (лонгова) структура</strong> — послідовність HH і HL. Розвороти поступово зміщуються вгору.</li><li><strong>Низхідна (шортова) структура</strong> — послідовність LH і LL. Кожен відскок слабший, кожне падіння глибше.</li><li><strong>Діапазон</strong> — ціна повертається між приблизно тими самими межами, чіткої послідовності немає. Його ще називають боковиком, флетом, консолідацією або акумуляцією.</li></ul><p class="note">Діапазон — теж структура. Це не «поганий графік», а ситуація невизначеності: жодна сторона поки не перемогла. Тут доречніше працювати від меж, а не чекати продовження тренду.</p><figure class="fig"><svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Висхідна, низхідна структура і діапазон">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="48" y2="48" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="95" y2="95" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="142" y2="142" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="190" y2="190" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="238" y2="238" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="285" y2="285" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="332" y2="332" stroke="rgba(205,189,255,.06)"/>
+<rect x="20" y="16" width="200" height="348" rx="14" fill="#3fe0a0" fill-opacity=".05" stroke="#3fe0a0" stroke-opacity=".35"/>
+<text x="120.0" y="50.0" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="25" font-weight="700" text-anchor="middle">Висхідна</text>
+<polyline points="42.0,300 73.2,205 104.4,250 135.6,150 166.8,200 198.0,95" fill="none" stroke="#3fe0a0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="42.0" cy="300" r="4.5" fill="#3fe0a0"/>
+<circle cx="73.2" cy="205" r="4.5" fill="#3fe0a0"/>
+<text x="73.2" y="191.0" fill="#f1ecff" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">H</text>
+<circle cx="104.4" cy="250" r="4.5" fill="#3fe0a0"/>
+<text x="104.4" y="283.0" fill="#f1ecff" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">HL</text>
+<circle cx="135.6" cy="150" r="4.5" fill="#3fe0a0"/>
+<text x="135.6" y="136.0" fill="#f1ecff" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">HH</text>
+<circle cx="166.8" cy="200" r="4.5" fill="#3fe0a0"/>
+<text x="166.8" y="233.0" fill="#f1ecff" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">HL</text>
+<circle cx="198.0" cy="95" r="4.5" fill="#3fe0a0"/>
+<text x="198.0" y="81.0" fill="#f1ecff" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">HH</text>
+<text x="120.0" y="350.0" fill="#a99fcc" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">вищі точки</text>
+<rect x="260" y="16" width="200" height="348" rx="14" fill="#ff6b8a" fill-opacity=".05" stroke="#ff6b8a" stroke-opacity=".35"/>
+<text x="360.0" y="50.0" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="25" font-weight="700" text-anchor="middle">Низхідна</text>
+<polyline points="282.0,95 313.2,175 344.4,130 375.6,225 406.8,180 438.0,275" fill="none" stroke="#ff6b8a" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="282.0" cy="95" r="4.5" fill="#ff6b8a"/>
+<circle cx="313.2" cy="175" r="4.5" fill="#ff6b8a"/>
+<text x="313.2" y="208.0" fill="#f1ecff" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">L</text>
+<circle cx="344.4" cy="130" r="4.5" fill="#ff6b8a"/>
+<text x="344.4" y="116.0" fill="#f1ecff" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">LH</text>
+<circle cx="375.6" cy="225" r="4.5" fill="#ff6b8a"/>
+<text x="375.6" y="258.0" fill="#f1ecff" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">LL</text>
+<circle cx="406.8" cy="180" r="4.5" fill="#ff6b8a"/>
+<text x="406.8" y="166.0" fill="#f1ecff" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">LH</text>
+<circle cx="438.0" cy="275" r="4.5" fill="#ff6b8a"/>
+<text x="438.0" y="308.0" fill="#f1ecff" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">LL</text>
+<text x="360.0" y="350.0" fill="#a99fcc" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">нижчі точки</text>
+<rect x="500" y="16" width="200" height="348" rx="14" fill="#ffc85c" fill-opacity=".05" stroke="#ffc85c" stroke-opacity=".35"/>
+<text x="600.0" y="50.0" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="25" font-weight="700" text-anchor="middle">Діапазон</text>
+<line x1="512" x2="688" y1="112" y2="112" stroke="#cdbdff" stroke-dasharray="6 5" stroke-width="1.6"/>
+<line x1="512" x2="688" y1="283" y2="283" stroke="#cdbdff" stroke-dasharray="6 5" stroke-width="1.6"/>
+<polyline points="522.0,170 553.2,270 584.4,120 615.6,275 646.8,125 678.0,265" fill="none" stroke="#ffc85c" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="522.0" cy="170" r="4.5" fill="#ffc85c"/>
+<circle cx="553.2" cy="270" r="4.5" fill="#ffc85c"/>
+<circle cx="584.4" cy="120" r="4.5" fill="#ffc85c"/>
+<circle cx="615.6" cy="275" r="4.5" fill="#ffc85c"/>
+<circle cx="646.8" cy="125" r="4.5" fill="#ffc85c"/>
+<circle cx="678.0" cy="265" r="4.5" fill="#ffc85c"/>
+<text x="600.0" y="350.0" fill="#a99fcc" font-family="Manrope,system-ui,sans-serif" font-size="22" font-weight="700" text-anchor="middle">ті самі межі</text>
+</svg><figcaption>Три стани ринку: вищі точки — зростання, нижчі — падіння, ті самі межі — діапазон.</figcaption></figure></section><section id="s3"><h2>Як розмітити структуру на графіку: покроково</h2><p>Розмітка структури — навичка, яку можна натренувати за кілька вечорів на демо-рахунку. Я роблю це завжди в одному порядку.</p><ol><li><strong>Віддаляю графік.</strong> На екрані має бути кілька повних рухів, а не дві-три свічки. Якщо бачиш лише один рух, структуру не визначити.</li><li><strong>Позначаю помітні розвороти.</strong> Беру тільки ті максимуми й мінімуми, після яких ціна пройшла відчутну відстань. Дрібні коливання всередині одного руху пропускаю — інакше розмітка перетвориться на шум.</li><li><strong>Порівнюю кожну точку з попередньою.</strong> Новий максимум вищий, нижчий чи приблизно на тому самому рівні? Те саме з мінімумами.</li><li><strong>Даю назву.</strong> Вищі точки — висхідна структура, нижчі — низхідна, однакові межі — діапазон.</li><li><strong>Знаходжу ключову точку.</strong> Про неї — у наступному розділі, бо саме вона підкаже, коли картина зміниться.</li></ol><p class="note">Вправа: відкрий будь-який актив, віддали графік і познач останні шість розворотів. Запиши, яка зараз структура і де ключова точка. Через годину повернися й перевір, чи змінилася картина.</p></section><section id="s4"><h2>Структура на різних таймфреймах</h2><p>Одне з найчастіших непорозумінь: «на графіку ціна падає, а ти кажеш, що тренд висхідний». Обидва твердження можуть бути правдою одночасно, бо структура завжди прив’язана до масштабу.</p><p>Уяви годинний графік із чіткими HH і HL. Остання годинна корекція триває три свічки. Якщо відкрити той самий відрізок на M1, це вже 180 хвилинних свічок, і всередині корекції там цілком може сформуватися власна низхідна структура з LH і LL. На хвилинному графіку — падіння, на годинному — звичайний відкат у тренді.</p><ul><li><strong>Старший таймфрейм</strong> дає загальний напрямок і головні точки, які варто поважати.</li><li><strong>Робочий таймфрейм</strong> показує, як саме ціна поводиться всередині цього руху: де корекція закінчується і де з’являється перший злам у бік старшого тренду.</li></ul><p>Тому я спочатку дивлюся старший <a href="/statti/taimfreimy/">таймфрейм</a>, а потім опускаюся на робочий. Найкраща ситуація — коли злам корекції на молодшому графіку збігається з напрямком старшого. Докладно цей підхід розібрано в статті про <a href="/statti/top-down-analiz/">аналіз з кількох таймфреймів</a>.</p><p class="note">Обери пару таймфреймів (наприклад, H1 для напрямку і M5 для деталей) і не перемикайся між десятьма. Інакше на кожному знайдеться «своя» структура, і ти заплутаєшся.</p></section><section id="s5"><h2>Ключова точка і злам структури</h2><p>Поки максимуми й мінімуми стають вищими, я вважаю структуру висхідною. Але мені потрібна конкретна межа, за якою ця картина перестає бути правдою. Це <strong>ключова точка</strong>.</p><ul><li>У висхідній структурі ключова точка — <strong>останній мінімум, від якого ціна оновила максимум</strong> (останній HL).</li><li>У низхідній — <strong>останній максимум, від якого ціна оновила мінімум</strong> (останній LH).</li></ul><p>Злам висхідної структури я фіксую, коли свічка <strong>закрилася тілом</strong> нижче ключового мінімуму. Для низхідної — дзеркально: закриття тілом вище ключового максимуму. Самого виходу тінню за точку мені недостатньо.</p><p>Чому саме тіло? Тінь показує, що ціна там побувала, але до кінця свічки її повернули назад. Закриття ж показує, де ринок погодився залишити ціну. Це суворіше правило, і воно відсіює багато хибних «зламів».</p><p>Після зламу я не поспішаю. Найчастіше ціна спочатку робить <strong>відкат</strong>, а потім — нове продовження вже в протилежний бік. Порядок такий: злам → відкат → нове продовження. Коли ціна оновлює мінімум уже після зламу, нова низхідна структура отримує додаткове підтвердження.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Злам висхідної структури: свічка закрилася тілом нижче ключового HL, потім відкат до нього і новий нижчий мінімум." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<line x1="32.8" x2="32.8" y1="284.0" y2="312.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="25.6" y="288.2" width="14.4" height="19.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="58.5" x2="58.5" y1="249.0" y2="292.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="51.3" y="256.3" width="14.4" height="31.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="84.1" x2="84.1" y1="217.0" y2="261.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="76.9" y="221.6" width="14.4" height="34.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="109.8" x2="109.8" y1="185.8" y2="226.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="102.6" y="188.3" width="14.4" height="33.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="135.4" x2="135.4" y1="182.8" y2="213.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="128.3" y="188.3" width="14.4" height="18.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="161.1" x2="161.1" y1="205.2" y2="226.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="153.9" y="207.1" width="14.4" height="15.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="186.7" x2="186.7" y1="192.3" y2="229.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="179.6" y="194.1" width="14.4" height="29.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="212.4" x2="212.4" y1="149.0" y2="195.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="205.2" y="155.0" width="14.4" height="39.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="238.0" x2="238.0" y1="106.6" y2="162.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="230.9" y="114.4" width="14.4" height="40.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="263.7" x2="263.7" y1="108.8" y2="140.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="256.5" y="114.4" width="14.4" height="20.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="289.3" x2="289.3" y1="132.4" y2="156.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="282.2" y="134.7" width="14.4" height="20.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="315.0" x2="315.0" y1="150.2" y2="170.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="307.8" y="155.0" width="14.4" height="11.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="340.7" x2="340.7" y1="135.1" y2="169.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="333.5" y="137.6" width="14.4" height="29.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="366.3" x2="366.3" y1="101.4" y2="142.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="359.1" y="102.9" width="14.4" height="34.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="392.0" x2="392.0" y1="63.8" y2="109.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="384.8" y="72.4" width="14.4" height="30.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="417.6" x2="417.6" y1="67.7" y2="105.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="410.4" y="72.4" width="14.4" height="27.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="443.3" x2="443.3" y1="95.3" y2="140.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="436.1" y="100.0" width="14.4" height="34.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="468.9" x2="468.9" y1="130.4" y2="205.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="461.7" y="134.7" width="14.4" height="65.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="494.6" x2="494.6" y1="176.0" y2="207.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="487.4" y="183.9" width="14.4" height="15.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="520.2" x2="520.2" y1="168.0" y2="189.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="513.0" y="173.8" width="14.4" height="10.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="545.9" x2="545.9" y1="170.5" y2="204.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="538.7" y="173.8" width="14.4" height="27.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="571.5" x2="571.5" y1="198.1" y2="233.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="564.3" y="201.3" width="14.4" height="30.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="597.2" x2="597.2" y1="225.4" y2="265.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="590.0" y="231.7" width="14.4" height="24.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="302.2" x2="610.0" y1="170.9" y2="170.9" stroke="#ffc85c" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="392.0" cy="63.8" r="6" fill="none" stroke="#3fe0a0" stroke-width="2"/>
+<circle cx="468.9" cy="205.7" r="6" fill="none" stroke="#ff6b8a" stroke-width="2"/>
+<circle cx="520.2" cy="168.0" r="6" fill="none" stroke="#cdbdff" stroke-width="2"/>
+<circle cx="597.2" cy="265.0" r="6" fill="none" stroke="#ff6b8a" stroke-width="2"/>
+<rect x="618.0" y="155.9" width="41.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="627.0" y="176.4" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">HL</text>
+<rect x="371.4" y="26.8" width="41.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="380.4" y="47.3" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">HH</text>
+<rect x="415.4" y="212.7" width="107.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="424.4" y="233.2" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">злам тілом</text>
+<rect x="483.4" y="131.0" width="73.7" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="492.4" y="151.5" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">відкат</text>
+<rect x="576.7" y="272.0" width="41.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="585.7" y="292.5" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">LL</text>
+</svg><figcaption>Злам висхідної структури: свічка закрилася тілом нижче ключового HL, потім відкат до нього і новий нижчий мінімум.</figcaption></figure></section><section id="s6"><h2>Корекція, тест чи злам: як не сплутати</h2><p>Найчастіша помилка на старті — прийняти звичайну корекцію за розворот тренду. Ціна відкотилася на кілька червоних свічок, і здається, що «все, ріст закінчився». Але поки відкат не закрився тілом за ключовою точкою, для мене це корекція всередині тієї самої структури.</p><table><tr><th>Що бачу</th><th>Як називаю</th><th>Що роблю</th></tr><tr><td>Ціна відкотилася, але тримається вище останнього HL</td><td>Корекція</td><td>Структура та сама: чекаю продовження або підходу до зони інтересу</td></tr><tr><td>Тінь пройшла нижче ключового HL, а свічка закрилася вище</td><td>Тест ключової точки</td><td>Злам не підтверджено, стежу далі</td></tr><tr><td>Свічка закрилася тілом нижче ключового HL</td><td>Злам висхідної структури</td><td>Чекаю відкат і нове продовження вниз</td></tr></table><p>Тест тінню — дуже часта картина. Ціна ненадовго опускається під очевидний мінімум, «збирає» стопи тих, хто їх там поставив, і повертається назад. Чому так відбувається, пояснюємо в статті про <a href="/statti/likvidnist/">ліквідність</a>.</p><p>Ще одна підказка — характер відкату. Корекція в здоровому тренді зазвичай повільніша за імпульс: свічки менші, кольори змішані, ціна ніби неохоче йде проти основного руху. Якщо ж проти тренду раптом пішли великі свічки одного кольору й без пауз, я уважніше стежу за ключовою точкою: така сила часто передує зламу. Але навіть тоді рішення приймаю лише після закриття тіла за нею, а не наперед.</p><p class="warn">Не вирішуй за незакритою свічкою. Поки час свічки не минув, її тіло може опинитися як нижче, так і вище ключової точки.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Тінь пройшла нижче ключового HL, але тіло закрилося вище — це тест, а не злам. Структура зберігається." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<line x1="34.8" x2="34.8" y1="280.4" y2="312.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="26.5" y="285.2" width="16.5" height="21.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="64.2" x2="64.2" y1="243.4" y2="291.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="56.0" y="249.1" width="16.5" height="36.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="93.8" x2="93.8" y1="207.7" y2="255.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="85.5" y="213.1" width="16.5" height="36.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="123.2" x2="123.2" y1="211.9" y2="236.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="115.0" y="213.1" width="16.5" height="19.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="152.8" x2="152.8" y1="226.2" y2="254.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="144.5" y="232.7" width="16.5" height="16.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="182.2" x2="182.2" y1="213.2" y2="250.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="174.0" y="219.6" width="16.5" height="29.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="211.8" x2="211.8" y1="173.2" y2="222.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="203.5" y="177.0" width="16.5" height="42.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="241.2" x2="241.2" y1="133.4" y2="181.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="233.0" y="137.7" width="16.5" height="39.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="270.8" x2="270.8" y1="136.5" y2="161.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="262.5" y="137.7" width="16.5" height="21.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="300.2" x2="300.2" y1="156.4" y2="186.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="292.0" y="159.0" width="16.5" height="21.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="329.8" x2="329.8" y1="174.7" y2="196.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="321.5" y="180.3" width="16.5" height="13.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="359.2" x2="359.2" y1="174.6" y2="195.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="351.0" y="180.3" width="16.5" height="13.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="388.8" x2="388.8" y1="139.5" y2="182.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="380.5" y="144.2" width="16.5" height="36.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="418.2" x2="418.2" y1="102.3" y2="150.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="410.0" y="103.3" width="16.5" height="41.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="447.8" x2="447.8" y1="101.0" y2="126.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="439.5" y="103.3" width="16.5" height="21.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="477.2" x2="477.2" y1="117.7" y2="157.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="469.0" y="124.6" width="16.5" height="26.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="506.8" x2="506.8" y1="145.9" y2="213.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="498.5" y="150.8" width="16.5" height="16.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="536.2" x2="536.2" y1="135.1" y2="172.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="528.0" y="139.3" width="16.5" height="27.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="565.8" x2="565.8" y1="102.6" y2="145.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="557.5" y="104.9" width="16.5" height="34.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="595.2" x2="595.2" y1="63.8" y2="111.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="587.0" y="68.8" width="16.5" height="36.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="315.0" x2="610.0" y1="196.7" y2="196.7" stroke="#ffc85c" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="506.8" cy="213.1" r="6" fill="none" stroke="#ffc85c" stroke-width="2"/>
+<circle cx="595.2" cy="63.8" r="6" fill="none" stroke="#3fe0a0" stroke-width="2"/>
+<rect x="618.0" y="181.7" width="41.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="627.0" y="202.2" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">HL</text>
+<rect x="408.0" y="220.1" width="197.5" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="417.0" y="240.6" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">тінь нижче, тіло вище</text>
+<rect x="574.7" y="26.8" width="41.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="583.7" y="47.3" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">HH</text>
+</svg><figcaption>Тінь пройшла нижче ключового HL, але тіло закрилося вище — це тест, а не злам. Структура зберігається.</figcaption></figure></section><section id="s7"><h2>Як структура допомагає в торгівлі</h2><p>Структура сама по собі не каже «входь зараз». Вона відповідає на три простіші, але важливіші питання.</p><ul><li><strong>У який бік мені шукати угоди?</strong> У висхідній структурі логічніше шукати входи вгору після корекції, у низхідній — униз після відскоку. Торгувати проти структури можна, але це вже свідомий ризик.</li><li><strong>Де чекати ціну?</strong> Корекція в тренді часто доходить до зони інтересу: <a href="/statti/rivni-pidtrymky-i-oporu/">рівня</a>, імбалансу або області за Фібоначчі. Там я й шукаю реакцію.</li><li><strong>Коли моя ідея перестає працювати?</strong> Якщо ключова точка зламана тілом, сценарій «продовження тренду» скасовано, навіть якщо дуже хочеться, щоб він спрацював.</li></ul><p>У діапазоні логіка інша: ціна відштовхується від меж, і найнебезпечніше місце — середина, де немає ні рівня, ні напрямку. Вихід із діапазону часто супроводжується різким рухом, і тут допомагає розуміння <a href="/statti/probiy-i-retest/">пробою і ретесту</a>.</p><p>Структуру я оновлюю постійно: кожен новий максимум чи мінімум змінює ключову точку. Це не разова розмітка на початку дня, а звичка, яка з часом стає автоматичною. На старті допомагає простий запис у журналі: «H1 — висхідна, ключовий HL на 108,5; M5 — корекція». Коли таке речення можна сказати за десять секунд, ти вже читаєш ринок, а не вгадуєш. Термінологію зламу в стилі Smart Money — BOS і CHoCH — розбираємо окремо в статті про <a href="/statti/bos-choch/">злам структури</a>.</p></section>
+<section id="mistakes"><h2>Типові помилки новачків</h2><ul class="mist"><li>Дивитися на дві-три свічки замість кількох повних рухів і бачити «тренд» там, де лише одна корекція.</li><li>Позначати кожен дрібний розворот — розмітка стає шумом, і ключову точку вже не знайти.</li><li>Вважати зламом вихід тінню за мінімум, хоча свічка закрилася вище.</li><li>Вирішувати за незакритою свічкою, яка ще може повернутися за ключову точку.</li><li>Плутати масштаби: корекцію на M1 приймати за розворот тренду на H1.</li></ul></section>
+<section id="quiz"><h2>Перевір себе</h2><div class="quiz"><details><summary>Що таке структура ринку?</summary><p>Послідовність максимумів і мінімумів ціни. Вищі максимуми й мінімуми (HH, HL) — висхідна структура, нижчі (LH, LL) — низхідна, однакові межі — діапазон.</p></details><details><summary>Яка точка є ключовою у висхідній структурі?</summary><p>Останній мінімум (HL), від якого ціна оновила максимум. Закриття тілом нижче нього означає злам висхідної структури.</p></details><details><summary>Тінь свічки пройшла нижче ключового мінімуму. Це злам?</summary><p>Ні. Якщо свічка закрилася вище мінімуму, це тест ключової точки. Злам фіксуємо лише за закриттям тілом за нею.</p></details></div></section>
+<aside class="cta">
+<div><h2>Хочеш розібратися глибше?</h2><p>Цю тему ми детально розбираємо в безкоштовному навчанні «Трейдинг з нуля» — урок 22. А в Telegram-спільноті — розбори на живому ринку й відповіді на питання.</p></div>
+<div class="cta-b"><a class="btn btn-primary" href="https://learn.moontrade.community/">Безкоштовне навчання</a><a class="btn btn-ghost" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Telegram-спільнота</a></div>
+</aside>
+<section class="related"><h2>Далі за темою</h2><div class="rels"><a class="rel" href="/statti/bos-choch/"><b>BOS і CHoCH: злам структури простими словами</b><span>BOS і CHoCH простими словами: чим злам структури за трендом відрізняється від зміни характеру руху, чому злам …</span></a><a class="rel" href="/statti/top-down-analiz/"><b>Аналіз з кількох таймфреймів (top-down)</b><span>Top-down аналіз простими словами: як поєднувати старший і молодший таймфрейми, знаходити напрямок і зону інтер…</span></a><a class="rel" href="/statti/rivni-pidtrymky-i-oporu/"><b>Рівні підтримки й опору: як їх знаходити на графіку</b><span>Що таке рівні підтримки й опору, чому ціна від них реагує, як знайти й намалювати рівень за три кроки та оціни…</span></a></div></section>
+<p class="risk">Матеріал має освітній характер і не є інвестиційною порадою. Торгівля на фінансових ринках пов’язана з високим ризиком втрати коштів. Приклади на схемах навчальні.</p>
+</main>
+<footer class="wrap foot"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="28" height="28">MoonTrade</a><span>© 2026 MoonTrade</span></footer>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Рівні підтримки й опору: як їх знаходити — MoonTrade</title>
+<meta name="description" content="Що таке рівні підтримки й опору, чому ціна від них реагує, як знайти й намалювати рівень за три кроки та оцінити його силу. Прості схеми для новачків.">
+<link rel="canonical" href="https://moontrade.community/statti/rivni-pidtrymky-i-oporu/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0d0a1f">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="MoonTrade">
+<meta property="og:title" content="Рівні підтримки й опору: як їх знаходити на графіку">
+<meta property="og:description" content="Що таке рівні підтримки й опору, чому ціна від них реагує, як знайти й намалювати рівень за три кроки та оцінити його силу. Прості схеми для новачків.">
+<meta property="og:url" content="https://moontrade.community/statti/rivni-pidtrymky-i-oporu/">
+<meta property="og:image" content="https://moontrade.community/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Рівні підтримки й опору: як їх знаходити на графіку", "description": "Що таке рівні підтримки й опору, чому ціна від них реагує, як знайти й намалювати рівень за три кроки та оцінити його силу. Прості схеми для новачків.", "inLanguage": "uk", "mainEntityOfPage": "https://moontrade.community/statti/rivni-pidtrymky-i-oporu/", "datePublished": "2026-10-10", "dateModified": "2026-10-10", "author": {"@type": "Organization", "name": "MoonTrade", "url": "https://moontrade.community/"}, "publisher": {"@type": "Organization", "name": "MoonTrade", "logo": {"@type": "ImageObject", "url": "https://moontrade.community/assets/logo.jpg"}}, "image": "https://moontrade.community/assets/og.jpg"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Чим підтримка відрізняється від опору?", "acceptedAnswer": {"@type": "Answer", "text": "Підтримка — область під ціною, від якої вона раніше розверталася вгору. Опір — область над ціною, від якої вона розверталася вниз."}}, {"@type": "Question", "name": "Чому рівень краще малювати зоною, а не лінією?", "acceptedAnswer": {"@type": "Answer", "text": "Ціна рідко розвертається з точністю до пункту: тіні щоразу закінчуються трохи в іншому місці. Зона охоплює всю область реакцій."}}, {"@type": "Question", "name": "Що означає, що підтримка стала опором?", "acceptedAnswer": {"@type": "Answer", "text": "Ціна пробила підтримку, закріпилася нижче, а потім повернулася до неї знизу й отримала реакцію вниз. Таке повернення називають ретестом."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "MoonTrade", "item": "https://moontrade.community/"}, {"@type": "ListItem", "position": 2, "name": "Рівні підтримки й опору: як їх знаходити на графіку", "item": "https://moontrade.community/statti/rivni-pidtrymky-i-oporu/"}]}]}</script>
+<style>:root{--night:#0d0a1f;--deep:#151032;--line:#2c2554;--moon:#cdbdff;--violet:#8b5cf6;--violet-2:#6d3df0;--ink:#f1ecff;--muted:#a99fcc;--mint:#3fe0a0;--rose:#ff6b8a;--amber:#ffc85c;--display:"Unbounded",system-ui,sans-serif;--body:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font:400 18px/1.75 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--moon)}
+:focus-visible{outline:2px solid var(--moon);outline-offset:3px;border-radius:6px}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+.top{position:sticky;top:0;z-index:10;background:rgba(13,10,31,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{max-width:1080px;display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:700 17px/1 var(--display)}
+.brand img{border-radius:9px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 16px/1 var(--body);text-decoration:none;padding:16px 22px;border-radius:999px;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff;box-shadow:0 10px 30px rgba(109,61,240,.35)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn-sm{padding:10px 16px;font-size:14px}
+.art{padding-top:28px;padding-bottom:40px}
+.crumbs{font-size:14px;color:var(--muted)}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs span{margin:0 4px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.01em;line-height:1.2;margin:0}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:700;margin:16px 0 18px}
+h2{font-size:clamp(21px,2.6vw,27px);font-weight:700;margin:52px 0 16px}
+h3{font-size:19px;font-weight:500;margin:28px 0 10px}
+p{margin:0 0 16px}
+.lead{font-size:20px;color:var(--ink);padding:18px 20px;border-left:3px solid var(--violet);background:linear-gradient(90deg,rgba(139,92,246,.12),transparent);border-radius:0 12px 12px 0}
+.toc{margin:28px 0 8px;padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:var(--deep);font-size:16px}
+.toc b{display:block;margin-bottom:6px}
+.toc ol{margin:0;padding-left:20px}
+.toc a{color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--ink)}
+ul,ol{padding-left:22px}
+li{margin-bottom:8px}
+strong{color:#fff}
+.note{padding:14px 18px;border-radius:14px;background:rgba(63,224,160,.08);border:1px solid rgba(63,224,160,.3);font-size:16.5px}
+.warn{padding:14px 18px;border-radius:14px;background:rgba(255,107,138,.08);border:1px solid rgba(255,107,138,.3);font-size:16.5px}
+table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:16px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--moon);font-weight:700}
+.fig{margin:22px 0 26px}
+.fig svg{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.fig figcaption{color:var(--muted);font-size:15px;margin-top:10px}
+.mist{list-style:none;padding:0}
+.mist li{position:relative;padding:12px 16px 12px 40px;border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.mist li::before{content:"";position:absolute;left:16px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--rose);box-shadow:0 0 10px rgba(255,107,138,.6)}
+.quiz details{border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.quiz summary{cursor:pointer;list-style:none;padding:14px 46px 14px 18px;font-weight:700;position:relative}
+.quiz summary::-webkit-details-marker{display:none}
+.quiz summary::after{content:"+";position:absolute;right:16px;top:9px;font:500 24px/1 var(--display);color:var(--moon)}
+.quiz details[open] summary::after{content:"−"}
+.quiz details p{padding:0 18px 14px;margin:0;color:var(--muted)}
+.cta{margin:56px 0 10px;padding:30px;border-radius:24px;border:1px solid var(--line);background:radial-gradient(circle at 92% 10%,rgba(205,189,255,.2),transparent 45%),linear-gradient(135deg,#251a5a,#151032);display:grid;gap:18px}
+.cta h2{margin:0 0 8px;font-size:22px}
+.cta p{color:var(--muted);margin:0}
+.cta-b{display:flex;flex-wrap:wrap;gap:10px}
+.related h2{font-size:20px;margin-top:44px}
+.rels{display:grid;gap:12px}
+.rel{display:block;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:var(--deep);text-decoration:none;color:var(--ink)}
+.rel b{display:block;margin-bottom:4px}
+.rel span{color:var(--muted);font-size:15px}
+.rel:hover{border-color:var(--moon)}
+.risk{margin-top:40px;color:var(--muted);font-size:13.5px;line-height:1.6}
+.foot{display:flex;justify-content:space-between;align-items:center;padding:30px 22px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);max-width:800px}
+@media (max-width:600px){.fig{margin-left:-14px;margin-right:-14px}.fig svg{border-radius:12px}.fig figcaption{padding:0 14px}body{font-size:17px}.lead{font-size:18px}.cta{padding:22px}.btn{width:100%}.top .btn{width:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="32" height="32">MoonTrade</a>
+<a class="btn btn-primary btn-sm" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Долучитися</a></div></header>
+<main class="wrap art">
+<nav class="crumbs" aria-label="Навігація"><a href="/">MoonTrade</a> <span>/</span> <span>Статті</span></nav>
+<h1>Рівні підтримки й опору: як їх знаходити на графіку</h1>
+<p class="lead">Підтримка — область, від якої ціна вже розверталася вгору, опір — область, від якої вона розверталася вниз. Щоб знайти рівень, шукай місця з кількома чіткими реакціями і позначай їх зоною, а не тонкою лінією. Рівень показує, де спостерігати за ціною, але сам по собі не є причиною для входу.</p>
+<nav class="toc" aria-label="Зміст"><b>У статті</b><ol><li><a href="#s1">Що таке рівні підтримки й опору</a></li><li><a href="#s2">Чому ціна реагує на рівні</a></li><li><a href="#s3">Як знайти рівень на графіку: три кроки</a></li><li><a href="#s4">Сильний чи слабкий рівень: як оцінити</a></li><li><a href="#s5">Коли підтримка стає опором</a></li><li><a href="#s6">Рівні в тренді: попередні максимуми й мінімуми</a></li><li><a href="#s7">Рівень — це місце, а не причина для входу</a></li><li><a href="#mistakes">Типові помилки</a></li><li><a href="#quiz">Перевір себе</a></li></ol></nav>
+<section id="s1"><h2>Що таке рівні підтримки й опору</h2><p>Якщо подивитися на будь-який графік, помітно: ціна не рухається хаотично від точки до точки. Вона часто зупиняється й розвертається в одних і тих самих областях. Ці області й називають рівнями.</p><ul><li><strong>Підтримка</strong> — область під ціною, від якої вона раніше формувала реакцію вгору. Тут покупці вже не раз виявлялися сильнішими.</li><li><strong>Опір</strong> (його ще називають супротивом) — область над ціною, від якої вона раніше розверталася вниз. Тут сильнішими були продавці.</li></ul><p>Коли ціна довго ходить між підтримкою й опором, утворюється <strong>діапазон</strong> (боковик, флет). У тренді рівні теж є, просто ціна з часом їх пробиває і формує нові.</p><p>Коли я кажу «тут мені цікаво шукати вхід», за цим завжди має стояти причина. Найпростіша й найзрозуміліша причина — ціна вже помітно змінювала напрямок у цьому місці.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Ціна ходить між підтримкою 100 і опором 106: кожна межа вже дала кілька реакцій." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<line x1="38.4" x2="38.4" y1="125.2" y2="199.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="28.1" y="132.4" width="20.7" height="56.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="75.3" x2="75.3" y1="63.8" y2="136.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="65.0" y="84.0" width="20.7" height="48.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="112.2" x2="112.2" y1="67.8" y2="124.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="101.9" y="84.0" width="20.7" height="32.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="149.1" x2="149.1" y1="109.0" y2="179.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="138.7" y="116.3" width="20.7" height="52.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="185.9" x2="185.9" y1="156.7" y2="239.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="175.6" y="168.8" width="20.7" height="56.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="222.8" x2="222.8" y1="221.3" y2="310.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="212.5" y="225.4" width="20.7" height="48.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="259.7" x2="259.7" y1="229.4" y2="306.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="249.4" y="237.5" width="20.7" height="36.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="296.6" x2="296.6" y1="168.8" y2="252.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="286.2" y="180.9" width="20.7" height="56.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="333.4" x2="333.4" y1="107.4" y2="187.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="323.1" y="124.4" width="20.7" height="56.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="370.3" x2="370.3" y1="65.8" y2="128.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="360.0" y="79.9" width="20.7" height="44.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="407.2" x2="407.2" y1="63.8" y2="120.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="396.9" y="79.9" width="20.7" height="32.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="444.1" x2="444.1" y1="95.3" y2="171.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="433.7" y="112.2" width="20.7" height="52.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="480.9" x2="480.9" y1="157.5" y2="239.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="470.6" y="164.8" width="20.7" height="64.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="517.8" x2="517.8" y1="217.3" y2="292.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="507.5" y="229.4" width="20.7" height="48.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="554.7" x2="554.7" y1="253.7" y2="312.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="544.4" y="265.8" width="20.7" height="12.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="591.6" x2="591.6" y1="206.0" y2="276.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="581.2" y="213.3" width="20.7" height="52.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="20.0" x2="610.0" y1="63.8" y2="63.8" stroke="#ff6b8a" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="20.0" x2="610.0" y1="310.2" y2="310.2" stroke="#3fe0a0" stroke-width="1.8" stroke-dasharray="6 5"/>
+<path d="M112.2 31.8 V57.8 M106.2 49.8 L112.2 57.8 L118.2 49.8" stroke="#ff6b8a" stroke-width="2.2" fill="none"/>
+<path d="M407.2 27.8 V53.8 M401.2 45.8 L407.2 53.8 L413.2 45.8" stroke="#ff6b8a" stroke-width="2.2" fill="none"/>
+<path d="M259.7 342.2 V316.2 M253.7 324.2 L259.7 316.2 L265.7 324.2" stroke="#3fe0a0" stroke-width="2.2" fill="none"/>
+<path d="M554.7 348.2 V322.2 M548.7 330.2 L554.7 322.2 L560.7 330.2" stroke="#3fe0a0" stroke-width="2.2" fill="none"/>
+<rect x="618.0" y="48.8" width="55.1" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="627.0" y="69.3" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">опір</text>
+<rect x="612.5" y="295.2" width="101.5" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="621.5" y="315.7" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">підтримка</text>
+</svg><figcaption>Ціна ходить між підтримкою 100 і опором 106: кожна межа вже дала кілька реакцій.</figcaption></figure></section><section id="s2"><h2>Чому ціна реагує на рівні</h2><p>Рівень — не лінія, яку «бачить» ринок. Це місце, де зосереджені рішення людей і заявки.</p><p>Коли ціна вже кілька разів розверталася від певної області, можна припустити, що там скупчилися <strong>лімітні заявки</strong> — відкладені ордери на купівлю чи продаж за заздалегідь обраною ціною. Коли ціна повертається туди знову, ці заявки спрацьовують і можуть дати сильний поштовх.</p><p>До цього додається звичайна психологія:</p><ul><li>Ті, хто купив біля підтримки минулого разу і заробив, охоче куплять там знову.</li><li>Ті, хто пропустив попередній розворот, чекають «другого шансу» в тому ж місці.</li><li>Ті, хто купив на вершині й сидить у мінусі, радо закриються «в нуль», коли ціна повернеться до їхньої ціни, — і цим створюють продажі біля опору.</li></ul><p>Великі учасники ринку — банки, фонди — теж не можуть купити чи продати весь обсяг за одну ціну, тому розподіляють заявки в певній області. Звідси й реакції не в точці, а в зоні. Тому рівні, які бачить багато учасників, працюють помітніше. Саме через це рівень зі старшого таймфрейму важить більше, ніж із хвилинного графіка: на нього дивиться більше людей і більше капіталу.</p><p class="note">Окремо варто пам’ятати про <strong>круглі числа</strong> (1.1000, 1.0950 тощо). На них люди часто ставлять заявки просто тому, що так зручно, — тож реакції біля круглих цін трапляються частіше.</p></section><section id="s3"><h2>Як знайти рівень на графіку: три кроки</h2><p>Ось як я відмічаю рівень, коли відкриваю новий графік.</p><ol><li><strong>Шукаю повторні реакції.</strong> Рівень — це місце, де ціна вже кілька разів розверталася або різко відштовхувалася. Одна випадкова зупинка на кілька свічок — ще не рівень. Мінімум дві чіткі реакції, краще три. Корисно дивитися не лише на розвороти, а й на місця, де ціна різко «відстрілювала» — велика свічка від області говорить про сильні заявки там.</li><li><strong>Малюю зону, а не тонку лінію.</strong> Ціна рідко розвертається з точністю до пункту. Один раз тінь не дотягує, інший — проколює трохи далі. Тому я позначаю прямокутником область, де відбувалися реакції: від тіл свічок до кінчиків тіней.</li><li><strong>Оцінюю силу.</strong> Що довше рівень існує, що більше від нього чітких реакцій і що різкіше ціна від нього відходила, то помітніше це місце.</li></ol><p>Межі зони я беру так: одна межа — там, де закривалися тіла свічок біля рівня, друга — де закінчувалися найдовші тіні. Якщо зона виходить надто широкою, це знак, що там не один рівень, а розмита область, і краще пошукати чіткіше місце.</p><p>Починати розмітку краще зі старшого таймфрейму — H1 або H4. Там видно головні рівні, а дрібні коливання не відволікають. Потім переходиш на робочий таймфрейм і уточнюєш межі зони. Як поєднувати масштаби, розповідаємо в статті <a href="/statti/taimfreimy/">Таймфрейми: що це і який обрати</a>.</p><p class="warn">Не малюй рівень на кожному максимумі й мінімумі. Коли на графіку двадцять ліній, ціна завжди «біля якогось рівня» — і жодна з них уже нічого не означає.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Тіні щоразу закінчуються трохи в іншому місці, тому рівень позначаємо зоною реакцій." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="20.0" y="270.7" width="590.0" height="41.6" fill="#8b5cf6" fill-opacity=".16" stroke="#8b5cf6" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<line x1="42.7" x2="42.7" y1="63.8" y2="139.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="30.0" y="72.6" width="25.4" height="53.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="88.1" x2="88.1" y1="111.7" y2="202.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="75.4" y="126.4" width="25.4" height="58.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="133.5" x2="133.5" y1="185.1" y2="307.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="120.8" y="185.1" width="25.4" height="63.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="178.8" x2="178.8" y1="185.1" y2="263.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="166.1" y="199.7" width="25.4" height="48.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="224.2" x2="224.2" y1="131.3" y2="217.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="211.5" y="145.9" width="25.4" height="53.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="269.6" x2="269.6" y1="125.4" y2="197.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="256.9" y="145.9" width="25.4" height="44.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="315.0" x2="315.0" y1="180.2" y2="278.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="302.3" y="190.0" width="25.4" height="63.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="360.4" x2="360.4" y1="150.8" y2="271.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="347.7" y="165.5" width="25.4" height="88.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="405.8" x2="405.8" y1="145.0" y2="222.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="393.1" y="165.5" width="25.4" height="48.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="451.2" x2="451.2" y1="209.5" y2="297.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="438.4" y="214.4" width="25.4" height="48.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="496.5" x2="496.5" y1="219.3" y2="273.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="483.8" y="229.1" width="25.4" height="34.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="541.9" x2="541.9" y1="140.1" y2="236.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="529.2" y="160.6" width="25.4" height="68.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="587.3" x2="587.3" y1="107.8" y2="173.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="574.6" y="116.6" width="25.4" height="44.0" rx="1.5" fill="#3fe0a0"/>
+<circle cx="133.5" cy="307.4" r="6" fill="none" stroke="#ffc85c" stroke-width="2"/>
+<circle cx="315.0" cy="278.0" r="6" fill="none" stroke="#ffc85c" stroke-width="2"/>
+<circle cx="451.2" cy="297.6" r="6" fill="none" stroke="#ffc85c" stroke-width="2"/>
+<rect x="24.0" y="315.2" width="125.5" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#8b5cf6" stroke-width="1.2"/>
+<text x="33.0" y="335.7" fill="#8b5cf6" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">зона реакцій</text>
+</svg><figcaption>Тіні щоразу закінчуються трохи в іншому місці, тому рівень позначаємо зоною реакцій.</figcaption></figure></section><section id="s4"><h2>Сильний чи слабкий рівень: як оцінити</h2><p>Не всі рівні однакові. Перш ніж чекати реакцію, я порівнюю кілька ознак.</p><table><tr><th>Ознака</th><th>Сильніше</th><th>Слабше</th></tr><tr><td>Реакції</td><td>Кілька чітких розворотів</td><td>Одна реакція</td></tr><tr><td>Вік</td><td>Тримається давно</td><td>З’явився кілька свічок тому</td></tr><tr><td>Характер</td><td>Різкий відхід від рівня</td><td>Млявий рух поруч</td></tr><tr><td>Таймфрейм</td><td>Видно на старшому графіку</td><td>Лише на M1</td></tr><tr><td>Контекст</td><td>За напрямком старшого руху</td><td>Проти загального руху</td></tr></table><p>Є ще одне спостереження: кожен новий дотик до рівня «з’їдає» частину заявок, що там стоять. Тому рівень, який тестували п’ять разів поспіль за короткий час, може не посилюватися, а навпаки — слабшати і зрештою пробиватися. Часті дотики без сильних відскоків — це скоріше ознака, що рівень виснажується.</p><p>І найважливіше — <strong>контекст</strong>. Підтримка в загальному висхідному русі — місце, де логічно чекати продовження вгору. Підтримка в сильному падінні — місце, яке цілком може бути пробите.</p><p>На практиці я ставлю собі просте запитання: «Якби я вперше відкрив цей графік, чи помітив би цей рівень одразу?» Якщо для цього потрібно довго вдивлятися й домальовувати — найімовірніше, рівень слабкий.</p></section><section id="s5"><h2>Коли підтримка стає опором</h2><p>Рівні не вічні. Коли ціна пробиває підтримку і закріплюється нижче, часто відбувається цікаве: ціна повертається до пробитого рівня знизу — і отримує від нього реакцію вниз. Колишня підтримка починає працювати як опір. З опором логіка дзеркальна: після пробиття вгору він може стати підтримкою.</p><p>Таке повернення до пройденої області називають <strong>ретестом</strong>. Чому так буває? Ті, хто купував біля підтримки, після пробиття опинилися в мінусі. Коли ціна повертається до їхньої ціни входу, частина з них закриває угоди — і цим додає продажів якраз біля рівня.</p><p>Ретест — одна з найзрозуміліших ситуацій для новачка, але й тут є пастки: пробиття може бути хибним, і ціна просто повернеться в старий діапазон. Детально про це — у статті <a href="/statti/probiy-i-retest/">Пробій і ретест: як не входити на хибному пробої</a>.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Підтримку 100 пробили, ціна повернулася до неї знизу й отримала реакцію вниз — рівень змінив роль." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<line x1="42.7" x2="42.7" y1="63.8" y2="102.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="30.0" y="70.5" width="25.4" height="22.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="88.1" x2="88.1" y1="81.7" y2="136.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="75.4" y="92.9" width="25.4" height="29.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="133.5" x2="133.5" y1="115.4" y2="201.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="120.8" y="122.9" width="25.4" height="44.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="178.8" x2="178.8" y1="127.4" y2="177.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="166.1" y="134.1" width="25.4" height="33.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="224.2" x2="224.2" y1="122.9" y2="173.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="211.5" y="134.1" width="25.4" height="26.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="269.6" x2="269.6" y1="156.6" y2="205.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="256.9" y="160.3" width="25.4" height="29.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="315.0" x2="315.0" y1="186.5" y2="246.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="302.3" y="190.2" width="25.4" height="48.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="360.4" x2="360.4" y1="227.7" y2="274.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="347.7" y="238.9" width="25.4" height="22.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="405.8" x2="405.8" y1="215.7" y2="267.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="393.1" y="231.4" width="25.4" height="29.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="451.2" x2="451.2" y1="201.5" y2="235.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="438.4" y="209.0" width="25.4" height="22.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="496.5" x2="496.5" y1="195.9" y2="235.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="483.8" y="209.0" width="25.4" height="18.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="541.9" x2="541.9" y1="212.0" y2="278.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="529.2" y="227.7" width="25.4" height="44.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="587.3" x2="587.3" y1="265.8" y2="312.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="574.6" y="272.6" width="25.4" height="29.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="20.0" x2="292.3" y1="205.2" y2="205.2" stroke="#3fe0a0" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="292.3" x2="610.0" y1="205.2" y2="205.2" stroke="#ff6b8a" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="496.5" cy="195.9" r="6" fill="none" stroke="#ffc85c" stroke-width="2"/>
+<rect x="300.3" y="148.2" width="101.5" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="309.3" y="168.7" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">підтримка</text>
+<rect x="607.0" y="190.2" width="107.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="616.0" y="210.7" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">тепер опір</text>
+<rect x="433.8" y="158.9" width="125.5" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="442.8" y="179.4" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">ретест знизу</text>
+</svg><figcaption>Підтримку 100 пробили, ціна повернулася до неї знизу й отримала реакцію вниз — рівень змінив роль.</figcaption></figure></section><section id="s6"><h2>Рівні в тренді: попередні максимуми й мінімуми</h2><p>У діапазоні рівні очевидні — це його межі. А от у тренді новачки часто не знають, що розмічати. Тут рівнями стають <strong>попередні максимуми й мінімуми</strong> структури.</p><p>У висхідному тренді ціна робить вищий максимум, відкочується, а потім пробиває цей максимум і йде далі. Пробитий максимум часто стає підтримкою для наступного відкату — ціна повертається до нього, отримує реакцію вгору й продовжує зростання. У низхідному тренді все навпаки: пробитий мінімум стає опором.</p><p>Також попередній максимум чи мінімум — це природна <strong>ціль руху</strong>. Якщо я розглядаю угоду на зростання, то дивлюся, де найближчий максимум, до якого ціна може дійти. Якщо до нього лишилося зовсім мало, простору для руху майже немає, і вхід втрачає сенс.</p><p>Окрім горизонтальних рівнів, існують <strong>похилі</strong> — трендові лінії, проведені через кілька мінімумів (у висхідному тренді) або максимумів (у низхідному). Логіка та сама: кілька реакцій від лінії роблять її помітною. Але для старту горизонтальних зон більш ніж достатньо — вони простіші й однозначніші.</p><p>Детальніше про максимуми, мінімуми й злам тренду — у статті <a href="/statti/struktura-rynku/">Структура ринку: тренд, HH/HL і злам</a>.</p></section><section id="s7"><h2>Рівень — це місце, а не причина для входу</h2><p>Найпоширеніша помилка після вивчення рівнів — входити щоразу, коли ціна торкнулася лінії. Але розмітка відповідає лише на запитання <strong>«де спостерігати?»</strong>. Правила стратегії відповідають на інше запитання — <strong>«що має статися, щоб увійти?»</strong>. Для угоди потрібні обидві відповіді.</p><p>Рівень — один із різновидів <strong>зони інтересу</strong>. Окрім нього, зоною інтересу може бути область Фібоначчі, імбаланс, POC з профілю об’єму. Усі вони показують місце, а не момент.</p><p>Коли ціна підходить до рівня, я дивлюся, як вона поводиться:</p><ul><li>чи є відкинута тінь або розворотна свічка — див. <a href="/statti/svichkovi-paterny/">свічкові патерни</a>;</li><li>чи збігається реакція з напрямком старшого руху;</li><li>чи виконалися умови моєї стратегії — і лише тоді розглядаю угоду.</li></ul><p class="note">Вправа на демо: познач два-три рівні, від яких ціна реагувала щонайменше двічі. Для кожного запиши кількість реакцій, вік і роль (підтримка чи опір). Не змінюй розмітку, поки не побачиш, як ціна поведеться біля цих рівнів наступного разу.</p></section>
+<section id="mistakes"><h2>Типові помилки новачків</h2><ul class="mist"><li>Малювати рівень на кожному максимумі й мінімумі — графік перетворюється на сітку ліній.</li><li>Позначати рівень тонкою лінією й чекати реакції з точністю до пункту.</li><li>Входити лише тому, що ціна дійшла до рівня, без умови стратегії.</li><li>Ігнорувати контекст і торгувати відскок від підтримки в сильному падінні.</li><li>Будувати рівні лише на хвилинному графіку, не дивлячись на старші таймфрейми.</li></ul></section>
+<section id="quiz"><h2>Перевір себе</h2><div class="quiz"><details><summary>Чим підтримка відрізняється від опору?</summary><p>Підтримка — область під ціною, від якої вона раніше розверталася вгору. Опір — область над ціною, від якої вона розверталася вниз.</p></details><details><summary>Чому рівень краще малювати зоною, а не лінією?</summary><p>Ціна рідко розвертається з точністю до пункту: тіні щоразу закінчуються трохи в іншому місці. Зона охоплює всю область реакцій.</p></details><details><summary>Що означає, що підтримка стала опором?</summary><p>Ціна пробила підтримку, закріпилася нижче, а потім повернулася до неї знизу й отримала реакцію вниз. Таке повернення називають ретестом.</p></details></div></section>
+<aside class="cta">
+<div><h2>Хочеш розібратися глибше?</h2><p>Цю тему ми детально розбираємо в безкоштовному навчанні «Трейдинг з нуля» — урок 24. А в Telegram-спільноті — розбори на живому ринку й відповіді на питання.</p></div>
+<div class="cta-b"><a class="btn btn-primary" href="https://learn.moontrade.community/">Безкоштовне навчання</a><a class="btn btn-ghost" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Telegram-спільнота</a></div>
+</aside>
+<section class="related"><h2>Далі за темою</h2><div class="rels"><a class="rel" href="/statti/probiy-i-retest/"><b>Пробій і ретест: як не входити на хибному пробої</b><span>Що таке пробій рівня і ретест, чим закриття тілом відрізняється від виходу тінню, як розпізнати хибний пробій …</span></a><a class="rel" href="/statti/svichkovi-paterny/"><b>Свічкові патерни: пін-бар, поглинання і доджі</b><span>Свічкові патерни простими словами: що таке пін-бар, бичаче й ведмеже поглинання, доджі, як їх читати на графік…</span></a><a class="rel" href="/statti/struktura-rynku/"><b>Структура ринку: тренд, HH/HL і злам простими словами</b><span>Що таке структура ринку, як читати HH, HL, LH, LL, відрізнити тренд від діапазону і корекцію від зламу. Покрок…</span></a></div></section>
+<p class="risk">Матеріал має освітній характер і не є інвестиційною порадою. Торгівля на фінансових ринках пов’язана з високим ризиком втрати коштів. Приклади на схемах навчальні.</p>
+</main>
+<footer class="wrap foot"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="28" height="28">MoonTrade</a><span>© 2026 MoonTrade</span></footer>
+</body>
+</html>

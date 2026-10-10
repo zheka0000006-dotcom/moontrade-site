@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пробій і ретест рівня: як не входити на хибному — MoonTrade</title>
+<meta name="description" content="Що таке пробій рівня і ретест, чим закриття тілом відрізняється від виходу тінню, як розпізнати хибний пробій і коли входити після пробою. Схеми й помилки.">
+<link rel="canonical" href="https://moontrade.community/statti/probiy-i-retest/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0d0a1f">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="MoonTrade">
+<meta property="og:title" content="Пробій і ретест: як не входити на хибному пробої">
+<meta property="og:description" content="Що таке пробій рівня і ретест, чим закриття тілом відрізняється від виходу тінню, як розпізнати хибний пробій і коли входити після пробою. Схеми й помилки.">
+<meta property="og:url" content="https://moontrade.community/statti/probiy-i-retest/">
+<meta property="og:image" content="https://moontrade.community/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Пробій і ретест: як не входити на хибному пробої", "description": "Що таке пробій рівня і ретест, чим закриття тілом відрізняється від виходу тінню, як розпізнати хибний пробій і коли входити після пробою. Схеми й помилки.", "inLanguage": "uk", "mainEntityOfPage": "https://moontrade.community/statti/probiy-i-retest/", "datePublished": "2026-10-10", "dateModified": "2026-10-10", "author": {"@type": "Organization", "name": "MoonTrade", "url": "https://moontrade.community/"}, "publisher": {"@type": "Organization", "name": "MoonTrade", "logo": {"@type": "ImageObject", "url": "https://moontrade.community/assets/logo.jpg"}}, "image": "https://moontrade.community/assets/og.jpg"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Що вважати фактом пробою рівня?", "acceptedAnswer": {"@type": "Answer", "text": "Закриття свічки тілом за рівнем. Якщо за межу вийшла лише тінь, а свічка закрилася з іншого боку, пробою як факту немає."}}, {"@type": "Question", "name": "Що таке ретест?", "acceptedAnswer": {"@type": "Answer", "text": "Повернення ціни до пробитого рівня з іншого боку: колишній опір перевіряють як підтримку, а колишню підтримку — як опір."}}, {"@type": "Question", "name": "Як зрозуміти, що пробій хибний?", "acceptedAnswer": {"@type": "Answer", "text": "Після закриття за рівнем немає продовження, і ціна швидко повертається назад у попередній діапазон. Тоді план на продовження скасовується."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "MoonTrade", "item": "https://moontrade.community/"}, {"@type": "ListItem", "position": 2, "name": "Пробій і ретест: як не входити на хибному пробої", "item": "https://moontrade.community/statti/probiy-i-retest/"}]}]}</script>
+<style>:root{--night:#0d0a1f;--deep:#151032;--line:#2c2554;--moon:#cdbdff;--violet:#8b5cf6;--violet-2:#6d3df0;--ink:#f1ecff;--muted:#a99fcc;--mint:#3fe0a0;--rose:#ff6b8a;--amber:#ffc85c;--display:"Unbounded",system-ui,sans-serif;--body:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font:400 18px/1.75 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--moon)}
+:focus-visible{outline:2px solid var(--moon);outline-offset:3px;border-radius:6px}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+.top{position:sticky;top:0;z-index:10;background:rgba(13,10,31,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{max-width:1080px;display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:700 17px/1 var(--display)}
+.brand img{border-radius:9px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 16px/1 var(--body);text-decoration:none;padding:16px 22px;border-radius:999px;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff;box-shadow:0 10px 30px rgba(109,61,240,.35)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn-sm{padding:10px 16px;font-size:14px}
+.art{padding-top:28px;padding-bottom:40px}
+.crumbs{font-size:14px;color:var(--muted)}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs span{margin:0 4px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.01em;line-height:1.2;margin:0}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:700;margin:16px 0 18px}
+h2{font-size:clamp(21px,2.6vw,27px);font-weight:700;margin:52px 0 16px}
+h3{font-size:19px;font-weight:500;margin:28px 0 10px}
+p{margin:0 0 16px}
+.lead{font-size:20px;color:var(--ink);padding:18px 20px;border-left:3px solid var(--violet);background:linear-gradient(90deg,rgba(139,92,246,.12),transparent);border-radius:0 12px 12px 0}
+.toc{margin:28px 0 8px;padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:var(--deep);font-size:16px}
+.toc b{display:block;margin-bottom:6px}
+.toc ol{margin:0;padding-left:20px}
+.toc a{color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--ink)}
+ul,ol{padding-left:22px}
+li{margin-bottom:8px}
+strong{color:#fff}
+.note{padding:14px 18px;border-radius:14px;background:rgba(63,224,160,.08);border:1px solid rgba(63,224,160,.3);font-size:16.5px}
+.warn{padding:14px 18px;border-radius:14px;background:rgba(255,107,138,.08);border:1px solid rgba(255,107,138,.3);font-size:16.5px}
+table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:16px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--moon);font-weight:700}
+.fig{margin:22px 0 26px}
+.fig svg{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.fig figcaption{color:var(--muted);font-size:15px;margin-top:10px}
+.mist{list-style:none;padding:0}
+.mist li{position:relative;padding:12px 16px 12px 40px;border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.mist li::before{content:"";position:absolute;left:16px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--rose);box-shadow:0 0 10px rgba(255,107,138,.6)}
+.quiz details{border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.quiz summary{cursor:pointer;list-style:none;padding:14px 46px 14px 18px;font-weight:700;position:relative}
+.quiz summary::-webkit-details-marker{display:none}
+.quiz summary::after{content:"+";position:absolute;right:16px;top:9px;font:500 24px/1 var(--display);color:var(--moon)}
+.quiz details[open] summary::after{content:"−"}
+.quiz details p{padding:0 18px 14px;margin:0;color:var(--muted)}
+.cta{margin:56px 0 10px;padding:30px;border-radius:24px;border:1px solid var(--line);background:radial-gradient(circle at 92% 10%,rgba(205,189,255,.2),transparent 45%),linear-gradient(135deg,#251a5a,#151032);display:grid;gap:18px}
+.cta h2{margin:0 0 8px;font-size:22px}
+.cta p{color:var(--muted);margin:0}
+.cta-b{display:flex;flex-wrap:wrap;gap:10px}
+.related h2{font-size:20px;margin-top:44px}
+.rels{display:grid;gap:12px}
+.rel{display:block;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:var(--deep);text-decoration:none;color:var(--ink)}
+.rel b{display:block;margin-bottom:4px}
+.rel span{color:var(--muted);font-size:15px}
+.rel:hover{border-color:var(--moon)}
+.risk{margin-top:40px;color:var(--muted);font-size:13.5px;line-height:1.6}
+.foot{display:flex;justify-content:space-between;align-items:center;padding:30px 22px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);max-width:800px}
+@media (max-width:600px){.fig{margin-left:-14px;margin-right:-14px}.fig svg{border-radius:12px}.fig figcaption{padding:0 14px}body{font-size:17px}.lead{font-size:18px}.cta{padding:22px}.btn{width:100%}.top .btn{width:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="32" height="32">MoonTrade</a>
+<a class="btn btn-primary btn-sm" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Долучитися</a></div></header>
+<main class="wrap art">
+<nav class="crumbs" aria-label="Навігація"><a href="/">MoonTrade</a> <span>/</span> <span>Статті</span></nav>
+<h1>Пробій і ретест: як не входити на хибному пробої</h1>
+<p class="lead">Пробій — це вихід ціни за позначений рівень, а ретест — повернення до пробитого рівня з іншого боку. Щоб не потрапити на хибний пробій, я вважаю пробиття фактом лише тоді, коли свічка закрилася тілом за рівнем, а не просто вийшла за нього тінню. Далі перевіряю контекст, поведінку ціни після пробою і простір до цілі.</p>
+<nav class="toc" aria-label="Зміст"><b>У статті</b><ol><li><a href="#s1">Що таке пробій рівня</a></li><li><a href="#s2">Пробій тінню чи тілом: що вважати фактом</a></li><li><a href="#s3">Що таке ретест і навіщо його чекати</a></li><li><a href="#s4">Хибний пробій: як його розпізнати</a></li><li><a href="#s5">Як входити після пробою: покрокова логіка</a></li><li><a href="#s6">Скільки чекати після пробою і що таке накопичення</a></li><li><a href="#s7">Простір до цілі: не наздоганяй рух</a></li><li><a href="#mistakes">Типові помилки</a></li><li><a href="#quiz">Перевір себе</a></li></ol></nav>
+<section id="s1"><h2>Що таке пробій рівня</h2><p>Ціна підходить до опору, від якого вже кілька разів розверталася. Цього разу вона не зупиняється й іде вище. Це і є <strong>пробій</strong> (пробиття) — вихід ціни за позначену межу. Те саме з підтримкою, тільки вниз.</p><p>Пробій цікавий тим, що змінює картину: межа, яка стримувала ціну, більше не працює, а значить, рух може продовжитися до наступного рівня. Багато трейдерів працюють саме <strong>на продовження після пробою</strong>.</p><p>Але тут і криється головна пастка. Ціна підійшла до рівня, свічка вже трохи вище — і хочеться входити, «поки не пішло». Проте «ось-ось проб’є» і «умова пробиття виконана» — це два різні моменти. Між ними — та сама різниця, що між гіпотезою і фактом.</p><p>Щоб користуватися пробоєм у стратегії, потрібно <strong>заздалегідь</strong> визначити, який саме вихід за рівень ти враховуєш. Інакше кожна тінь за межею здаватиметься «пробоєм», а рішення ухвалюватимуться на емоціях.</p><p class="note">Якщо ще не впевнено знаходиш рівні, почни зі статті <a href="/statti/rivni-pidtrymky-i-oporu/">Рівні підтримки й опору: як їх знаходити</a>.</p></section><section id="s2"><h2>Пробій тінню чи тілом: що вважати фактом</h2><p>Уявімо опір на 100. Можливі дві ситуації:</p><ol><li>Ціна піднялася до 100,6, але до кінця періоду повернулася й <strong>свічка закрилася нижче 100</strong>. Над рівнем залишилася лише тінь.</li><li>Ціна піднялася вище і <strong>свічка закрилася вище 100</strong> — тілом за рівнем.</li></ol><p>У першому випадку пробою як факту немає. Тінь над рівнем говорить лише про те, що ціну туди штовхали, але продавці її повернули. Більше того, це часто ознака сили рівня, а не його слабкості.</p><p>У другому випадку подія вже сталася: період завершився, і ціна залишилася за межею. Це я називаю <strong>торгувати факт</strong>. Я не прогнозую, що ціна проб’є, а констатую, що вона пробила, — і вже після цього шукаю умови для входу.</p><p>Чим переконливіше закриття, тим краще. Велика свічка, що закрилася далеко за рівнем, говорить більше, ніж маленька, що ледь «перелізла» на кілька пунктів. А факт пробиття оцінюю тільки за <strong>закритою</strong> свічкою: поки період триває, свічка, яка зараз вище рівня, ще може закритися під ним.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Спершу над рівнем вийшла лише тінь — пробою немає. Пізніше свічка закрилася тілом вище 100 — це вже факт." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<line x1="49.5" x2="49.5" y1="257.7" y2="312.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="33.0" y="267.2" width="33.0" height="31.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="108.5" x2="108.5" y1="209.5" y2="286.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="92.0" y="225.2" width="33.0" height="41.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="167.5" x2="167.5" y1="151.8" y2="235.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="151.0" y="204.3" width="33.0" height="21.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="226.5" x2="226.5" y1="194.8" y2="254.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="210.0" y="204.3" width="33.0" height="36.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="285.5" x2="285.5" y1="225.2" y2="280.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="269.0" y="240.9" width="33.0" height="21.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="344.5" x2="344.5" y1="198.0" y2="270.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="328.0" y="220.0" width="33.0" height="41.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="403.5" x2="403.5" y1="184.3" y2="233.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="387.0" y="193.8" width="33.0" height="26.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="462.5" x2="462.5" y1="125.6" y2="199.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="446.0" y="136.1" width="33.0" height="57.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="521.5" x2="521.5" y1="82.6" y2="144.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="505.0" y="104.6" width="33.0" height="31.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="580.5" x2="580.5" y1="63.8" y2="118.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="564.0" y="73.2" width="33.0" height="31.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="20.0" x2="610.0" y1="183.3" y2="183.3" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="167.5" cy="151.8" r="6" fill="none" stroke="#ff6b8a" stroke-width="2"/>
+<circle cx="462.5" cy="125.6" r="6" fill="none" stroke="#3fe0a0" stroke-width="2"/>
+<rect x="610.9" y="168.3" width="103.1" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="619.9" y="188.8" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">рівень 100</text>
+<rect x="118.7" y="114.8" width="97.7" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="127.7" y="135.3" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">лише тінь</text>
+<rect x="390.5" y="46.6" width="144.1" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="399.5" y="67.1" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">закриття тілом</text>
+</svg><figcaption>Спершу над рівнем вийшла лише тінь — пробою немає. Пізніше свічка закрилася тілом вище 100 — це вже факт.</figcaption></figure></section><section id="s3"><h2>Що таке ретест і навіщо його чекати</h2><p>Після пробою ціна часто повертається до пройденого рівня — тепер уже з іншого боку. Таке повернення називають <strong>ретестом</strong>. Колишній опір перевіряють як підтримку, а колишню підтримку — як опір.</p><p>Чому так відбувається? Ті, хто продавав від опору, після пробою опинилися в мінусі. Коли ціна повертається до рівня, частина з них закривається «в нуль» — тобто купує, — і це додає покупців саме біля рівня. Плюс ті, хто пропустив пробій, тепер отримують другий шанс за кращою ціною.</p><p>Навіщо чекати ретест, якщо пробій уже відбувся?</p><ul><li><strong>Краща ціна.</strong> Входити на самій вершині імпульсу означає купувати там, де вже купили всі. На ретесті ціна ближча до рівня, і до цілі лишається більше простору.</li><li><strong>Додаткова перевірка.</strong> Якщо на ретесті ціна отримала реакцію від рівня з іншого боку, це підтверджує, що пробій справжній.</li><li><strong>Зрозуміле місце.</strong> Ти знаєш, де саме спостерігати, а не женешся за рухом.</li></ul><p>Водночас ретест <strong>не обов’язковий</strong>. Іноді після сильного пробою ціна просто йде далі, не повертаючись. Я чекаю ретест лише тоді, коли він потрібен конкретній ситуації чи передбачений правилами стратегії. Пропущений рух без ретесту — це нормально: наступна ситуація обов’язково буде.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Опір 100 пробили тілом, ціна повернулася до рівня зверху, отримала реакцію вгору й пішла далі." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<line x1="44.6" x2="44.6" y1="268.5" y2="312.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="30.8" y="275.4" width="27.5" height="26.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="93.8" x2="93.8" y1="214.1" y2="283.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="80.0" y="233.2" width="27.5" height="42.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="142.9" x2="142.9" y1="217.1" y2="262.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="129.1" y="233.2" width="27.5" height="23.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="192.1" x2="192.1" y1="212.2" y2="263.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="178.3" y="229.4" width="27.5" height="26.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="241.2" x2="241.2" y1="164.2" y2="233.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="227.5" y="171.9" width="27.5" height="57.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="290.4" x2="290.4" y1="125.1" y2="178.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="276.6" y="141.2" width="27.5" height="30.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="339.6" x2="339.6" y1="134.3" y2="174.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="325.8" y="141.2" width="27.5" height="23.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="388.8" x2="388.8" y1="160.4" y2="214.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="375.0" y="164.2" width="27.5" height="28.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="437.9" x2="437.9" y1="144.3" y2="199.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="424.1" y="160.4" width="27.5" height="32.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="487.1" x2="487.1" y1="119.0" y2="170.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="473.3" y="125.9" width="27.5" height="34.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="536.2" x2="536.2" y1="83.7" y2="139.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="522.5" y="95.2" width="27.5" height="30.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="585.4" x2="585.4" y1="63.8" y2="101.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="571.6" y="79.9" width="27.5" height="15.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="20.0" x2="610.0" y1="210.2" y2="210.2" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="241.2" cy="164.2" r="6" fill="none" stroke="#3fe0a0" stroke-width="2"/>
+<circle cx="388.8" cy="214.1" r="6" fill="none" stroke="#ffc85c" stroke-width="2"/>
+<rect x="618.0" y="195.2" width="73.7" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="215.7" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">рівень</text>
+<rect x="204.4" y="85.2" width="73.7" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="213.4" y="105.7" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">пробій</text>
+<rect x="351.9" y="221.1" width="73.7" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="360.9" y="241.6" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">ретест</text>
+</svg><figcaption>Опір 100 пробили тілом, ціна повернулася до рівня зверху, отримала реакцію вгору й пішла далі.</figcaption></figure></section><section id="s4"><h2>Хибний пробій: як його розпізнати</h2><p><strong>Хибний пробій</strong> — ситуація, коли ціна вийшла за рівень, але не змогла там утриматися й повернулася назад у попередній діапазон. Ті, хто увійшов на «пробої», опиняються в мінусі, а рух часто різко йде в протилежний бік.</p><p>Навіть закриття тілом за рівнем не гарантує, що пробій справжній. Ось ознаки, які мене насторожують:</p><ul><li><strong>Немає продовження.</strong> Після закриття за рівнем наступні свічки маленькі, з довгими тінями назад до рівня.</li><li><strong>Швидке повернення.</strong> Ціна вже за одну-дві свічки знову закривається з протилежного боку рівня.</li><li><strong>Пробій проти загального напрямку.</strong> Вихід угору в сильному низхідному русі старшого таймфрейму частіше виявляється хибним.</li><li><strong>Глобальний рівень.</strong> Біля сильних рівнів зі старшого графіка ціна часто «проколює» межу, знімає стопи й повертається в діапазон.</li></ul><p>Звідси правило: якщо ціна повернулася назад і не продовжила рух, ми отримали приклад хибного пробою — і план «на продовження» скасовується. Не треба сидіти й чекати, що «зараз піде». Факт змінився — змінюється й рішення.</p><p class="warn">Хибний пробій сам по собі теж може стати ситуацією для аналізу, але вже в протилежний бік. Важливо не перевертати угоду на емоціях, а оцінити нову картину спокійно.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Свічка закрилася вище 100, але продовження не було: ціна повернулася в діапазон — пробій виявився хибним." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="374.0" y="118.7" width="236.0" height="193.6" fill="#ff6b8a" fill-opacity=".16" stroke="#ff6b8a" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<line x1="49.5" x2="49.5" y1="157.4" y2="246.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="33.0" y="167.8" width="33.0" height="63.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="108.5" x2="108.5" y1="118.7" y2="179.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="92.0" y="133.1" width="33.0" height="34.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="167.5" x2="167.5" y1="108.8" y2="205.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="151.0" y="133.1" width="33.0" height="63.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="226.5" x2="226.5" y1="140.0" y2="211.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="210.0" y="150.4" width="33.0" height="46.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="285.5" x2="285.5" y1="69.5" y2="162.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="269.0" y="86.9" width="33.0" height="63.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="344.5" x2="344.5" y1="63.8" y2="115.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="328.0" y="86.9" width="33.0" height="17.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="403.5" x2="403.5" y1="98.4" y2="179.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="387.0" y="104.2" width="33.0" height="63.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="462.5" x2="462.5" y1="150.4" y2="246.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="446.0" y="167.8" width="33.0" height="57.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="521.5" x2="521.5" y1="201.3" y2="275.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="505.0" y="225.6" width="33.0" height="40.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="580.5" x2="580.5" y1="255.6" y2="304.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="564.0" y="266.0" width="33.0" height="23.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="20.0" x2="610.0" y1="115.8" y2="115.8" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="285.5" cy="69.5" r="6" fill="none" stroke="#ffc85c" stroke-width="2"/>
+<rect x="378.0" y="315.2" width="158.8" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="387.0" y="335.7" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">назад у діапазон</text>
+<rect x="610.9" y="100.8" width="103.1" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="619.9" y="121.3" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">рівень 100</text>
+<rect x="218.1" y="18.5" width="134.8" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="227.1" y="39.0" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">закриття вище</text>
+</svg><figcaption>Свічка закрилася вище 100, але продовження не було: ціна повернулася в діапазон — пробій виявився хибним.</figcaption></figure></section><section id="s5"><h2>Як входити після пробою: покрокова логіка</h2><p>Ось послідовність, якої я тримаюся, коли працюю на продовження після пробою.</p><ol><li><strong>Контекст.</strong> Куди рухається ціна на старшому таймфреймі? Пробій за напрямком загального руху я розглядаю. Пробій проти нього — здебільшого пропускаю.</li><li><strong>Зона інтересу.</strong> Який рівень пробито? Помітний рівень із кількома реакціями важить більше, ніж випадковий локальний максимум.</li><li><strong>Факт пробою.</strong> Свічка закрилася тілом за рівнем. Тінь не рахується.</li><li><strong>Локальне підтвердження.</strong> На молодшому таймфреймі чекаю, щоб ціна закріпилася тілом за локальним максимумом або мінімумом у потрібному напрямку. Якщо правила вимагають ретесту — чекаю його і реакції від рівня.</li><li><strong>Простір до цілі.</strong> До наступного рівня має залишатися достатньо відстані.</li></ol><h3>Підтискання до рівня</h3><p>Корисна підготовча ознака — <strong>підтискання</strong>. Ціна кілька разів підходить до опору, але кожен відкат від нього стає меншим: мінімуми ростуть, реакції вниз слабшають. Це підготовка сценарію пробою, але ще не сам пробій. Умова виконана лише після закриття тілом вище рівня.</p><p>Кожен наступний вхід у тому самому напрямку — це нова ситуація. Якщо перша угода закрилася в мінус, це не привід одразу її «повторити». Для нового входу знову потрібні факт і підтвердження.</p></section><section id="s6"><h2>Скільки чекати після пробою і що таке накопичення</h2><p>Часте запитання: скільки свічок можна чекати ретест після пробою? Фіксованого ліміту я не задаю. Усе залежить від таймфрейму, від того, наскільки далеко ціна відійшла від рівня, і від загальної картини. Якщо після пробою ціна вже пройшла більшу частину шляху до цілі, ретест може й не знадобитися — ситуація просто вичерпалася.</p><p>Зверни увагу на те, що відбувається <strong>перед</strong> пробоєм. Сильні пробої часто виростають з <strong>накопичення</strong> — періоду, коли ціна довго ходить у вузькому діапазоні під рівнем. Свічки маленькі, рух затихає, а потім ціна різко виходить з діапазону. Чим довше тривало накопичення, тим помітнішим зазвичай буває вихід із нього.</p><p>Ще одна деталь — <strong>геп</strong>, розрив між закриттям однієї свічки й відкриттям наступної. Іноді після закриття за рівнем наступна свічка відкривається вже далі в напрямку пробою. Геп я враховую, коли оцінюю ціну входу, але він не замінює ні факту пробою, ні перевірки контексту.</p></section><section id="s7"><h2>Простір до цілі: не наздоганяй рух</h2><p>Найчастіша причина мінусів після справжнього пробою — вхід надто пізно. Ціна пробила рівень, пройшла сильну свічку, потім ще одну, і лише тоді новачок вирішує: «Напрямок правильний, заходжу». Але більша частина руху вже позаду.</p><p>Тому перед входом я відповідаю собі на три запитання:</p><ul><li>Де я очікую продовження і чому?</li><li>Яка найближча <strong>ціль</strong> — попередній максимум для руху вгору чи попередній мінімум для руху вниз?</li><li>Чи вистачить часу угоди, щоб ціна дійшла до цілі, з урахуванням можливої корекції по дорозі?</li></ul><p>Якщо ціль уже майже досягнута, простору для угоди немає, навіть якщо напрямок «правильний». А ще біля цілі ціна часто йде на корекцію — і вхід на самій вершині імпульсу потрапляє якраз під неї.</p><p>Ціллю часто стає скупчення близьких максимумів або мінімумів: там стоять стопи, і ціна охоче туди йде. Про це — у статті <a href="/statti/likvidnist/">Ліквідність: де стоять стопи і навіщо ціна туди йде</a>. А як обирати масштаб для пошуку цілей і підтверджень, розібрано в статті <a href="/statti/top-down-analiz/">Аналіз з кількох таймфреймів (top-down)</a>.</p><p class="note">Пропущений вхід — не втрата і не помилка. Втрата — це угода, яку ти відкрив, бо боявся пропустити рух. На графіку щодня з’являються нові пробої.</p></section>
+<section id="mistakes"><h2>Типові помилки новачків</h2><ul class="mist"><li>Вважати пробоєм вихід тіні за рівень, хоча свічка закрилася з іншого боку.</li><li>Входити до закриття свічки, «поки не пішло».</li><li>Наздоганяти рух після кількох великих свічок, коли до цілі вже майже не лишилося простору.</li><li>Торгувати пробій проти загального напрямку старшого таймфрейму.</li><li>Залишатися в ідеї «на продовження», коли ціна вже повернулася в діапазон.</li></ul></section>
+<section id="quiz"><h2>Перевір себе</h2><div class="quiz"><details><summary>Що вважати фактом пробою рівня?</summary><p>Закриття свічки тілом за рівнем. Якщо за межу вийшла лише тінь, а свічка закрилася з іншого боку, пробою як факту немає.</p></details><details><summary>Що таке ретест?</summary><p>Повернення ціни до пробитого рівня з іншого боку: колишній опір перевіряють як підтримку, а колишню підтримку — як опір.</p></details><details><summary>Як зрозуміти, що пробій хибний?</summary><p>Після закриття за рівнем немає продовження, і ціна швидко повертається назад у попередній діапазон. Тоді план на продовження скасовується.</p></details></div></section>
+<aside class="cta">
+<div><h2>Хочеш розібратися глибше?</h2><p>Цю тему ми детально розбираємо в безкоштовному навчанні «Трейдинг з нуля» — урок 30. А в Telegram-спільноті — розбори на живому ринку й відповіді на питання.</p></div>
+<div class="cta-b"><a class="btn btn-primary" href="https://learn.moontrade.community/">Безкоштовне навчання</a><a class="btn btn-ghost" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Telegram-спільнота</a></div>
+</aside>
+<section class="related"><h2>Далі за темою</h2><div class="rels"><a class="rel" href="/statti/rivni-pidtrymky-i-oporu/"><b>Рівні підтримки й опору: як їх знаходити на графіку</b><span>Що таке рівні підтримки й опору, чому ціна від них реагує, як знайти й намалювати рівень за три кроки та оціни…</span></a><a class="rel" href="/statti/top-down-analiz/"><b>Аналіз з кількох таймфреймів (top-down)</b><span>Top-down аналіз простими словами: як поєднувати старший і молодший таймфрейми, знаходити напрямок і зону інтер…</span></a><a class="rel" href="/statti/likvidnist/"><b>Ліквідність: де стоять стопи і навіщо ціна туди йде</b><span>Що таке ліквідність у трейдингу простими словами: де стоять стопи, що таке BSL і SSL, рівні максимуми та знятт…</span></a></div></section>
+<p class="risk">Матеріал має освітній характер і не є інвестиційною порадою. Торгівля на фінансових ринках пов’язана з високим ризиком втрати коштів. Приклади на схемах навчальні.</p>
+</main>
+<footer class="wrap foot"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="28" height="28">MoonTrade</a><span>© 2026 MoonTrade</span></footer>
+</body>
+</html>

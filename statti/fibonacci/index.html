@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Фібоначчі: як дочекатися кращої ціни — MoonTrade</title>
+<meta name="description" content="Як будувати сітку Фібоначчі: від якої точки тягнути, які рівні важливі, що таке область 0,236–0,382 і як не пропустити вхід. Схеми й приклади українською.">
+<link rel="canonical" href="https://moontrade.community/statti/fibonacci/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0d0a1f">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="MoonTrade">
+<meta property="og:title" content="Фібоначчі в трейдингу: як дочекатися кращої ціни">
+<meta property="og:description" content="Як будувати сітку Фібоначчі: від якої точки тягнути, які рівні важливі, що таке область 0,236–0,382 і як не пропустити вхід. Схеми й приклади українською.">
+<meta property="og:url" content="https://moontrade.community/statti/fibonacci/">
+<meta property="og:image" content="https://moontrade.community/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Фібоначчі в трейдингу: як дочекатися кращої ціни", "description": "Як будувати сітку Фібоначчі: від якої точки тягнути, які рівні важливі, що таке область 0,236–0,382 і як не пропустити вхід. Схеми й приклади українською.", "inLanguage": "uk", "mainEntityOfPage": "https://moontrade.community/statti/fibonacci/", "datePublished": "2026-10-10", "dateModified": "2026-10-10", "author": {"@type": "Organization", "name": "MoonTrade", "url": "https://moontrade.community/"}, "publisher": {"@type": "Organization", "name": "MoonTrade", "logo": {"@type": "ImageObject", "url": "https://moontrade.community/assets/logo.jpg"}}, "image": "https://moontrade.community/assets/og.jpg"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Від якої точки до якої будувати Фібоначчі при зростанні?", "acceptedAnswer": {"@type": "Answer", "text": "Від останнього мінімуму до нового максимуму імпульсу. При падінні — від останнього максимуму до нового мінімуму."}}, {"@type": "Question", "name": "Ціна виросла зі 100 до 120. Де область 0,236–0,382, якщо 0 на старті руху?", "acceptedAnswer": {"@type": "Answer", "text": "Від 104,72 до 107,64 — нижче середини руху (110)."}}, {"@type": "Question", "name": "Що робити, якщо ціна не дійшла до області Фібоначчі?", "acceptedAnswer": {"@type": "Answer", "text": "Нічого: входу немає. Сітку не переносимо й рух не наздоганяємо — чекаємо наступну ситуацію."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "MoonTrade", "item": "https://moontrade.community/"}, {"@type": "ListItem", "position": 2, "name": "Фібоначчі в трейдингу: як дочекатися кращої ціни", "item": "https://moontrade.community/statti/fibonacci/"}]}]}</script>
+<style>:root{--night:#0d0a1f;--deep:#151032;--line:#2c2554;--moon:#cdbdff;--violet:#8b5cf6;--violet-2:#6d3df0;--ink:#f1ecff;--muted:#a99fcc;--mint:#3fe0a0;--rose:#ff6b8a;--amber:#ffc85c;--display:"Unbounded",system-ui,sans-serif;--body:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font:400 18px/1.75 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--moon)}
+:focus-visible{outline:2px solid var(--moon);outline-offset:3px;border-radius:6px}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+.top{position:sticky;top:0;z-index:10;background:rgba(13,10,31,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{max-width:1080px;display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:700 17px/1 var(--display)}
+.brand img{border-radius:9px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 16px/1 var(--body);text-decoration:none;padding:16px 22px;border-radius:999px;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff;box-shadow:0 10px 30px rgba(109,61,240,.35)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn-sm{padding:10px 16px;font-size:14px}
+.art{padding-top:28px;padding-bottom:40px}
+.crumbs{font-size:14px;color:var(--muted)}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs span{margin:0 4px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.01em;line-height:1.2;margin:0}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:700;margin:16px 0 18px}
+h2{font-size:clamp(21px,2.6vw,27px);font-weight:700;margin:52px 0 16px}
+h3{font-size:19px;font-weight:500;margin:28px 0 10px}
+p{margin:0 0 16px}
+.lead{font-size:20px;color:var(--ink);padding:18px 20px;border-left:3px solid var(--violet);background:linear-gradient(90deg,rgba(139,92,246,.12),transparent);border-radius:0 12px 12px 0}
+.toc{margin:28px 0 8px;padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:var(--deep);font-size:16px}
+.toc b{display:block;margin-bottom:6px}
+.toc ol{margin:0;padding-left:20px}
+.toc a{color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--ink)}
+ul,ol{padding-left:22px}
+li{margin-bottom:8px}
+strong{color:#fff}
+.note{padding:14px 18px;border-radius:14px;background:rgba(63,224,160,.08);border:1px solid rgba(63,224,160,.3);font-size:16.5px}
+.warn{padding:14px 18px;border-radius:14px;background:rgba(255,107,138,.08);border:1px solid rgba(255,107,138,.3);font-size:16.5px}
+table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:16px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--moon);font-weight:700}
+.fig{margin:22px 0 26px}
+.fig svg{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.fig figcaption{color:var(--muted);font-size:15px;margin-top:10px}
+.mist{list-style:none;padding:0}
+.mist li{position:relative;padding:12px 16px 12px 40px;border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.mist li::before{content:"";position:absolute;left:16px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--rose);box-shadow:0 0 10px rgba(255,107,138,.6)}
+.quiz details{border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.quiz summary{cursor:pointer;list-style:none;padding:14px 46px 14px 18px;font-weight:700;position:relative}
+.quiz summary::-webkit-details-marker{display:none}
+.quiz summary::after{content:"+";position:absolute;right:16px;top:9px;font:500 24px/1 var(--display);color:var(--moon)}
+.quiz details[open] summary::after{content:"−"}
+.quiz details p{padding:0 18px 14px;margin:0;color:var(--muted)}
+.cta{margin:56px 0 10px;padding:30px;border-radius:24px;border:1px solid var(--line);background:radial-gradient(circle at 92% 10%,rgba(205,189,255,.2),transparent 45%),linear-gradient(135deg,#251a5a,#151032);display:grid;gap:18px}
+.cta h2{margin:0 0 8px;font-size:22px}
+.cta p{color:var(--muted);margin:0}
+.cta-b{display:flex;flex-wrap:wrap;gap:10px}
+.related h2{font-size:20px;margin-top:44px}
+.rels{display:grid;gap:12px}
+.rel{display:block;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:var(--deep);text-decoration:none;color:var(--ink)}
+.rel b{display:block;margin-bottom:4px}
+.rel span{color:var(--muted);font-size:15px}
+.rel:hover{border-color:var(--moon)}
+.risk{margin-top:40px;color:var(--muted);font-size:13.5px;line-height:1.6}
+.foot{display:flex;justify-content:space-between;align-items:center;padding:30px 22px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);max-width:800px}
+@media (max-width:600px){.fig{margin-left:-14px;margin-right:-14px}.fig svg{border-radius:12px}.fig figcaption{padding:0 14px}body{font-size:17px}.lead{font-size:18px}.cta{padding:22px}.btn{width:100%}.top .btn{width:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="32" height="32">MoonTrade</a>
+<a class="btn btn-primary btn-sm" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Долучитися</a></div></header>
+<main class="wrap art">
+<nav class="crumbs" aria-label="Навігація"><a href="/">MoonTrade</a> <span>/</span> <span>Статті</span></nav>
+<h1>Фібоначчі в трейдингу: як дочекатися кращої ціни</h1>
+<p class="lead">Сітка Фібоначчі — це лінійка, яку натягують на один імпульс, щоб заздалегідь побачити, куди може відкотитися ціна. Будують її від початку до кінця руху після того, як визначили структуру. Я чекаю відкат в область 0,236–0,382 (якщо 0 стоїть на початку руху): там ціна вигідніша, ніж на вершині імпульсу.</p>
+<nav class="toc" aria-label="Зміст"><b>У статті</b><ol><li><a href="#s1">Що таке сітка Фібоначчі і навіщо вона трейдеру</a></li><li><a href="#s2">Від якої точки до якої тягнути Фібоначчі</a></li><li><a href="#s3">Які рівні важливі і що таке область 0,236–0,382</a></li><li><a href="#s4">Як порахувати рівні Фібоначчі: приклад</a></li><li><a href="#s5">Фібоначчі при падінні</a></li><li><a href="#s6">Два способи працювати з областю Фібоначчі</a></li><li><a href="#s7">Краща ціна може не настати — і це нормально</a></li><li><a href="#mistakes">Типові помилки</a></li><li><a href="#quiz">Перевір себе</a></li></ol></nav>
+<section id="s1"><h2>Що таке сітка Фібоначчі і навіщо вона трейдеру</h2><p>Ситуація знайома кожному: ціна вже сильно зросла, ти хочеш працювати за цим рухом, але входити на самій вершині страшно і невигідно. Логічно дочекатися відкату. Питання — куди саме?</p><p>Сітка Фібоначчі (Fibonacci retracement) відповідає на це питання. Ти позначаєш початок і кінець імпульсу, а інструмент сам ділить цю відстань на частини за коефіцієнтами: <strong>0,236, 0,382, 0,5, 0,618, 0,786</strong>. Коефіцієнти походять із послідовності Фібоначчі (1, 1, 2, 3, 5, 8, 13…), де відношення сусідніх чисел наближається до 0,618. Рівень 0,5 до цієї послідовності не належить, але його додають, бо половина руху — природний орієнтир.</p><p>Важливо розуміти, чим сітка є, а чим — ні:</p><ul><li>Вона <strong>є</strong> лінійкою, яка показує, наскільки глибоко відкотилася ціна відносно останнього руху.</li><li>Вона <strong>не є</strong> магічними рівнями, від яких ринок «зобов’язаний» розвернутися. Числа самі по собі не створюють угоди.</li></ul><p>Чому ж тоді ціна так часто реагує біля цих рівнів? Пояснень кілька, і жодне не містить містики. По-перше, сітку бачать тисячі трейдерів, і чимало з них чекають ціну в тих самих місцях — тому заявки там справді накопичуються. По-друге, відкат на третину чи дві третини руху — природна поведінка ринку: після сильного імпульсу частина учасників фіксує прибуток, а нові покупці чекають вигіднішої ціни. Фібоначчі просто дає цим відкатам зручну шкалу.</p><p>Фібоначчі добре працює саме як спосіб дисципліни: замість того, щоб наздоганяти ціну, ти заздалегідь вирішуєш, де тобі цікаво, і чекаєш.</p></section><section id="s2"><h2>Від якої точки до якої тягнути Фібоначчі</h2><p>Найчастіша проблема новачків — сітка намальована, числа на графіку є, але незрозуміло, до якого руху вони стосуються. Тому порядок у мене завжди однаковий: <strong>спочатку структура, потім сітка</strong>.</p><ol><li>Визначаю <a href="/statti/struktura-rynku/">структуру ринку</a>: висхідна, низхідна чи діапазон.</li><li>Знаходжу останній завершений імпульс у напрямку структури.</li><li>Натягую сітку на цей імпульс.</li></ol><ul><li><strong>При зростанні</strong> — від останнього мінімуму до нового максимуму.</li><li><strong>При падінні</strong> — від останнього максимуму до нового мінімуму.</li></ul><p>Точки беру за крайніми значеннями руху — максимумом і мінімумом свічок, з яких імпульс почався і де закінчився. Якщо імпульс ще триває й оновлює вершину, сітку доведеться перетягнути: поки рух не завершився, рано говорити про відкат.</p><p>Ще одне питання — який імпульс брати. На графіку завжди є рухи різного масштабу: великий денний, середній годинний і дрібні хвилинні. Сітка на кожному з них дасть свої рівні. Я беру імпульс, помітний на тому таймфреймі, де визначаю структуру, а дрібні коливання всередині нього ігнорую. Якщо сумніваєшся, чи це імпульс, — віддали графік: справжній імпульс видно без лупи, він вибивається з попередніх свічок розміром і швидкістю.</p><p class="note">В інструментах малювання обирай саме лінії (рівні) Фібоначчі, а не віяло, дуги чи часові зони — це інші інструменти з іншою логікою.</p></section><section id="s3"><h2>Які рівні важливі і що таке область 0,236–0,382</h2><p>Тут є момент, який плутає багатьох. Сітку можна орієнтувати двома способами, і від цього числа біля тих самих цін будуть різні.</p><ul><li><strong>Як я налаштовую:</strong> 0 — на початку руху, 1 — у кінці. Тоді малі числа (0,236, 0,382) лежать близько до старту імпульсу, тобто це <strong>глибокий</strong> відкат.</li><li><strong>Класична орієнтація у багатьох терміналах:</strong> 0 — на вершині, 1 — на початку. Там рахують, на скільки ціна відкотилася від кінця руху.</li></ul><p>Обидва варіанти показують ті самі ціни, просто підписи «дзеркальні»: моя область 0,236–0,382 відповідає класичним 0,618–0,764. Головне — один раз обрати орієнтацію і не змінювати її, інакше легко помилитися на ровному місці.</p><p>У своєму підході я чекаю ціну в області <strong>0,236–0,382</strong>. Загалом зоною інтересу для мене є все, що глибше за середину руху (0,5), але саме ця область — компроміс між кращою ціною і шансом, що відкат туди взагалі дійде.</p><table><tr><th>Мій рівень (0 на старті)</th><th>Класичний рівень</th><th>Який це відкат</th></tr><tr><td>0,786</td><td>0,236</td><td>Неглибокий</td></tr><tr><td>0,618</td><td>0,382</td><td>Помірний</td></tr><tr><td>0,5</td><td>0,5</td><td>Половина руху</td></tr><tr><td>0,382</td><td>0,618</td><td>Глибокий</td></tr><tr><td>0,236</td><td>0,764</td><td>Дуже глибокий</td></tr></table></section><section id="s4"><h2>Як порахувати рівні Фібоначчі: приклад</h2><p>Порахуймо вручну, щоб не було відчуття магії. Ціна виросла зі <strong>100</strong> до <strong>120</strong>. Розмір руху — 20. Ставимо 0 на 100, 1 на 120. Кожен рівень — це 100 плюс відповідна частка руху.</p><table><tr><th>Рівень</th><th>Розрахунок</th><th>Ціна</th></tr><tr><td>0</td><td>100 + 0 × 20</td><td>100</td></tr><tr><td>0,236</td><td>100 + 0,236 × 20</td><td>104,72</td></tr><tr><td>0,382</td><td>100 + 0,382 × 20</td><td>107,64</td></tr><tr><td>0,5</td><td>100 + 0,5 × 20</td><td>110</td></tr><tr><td>0,618</td><td>100 + 0,618 × 20</td><td>112,36</td></tr><tr><td>1</td><td>100 + 1 × 20</td><td>120</td></tr></table><p>Отже, область, яку я чекаю, — від 104,72 до 107,64. Вона лежить нижче середини зростання (110). Купувати на 106 після руху до 120 — суттєво краща ціна, ніж на 119.</p><p>Сітка в терміналі рахує все автоматично, але один раз пройти розрахунок руками корисно: так зрозуміло, що Фібоначчі — це просто пропорції останнього руху.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Сітка від мінімуму 100 до максимуму 120: 0 на початку руху, 1 у кінці. Відкат дійшов в область 0,236–0,382." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="315.0" y="217.3" width="295.0" height="36.3" fill="#3fe0a0" fill-opacity=".16" stroke="#3fe0a0" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<polyline points="64.2,312.2 300.2,63.8" fill="none" stroke="#ffc85c" stroke-width="2" stroke-opacity=".75" stroke-linejoin="round"/>
+<line x1="34.8" x2="34.8" y1="291.1" y2="301.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="26.5" y="292.9" width="16.5" height="4.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="64.2" x2="64.2" y1="293.1" y2="312.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="56.0" y="297.3" width="16.5" height="7.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="93.8" x2="93.8" y1="275.5" y2="309.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="85.5" y="277.5" width="16.5" height="27.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="123.2" x2="123.2" y1="240.1" y2="281.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="115.0" y="245.2" width="16.5" height="32.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="152.8" x2="152.8" y1="206.9" y2="247.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="144.5" y="210.4" width="16.5" height="34.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="182.2" x2="182.2" y1="179.7" y2="213.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="174.0" y="180.5" width="16.5" height="29.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="211.8" x2="211.8" y1="141.8" y2="181.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="203.5" y="145.8" width="16.5" height="34.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="241.2" x2="241.2" y1="108.5" y2="147.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="233.0" y="113.5" width="16.5" height="32.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="270.8" x2="270.8" y1="81.5" y2="114.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="262.5" y="83.6" width="16.5" height="29.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="300.2" x2="300.2" y1="63.8" y2="88.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="292.0" y="71.2" width="16.5" height="12.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="329.8" x2="329.8" y1="65.7" y2="93.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="321.5" y="71.2" width="16.5" height="18.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="359.2" x2="359.2" y1="88.7" y2="121.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="351.0" y="89.8" width="16.5" height="28.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="388.8" x2="388.8" y1="114.9" y2="149.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="380.5" y="118.4" width="16.5" height="29.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="418.2" x2="418.2" y1="142.4" y2="185.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="410.0" y="148.2" width="16.5" height="34.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="447.8" x2="447.8" y1="181.3" y2="217.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="439.5" y="183.0" width="16.5" height="29.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="477.2" x2="477.2" y1="211.2" y2="237.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="469.0" y="212.8" width="16.5" height="17.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="506.8" x2="506.8" y1="204.6" y2="234.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="498.5" y="207.9" width="16.5" height="22.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="536.2" x2="536.2" y1="170.4" y2="211.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="528.0" y="173.1" width="16.5" height="34.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="565.8" x2="565.8" y1="136.4" y2="174.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="557.5" y="138.3" width="16.5" height="34.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="595.2" x2="595.2" y1="98.2" y2="140.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="587.0" y="103.5" width="16.5" height="34.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="285.5" x2="610.0" y1="63.8" y2="63.8" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="49.5" x2="610.0" y1="188.0" y2="188.0" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="49.5" x2="610.0" y1="312.2" y2="312.2" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<rect x="319.0" y="256.6" width="112.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="328.0" y="277.1" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0,236–0,382</text>
+<rect x="618.0" y="48.8" width="23.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="69.3" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">1</text>
+<rect x="618.0" y="173.0" width="42.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="193.5" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0,5</text>
+<rect x="618.0" y="297.2" width="27.3" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="317.7" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0</text>
+</svg><figcaption>Сітка від мінімуму 100 до максимуму 120: 0 на початку руху, 1 у кінці. Відкат дійшов в область 0,236–0,382.</figcaption></figure></section><section id="s5"><h2>Фібоначчі при падінні</h2><p>При низхідній структурі побудова дзеркальна. Тягнемо сітку від останнього максимуму до нового мінімуму: 0 — на максимумі, 1 — на мінімумі.</p><p>Наприклад, ціна впала зі 120 до 100. Тоді 0,236 — це 115,28, 0,382 — 112,36, а середина руху — 110. Область інтересу тепер лежить <strong>вище</strong> середини падіння: туди ціна може відскочити, перш ніж продовжити рух униз.</p><p>Логіка та сама, що й при зростанні: дочекатися, поки ціна сама прийде у вигідне місце, а не продавати на самому дні після сильного падіння, коли відскок може початися будь-якої миті.</p><p>Зверни увагу на асиметрію, яку часто видно на графіку: падіння нерідко бувають різкішими за зростання, а відскоки після них — коротшими. Тому при низхідній структурі ціна іноді розвертається вже біля середини руху й не доходить до глибокої області. Це не причина змінювати правила, але привід уважніше дивитися на контекст: на сусідні <a href="/statti/rivni-pidtrymky-i-oporu/">рівні опору</a> і на те, наскільки сильним був сам імпульс.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="При падінні — дзеркально: 0 на максимумі 120, 1 на мінімумі 100. Область 0,236–0,382 лежить вище середини руху." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="315.0" y="122.4" width="295.0" height="36.3" fill="#ff6b8a" fill-opacity=".16" stroke="#ff6b8a" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<polyline points="64.2,63.8 300.2,312.2" fill="none" stroke="#ffc85c" stroke-width="2" stroke-opacity=".75" stroke-linejoin="round"/>
+<line x1="34.8" x2="34.8" y1="72.8" y2="84.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="26.5" y="78.7" width="16.5" height="4.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="64.2" x2="64.2" y1="63.8" y2="84.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="56.0" y="71.2" width="16.5" height="7.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="93.8" x2="93.8" y1="69.3" y2="100.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="85.5" y="71.2" width="16.5" height="27.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="123.2" x2="123.2" y1="94.2" y2="133.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="115.0" y="98.5" width="16.5" height="32.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="152.8" x2="152.8" y1="125.4" y2="167.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="144.5" y="130.8" width="16.5" height="34.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="182.2" x2="182.2" y1="159.8" y2="198.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="174.0" y="165.6" width="16.5" height="29.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="211.8" x2="211.8" y1="191.5" y2="236.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="203.5" y="195.5" width="16.5" height="34.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="241.2" x2="241.2" y1="225.8" y2="268.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="233.0" y="230.2" width="16.5" height="32.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="270.8" x2="270.8" y1="257.9" y2="293.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="262.5" y="262.5" width="16.5" height="29.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="300.2" x2="300.2" y1="286.9" y2="312.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="292.0" y="292.4" width="16.5" height="12.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="329.8" x2="329.8" y1="283.7" y2="306.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="321.5" y="286.2" width="16.5" height="18.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="359.2" x2="359.2" y1="252.2" y2="290.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="351.0" y="257.6" width="16.5" height="28.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="388.8" x2="388.8" y1="221.9" y2="262.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="380.5" y="227.8" width="16.5" height="29.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="418.2" x2="418.2" y1="187.1" y2="231.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="410.0" y="193.0" width="16.5" height="34.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="447.8" x2="447.8" y1="158.6" y2="197.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="439.5" y="163.2" width="16.5" height="29.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="477.2" x2="477.2" y1="138.3" y2="169.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="469.0" y="145.8" width="16.5" height="17.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="506.8" x2="506.8" y1="143.3" y2="173.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="498.5" y="145.8" width="16.5" height="22.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="536.2" x2="536.2" y1="162.3" y2="207.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="528.0" y="168.1" width="16.5" height="34.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="565.8" x2="565.8" y1="201.3" y2="242.9" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="557.5" y="202.9" width="16.5" height="34.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="595.2" x2="595.2" y1="233.3" y2="274.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="587.0" y="237.7" width="16.5" height="34.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="49.5" x2="610.0" y1="63.8" y2="63.8" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="49.5" x2="610.0" y1="188.0" y2="188.0" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="285.5" x2="610.0" y1="312.2" y2="312.2" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<rect x="319.0" y="147.7" width="112.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="328.0" y="168.2" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0,236–0,382</text>
+<rect x="618.0" y="48.8" width="27.3" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="69.3" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0</text>
+<rect x="618.0" y="173.0" width="42.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="193.5" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0,5</text>
+<rect x="618.0" y="297.2" width="23.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="317.7" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">1</text>
+</svg><figcaption>При падінні — дзеркально: 0 на максимумі 120, 1 на мінімумі 100. Область 0,236–0,382 лежить вище середини руху.</figcaption></figure></section><section id="s6"><h2>Два способи працювати з областю Фібоначчі</h2><p>Область — це місце, де мені цікаво. Але сам дотик ще не означає входу. Я розрізняю два підходи, і це два окремі набори умов.</p><h3>1. Реакція від області</h3><p>Я бачу загальний напрямок і відкат проти нього. Коли ціна доходить до області, розглядаю реакцію за основним напрямком: після відкату вниз в області — рух угору, після відскоку вгору — рух униз. Цей варіант простіший, але й ризикованіший: ти не знаєш, чи зупиниться ціна саме тут.</p><h3>2. Вхід із підтвердженням на молодшому таймфреймі</h3><p>На старшому графіку ціна дійшла до області. Я переходжу на молодший і чекаю, поки там зламається структура корекції в бік старшого руху. Тоді на новому маленькому імпульсі знову будую сітку й чекаю відкат. Так вхід стає точнішим, але частина рухів пройде без мене.</p><p>Для початку я раджу навчитися однаково знаходити точки побудови й саму область — це база. Конкретні варіанти входу, з прикладами на живому графіку, ми розбираємо в навчанні. Фібоначчі особливо корисний разом з іншими зонами інтересу: коли область збігається з <a href="/statti/rivni-pidtrymky-i-oporu/">рівнем</a> чи <a href="/statti/imbalans-fvg/">імбалансом</a>, місце стає вагомішим.</p></section><section id="s7"><h2>Краща ціна може не настати — і це нормально</h2><p>Глибша межа області дає кращу ціну входу. Але чим глибше ти чекаєш, тим частіше ціна розвертається раніше й туди не доходить. Це плата за хорошу ціну, і її треба прийняти заздалегідь.</p><ul><li>Якщо ціна не дійшла до області — <strong>входу немає</strong>. Я не переношу сітку, щоб «підігнати» її під поточну ціну.</li><li>Якщо пропустив момент — не наздоганяю. Буде інший імпульс і інша сітка.</li><li>Якщо ціна пройшла область наскрізь і закрилася тілом за початком руху — структура зламана, сценарій скасовано.</li></ul><p class="warn">Найгірша звичка — після пропущеного руху заходити «хоч кудись», бо шкода впущеної можливості. Саме такі входи найчастіше виявляються на вершині перед відкатом.</p><p>Пропущені рухи — нормальна частина роботи з Фібоначчі. Ти обмінюєш кількість угод на якість ціни. Записуй у журнал, скільки разів ціна доходила до області, а скільки ні: за кілька тижнів побачиш, як це працює саме на твоїх активах і таймфреймах.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Відкат зупинився вище середини руху й не дійшов до області. Входу немає — ціна пішла далі без нас." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="315.0" y="231.5" width="295.0" height="30.8" fill="#3fe0a0" fill-opacity=".16" stroke="#3fe0a0" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<polyline points="64.2,312.2 300.2,100.9" fill="none" stroke="#ffc85c" stroke-width="2" stroke-opacity=".75" stroke-linejoin="round"/>
+<line x1="34.8" x2="34.8" y1="292.0" y2="303.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="26.5" y="295.8" width="16.5" height="3.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="64.2" x2="64.2" y1="295.9" y2="312.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="56.0" y="299.6" width="16.5" height="6.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="93.8" x2="93.8" y1="280.0" y2="308.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="85.5" y="282.7" width="16.5" height="23.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="123.2" x2="123.2" y1="252.8" y2="283.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="115.0" y="255.2" width="16.5" height="27.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="152.8" x2="152.8" y1="224.3" y2="257.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="144.5" y="225.6" width="16.5" height="29.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="182.2" x2="182.2" y1="198.9" y2="227.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="174.0" y="200.3" width="16.5" height="25.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="211.8" x2="211.8" y1="169.9" y2="201.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="203.5" y="170.7" width="16.5" height="29.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="241.2" x2="241.2" y1="140.1" y2="172.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="233.0" y="143.2" width="16.5" height="27.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="270.8" x2="270.8" y1="115.4" y2="146.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="262.5" y="117.8" width="16.5" height="25.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="300.2" x2="300.2" y1="100.9" y2="118.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="292.0" y="107.3" width="16.5" height="10.6" rx="1.5" fill="#3fe0a0"/>
+<line x1="329.8" x2="329.8" y1="104.0" y2="122.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="321.5" y="107.3" width="16.5" height="12.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="359.2" x2="359.2" y1="117.1" y2="135.4" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="351.0" y="120.0" width="16.5" height="12.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="388.8" x2="388.8" y1="128.7" y2="147.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="380.5" y="132.6" width="16.5" height="12.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="418.2" x2="418.2" y1="142.0" y2="157.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="410.0" y="145.3" width="16.5" height="10.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="447.8" x2="447.8" y1="153.3" y2="163.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="439.5" y="155.9" width="16.5" height="3.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="477.2" x2="477.2" y1="142.6" y2="160.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="469.0" y="144.3" width="16.5" height="14.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="506.8" x2="506.8" y1="126.2" y2="147.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="498.5" y="128.4" width="16.5" height="15.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="536.2" x2="536.2" y1="106.8" y2="130.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="528.0" y="109.4" width="16.5" height="19.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="565.8" x2="565.8" y1="81.2" y2="110.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="557.5" y="84.0" width="16.5" height="25.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="595.2" x2="595.2" y1="63.8" y2="85.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="587.0" y="65.0" width="16.5" height="19.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="49.5" x2="610.0" y1="206.6" y2="206.6" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="49.5" x2="610.0" y1="312.2" y2="312.2" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="447.8" cy="163.3" r="6" fill="none" stroke="#ffc85c" stroke-width="2"/>
+<rect x="319.0" y="265.4" width="112.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="328.0" y="285.9" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0,236–0,382</text>
+<rect x="618.0" y="191.6" width="42.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="212.1" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0,5</text>
+<rect x="618.0" y="297.2" width="27.3" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="317.7" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0</text>
+<rect x="398.9" y="170.3" width="97.7" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="407.9" y="190.8" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">не дійшла</text>
+</svg><figcaption>Відкат зупинився вище середини руху й не дійшов до області. Входу немає — ціна пішла далі без нас.</figcaption></figure></section>
+<section id="mistakes"><h2>Типові помилки новачків</h2><ul class="mist"><li>Будувати сітку без визначеної структури — числа є, а до якого руху вони стосуються, незрозуміло.</li><li>Тягнути сітку на незавершений імпульс, який ще оновлює вершину.</li><li>Змішувати орієнтації: в одному місці 0 на старті, в іншому — на вершині, і плутати глибокий відкат із неглибоким.</li><li>Входити на першому дотику до рівня без перевірки контексту й реакції ціни.</li><li>Переносити сітку, коли ціна не дійшла до області, щоб усе одно відкрити угоду.</li></ul></section>
+<section id="quiz"><h2>Перевір себе</h2><div class="quiz"><details><summary>Від якої точки до якої будувати Фібоначчі при зростанні?</summary><p>Від останнього мінімуму до нового максимуму імпульсу. При падінні — від останнього максимуму до нового мінімуму.</p></details><details><summary>Ціна виросла зі 100 до 120. Де область 0,236–0,382, якщо 0 на старті руху?</summary><p>Від 104,72 до 107,64 — нижче середини руху (110).</p></details><details><summary>Що робити, якщо ціна не дійшла до області Фібоначчі?</summary><p>Нічого: входу немає. Сітку не переносимо й рух не наздоганяємо — чекаємо наступну ситуацію.</p></details></div></section>
+<aside class="cta">
+<div><h2>Хочеш розібратися глибше?</h2><p>Цю тему ми детально розбираємо в безкоштовному навчанні «Трейдинг з нуля» — урок 26. А в Telegram-спільноті — розбори на живому ринку й відповіді на питання.</p></div>
+<div class="cta-b"><a class="btn btn-primary" href="https://learn.moontrade.community/">Безкоштовне навчання</a><a class="btn btn-ghost" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Telegram-спільнота</a></div>
+</aside>
+<section class="related"><h2>Далі за темою</h2><div class="rels"><a class="rel" href="/statti/struktura-rynku/"><b>Структура ринку: тренд, HH/HL і злам простими словами</b><span>Що таке структура ринку, як читати HH, HL, LH, LL, відрізнити тренд від діапазону і корекцію від зламу. Покрок…</span></a><a class="rel" href="/statti/top-down-analiz/"><b>Аналіз з кількох таймфреймів (top-down)</b><span>Top-down аналіз простими словами: як поєднувати старший і молодший таймфрейми, знаходити напрямок і зону інтер…</span></a><a class="rel" href="/statti/imbalans-fvg/"><b>Імбаланс (FVG): що це за зона після різкого руху</b><span>Що таке імбаланс і FVG (Fair Value Gap) простими словами: як знайти його за трьома свічками, чому ціна поверта…</span></a></div></section>
+<p class="risk">Матеріал має освітній характер і не є інвестиційною порадою. Торгівля на фінансових ринках пов’язана з високим ризиком втрати коштів. Приклади на схемах навчальні.</p>
+</main>
+<footer class="wrap foot"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="28" height="28">MoonTrade</a><span>© 2026 MoonTrade</span></footer>
+</body>
+</html>
