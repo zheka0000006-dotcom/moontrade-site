@@ -151,12 +151,12 @@ p{margin:0 0 14px}
 .tile .go{margin-top:auto;padding-top:14px;color:var(--moon);font-weight:700}
 .tile.t-learn{grid-column:span 3;grid-row:span 2;background:radial-gradient(circle at 90% 8%,rgba(205,189,255,.22),transparent 45%),linear-gradient(150deg,#271c5e,#151032)}
 .tile.t-learn .num{font:700 clamp(64px,8vw,104px)/1 var(--display);color:var(--moon);letter-spacing:-.04em;margin:6px 0 4px}
-.tile.t-live,.tile.t-mod,.tile.t-bot{grid-column:span 3}
-.tile.t-news,.tile.t-cheat,.tile.t-help{grid-column:span 2}
+.tile.t-live,.tile.t-live2,.tile.t-mod,.tile.t-bot{grid-column:span 3}
+.tile.t-help{grid-column:span 6}
 a.tile:hover{border-color:rgba(205,189,255,.5)}
 .chip{align-self:flex-start;font-size:12.5px;font-weight:700;color:var(--moon);background:rgba(139,92,246,.16);border-radius:999px;padding:5px 10px}
 .know{margin-top:48px;font:600 clamp(20px,2.2vw,26px)/1.3 var(--display);color:var(--moon)}
-@media (max-width:900px){.bento{grid-template-columns:1fr}.tile.t-learn,.tile.t-live,.tile.t-mod,.tile.t-bot,.tile.t-news,.tile.t-cheat,.tile.t-help{grid-column:auto;grid-row:auto}}
+@media (max-width:900px){.bento{grid-template-columns:1fr}.tile.t-learn,.tile.t-live,.tile.t-live2,.tile.t-mod,.tile.t-bot,.tile.t-news,.tile.t-cheat,.tile.t-help{grid-column:auto;grid-row:auto}}
 
 /* pains */
 .pains{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px}
@@ -196,6 +196,21 @@ a.tile:hover{border-color:rgba(205,189,255,.5)}
 .msg .k{font-weight:800;color:var(--moon)}
 .chart{margin:8px 0 2px;border-radius:10px;background:#120d2b;padding:8px;width:100%}
 @media (max-width:860px){.how{grid-template-columns:1fr;gap:32px}}
+
+/* price logic */
+.logic{display:grid;grid-template-columns:1.35fr 1fr;gap:44px;align-items:center;margin-top:40px}
+.lg-chart{position:relative;aspect-ratio:16/10;border-radius:24px;overflow:hidden;border:1px solid var(--line);
+  background:radial-gradient(circle at 75% 15%,rgba(139,92,246,.22),transparent 55%),radial-gradient(circle at 10% 100%,rgba(109,61,240,.14),transparent 50%),#09071a;box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 0 0 1px rgba(205,189,255,.05)}
+.lg-chart canvas{position:absolute;inset:0;width:100%;height:100%}
+.lg-steps{display:flex;flex-wrap:wrap;gap:8px}
+.lg-steps button{font:700 14px/1 var(--body);color:var(--muted);background:var(--deep);border:1px solid var(--line);border-radius:999px;padding:11px 15px;cursor:pointer;transition:all .2s}
+.lg-steps button.done{color:var(--ink);border-color:rgba(205,189,255,.25)}
+.lg-steps button[aria-selected=true]{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff;border-color:transparent;box-shadow:0 8px 24px rgba(109,61,240,.35)}
+.lg-cap{min-height:3.3em;margin:20px 0 4px;font:500 clamp(18px,1.8vw,21px)/1.45 var(--display);color:var(--ink)}
+.lg-topics{list-style:none;padding:0;margin:18px 0 26px;display:grid;gap:8px}
+.lg-topics li{color:var(--muted);padding-left:22px;position:relative}
+.lg-topics li::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;border-radius:50%;background:var(--moon);box-shadow:0 0 10px rgba(205,189,255,.8)}
+@media (max-width:900px){.logic{grid-template-columns:1fr;gap:28px}.lg-chart{aspect-ratio:4/3}}
 
 /* mod */
 .mod{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:start;margin-top:44px}
@@ -361,12 +376,12 @@ footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
       <a class="pin" href="#youtube" data-lat="-14" data-lon="62"><i></i><span>Ефіри<small>1 000+ у записі</small></span></a>
       <a class="pin" href="#mod" data-lat="30" data-lon="128"><i></i><span>Мод для платформи<small>менше зайвих кліків</small></span></a>
       <a class="pin" href="#bot" data-lat="-26" data-lon="186"><i></i><span>Бот за Боллінджером<small>шукає ситуації за тебе</small></span></a>
-      <a class="pin" href="#team" data-lat="12" data-lon="246"><i></i><span>Розбори в команді<small>чому вхід саме тут</small></span></a>
+      <a class="pin" href="#team" data-lat="12" data-lon="246"><i></i><span>Логіка руху ціни<small>SMC і теханаліз</small></span></a>
       <a class="pin" href="#reviews" data-lat="-30" data-lon="306"><i></i><span>Відгуки<small>що кажуть учасники</small></span></a>
       <p class="stage-hint">Покрути Місяць: на ньому все, що є в MoonTrade</p>
     </div>
     <div class="h-b">
-      <p class="lede">MoonTrade — україномовна спільнота. Торгуємо в прямому ефірі, розбираємо кожну ситуацію в команді і даємо безкоштовне навчання, з яким розбереться кожен.</p>
+      <p class="lede">MoonTrade — україномовна спільнота. Торгуємо в прямому ефірі, розбираємо логіку руху ціни і даємо безкоштовне навчання, з яким розбереться кожен.</p>
       <p class="facts"><b>3+</b> роки каналу, <b>4 600+</b> учасників, <b>1 000+</b> ефірів у записі на YouTube, <b>300+</b> навчальних відео</p>
       <div class="cta">
         <a class="btn btn-primary" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener"><svg class="tg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.3 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.4-1.4ZM8.7 13.9l9.4-5.9c.5-.3.9-.1.5.2l-8 7.3-.3 3.4-1.6-5Z"/></svg>Долучитися в Telegram</a>
@@ -383,11 +398,10 @@ footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
     <p class="lede" style="margin-top:16px">Усе, з чим ми працюємо самі, — відкрито для спільноти.</p>
     <div class="bento">
       <a class="tile t-learn" href="https://learn.moontrade.community/"><span class="chip">Безкоштовно</span><div class="num">42</div><h3>уроки «Трейдинг з нуля»</h3><p>Від платформи й ризик-менеджменту до стратегій, аналізу ринку й психології. Тести після уроків і приклади з наших ефірів. Проходиш у своєму темпі.</p><span class="go">Відкрити навчання</span></a>
-      <a class="tile t-live" href="#youtube"><h3>Торгівля в прямому ефірі</h3><p>Понад 1 000 ефірів у записі: видно кожне рішення — і плюси, і мінуси.</p><span class="go">Дивитися ефіри</span></a>
+      <a class="tile t-live" href="#team"><h3>Логіка руху ціни: SMC і теханаліз</h3><p>Структура, ліквідність, зони інтересу — розбираємо на ефірах і в команді, а не лише стратегії на індикаторах.</p><span class="go">Подивитися розбір</span></a>
       <a class="tile t-mod" href="#mod"><h3>Власний мод для платформи</h3><p>Гортання активів стрілками, фільтр за виплатою, торгівля в команді одним кліком.</p><span class="go">Як працює мод</span></a>
-      <a class="tile t-bot" href="#bot" style="grid-column:span 6"><h3>Бот за Боллінджером</h3><p>Сам шукає ситуації для нашої стратегії й пише, коли свічка закрилася з дотиком. Тобі лишається оцінити ситуацію за правилами.</p><span class="go">Подивитися, як він працює</span></a>
-      <div class="tile t-news"><h3>Торгівля на новинах</h3><p>Економічний календар і розбори конкретних подій.</p></div>
-      <div class="tile t-cheat"><h3>Шпаргалка «69 патернів»</h3><p>Свічки, фігури й Smart Money на одній шпаргалці. <a class="link" href="https://learn.moontrade.community/moontrade-patterns-cheatsheet.pdf" target="_blank" rel="noopener">PDF</a></p></div>
+      <a class="tile t-live2" href="#youtube"><h3>Торгівля в прямому ефірі</h3><p>Понад 1 000 ефірів у записі: видно кожне рішення — і плюси, і мінуси.</p><span class="go">Дивитися ефіри</span></a>
+      <a class="tile t-bot" href="#bot"><h3>Бот за Боллінджером</h3><p>Сам шукає ситуації для нашої стратегії й пише, коли свічка закрилася з дотиком. Тобі лишається оцінити ситуацію за правилами.</p><span class="go">Подивитися, як він працює</span></a>
       <div class="tile t-help"><h3>Підтримка</h3><p>Питання з навчання й торгівлі ставиш напряму — відповідаємо особисто.</p></div>
     </div>
     <p class="know">Впізнаєш себе в одному з пунктів нижче?</p>
@@ -401,7 +415,7 @@ footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
       <div class="pain"><p class="was">Торгуєш на відчуттях</p><p>«Здається, зараз піде вгору» — і кожна угода перетворюється на лотерею. Сьогодні пощастило, завтра ні.</p><p class="now">правила входу й пропуску для кожної стратегії, і пояснення, чому ми входимо саме тут.</p></div>
       <div class="pain"><p class="was">Після мінуса хочеш відігратися</p><p>Збільшуєш суму, заходиш без підтвердження, і за вечір від балансу лишається половина.</p><p class="now">ризик-менеджмент: заздалегідь знаєш, скільки під ризиком і коли зупинитися.</p></div>
       <div class="pain"><p class="was">Купував сигнали чи курси</p><p>Гроші витрачено на «секретні стратегії», а системи як не було, так і немає.</p><p class="now">безкоштовне навчання з нуля і розбір кожної ситуації — без продажу будь-чого.</p></div>
-      <div class="pain"><p class="was">Сам на сам із графіком</p><p>Дивишся відео, читаєш статті, але спитати нікого, і помилки повторюються.</p><p class="now">команда поруч: розбори в лайві й відповіді на твої питання.</p></div>
+      <div class="pain"><p class="was">Не розумієш, чому ціна рухається</p><p>Бачиш свічки, але не бачиш логіки: куди ціна йде і навіщо. Тому кожен рух — несподіванка.</p><p class="now">логіка руху ціни простою мовою: структура, ліквідність, зони інтересу — на прикладах з ефірів, а питання ставиш напряму.</p></div>
     </div>
     <div class="pains-end"><p>Якщо впізнав себе хоч в одному пункті — MoonTrade створений саме для цього.</p><a class="btn btn-primary" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Долучитися безкоштовно</a></div>
   </div>
@@ -416,41 +430,30 @@ footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
         <h3>Я тільки починаю</h3><p>Хочу розібратися з основами: як працює платформа, що таке ризик і як читати графік.</p><span class="go">Почати з першого уроку</span></a>
       <a href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">
         <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="22" fill="#cdbdff"/><circle cx="21" cy="22" r="4" fill="#a48ef0"/><circle cx="34" cy="33" r="5" fill="#a48ef0"/></svg>
-        <h3>Я вже торгую</h3><p>Хочу системності: розбори в команді, стратегії на індикаторах і SMC, мод і бот.</p><span class="go">Перейти в Telegram</span></a>
+        <h3>Я вже торгую</h3><p>Хочу системності: розбори в команді, стратегії, мод і бот.</p><span class="go">Перейти в Telegram</span></a>
     </div>
   </div>
 </section>
 
 <section class="sec" id="team" aria-labelledby="team-h">
-  <div class="wrap how">
-    <div>
-      <h2 id="team-h">Не просто вхід — зрозумілий розбір</h2>
-      <p class="lede" style="margin-top:16px">У команді ми вчимося на кожній ситуації. Ось як виглядає розбір:</p>
-      <ul class="steps-plain">
-        <li><b>Контекст</b><span>Де ціна відносно рівнів і структури, що було перед цим.</span></li>
-        <li><b>Що спостерігаємо</b><span>Чи є реакція в зоні, чи збігаються ознаки стратегії.</span></li>
-        <li><b>Рішення</b><span>Вхід лише з підтвердженням. Немає підтвердження — пропускаємо, і це теж урок.</span></li>
-      </ul>
-      <p class="note">Рішення завжди приймаєш ти: за своїми правилами й зі своїм ризиком.</p>
-    </div>
-    <div class="feed" aria-label="Приклад розбору в команді">
-      <div class="feed-h"><img src="assets/logo.jpg" alt="" width="40" height="40"><div><b>MoonTrade · команда</b><span>розбір ситуації</span></div></div>
-      <div class="msg"><span class="k">Контекст.</span> EUR/USD знімає мінімум і повертається до зони інтересу.<small>13:08</small></div>
-      <div class="msg"><span class="k">Спостерігаємо.</span> Свічка закрилася назад над рівнем — це наше підтвердження.
-        <svg class="chart" viewBox="0 0 280 90" role="img" aria-label="Схематичний графік: після зняття мінімуму свічки повертаються вгору">
-          <line x1="0" y1="62" x2="280" y2="62" stroke="#3fe0a0" stroke-dasharray="4 4" opacity=".6"/>
-          <g stroke-width="2">
-            <line x1="24" y1="22" x2="24" y2="50" stroke="#ff6b8a"/><rect x="18" y="28" width="12" height="16" fill="#ff6b8a"/>
-            <line x1="54" y1="34" x2="54" y2="62" stroke="#ff6b8a"/><rect x="48" y="38" width="12" height="18" fill="#ff6b8a"/>
-            <line x1="84" y1="44" x2="84" y2="80" stroke="#ff6b8a"/><rect x="78" y="50" width="12" height="14" fill="#ff6b8a"/>
-            <line x1="114" y1="48" x2="114" y2="84" stroke="#3fe0a0"/><rect x="108" y="52" width="12" height="12" fill="#3fe0a0"/>
-            <line x1="144" y1="36" x2="144" y2="62" stroke="#3fe0a0"/><rect x="138" y="40" width="12" height="18" fill="#3fe0a0"/>
-            <line x1="174" y1="24" x2="174" y2="48" stroke="#3fe0a0"/><rect x="168" y="28" width="12" height="16" fill="#3fe0a0"/>
-            <line x1="204" y1="14" x2="204" y2="36" stroke="#3fe0a0"/><rect x="198" y="18" width="12" height="14" fill="#3fe0a0"/>
-          </g>
-          <circle cx="114" cy="80" r="9" fill="none" stroke="#cdbdff" stroke-width="2"/>
-        </svg><small>13:11</small></div>
-      <div class="msg"><span class="k">Пропускаємо.</span> GBP/JPY: рівень пробито, але без закріплення. Чекаємо — краще пропустити, ніж вгадувати.<small>13:15</small></div>
+  <div class="wrap">
+    <h2 id="team-h">Торгуємо й розбираємо логіку руху ціни</h2>
+    <p class="lede" style="margin-top:16px">Стратегії на індикаторах — лише частина. Основа всього — розуміти, чому ціна рухається саме так: структура, ліквідність, зони інтересу. Smart Money Concepts і технічний аналіз простою мовою — на ефірах, у команді й у навчанні.</p>
+    <div class="logic">
+      <div class="lg-chart" id="logic"><canvas role="img" aria-label="Анімований розбір: низхідна структура, зняття ліквідності під рівними мінімумами, злам структури, повернення в імбаланс і вхід із підтвердженням"></canvas></div>
+      <div class="lg-side">
+        <div class="lg-steps" role="tablist" aria-label="Кроки розбору">
+          <button type="button" role="tab" aria-selected="true">Структура</button>
+          <button type="button" role="tab" aria-selected="false">Ліквідність</button>
+          <button type="button" role="tab" aria-selected="false">Злам</button>
+          <button type="button" role="tab" aria-selected="false">Зона інтересу</button>
+          <button type="button" role="tab" aria-selected="false">Сценарій</button>
+        </div>
+        <p class="lg-cap" id="lg-cap" aria-live="polite"></p>
+        <ul class="lg-topics"><li>Структура ринку: BOS і CHoCH</li><li>Ліквідність і де стоять стопи</li><li>Order Block та імбаланс (FVG)</li><li>Рівні, Фібоначчі, аналіз з кількох таймфреймів</li></ul>
+        <div class="cta"><a class="btn btn-primary" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Розбори щодня — у Telegram</a><a class="btn btn-ghost" href="https://learn.moontrade.community/">Вчитися з нуля</a></div>
+        <p class="note">Приклад навчальний. Рішення завжди приймаєш ти: за своїми правилами й зі своїм ризиком.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -487,7 +490,7 @@ footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
 
 <section class="sec" id="bot" aria-labelledby="bot-h">
   <div class="wrap">
-    <h2 id="bot-h">Бот і стратегія, на якій він побудований</h2>
+    <h2 id="bot-h">Бот для однієї з наших стратегій</h2>
     <div class="bot">
       <div class="persp"><div class="bb-demo" id="bb-demo" role="img" aria-label="Анімований графік зі смугами Боллінджера: коли свічка закривається за смугою, бот надсилає сповіщення"><canvas></canvas><div class="bb-toast" aria-hidden="true"></div></div></div>
       <div>
@@ -628,6 +631,7 @@ footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
 
 <script src="assets/moon.js" defer></script>
 <script src="assets/bb.js" defer></script>
+<script src="assets/logic.js" defer></script>
 <script>
 (function(){
   // mod demo: assets come pre-sorted by payout; the threshold makes the arrows skip what isn't interesting
