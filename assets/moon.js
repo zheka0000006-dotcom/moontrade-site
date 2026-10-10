@@ -70,10 +70,31 @@
   var N = 54, candles = [], v = 0;
   for (var k = 0; k < N; k++) { var d = (rnd() - 0.46) * 1.0; v += d; candles.push({ up: d > 0, body: 0.35 + Math.abs(d) * 0.9, wick: 0.25 + rnd() * 0.5 }); }
   var bctx = backC.getContext('2d'), fctx = frontC.getContext('2d');
+  var pins = [].slice.call(stage.querySelectorAll('.pin')).map(function (el) {
+    var la = +el.getAttribute('data-lat') * Math.PI / 180, lo = +el.getAttribute('data-lon') * Math.PI / 180;
+    return { el: el, d: [Math.cos(la) * Math.sin(lo), Math.sin(la), Math.cos(la) * Math.cos(lo)] };
+  });
+  var hoverPin = false;
+  pins.forEach(function (p) {
+    p.el.addEventListener('pointerenter', function () { hoverPin = true; });
+    p.el.addEventListener('pointerleave', function () { hoverPin = false; });
+    p.el.addEventListener('focus', function () { hoverPin = true; });
+    p.el.addEventListener('blur', function () { hoverPin = false; });
+    p.el.addEventListener('pointerdown', function (e) { e.stopPropagation(); });
+  });
+  function placePins(m) {
+    for (var i = 0; i < pins.length; i++) {
+      var d = pins[i].d, vx = m[0] * d[0] + m[1] * d[1] + m[2] * d[2], vy = m[3] * d[0] + m[4] * d[1] + m[5] * d[2], vz = m[6] * d[0] + m[7] * d[1] + m[8] * d[2];
+      var a = Math.max(0, Math.min(1, (vz - 0.12) / 0.35)), el = pins[i].el;
+      el.style.transform = 'translate(' + (cx + vx * r * 0.96).toFixed(1) + 'px,' + (cy - vy * r * 0.96).toFixed(1) + 'px)';
+      el.style.opacity = a.toFixed(2); el.style.zIndex = Math.round(10 + vz * 10);
+      el.classList.toggle('front', vz > 0.55); el.tabIndex = a > 0.3 ? 0 : -1; el.style.pointerEvents = a > 0.3 ? 'auto' : 'none';
+    }
+  }
 
   // ---------- state ----------
   var W = 0, H = 0, dpr = 1, r = 100, cx = 0, cy = 0;
-  var yaw = 0.6, pitch = -0.18, vyaw = 0.09, ringSpin = 0, dragging = false, lx = 0, ly = 0, visible = true;
+  var yaw = 0.25, pitch = -0.12, vyaw = 0.16, ringSpin = 0, dragging = false, lx = 0, ly = 0, visible = true;
 
   function resize() {
     var b = stage.getBoundingClientRect(); dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -120,14 +141,15 @@
       gl.uniformMatrix3fv(uRot, false, rotMat(yaw, pitch));
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     }
+    placePins(rotMat(yaw, pitch));
     drawRing(bctx, false); drawRing(fctx, true);
   }
 
   var last = 0;
   function loop(t) {
     var dt = Math.min(0.05, (t - last) / 1000 || 0); last = t;
-    if (!dragging) { yaw += vyaw * dt; vyaw += (0.09 - vyaw) * Math.min(1, dt * 0.8); }
-    ringSpin += dt * 0.16;
+    if (!dragging && !hoverPin) { yaw += vyaw * dt; vyaw += (0.16 - vyaw) * Math.min(1, dt * 0.8); }
+    if (!hoverPin) ringSpin += dt * 0.16;
     draw();
     if (visible && !reduce) requestAnimationFrame(loop); else running = false;
   }
