@@ -12,21 +12,38 @@
     { upto: 19, cap: 'Під рівними мінімумами стоять стопи. Ціна знімає їх і різко повертається.' },
     { upto: 24, cap: 'Імпульс ламає останній максимум — структура змінюється на висхідну.' },
     { upto: 30, cap: 'Після імпульсу лишився імбаланс. Ціна повертається в цю зону.' },
-    { upto: 40, cap: 'Вхід лише з підтвердженням: стоп за зоною, ціль — ліквідність над максимумом.' }
+    { upto: 40, cap: 'Вхід угору лише з підтвердженням, на час експірації. Ціль — ліквідність над максимумом. Закриття під зоною — інвалідація ідеї.' }
   ];
   var LO = 88.6, HI = 101.4, W, H, dpr, step = 0, shown = 0, target = 18, fade = 1, auto = true, pauseUntil = 0, timer = 0;
 
   function size() { var b = cv.getBoundingClientRect(); dpr = Math.min(2, devicePixelRatio || 1); W = Math.max(1, b.width); H = Math.max(1, b.height); cv.width = W * dpr; cv.height = H * dpr; }
   function X(i) { var L = 18, R = W - 70; return L + (i + 0.5) * (R - L) / K.length; }
   function Y(v) { var T = 22, B = H - 22; return B - (v - LO) / (HI - LO) * (B - T); }
-  function pill(text, x, y, col, align) {
+  var Q = [];
+  function pill(text, x, y, col, align) { Q.push({ t: text, x: x, y: y, c: col, al: align, a: ctx.globalAlpha }); }
+  function hit(r, s) { return r.x < s.x + s.w && s.x < r.x + r.w && r.y < s.y + s.h && s.y < r.y + r.h; }
+  function flushPills(boxes) {
+    var placed = [];
     ctx.font = '700 ' + (W < 520 ? 11 : 12.5) + 'px Manrope, system-ui, sans-serif';
-    var w = ctx.measureText(text).width + 18, h = W < 520 ? 22 : 25;
-    if (align === 'r') x -= w; if (align === 'c') x -= w / 2;
-    x = Math.max(4, Math.min(W - w - 4, x));
-    ctx.fillStyle = 'rgba(13,10,31,.92)'; ctx.strokeStyle = col; ctx.lineWidth = 1.2;
-    ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y - h / 2, w, h, 8); else ctx.rect(x, y - h / 2, w, h); ctx.fill(); ctx.stroke();
-    ctx.fillStyle = col; ctx.textBaseline = 'middle'; ctx.fillText(text, x + 9, y + 0.5);
+    Q.forEach(function (p) {
+      var w = ctx.measureText(p.t).width + 18, h = W < 520 ? 22 : 25, x = p.x;
+      if (p.al === 'r') x -= w; if (p.al === 'c') x -= w / 2;
+      x = Math.max(4, Math.min(W - w - 4, x));
+      var best = null, offs = [0, 12, -12, 24, -24, 36, -36, 48, -48, 62, -62];
+      for (var k = 0; k < offs.length; k++) {
+        var r = { x: x - 3, y: p.y + offs[k] - h / 2 - 3, w: w + 6, h: h + 6 };
+        if (r.y < 2 || r.y + r.h > H - 2) continue;
+        var bad = boxes.some(function (b) { return hit(r, b); }) || placed.some(function (b) { return hit(r, b); });
+        if (!bad) { best = offs[k]; break; }
+      }
+      if (best === null) best = 0;
+      var y = p.y + best; placed.push({ x: x - 3, y: y - h / 2 - 3, w: w + 6, h: h + 6 });
+      ctx.save(); ctx.globalAlpha = p.a;
+      ctx.fillStyle = 'rgba(13,10,31,.94)'; ctx.strokeStyle = p.c; ctx.lineWidth = 1.2;
+      ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y - h / 2, w, h, 8); else ctx.rect(x, y - h / 2, w, h); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = p.c; ctx.textBaseline = 'middle'; ctx.fillText(p.t, x + 9, y + 0.5); ctx.restore();
+    });
+    Q = [];
   }
   function hline(v, i0, i1, col, dash) { ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = 1.6; ctx.setLineDash(dash || []); ctx.beginPath(); ctx.moveTo(X(i0), Y(v)); ctx.lineTo(X(i1), Y(v)); ctx.stroke(); ctx.restore(); }
   function burst(x, y, a) {
@@ -50,13 +67,12 @@
       ctx.strokeStyle = 'rgba(205,189,255,.55)'; ctx.setLineDash([5, 4]); ctx.strokeRect(X(20), Y(95.2), X(40) - X(20), Y(93.35) - Y(95.2)); ctx.restore();
     }
     if (step >= 4) {
-      ctx.save(); ctx.globalAlpha = a;
-      ctx.fillStyle = 'rgba(63,224,160,.14)'; ctx.fillRect(X(30.5), Y(98.12), X(40.5) - X(30.5), Y(94.3) - Y(98.12));
-      ctx.fillStyle = 'rgba(255,107,138,.16)'; ctx.fillRect(X(30.5), Y(94.3), X(40.5) - X(30.5), Y(92.9) - Y(94.3));
-      ctx.restore();
+      ctx.save(); ctx.globalAlpha = a * 0.9;
+      var eg = ctx.createLinearGradient(0, 18, 0, H - 18); eg.addColorStop(0, 'rgba(205,189,255,.0)'); eg.addColorStop(0.5, 'rgba(205,189,255,.10)'); eg.addColorStop(1, 'rgba(205,189,255,.0)');
+      ctx.fillStyle = eg; ctx.fillRect(X(30.5), 18, X(35.5) - X(30.5), H - 36); ctx.restore();
     }
     // candles
-    var bw = Math.max(3, (W - 88) / K.length * 0.56);
+    var bw = Math.max(3, (W - 88) / K.length * 0.56), boxes = [];
     for (var i = 0; i < K.length; i++) {
       if (i > shown + 1) break;
       var c = K[i], up = c[3] >= c[0], col = up ? '#3fe0a0' : '#ff6b8a', x = X(i);
@@ -66,6 +82,7 @@
       ctx.beginPath(); ctx.moveTo(x, Y(c[1])); ctx.lineTo(x, Y(c[2])); ctx.stroke();
       var y1 = Y(Math.max(c[0], c[3])), y2 = Y(Math.min(c[0], c[3]));
       ctx.fillRect(x - bw / 2, y1, bw, Math.max(1.5, y2 - y1)); ctx.restore();
+      boxes.push({ x: x - bw / 2 - 2, y: Y(c[1]) - 2, w: bw + 4, h: Y(c[2]) - Y(c[1]) + 4 });
     }
     // overlays per step
     if (step === 0 || step >= 0) {
@@ -77,23 +94,34 @@
     if (step >= 1) {
       ctx.save(); ctx.globalAlpha = step === 1 ? a : 0.45;
       hline(91.0, 10.5, 24, '#ffc85c', [6, 5]);
-      if (step === 1) { pill('стопи під рівними мінімумами', X(5), Y(91.0) + 24, '#ffc85c'); burst(X(19), Y(89.4), a); pill('зняли ліквідність', X(19) + 14, Y(89.4) + 4, '#ffffff'); }
+      if (step === 1) { pill(W < 520 ? 'стопи під мінімумами' : 'стопи під рівними мінімумами', X(3), Y(91.0) + 24, '#ffc85c'); burst(X(19), Y(89.4), a); pill('зняли ліквідність', X(19) + 14, Y(89.4) + 4, '#ffffff'); }
       ctx.restore();
     }
     if (step >= 2) {
       ctx.save(); ctx.globalAlpha = step === 2 ? a : 0.45;
       hline(94.71, 14, 25, '#cdbdff');
-      if (step === 2) { burst(X(21), Y(94.71), a); pill('злам структури (CHoCH)', X(14), Y(94.71) - 22, '#cdbdff'); }
+      if (step === 2) { burst(X(21), Y(94.71), a); pill(W < 520 ? 'злам (CHoCH)' : 'злам структури (CHoCH)', X(7), Y(94.71) - 22, '#cdbdff'); }
       ctx.restore();
     }
-    if (step === 3) { ctx.save(); ctx.globalAlpha = a; pill('імбаланс (FVG) — зона інтересу', X(31), Y(93.35) + 22, '#cdbdff', 'c'); ctx.restore(); }
+    if (step === 3) { ctx.save(); ctx.globalAlpha = a; pill(W < 520 ? 'імбаланс (FVG)' : 'імбаланс (FVG) — зона інтересу', X(32), Y(93.35) + 24, '#cdbdff', 'c'); ctx.restore(); }
     if (step >= 4) {
       ctx.save(); ctx.globalAlpha = a;
-      hline(98.12, 30.5, 40.5, '#3fe0a0'); hline(94.3, 30.5, 40.5, '#ffffff', [4, 4]); hline(92.9, 30.5, 40.5, '#ff6b8a');
-      pill('ціль', X(40.5) + 6, Y(98.12), '#3fe0a0'); pill('вхід', X(40.5) + 6, Y(94.3), '#ffffff'); pill('стоп', X(40.5) + 6, Y(92.9), '#ff6b8a');
-      pill('підтвердження', X(31), Y(95.45) - 22, '#3fe0a0', 'c');
+      hline(98.12, 23, 40.5, '#3fe0a0', [6, 5]);
+      hline(93.35, 20, 40.5, '#ff6b8a', [3, 5]);
+      // entry: circle on the confirmation candle + arrow up
+      var ex = X(31), ey = Y(K[31][3]);
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(ex, ey, 8, 0, 7); ctx.stroke();
+      var ly = Y(92.15); ctx.beginPath(); ctx.moveTo(ex, ly - 12); ctx.lineTo(ex, ey + 12); ctx.moveTo(ex - 5, ey + 18); ctx.lineTo(ex, ey + 12); ctx.lineTo(ex + 5, ey + 18); ctx.stroke();
+      // expiration bracket under the window
+      var by = Y(90.2);
+      ctx.strokeStyle = '#cdbdff'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X(30.5), by - 6); ctx.lineTo(X(30.5), by); ctx.lineTo(X(35.5), by); ctx.lineTo(X(35.5), by - 6); ctx.stroke();
+      pill('експірація', (X(30.5) + X(35.5)) / 2, by + 16, '#cdbdff', 'c');
+      pill('вхід угору', ex, ly, '#ffffff', 'c');
+      pill('ціль — ліквідність', X(23), Y(98.12) - 18, '#3fe0a0');
+      pill(W < 520 ? 'інвалідація' : 'інвалідація ідеї', X(36.2), Y(93.35) + 18, '#ff6b8a');
       ctx.restore();
     }
+    flushPills(boxes);
   }
 
   function setStep(n, user) {

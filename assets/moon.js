@@ -83,12 +83,15 @@
     p.el.addEventListener('pointerdown', function (e) { e.stopPropagation(); });
   });
   function placePins(m) {
+    var lead = -1, best = 0.45;
+    for (var j = 0; j < pins.length; j++) { var dd = pins[j].d, z = m[6] * dd[0] + m[7] * dd[1] + m[8] * dd[2]; if (z > best) { best = z; lead = j; } }
     for (var i = 0; i < pins.length; i++) {
+      pins[i].el.classList.toggle('lead', i === lead);
       var d = pins[i].d, vx = m[0] * d[0] + m[1] * d[1] + m[2] * d[2], vy = m[3] * d[0] + m[4] * d[1] + m[5] * d[2], vz = m[6] * d[0] + m[7] * d[1] + m[8] * d[2];
       var a = Math.max(0, Math.min(1, (vz - 0.12) / 0.35)), el = pins[i].el;
       el.style.transform = 'translate(' + (cx + vx * r * 0.96).toFixed(1) + 'px,' + (cy - vy * r * 0.96).toFixed(1) + 'px)';
       el.style.opacity = a.toFixed(2); el.style.zIndex = Math.round(10 + vz * 10);
-      el.classList.toggle('front', vz > 0.55); el.tabIndex = a > 0.3 ? 0 : -1; el.style.pointerEvents = a > 0.3 ? 'auto' : 'none';
+      el.classList.toggle('front', vz > 0.55); var px = cx + vx * r * 0.96, sw = pins[i].w || (pins[i].w = el.lastElementChild.offsetWidth); el.classList.toggle('flip', px + 14 + sw > W - 6 && px - 14 - sw > 6); el.tabIndex = a > 0.3 ? 0 : -1; el.style.pointerEvents = a > 0.3 ? 'auto' : 'none';
     }
   }
 
@@ -101,6 +104,7 @@
     W = Math.max(1, Math.round(b.width)); H = Math.max(1, Math.round(b.height));
     [glc, backC, frontC].forEach(function (c) { c.width = W * dpr; c.height = H * dpr; c.style.width = W + 'px'; c.style.height = H + 'px'; });
     r = Math.min(W * 0.27, H * 0.33); cx = W / 2; cy = H / 2;
+    if (typeof pins !== 'undefined') pins.forEach(function (p) { p.w = 0; });
     if (gl) gl.viewport(0, 0, W * dpr, H * dpr);
     draw();
   }
@@ -125,7 +129,7 @@
       var c = candles[i], unit = r * 0.15 * s, bw = Math.max(2, r * 0.032 * s);
       var depth = (z2 + R) / (2 * R);
       ctx.globalAlpha = 0.28 + depth * 0.72;
-      var col = c.up ? '#3fe0a0' : '#ff6b8a';
+      var col = c.up ? '#e2d8ff' : '#8b5cf6';
       ctx.fillStyle = col; ctx.strokeStyle = col; ctx.lineWidth = Math.max(1, bw * 0.28);
       var bh = c.body * unit, wh = c.wick * unit;
       ctx.beginPath(); ctx.moveTo(px, py - bh / 2 - wh); ctx.lineTo(px, py + bh / 2 + wh * 0.7); ctx.stroke();
