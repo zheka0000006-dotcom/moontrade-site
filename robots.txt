@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://moontrade.community/sitemap.xml
