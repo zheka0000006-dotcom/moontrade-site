@@ -24,12 +24,21 @@ FIG = {"type":"chart", "caption": "...", "closes":[...], "seed":1, "ohlc":[[o,h,
 import json, os, re, random, html, glob, datetime
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-SITE = '/home/claude/moontrade-site'
+# Де лежить робоча копія сайту і JSON-джерела статей. Можна перевизначити змінними MT_SITE і MT_SRC.
+_REL_SITE = os.path.normpath(os.path.join(ROOT, '..', '..', '1_сайт moontrade.community'))
+_REL_SRC = os.path.normpath(os.path.join(ROOT, '..', '..', '3_статті', 'src'))
+SITE = os.environ.get('MT_SITE') or (_REL_SITE if os.path.isdir(_REL_SITE) else '/home/claude/moontrade-site')
+SRC = os.environ.get('MT_SRC') or (_REL_SRC if os.path.isdir(_REL_SRC) else os.path.join(ROOT, 'src'))
 BASE = 'https://moontrade.community'
 TG = 'https://t.me/+qmdQe3VskkA5OTcy'
 LEARN = 'https://learn.moontrade.community/'
 COL = {'moon': '#cdbdff', 'mint': '#3fe0a0', 'rose': '#ff6b8a', 'amber': '#ffc85c', 'white': '#ffffff', 'violet': '#8b5cf6'}
 TODAY = datetime.date.today().isoformat()
+# Дати для пошуковика не змінюються при кожній збірці.
+# Перша публікація статей — FIRST; змінив статтю — додай у її JSON "modified": "РРРР-ММ-ДД".
+# Змінив головну, risk або privacy — онови PAGES_MODIFIED.
+FIRST = '2026-10-10'
+PAGES_MODIFIED = '2026-10-10'
 
 def esc(t): return html.escape(t, quote=True)
 
@@ -141,7 +150,7 @@ def page(a, all_meta):
     faq = [{"@type": "Question", "name": q['q'], "acceptedAnswer": {"@type": "Answer", "text": re.sub('<[^>]+>', '', q['a'])}} for q in a.get('quiz', [])]
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "Article", "headline": a['h1'], "description": a['description'], "inLanguage": "uk", "mainEntityOfPage": url,
-         "datePublished": a.get('date', TODAY), "dateModified": TODAY,
+         "datePublished": a.get('date', FIRST), "dateModified": a.get('modified', a.get('date', FIRST)),
          "author": {"@type": "Organization", "name": "MoonTrade", "url": BASE + '/'},
          "publisher": {"@type": "Organization", "name": "MoonTrade", "logo": {"@type": "ImageObject", "url": BASE + '/assets/logo.jpg'}},
          "image": BASE + '/assets/og.jpg'},
@@ -203,15 +212,15 @@ def page(a, all_meta):
 
 def main():
     arts = []
-    for p in sorted(glob.glob(os.path.join(ROOT, 'src', '*.json'))):
+    for p in sorted(glob.glob(os.path.join(SRC, '*.json'))):
         a = json.load(open(p, encoding='utf-8')); arts.append(a)
     meta = {a['slug']: a for a in arts}
     for a in arts:
         d = os.path.join(SITE, 'statti', a['slug']); os.makedirs(d, exist_ok=True)
         open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page(a, meta))
     # sitemap: keep base pages, add articles
-    base = [(BASE + '/', TODAY), ('https://learn.moontrade.community/', TODAY), (BASE + '/risk.html', TODAY), (BASE + '/privacy.html', TODAY)]
-    urls = base + [(f'{BASE}/statti/{a["slug"]}/', TODAY) for a in arts]
+    base = [(BASE + '/', PAGES_MODIFIED), ('https://learn.moontrade.community/', PAGES_MODIFIED), (BASE + '/risk.html', PAGES_MODIFIED), (BASE + '/privacy.html', PAGES_MODIFIED)]
+    urls = base + [(f'{BASE}/statti/{a["slug"]}/', a.get('modified', a.get('date', FIRST))) for a in arts]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + \
          ''.join(f'<url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in urls) + '</urlset>\n'
     open(os.path.join(SITE, 'sitemap.xml'), 'w', encoding='utf-8').write(sm)
