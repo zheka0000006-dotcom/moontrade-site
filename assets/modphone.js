@@ -144,17 +144,6 @@
     });
   });
 
-  // ---- онлайн (якщо сервер мода дозволить читати лічильник із сайту) ----
-  function online() {
-    if (!window.fetch) return;
-    fetch('https://api.moontrade.it.com/api/stats', { mode: 'cors' }).then(function (r) { return r.json(); }).then(function (j) {
-      var n = j && j.online;
-      if (typeof n !== 'number' || n < 10) return;
-      $('.mp-on span').textContent = n;
-      var o = document.getElementById('mod-online'); if (o) { o.querySelector('b').textContent = n; o.hidden = false; }
-    }).catch(function () {});
-  }
-
   // ---- вкладки Телефон / ПК ----
   document.querySelectorAll('.mtabs button').forEach(function (b) {
     b.addEventListener('click', function () {
@@ -166,7 +155,7 @@
     });
   });
 
-  head(false); draw(); online();
+  head(false); draw();
   addEventListener('resize', draw);
   if ('IntersectionObserver' in window) {
     var started = false;
