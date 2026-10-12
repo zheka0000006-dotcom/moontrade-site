@@ -352,6 +352,75 @@ a.tile:hover{border-color:rgba(205,189,255,.5)}
 @media (max-width:900px){.mp-wrap{grid-template-columns:1fr;gap:30px}}
 @media (max-width:420px){.mp-screen{height:560px}.mp-feat button{padding:14px;grid-template-columns:38px 1fr;gap:12px}.mp-feat i{width:38px;height:38px}}
 
+
+/* mod: PC prototype */
+.pcw{margin-top:34px}
+.pc{border-radius:18px;overflow:hidden;background:#0d0a1f;border:1px solid rgba(205,189,255,.3);box-shadow:0 30px 80px rgba(109,61,240,.3);outline:none;font-family:var(--body)}
+.pc:focus-visible{box-shadow:0 0 0 2px var(--moon),0 30px 80px rgba(109,61,240,.3)}
+.pc-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#151032;border-bottom:1px solid var(--line)}
+.pc-bar .d{width:10px;height:10px;border-radius:50%;background:#3a3166}
+.pc-url{margin-left:10px;font:600 12px var(--body);color:var(--muted);background:#0d0a1f;border:1px solid var(--line);border-radius:8px;padding:4px 12px}
+.pc-app{display:grid;grid-template-columns:1fr 210px;min-height:470px}
+.pc-main{display:flex;flex-direction:column;min-width:0;border-right:1px solid var(--line)}
+.pc-top{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.pc-asset{font:800 22px/1 var(--display);color:var(--ink)}
+.pc-pay{font:800 22px/1 var(--display)}
+.pc-tfs{display:flex;gap:4px;margin-left:8px}
+.pc-tfs button,.pc-tools button,.pc-k{font:700 12px var(--body);color:var(--ink);background:#1c1542;border:1px solid var(--line);border-radius:8px;padding:5px 8px;cursor:pointer}
+.pc-tfs button[aria-pressed=true]{background:var(--violet-2);border-color:transparent}
+.pc-tools{margin-left:auto;display:flex;gap:6px}
+.pc-tools button{width:34px;height:30px;padding:0;font-size:14px}
+.pc .hi{color:var(--mint)}.pc .md{color:var(--amber)}.pc .lo{color:#ff9f6b}.pc .off{color:var(--rose)}
+.pc-chart{position:relative;flex:1 1 auto;min-height:230px}
+.pc-chart canvas{position:absolute;inset:0;width:100%;height:100%}
+.pc-hud{position:absolute;left:14px;top:12px;padding:8px 12px;border-radius:10px;background:#1f1750;border:1px solid rgba(205,189,255,.35);font:700 14px var(--body);color:var(--ink);opacity:0;transform:translateY(-4px);transition:.2s;pointer-events:none}
+.pc-hud.on{opacity:1;transform:none}
+.pc-sheet{position:absolute;right:12px;top:10px;width:230px;display:grid;gap:10px;padding:12px;border-radius:14px;background:#1a1440;border:1px solid rgba(205,189,255,.3);box-shadow:0 16px 40px rgba(0,0,0,.5);font:500 13px var(--body);color:var(--ink);animation:mpIn .2s ease}
+.pc-sheet label{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer}
+.pc-sheet input{width:18px;height:18px;accent-color:var(--violet)}
+.pc-toast{position:absolute;left:50%;bottom:12px;transform:translate(-50%,8px);white-space:nowrap;padding:8px 12px;border-radius:10px;background:var(--mint);color:#06281c;font:700 12px var(--body);opacity:0;transition:.25s;pointer-events:none}
+.pc-toast.on{opacity:1;transform:translate(-50%,0)}
+.pc-under{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:start;padding:10px 14px;border-top:1px solid var(--line);min-height:122px}
+.pc-col{min-width:0;display:grid;gap:6px}
+.pc-h{justify-self:start;font:700 12px var(--body);color:var(--moon);background:none;border:0;padding:0;cursor:pointer}
+.pc-bot,.pc-tr{display:grid;gap:6px}
+.pc-card{position:relative;display:grid;gap:1px;text-align:left;width:100%;font:500 12px/1.3 var(--body);color:var(--ink);background:#151032;border:1px solid var(--line);border-left:3px solid var(--moon);border-radius:10px;padding:6px 26px 6px 10px;cursor:pointer;animation:mpIn .35s ease}
+.pc-card .k{font-weight:700;font-size:11px;color:var(--muted)}.pc-card .as{font-weight:700}.pc-card em{font-style:normal}.pc-card .lk{color:var(--muted);font-size:11px}
+.pc-card .x{position:absolute;right:8px;top:6px;font-style:normal;color:var(--muted);font-size:11px}
+.pc-card.y{border-left-color:var(--amber)}.pc-card.y .k{color:var(--amber)}
+.pc-card.g{border-left-color:var(--mint)}.pc-card.g .k{color:var(--mint)}
+.pc-card.tr{border-left-color:var(--violet)}
+.pc-send{align-self:start;font:800 13px var(--body);color:#fff;background:linear-gradient(135deg,var(--violet-2),var(--violet));border:0;border-radius:10px;padding:10px 14px;cursor:pointer;white-space:nowrap}
+.pc-foot{display:flex;align-items:center;gap:6px;padding:6px 14px 10px;font:700 11px var(--body);color:var(--mint)}
+.pc-foot i{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 8px var(--mint)}
+.pc-side{display:flex;flex-direction:column;gap:14px;padding:14px}
+.pc-trade{display:grid;gap:8px}
+.pc-trade label{display:flex;justify-content:space-between;align-items:center;font:600 12px var(--body);color:var(--muted);background:#151032;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.pc-trade label b{color:var(--ink);display:flex;align-items:center;gap:6px}
+.pc-trade .b,.pc-trade .s{font:800 14px var(--body);color:#fff;border:0;border-radius:10px;padding:12px;cursor:pointer}
+.pc-trade .b{background:#1f9d6a}.pc-trade .s{background:#d23f5c}
+.pc-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:10px;border-radius:12px;background:#151032;border:1px solid var(--line);font:500 11px var(--body);color:var(--muted);text-align:center}
+.pc-stats span{grid-column:1/-1;text-align:left;font-weight:700;color:var(--moon)}
+.pc-stats b{display:block;font:800 14px var(--display);color:var(--ink)}
+.pc-stats.flash{animation:mpPing .6s ease 2}
+.pc-clutter{display:none;flex-wrap:wrap;gap:8px}
+.pc-clutter i{width:30px;height:30px;border-radius:8px;background:#2a2a2e}
+.pc.busy .pc-clutter{display:flex}
+.pc.plain .pc-app{background:#16181d}.pc.plain .pc-send{background:#3a3d46}.pc.plain .pc-card{background:#1e2026}
+.pc-keys{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:16px;color:var(--muted);font-size:14px}
+.pc-keys span{margin-right:4px}
+.pc-keys button{min-width:34px;height:32px;font:700 13px var(--body);color:var(--ink);background:var(--deep);border:1px solid var(--line);border-bottom-width:3px;border-radius:8px;cursor:pointer;transition:transform .1s}
+.pc-keys button.hit{transform:translateY(2px);border-color:var(--moon)}
+.pc-keys small{flex-basis:100%;font-size:13px}
+.pc-feat{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pc-feat button{display:grid;gap:10px;height:100%;text-align:left;font:inherit;color:var(--ink);background:var(--deep);border:1px solid var(--line);border-radius:18px;padding:16px;cursor:pointer;transition:border-color .2s,background .2s}
+.pc-feat button:hover,.pc-feat button.on{border-color:rgba(205,189,255,.45);background:#1a1440}
+.pc-feat i{width:40px;height:40px;display:grid;place-items:center;font-style:normal;border-radius:12px;background:#231a4f}
+.pc-feat b{display:block;margin-bottom:3px}.pc-feat span{color:var(--muted);font-size:14px}
+@media (max-width:900px){.pc-feat{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.pc-app{grid-template-columns:1fr}.pc-main{border-right:0}.pc-side{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr}.pc-under{grid-template-columns:1fr}.pc-send{justify-self:start}.pc-asset,.pc-pay{font-size:17px}.pc-tfs{margin-left:0}.pc-chart{min-height:200px}}
+@media (max-width:480px){.pc-side{grid-template-columns:1fr}.pc-feat{grid-template-columns:1fr}}
+
 /* bot & strategy */
 .bot{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;margin-top:44px}
 .persp{perspective:1100px}
@@ -566,7 +635,7 @@ footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
   <div class="wrap">
     <span class="eyebrow-mod">Мод MoonTrade · безкоштовно</span>
     <h2 id="mod-h">Торгувати з телефону — нарешті зручно</h2>
-    <p class="lede" style="margin-top:16px">Без мода торгувати з телефону — мука: дрібні кнопки, актив шукаєш у довгому списку, а меню закривають графік. Мод додає панель під палець, і телефон стає повноцінним робочим місцем. На ПК теж працює.</p>
+    <p class="lede" style="margin-top:16px">Без мода торгувати з телефону — мука: дрібні кнопки, актив шукаєш у довгому списку, а меню закривають графік. Мод додає панель під палець, і телефон стає повноцінним робочим місцем. На ПК — усе з клавіатури.</p>
     <div class="mtabs" role="tablist" aria-label="Пристрій"><button type="button" role="tab" data-v="ph" aria-selected="true">📱 Телефон</button><button type="button" role="tab" data-v="pc" aria-selected="false">💻 ПК</button></div>
     <div class="mp-wrap" id="mod-ph">
       <div class="mp" id="mp">
@@ -610,23 +679,46 @@ footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
         </ul>
       </div>
     </div>
-    <div class="mod" id="mod-pc" hidden>
-      <div class="term" id="term">
-        <div class="term-bar"><b>Активи</b>
-          <label class="minpay">мін. виплата <select id="minpay"><option value="0">будь-яка</option><option value="70">70%</option><option value="80" selected>80%</option><option value="85">85%</option></select></label>
-          <div class="seg" role="group" aria-label="Фільтр активів">
-            <button type="button" data-f="all" aria-pressed="true">Усі</button><button type="button" data-f="otc" aria-pressed="false">OTC</button><button type="button" data-f="ex" aria-pressed="false">Біржові</button>
+    <div class="pcw" id="mod-pc" hidden>
+      <div class="pc" id="mpc" tabindex="0" aria-label="Демо мода на ПК: клацни і користуйся клавішами">
+        <div class="pc-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="pc-url">платформа · торгівля</span></div>
+        <div class="pc-app">
+          <div class="pc-main">
+            <div class="pc-top"><span class="pc-asset"></span><span class="pc-pay"></span>
+              <span class="pc-tfs"><button type="button" data-tfk="1">M1</button><button type="button" data-tfk="2">M2</button><button type="button" data-tfk="5">M5</button><button type="button" data-tfk="7">M15</button></span>
+              <span class="pc-tools"><button type="button" class="pc-snd" aria-pressed="false" aria-label="Звук сигналів">🔇</button><button type="button" class="pc-menu" aria-label="Меню мода">☰</button></span></div>
+            <div class="pc-chart"><canvas aria-label="Демо-графік"></canvas><div class="pc-hud"></div>
+              <div class="pc-sheet" hidden><b>Меню мода</b>
+                <label><span>Стиль MoonTrade</span><input type="checkbox" name="style" checked></label>
+                <label><span>Чистий інтерфейс</span><input type="checkbox" name="clean" checked></label>
+                <label><span>Звук сигналів</span><input type="checkbox" name="sound"></label>
+              </div>
+              <div class="pc-toast" role="status"></div>
+            </div>
+            <div class="pc-under">
+              <div class="pc-col"><button type="button" class="pc-h" aria-expanded="true">Сигнали бота ▾</button><div class="pc-bot"></div></div>
+              <div class="pc-col"><button type="button" class="pc-h" aria-expanded="true">Сигнали трейдерів ▾</button><div class="pc-tr"></div></div>
+              <button type="button" class="pc-send">📣 Надіслати</button>
+            </div>
+            <div class="pc-foot"><i></i>онлайн</div>
+          </div>
+          <div class="pc-side">
+            <div class="pc-trade"><label>Час<b>1:00</b></label><label>Сума<b><span class="pc-sum">10</span> <button type="button" class="pc-k">×2</button></b></label>
+              <button type="button" class="b">Вгору</button><button type="button" class="s">Вниз</button></div>
+            <div class="pc-stats"><span>Сьогодні</span><div><b>20</b>угод</div><div><b>12 / 8</b>плюс / мінус</div><div><b>60%</b>вінрейт</div></div>
+            <div class="pc-clutter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
           </div>
         </div>
-        <ul class="assets" id="assets" tabindex="0" aria-label="Список активів, клавіші вгору і вниз перемикають актив"></ul>
-        <div class="term-foot"><button type="button" id="prev" aria-label="Попередній актив">↑</button><button type="button" id="next" aria-label="Наступний актив">↓</button><span id="cur"></span></div>
       </div>
-      <ul class="feat">
-        <li><b>Гортання активів стрілками</b><span>Перемикаєш пари з клавіатури, не шукаючи їх у списку.</span></li>
-        <li><b>Мінімальна виплата для гортання</b><span>Задаєш поріг, наприклад 80%, і стрілки самі пропускають активи, які за цим критерієм тобі не цікаві. Колір назви одразу показує рівень виплати.</span></li>
-        <li><b>OTC окремо від біржових</b><span>Перемикач між OTC та звичайним ринком.</span></li>
-        <li><b>Торгівля в команді</b><span>Натискаєш «Надіслати» — і в усіх, хто в лайві, з'являється твоя ситуація. Один клік, і актив відкритий: зручно торгувати разом.</span></li>
-        <li><b>Таймфрейми клавішами</b><span>Швидке перемикання таймфреймів і налаштування графічних елементів.</span></li>
+      <div class="pc-keys" aria-label="Гарячі клавіші"><span>Спробуй клавіші:</span>
+        <button type="button" data-k="ArrowUp">↑</button><button type="button" data-k="ArrowDown">↓</button><button type="button" data-k="ArrowLeft">←</button><button type="button" data-k="ArrowRight">→</button>
+        <button type="button" data-k="1">1</button><button type="button" data-k="2">2</button><button type="button" data-k="5">5</button><button type="button" data-k="L">L</button>
+        <small>↑↓ — актив у групі за виплатою, ←→ — інша група, 1–7 — таймфрейм, L — лінія</small></div>
+      <ul class="pc-feat">
+        <li><button type="button" data-mpc="keys"><i>⌨</i><span><b>Усе з клавіатури</b>Активи за групами виплат, таймфрейми й лінії — без миші.</span></button></li>
+        <li><button type="button" data-mpc="send"><i>📣</i><span><b>«Надіслати» угоду команді</b>Один клік — і твій актив з виплатою бачать усі з модом.</span></button></li>
+        <li><button type="button" data-mpc="bot"><i>🔔</i><span><b>Сповіщення бота зі звуком</b>Чути, навіть коли вкладка неактивна. Клік по картці відкриває актив.</span></button></li>
+        <li><button type="button" data-mpc="stats"><i>📊</i><span><b>Статистика за день</b>Угоди, плюс / мінус і вінрейт — завжди перед очима.</span></button></li>
       </ul>
     </div>
     <div class="try">
@@ -795,10 +887,12 @@ footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
 <script src="assets/bb.js" defer></script>
 <script src="assets/logic.js" defer></script>
 <script src="assets/modphone.js" defer></script>
+<script src="assets/modpc.js" defer></script>
 <script>
 (function(){
   // mod demo: assets come pre-sorted by payout; the threshold makes the arrows skip what isn't interesting
   var data=[['EUR/USD OTC',92,1],['AUD/CAD OTC',92,1],['GBP/JPY',88,0],['EUR/CHF OTC',86,1],['AUD/USD',83,0],['USD/JPY',79,0],['Apple OTC',76,1],['EUR/GBP',71,0],['Tesla OTC',64,1],['USD/CHF',58,0]];
+  if(document.getElementById('assets')){
   var list=document.getElementById('assets'),f='all',sel=0,shown=[],minp=document.getElementById('minpay');
   function cls(p){return p>=85?'hi':p>=70?'md':'lo';}
   function ok(i){return shown[i][1]>=+minp.value;}
@@ -817,6 +911,7 @@ footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
   [].forEach.call(document.querySelectorAll('.seg button'),function(b){b.addEventListener('click',function(){
     f=b.getAttribute('data-f');sel=0;[].forEach.call(document.querySelectorAll('.seg button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});render();});});
   render();
+  }
 
   // mobile menu
   var bur=document.querySelector('.burger'),mn=document.getElementById('mnav');
