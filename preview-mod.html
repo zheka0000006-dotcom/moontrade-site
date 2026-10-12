@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoonTrade — безкоштовна спільнота трейдерів і навчання трейдингу з нуля</title>
+<meta name="description" content="MoonTrade — україномовна спільнота трейдерів: безкоштовне навчання з нуля (42 уроки), розбори кожної ситуації в команді, мод і бот для торгівлі, понад 1 000 ефірів у записі на YouTube.">
+<link rel="canonical" href="https://moontrade.community/">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0d0a1f">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="MoonTrade">
+<meta property="og:title" content="MoonTrade — безкоштовна спільнота трейдерів">
+<meta property="og:description" content="Спільнота, де пояснюють кожне рішення: безкоштовне навчання з нуля, розбори в команді, мод і бот для торгівлі.">
+<meta property="og:url" content="https://moontrade.community/">
+<meta property="og:image" content="https://moontrade.community/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://moontrade.community/#org","name":"MoonTrade","url":"https://moontrade.community/","logo":"https://moontrade.community/assets/logo.jpg",
+  "description":"Україномовна спільнота трейдерів із безкоштовним навчанням трейдингу з нуля.",
+  "founder":[{"@type":"Person","name":"Ілля"},{"@type":"Person","name":"Ігор"}],
+  "sameAs":["https://www.youtube.com/@Moon_trade1","https://www.youtube.com/channel/UCSQZDr8CWxoGt7k-144Di5g","https://www.youtube.com/@Mo0ntrade","https://www.youtube.com/channel/UC_xpVTFtSO0buX8Hyc_QoeA","https://t.me/+ubz6helIhwsxMGVi","https://learn.moontrade.community/"]},
+ {"@type":"WebSite","@id":"https://moontrade.community/#site","url":"https://moontrade.community/","name":"MoonTrade","inLanguage":"uk","publisher":{"@id":"https://moontrade.community/#org"}},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Чому все безкоштовно? В чому підвох?","acceptedAnswer":{"@type":"Answer","text":"Ми не продаємо курси, сигнали чи підписки. Наша робота — трейдинг, а мета MoonTrade — якісне й доступне навчання, з яким розбереться кожен."}},
+  {"@type":"Question","name":"Чи будуть потім платні пакети?","acceptedAnswer":{"@type":"Answer","text":"Ні. Навчання, спільнота, мод і бот — безкоштовні, і так залишиться."}},
+  {"@type":"Question","name":"Це не скам?","acceptedAnswer":{"@type":"Answer","text":"Ми не просимо грошей і не керуємо чужими рахунками. Понад 1 000 наших ефірів із живою торгівлею — у записі на YouTube, а історію торгівлі ми ведемо понад півтора року."}},
+  {"@type":"Question","name":"Мені підійде, якщо я зовсім новачок?","acceptedAnswer":{"@type":"Answer","text":"Так. Навчання починається з нуля: платформа, ризик-менеджмент, робота з грошима. Практику радимо починати на демо-рахунку."}},
+  {"@type":"Question","name":"Який депозит потрібен?","acceptedAnswer":{"@type":"Answer","text":"Для старту — жодного: усе можна відпрацювати на демо. Переходь на реальний рахунок лише з сумою, втрату якої готовий пережити."}},
+  {"@type":"Question","name":"Яких результатів чекати?","acceptedAnswer":{"@type":"Answer","text":"Гарантій прибутку немає ні в кого. Ми даємо розуміння, правила і практику з поясненнями. Результат залежить від дисципліни й того, скільки часу ти приділяєш навчанню."}},
+  {"@type":"Question","name":"Як не натрапити на шахраїв від вашого імені?","acceptedAnswer":{"@type":"Answer","text":"Ми ніколи не пишемо першими. Єдиний чат із нами в Telegram — @mo0ntrade. Якщо хтось пише від імені MoonTrade першим або просить гроші — це шахраї."}},
+  {"@type":"Question","name":"Ви даєте сигнали?","acceptedAnswer":{"@type":"Answer","text":"Ми не продаємо сигнали. У команді розбираємо кожну ситуацію на графіку: чому вхід саме тут і коли краще пропустити. Рішення ти приймаєш сам за своїми правилами."}}]}
+]}
+</script>
+<style>
+:root{
+  --night:#0d0a1f; --deep:#151032; --deep-2:#1c1542; --line:#2c2554; --moon:#cdbdff; --violet:#8b5cf6; --violet-2:#6d3df0;
+  --ink:#f1ecff; --muted:#a99fcc; --mint:#3fe0a0; --rose:#ff6b8a; --amber:#ffc85c;
+  --display:"Unbounded",system-ui,sans-serif; --body:"Manrope",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--night);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+:focus-visible{outline:2px solid var(--moon);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.015em;line-height:1.12;margin:0}
+h2{font-size:clamp(26px,3.6vw,42px);font-weight:700;max-width:22ch}
+h3{font-size:18px;font-weight:500;line-height:1.3}
+p{margin:0 0 14px}
+.lede{color:var(--muted);font-size:18px;max-width:60ch}
+.sec{padding:110px 0;scroll-margin-top:66px}
+.band{position:relative;background:
+  radial-gradient(1px 1px at 8% 18%,#fff5 50%,transparent 51%),radial-gradient(1px 1px at 22% 72%,#fff4 50%,transparent 51%),radial-gradient(1.5px 1.5px at 47% 34%,#fff5 50%,transparent 51%),
+  radial-gradient(1px 1px at 69% 82%,#fff4 50%,transparent 51%),radial-gradient(1px 1px at 86% 26%,#fff5 50%,transparent 51%),radial-gradient(1.5px 1.5px at 94% 64%,#fff4 50%,transparent 51%),
+  radial-gradient(700px 360px at 85% 0%,rgba(109,61,240,.13),transparent 70%),var(--deep)}
+.band::before,.band::after{content:"";position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(205,189,255,.35) 30%,rgba(139,92,246,.5) 60%,transparent)}
+.band::before{top:0}.band::after{bottom:0}
+@media (max-width:640px){.sec{padding:76px 0}body{font-size:16px}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 16px/1 var(--body);text-decoration:none;padding:17px 24px;border-radius:999px;border:1px solid transparent;transition:transform .15s,background .15s,border-color .15s;cursor:pointer}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff;box-shadow:0 10px 34px rgba(109,61,240,.38)}
+.btn-primary:hover{background:linear-gradient(135deg,#7a4cf5,#9d74fb)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--moon)}
+.btn-sm{padding:11px 18px;font-size:14px}
+.tg{width:18px;height:18px;flex:none}
+.link{color:var(--moon);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(205,189,255,.35)}
+.link:hover{border-color:var(--moon)}
+.links{display:flex;flex-wrap:wrap;gap:8px 18px}
+.note{color:var(--muted);font-size:14px;margin-top:12px}
+
+/* header */
+.top{position:sticky;top:0;z-index:30;background:rgba(13,10,31,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(44,37,84,.7)}
+.top .wrap{display:flex;align-items:center;gap:20px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 18px/1 var(--display)}
+.brand img{width:34px;height:34px;border-radius:10px}
+.top nav{display:flex;gap:24px;margin-left:auto;font-weight:600;font-size:15px}
+.top nav a{text-decoration:none;color:var(--muted)}
+.top nav a:hover{color:var(--ink)}
+@media (max-width:900px){.top .wrap nav{display:none}.top .wrap .btn{margin-left:auto}}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;margin-left:4px}
+.burger span{display:block;width:20px;height:2px;border-radius:2px;background:var(--ink);transition:transform .25s,opacity .2s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mnav{display:flex;flex-direction:column;padding:8px 24px 22px;border-top:1px solid var(--line);background:rgba(13,10,31,.97);max-height:calc(100vh - 66px);overflow:auto}
+.mnav[hidden]{display:none}
+body.menu-open .dock{display:none!important}
+.mnav a:not(.btn){padding:12px 2px;border-bottom:1px solid rgba(44,37,84,.7);text-decoration:none;font-weight:600;font-size:17px;color:var(--ink)}
+.mnav .btn{margin-top:20px;padding:19px 18px;font-size:16px}
+.top .mnav a.btn{color:#fff}
+.top .mnav a.on{color:var(--moon)}
+.top .mnav a.on::after{display:none}
+body.menu-open .progress{display:none}
+.mnav .btn{text-align:center;line-height:1.3}
+@media (max-width:900px){.burger{display:flex}}
+@media (min-width:901px){.mnav{display:none!important}}
+.top nav a.on{color:var(--ink)}
+.top nav a{position:relative}
+.top nav a.on::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;border-radius:2px;background:var(--moon)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:rgba(44,37,84,.6);pointer-events:none}
+.progress i{position:absolute;left:0;top:0;bottom:0;width:100%;transform-origin:0 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--violet-2),var(--moon) 70%,#fff);box-shadow:0 0 12px rgba(205,189,255,.7)}
+.progress b{position:absolute;top:50%;left:0;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#fff;box-shadow:0 0 10px 3px rgba(205,189,255,.9);opacity:0;transition:opacity .2s}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:48px 0 64px;
+  background:
+   radial-gradient(1px 1px at 12% 22%,#fff8 50%,transparent 51%),radial-gradient(1px 1px at 28% 78%,#fff6 50%,transparent 51%),
+   radial-gradient(1.5px 1.5px at 44% 12%,#fff9 50%,transparent 51%),radial-gradient(1px 1px at 63% 64%,#fff5 50%,transparent 51%),
+   radial-gradient(1px 1px at 78% 18%,#fff7 50%,transparent 51%),radial-gradient(1.5px 1.5px at 91% 52%,#fff8 50%,transparent 51%),
+   radial-gradient(1px 1px at 6% 60%,#fff5 50%,transparent 51%),radial-gradient(1px 1px at 52% 90%,#fff6 50%,transparent 51%),
+   radial-gradient(900px 600px at 72% 40%,rgba(109,61,240,.20),transparent 70%)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.02fr;grid-template-areas:"a s" "b s";column-gap:24px;align-items:center}
+.h-a{grid-area:a;align-self:end}.h-b{grid-area:b;align-self:start}.stage{grid-area:s}
+.hero h1{font-size:clamp(32px,4.6vw,56px);font-weight:700;line-height:1.08;max-width:15ch}
+.hero .lede{margin:22px 0 0}
+.facts{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:22px 0 26px;padding:14px 16px 14px 20px;max-width:560px;border-radius:20px;border:1px solid rgba(205,189,255,.22);background:rgba(21,16,50,.6)}
+.facts .st{display:flex;align-items:baseline;gap:8px;color:var(--muted);font-size:14.5px;white-space:nowrap}
+.facts .st b{font:700 26px/1 var(--display);color:var(--moon)}
+.facts .tag{margin-left:auto;padding:8px 14px;border-radius:999px;border:1px solid rgba(63,224,160,.45);color:var(--mint);font-weight:700;font-size:14px}
+@media (max-width:1180px){.facts .tag{margin-left:0}}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.free{margin-top:22px;max-width:560px;border:1px solid var(--line);border-radius:16px;background:rgba(21,16,50,.5)}
+.free summary{display:flex;align-items:center;gap:12px;padding:14px 46px 14px 16px;font-size:16px;font-weight:700;color:var(--ink)}
+.free summary::before{content:"?";flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--moon);color:var(--moon);display:grid;place-items:center;font:700 13px/1 var(--body)}
+.free summary::after{top:12px;right:14px}
+.free p{margin:0;padding:0 18px 16px 52px!important;color:var(--muted);font-size:15.5px}
+
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr;grid-template-areas:"a" "s" "b"}.hero{padding-top:28px}}
+
+/* the moon */
+.stage{position:relative;aspect-ratio:1/0.92;width:100%;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.stage.is-drag{cursor:grabbing}
+.stage canvas{position:absolute;inset:0}
+.stage::before{content:"";position:absolute;left:50%;top:50%;width:62%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(139,92,246,.45),rgba(139,92,246,.12) 45%,transparent 70%);filter:blur(10px)}
+.css-moon{display:none;position:absolute;left:50%;top:50%;width:54%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle at 70% 64%,rgba(90,59,196,.5) 0 9%,transparent 10%),radial-gradient(circle at 34% 34%,rgba(90,59,196,.45) 0 8%,transparent 9%),
+  radial-gradient(circle at 36% 30%,#f1ebff,#b9a4ff 55%,#6b46e0);box-shadow:0 0 80px rgba(139,92,246,.5)}
+.no-gl .css-moon{display:block}.no-gl .moon-gl{display:none}.no-gl .pin{display:none}
+.pin{position:absolute;left:0;top:0;width:0;height:0;opacity:0;text-decoration:none;transition:opacity .2s;will-change:transform}
+.pin i{position:absolute;left:-6px;top:-6px;width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(139,92,246,.55),0 0 18px rgba(255,255,255,.8)}
+.pin span{position:absolute;left:14px;top:0;transform:translateY(-50%);display:block;padding:7px 12px 8px;border-radius:12px;background:rgba(21,16,50,.88);border:1px solid rgba(205,189,255,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  font:700 13.5px/1.25 var(--body);color:var(--ink);white-space:nowrap}
+.pin span small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.pin span{opacity:0;transition:opacity .25s;pointer-events:none}
+.pin.lead span,.pin:hover span,.pin:focus-visible span{opacity:1;pointer-events:auto}
+.pin.lead{z-index:40!important}
+.pin.front span{border-color:var(--moon)}
+.pin.flip span{left:auto;right:14px}
+.pin-tg span{background:linear-gradient(135deg,var(--violet-2),var(--violet));border-color:transparent;box-shadow:0 8px 24px rgba(109,61,240,.5)}
+.pin-tg span small{color:#e9e2ff}
+.pin-tg.front span{border-color:#fff}
+.pin-tg i{background:#fff;box-shadow:0 0 0 5px rgba(139,92,246,.8),0 0 22px #fff}
+.pin:hover span,.pin:focus-visible span{background:var(--violet-2)}
+.pin:hover span small,.pin:focus-visible span small{color:#efe8ff}
+.stage-hint{position:absolute;left:0;right:0;bottom:-6px;text-align:center;color:var(--muted);font-size:13px;opacity:0;transition:opacity .6s;pointer-events:none}
+.stage.is-ready .stage-hint{opacity:.85}
+@media (max-width:960px){.stage{max-width:540px;margin:-6px auto 6px;aspect-ratio:1/0.8}.pin span{font-size:12.5px;padding:6px 10px}}
+
+/* inside: bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:44px}
+.tile{position:relative;overflow:hidden;padding:26px;border-radius:24px;background:var(--deep);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px;text-decoration:none}
+.tile p{color:var(--muted);margin:0}
+.tile h3{font-size:20px}
+.tile .go{margin-top:auto;padding-top:14px;color:var(--moon);font-weight:700}
+.tile.t-learn{grid-column:span 3;grid-row:span 2;background:radial-gradient(circle at 90% 8%,rgba(205,189,255,.22),transparent 45%),linear-gradient(150deg,#271c5e,#151032)}
+.tile.t-learn .num{font:700 clamp(64px,8vw,104px)/1 var(--display);color:var(--moon);letter-spacing:-.04em;margin:6px 0 4px}
+.tile.t-live,.tile.t-live2,.tile.t-mod,.tile.t-bot{grid-column:span 3}
+.tile.t-help{grid-column:span 6;flex-direction:row;align-items:center;justify-content:space-between;gap:24px}
+.tile.t-help .btn{flex:none}
+.help-note{font-size:14px;margin-top:8px!important;opacity:.85}
+@media (max-width:700px){.tile.t-help{flex-direction:column;align-items:flex-start}}
+a.tile:hover{border-color:rgba(205,189,255,.5)}
+.chip{align-self:flex-start;font-size:12.5px;font-weight:700;color:var(--moon);background:rgba(139,92,246,.16);border-radius:999px;padding:5px 10px}
+.know{margin-top:48px;font:600 clamp(20px,2.2vw,26px)/1.3 var(--display);color:var(--moon)}
+@media (max-width:900px){.bento{grid-template-columns:1fr}.tile.t-learn,.tile.t-live,.tile.t-live2,.tile.t-mod,.tile.t-bot,.tile.t-news,.tile.t-cheat,.tile.t-help{grid-column:auto;grid-row:auto}}
+
+/* pains */
+.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.pain{padding:26px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,#191236,#120d2b)}
+.pain .was{font:600 19px/1.3 var(--display);margin:0 0 10px}
+.pain .was::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--rose);margin-right:12px;vertical-align:2px;box-shadow:0 0 12px rgba(255,107,138,.6)}
+.pain p{color:var(--muted);margin:0}
+.pain .now{margin:0;padding-top:14px;border-top:1px dashed var(--line);color:var(--ink);font-weight:600}
+.pain .now::before{content:"У MoonTrade: ";color:var(--mint)}
+.pains-end{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px}
+.pains-end p{margin:0;font-size:19px;font-weight:600;max-width:46ch}
+@media (max-width:980px){.pains{grid-template-columns:1fr 1fr}}@media (max-width:640px){.pains{grid-template-columns:1fr}}
+
+/* choose */
+.choose{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+.choose a{display:block;text-decoration:none;padding:30px;border-radius:26px;border:1px solid var(--line);background:var(--deep);transition:border-color .2s,transform .2s}
+.choose a:hover{border-color:var(--moon);transform:translateY(-2px)}
+.choose h3{font-size:22px;margin:16px 0 8px}
+.choose p{color:var(--muted);margin:0 0 18px}
+.choose .go{color:var(--moon);font-weight:700}
+.choose svg{width:46px;height:46px}
+@media (max-width:760px){.choose{grid-template-columns:1fr}}
+
+/* team breakdown */
+.how{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.steps-plain{list-style:none;padding:0;margin:24px 0 0}
+.steps-plain li{padding:14px 0;border-top:1px solid var(--line)}
+.steps-plain b{display:block}
+.steps-plain span{color:var(--muted)}
+.feed{background:linear-gradient(180deg,#1a1440,#120d2b);border:1px solid var(--line);border-radius:26px;padding:18px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.feed-h{display:flex;align-items:center;gap:12px;padding:4px 6px 14px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.feed-h img{width:40px;height:40px;border-radius:50%}
+.feed-h b{display:block;font-weight:700}
+.feed-h span{color:var(--muted);font-size:13px}
+.msg{background:#211a4a;border-radius:16px 16px 16px 6px;padding:11px 14px 9px;margin:0 0 9px;max-width:94%;font-size:15px;line-height:1.45}
+.msg small{display:block;text-align:right;color:var(--muted);font-size:11.5px;margin-top:3px}
+.msg .k{font-weight:800;color:var(--moon)}
+.chart{margin:8px 0 2px;border-radius:10px;background:#120d2b;padding:8px;width:100%}
+@media (max-width:860px){.how{grid-template-columns:1fr;gap:32px}}
+
+/* price logic */
+.logic{display:grid;grid-template-columns:1.35fr 1fr;gap:44px;align-items:center;margin-top:40px}
+.lg-chart{position:relative;aspect-ratio:16/10;border-radius:24px;overflow:hidden;border:1px solid var(--line);
+  background:radial-gradient(circle at 75% 15%,rgba(139,92,246,.22),transparent 55%),radial-gradient(circle at 10% 100%,rgba(109,61,240,.14),transparent 50%),#09071a;box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 0 0 1px rgba(205,189,255,.05)}
+.lg-chart canvas{position:absolute;inset:0;width:100%;height:100%}
+.lg-steps{display:flex;flex-wrap:wrap;gap:8px}
+.lg-steps button{font:700 14px/1 var(--body);color:var(--muted);background:var(--deep);border:1px solid var(--line);border-radius:999px;padding:11px 15px;cursor:pointer;transition:all .2s}
+.lg-steps button.done{color:var(--ink);border-color:rgba(205,189,255,.25)}
+.lg-steps button[aria-selected=true]{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff;border-color:transparent;box-shadow:0 8px 24px rgba(109,61,240,.35)}
+.lg-cap{min-height:3.3em;margin:20px 0 4px;font:500 clamp(18px,1.8vw,21px)/1.45 var(--display);color:var(--ink)}
+.lg-topics{list-style:none;padding:0;margin:18px 0 26px;display:grid;gap:8px}
+.lg-topics li{color:var(--muted);padding-left:22px;position:relative}
+.lg-topics li::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;border-radius:50%;background:var(--moon);box-shadow:0 0 10px rgba(205,189,255,.8)}
+@media (max-width:900px){.logic{grid-template-columns:1fr;gap:28px}.lg-chart{aspect-ratio:4/3}}
+
+/* mod */
+.mod{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:stretch;margin-top:44px}
+.term{display:flex;flex-direction:column;background:#0f0b26;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.4)}
+.term-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);background:#151032}
+.term-bar b{font-size:14px;margin-right:auto}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{font:600 13px/1 var(--body);color:var(--muted);background:none;border:0;border-radius:999px;padding:7px 11px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--violet-2);color:#fff}
+.assets{position:relative;list-style:none;margin:0;padding:8px;flex:1 1 0;min-height:300px;overflow:hidden}
+.assets li{display:grid;grid-template-columns:1fr auto;align-items:center;padding:10px 14px;border-radius:12px;font-weight:700;font-size:15px;border:1px solid transparent;transition:opacity .2s}
+.assets li .pay{font-family:var(--display);font-size:14px}
+.assets li.hi{color:var(--mint)}.assets li.md{color:var(--amber)}.assets li.lo{color:var(--rose)}
+.assets li.skip{opacity:.28}
+.assets li.sel{background:rgba(139,92,246,.16);border-color:rgba(205,189,255,.35)}
+.assets li small{display:block;color:var(--muted);font-weight:500;font-size:12px}
+.term-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.term-foot button{font:700 14px/1 var(--body);background:var(--deep-2);color:var(--ink);border:1px solid var(--line);border-radius:10px;width:38px;height:34px;cursor:pointer}
+.term-foot button:hover{border-color:var(--moon)}
+.minpay{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.minpay select{font:700 13px var(--body);background:var(--deep-2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:5px 6px}
+.feat{list-style:none;padding:0;margin:0}
+.feat li{padding:16px 0;border-top:1px solid var(--line)}
+.feat li:first-child{border-top:0;padding-top:0}
+.feat b{display:block;font-weight:700;margin-bottom:3px}
+.feat span{color:var(--muted)}
+.try{margin-top:48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:28px 30px;border-radius:24px;
+  background:radial-gradient(circle at 95% 0%,rgba(63,224,160,.16),transparent 45%),linear-gradient(135deg,#1f1750,#151032);border:1px solid var(--line)}
+.try h3{font-size:22px;margin-bottom:6px}
+.try p{margin:0;color:var(--muted);max-width:56ch}
+@media (max-width:900px){.mod{grid-template-columns:1fr;gap:36px}}
+
+
+/* mod: phone prototype */
+#mod [hidden]{display:none!important}
+.eyebrow-mod{display:inline-block;font:700 12px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mint);margin-bottom:14px}
+.mtabs{display:inline-flex;gap:4px;margin-top:30px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--deep)}
+.mtabs button{font:700 14px/1 var(--body);color:var(--muted);background:none;border:0;border-radius:999px;padding:10px 18px;cursor:pointer}
+.mtabs button[aria-selected=true]{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff}
+.mtabs button:focus-visible,.mp button:focus-visible,.mp-feat button:focus-visible{outline:2px solid var(--moon);outline-offset:2px}
+.mp-wrap{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;margin-top:34px}
+.mp{width:min(330px,86vw);margin:0 auto;padding:12px;border-radius:46px;background:#120d24;border:2px solid rgba(205,189,255,.35);box-shadow:0 0 0 6px #0b0818,0 30px 80px rgba(109,61,240,.35)}
+.mp-screen{position:relative;height:610px;max-height:78vh;min-height:520px;border-radius:34px;overflow:hidden;background:#0d0a1f;display:flex;flex-direction:column;font-family:var(--body)}
+.mp-screen.ping{animation:mpPing .5s ease}
+@keyframes mpPing{40%{box-shadow:0 0 0 3px rgba(139,92,246,.6) inset}}
+.mp-top{display:flex;align-items:baseline;gap:8px;padding:30px 16px 8px}
+.mp-asset{font:800 16px/1.1 var(--display);color:var(--ink)}
+.mp-pay{font:800 15px var(--display)}
+.mp-tf{margin-left:auto;font:700 12px var(--body);color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:3px 7px}
+.mp .hi{color:var(--mint)}.mp .md{color:var(--amber)}.mp .lo{color:#ff9f6b}.mp .off{color:var(--rose)}
+.mp-sig{align-self:flex-start;margin:2px 12px 6px;font:700 12px var(--body);color:var(--moon);background:rgba(139,92,246,.14);border:1px solid rgba(205,189,255,.25);border-radius:999px;padding:5px 10px;cursor:pointer}
+.mp-sig b{display:inline-block;min-width:16px;margin-left:4px;color:#fff;background:var(--violet-2);border-radius:999px;padding:1px 5px;font-size:11px}
+.mp-cards{display:grid;gap:6px;padding:0 12px 6px}
+.mp-cards[hidden]{display:none}
+.mp-card{display:grid;grid-template-columns:1fr auto;gap:2px 8px;text-align:left;width:100%;font:500 12px/1.3 var(--body);color:var(--ink);background:#151032;border:1px solid var(--line);border-left:3px solid var(--moon);border-radius:10px;padding:7px 10px;cursor:pointer;animation:mpIn .35s ease}
+.mp-card .k{grid-column:1/-1;font-weight:700;font-size:11px;color:var(--muted)}
+.mp-card .as{font-weight:700}.mp-card em{font-style:normal}
+.mp-card .lk{color:var(--muted)}
+.mp-card.y{border-left-color:var(--amber)}.mp-card.y .k{color:var(--amber)}
+.mp-card.g{border-left-color:var(--mint)}.mp-card.g .k{color:var(--mint)}
+.mp-card.tr{border-left-color:var(--violet)}
+@keyframes mpIn{from{opacity:0;transform:translateY(-6px)}}
+.mp-chart{position:relative;flex:1 1 auto;min-height:0}
+.mp-chart canvas{position:absolute;inset:0;width:100%;height:100%}
+.mp-panel{position:absolute;left:8px;top:50%;transform:translateY(-50%);display:grid;gap:6px;padding:6px;border-radius:14px;background:rgba(21,16,50,.88);border:1px solid rgba(205,189,255,.25);backdrop-filter:blur(6px)}
+.mp-panel button{width:34px;height:34px;display:grid;place-items:center;font:700 14px/1 var(--body);color:#fff;background:#231a4f;border:1px solid rgba(205,189,255,.2);border-radius:10px;cursor:pointer;transition:transform .12s,background .2s}
+.mp-panel button:active{transform:scale(.92)}
+.mp-panel button[data-a=send]{background:linear-gradient(135deg,var(--violet-2),var(--violet))}
+.mp-on{display:grid;justify-items:center;gap:2px;font:700 10px var(--body);color:var(--mint);padding-top:2px}
+.mp-on i{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 8px var(--mint)}
+.mp-hud{position:absolute;left:56px;top:14px;display:flex;gap:8px;align-items:baseline;padding:7px 11px;border-radius:10px;background:#1f1750;border:1px solid rgba(205,189,255,.35);font:700 13px var(--body);color:var(--ink);opacity:0;transform:translateY(-4px);transition:.2s;pointer-events:none}
+.mp-hud.on{opacity:1;transform:none}
+.mp-pop,.mp-sheet{position:absolute;left:56px;right:12px;padding:12px;border-radius:14px;background:#1a1440;border:1px solid rgba(205,189,255,.3);box-shadow:0 16px 40px rgba(0,0,0,.5);animation:mpIn .2s ease}
+.mp-pop{top:40%}
+.mp-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.mp-row button,.mp-draw{font:700 12px var(--body);color:var(--ink);background:#231a4f;border:1px solid var(--line);border-radius:8px;padding:6px 9px;cursor:pointer}
+.mp-row button[aria-pressed=true]{background:var(--violet-2);border-color:transparent}
+.mp-draw{width:100%;text-align:left}
+.mp-sheet{bottom:12px;display:grid;gap:10px;font:500 13px var(--body);color:var(--ink)}
+.mp-sheet label{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer}
+.mp-sheet input{width:18px;height:18px;accent-color:var(--violet)}
+.mp-toast{position:absolute;left:50%;bottom:12px;transform:translate(-50%,8px);white-space:nowrap;padding:8px 12px;border-radius:10px;background:var(--mint);color:#06281c;font:700 12px var(--body);opacity:0;transition:.25s;pointer-events:none}
+.mp-toast.on{opacity:1;transform:translate(-50%,0)}
+.mp-clutter{display:none;gap:8px;justify-content:space-around;padding:8px 12px;border-top:1px solid #222}
+.mp-clutter i{width:26px;height:26px;border-radius:8px;background:#2a2a2e}
+.mp.busy .mp-clutter{display:flex}
+.mp-trade{display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px 12px 22px;border-top:1px solid var(--line);font:700 12px var(--body);color:var(--muted)}
+.mp-trade em{font-style:normal;color:var(--moon);border:1px solid var(--line);border-radius:6px;padding:1px 5px;margin-left:4px}
+.mp-trade button{font:800 13px var(--body);color:#fff;border:0;border-radius:10px;padding:11px;cursor:pointer}
+.mp-trade .b{background:#1f9d6a}.mp-trade .s{background:#d23f5c}
+.mp.plain .mp-screen{background:#16181d}.mp.plain .mp-panel{background:rgba(40,42,48,.9)}.mp.plain .mp-panel button{background:#2c2f36}
+.mp.plain .mp-panel button[data-a=send]{background:#3a3d46}.mp.plain .mp-card{background:#1e2026}
+.mp-side{min-width:0}
+.mp-hint{margin:0 0 18px;color:var(--muted);font-size:14px}
+.mp-feat{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.mp-feat button{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--deep);border:1px solid var(--line);border-radius:18px;padding:16px;cursor:pointer;transition:border-color .2s,background .2s}
+.mp-feat button:hover,.mp-feat button.on{border-color:rgba(205,189,255,.45);background:#1a1440}
+.mp-feat i{width:44px;height:44px;display:grid;place-items:center;font-style:normal;font-weight:800;border-radius:12px;background:#231a4f;color:var(--moon)}
+.mp-feat b{display:block;margin-bottom:3px}
+.mp-feat span{color:var(--muted);font-size:15px}
+.mp-feat b{color:var(--ink)}
+.mod-online{display:flex;align-items:center;gap:8px;margin-top:10px!important;color:var(--mint)!important;font-weight:700}
+.mod-online i{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px var(--mint)}
+@media (max-width:900px){.mp-wrap{grid-template-columns:1fr;gap:30px}}
+@media (max-width:420px){.mp-screen{height:560px}.mp-feat button{padding:14px;grid-template-columns:38px 1fr;gap:12px}.mp-feat i{width:38px;height:38px}}
+
+/* bot & strategy */
+.bot{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;margin-top:44px}
+.persp{perspective:1100px}
+.bb-demo{position:relative;aspect-ratio:16/11;border-radius:22px;border:1px solid var(--line);background:radial-gradient(circle at 70% 0%,rgba(139,92,246,.18),transparent 55%),#0f0b26;
+  transform:rotateX(9deg) rotateY(-8deg);transform-style:preserve-3d;box-shadow:30px 40px 80px rgba(0,0,0,.55),0 0 0 1px rgba(205,189,255,.06) inset}
+.bb-demo canvas{position:absolute;inset:0;width:100%;height:100%;border-radius:22px}
+.bb-toast{position:absolute;left:16px;top:16px;padding:10px 14px;border-radius:14px;background:#141026;border:2px solid var(--line);opacity:0;transform:translateZ(40px) translateY(-6px);transition:opacity .25s,transform .25s;min-width:190px}
+.bb-toast.show{opacity:1;transform:translateZ(40px)}
+.bb-toast b{display:block;font-size:13px;letter-spacing:.02em}
+.bb-toast span{font-size:12.5px;color:var(--muted)}
+.bb-toast.ok{border-color:var(--mint)}.bb-toast.ok b{color:var(--mint)}
+.bb-toast.warn{border-color:var(--amber)}.bb-toast.warn b{color:var(--amber)}
+.bb-steps{list-style:none;padding:0;margin:22px 0 0;counter-reset:b}
+.bb-steps li{counter-increment:b;display:grid;grid-template-columns:34px 1fr;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid transparent;transition:background .3s,border-color .3s}
+.bb-steps li::before{content:counter(b);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 14px/1 var(--display);background:var(--deep-2);color:var(--moon)}
+.bb-steps li.on{background:rgba(139,92,246,.12);border-color:rgba(205,189,255,.3)}
+.bb-steps li span{color:var(--muted)}
+.bb-facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin:22px 0 26px;font-weight:600}
+.bb-facts b{font-family:var(--display);color:var(--moon)}
+.shot{margin-top:40px;border-radius:20px;overflow:hidden;border:1px solid var(--line);display:grid;grid-template-columns:1.3fr 1fr;align-items:center;background:var(--deep)}
+.shot div{padding:26px}
+.shot p{color:var(--muted);margin:8px 0 0}
+@media (max-width:900px){.bot{grid-template-columns:1fr;gap:40px}.bb-demo{transform:rotateX(10deg) rotateY(-6deg)}.shot{grid-template-columns:1fr}}
+
+/* youtube */
+.yt{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;margin-top:40px}
+.video{display:block;text-decoration:none}
+.video .th{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#1a1440;border:1px solid var(--line)}
+.video .th img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.video:hover .th img{transform:scale(1.03)}
+.video .th::after{content:"";position:absolute;left:50%;top:50%;width:76px;height:54px;margin:-27px 0 0 -38px;border-radius:16px;background:rgba(13,10,31,.85) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M9 7l8 5-8 5z'/%3E%3C/svg%3E") center/28px no-repeat;border:1px solid rgba(255,255,255,.2)}
+.video p{margin:12px 2px 0;font-weight:700;font-size:16px;line-height:1.4}
+.yt-side p{color:var(--muted)}
+.yt-ch{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+@media (max-width:860px){.yt{grid-template-columns:1fr;gap:24px}}
+
+/* people */
+.people{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px;max-width:900px}
+.person{display:flex;gap:18px;align-items:flex-start;padding:24px;border-radius:22px;border:1px solid var(--line);background:var(--night)}
+.person p{margin:6px 0 0;color:var(--muted);font-size:16px}
+.av{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font:700 22px/1 var(--display);color:#fff;background:linear-gradient(135deg,var(--violet-2),#b28cff);flex:none}
+.av.sm{width:38px;height:38px;font-size:15px}
+@media (max-width:700px){.people{grid-template-columns:1fr}}
+
+/* reviews: equal cards */
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:20px;margin-top:32px}
+.rv{margin:0;padding:24px;border-radius:22px;background:var(--deep);border:1px solid var(--line);display:flex;flex-direction:column;gap:14px}
+.rv-tag{align-self:flex-start;font-size:12.5px;font-weight:700;color:var(--moon);background:rgba(139,92,246,.14);border-radius:999px;padding:5px 10px}
+.rv blockquote{margin:0;font-size:16px;line-height:1.55}
+.rv figcaption{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:6px}
+.rv figcaption b{display:block;font-weight:700}
+.rv figcaption small{color:var(--muted);font-size:13px}
+@media (max-width:980px){.rv-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.rv-grid{grid-template-columns:1fr;grid-auto-rows:auto}}
+
+/* path: moon phases */
+.path{list-style:none;margin:52px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.path::before{content:"";position:absolute;left:28px;right:28px;top:27px;height:2px;background:linear-gradient(90deg,var(--line),var(--violet))}
+.path li{position:relative;padding-right:28px}
+.phase{width:56px;height:56px;display:block;position:relative;z-index:1;background:var(--night);border-radius:50%}
+.path h3{margin:22px 0 10px;font-size:20px}
+.path p{color:var(--muted);margin:0 0 12px}
+@media (max-width:860px){.path{grid-template-columns:1fr;gap:34px}.path::before{left:27px;right:auto;top:28px;bottom:28px;width:2px;height:auto;background:linear-gradient(180deg,var(--line),var(--violet))}
+  .path li{display:grid;grid-template-columns:56px 1fr;gap:0 20px;padding:0}.path h3{margin:12px 0 8px}.path li>div{grid-column:2}}
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:56px}
+.fit div{padding:24px;border-radius:22px;border:1px solid var(--line);background:var(--deep)}
+.fit ul{margin:12px 0 0;padding-left:20px;color:var(--muted)}
+.fit li{margin-bottom:6px}
+.fit .yes h3{color:var(--mint)}.fit .no h3{color:var(--rose)}
+@media (max-width:760px){.fit{grid-template-columns:1fr}}
+
+/* faq */
+.faq{max-width:840px;margin-top:32px}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font-weight:700;font-size:18px;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:16px;font:500 26px/1 var(--display);color:var(--moon);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding:0 0 20px;margin:0;max-width:66ch}
+
+/* final */
+.final .box{position:relative;overflow:hidden;border-radius:32px;padding:64px 56px;background:radial-gradient(circle at 88% 30%,rgba(205,189,255,.28),transparent 40%),linear-gradient(135deg,#271c5e,#140f33);border:1px solid var(--line)}
+.final .box::after{content:"";position:absolute;right:-60px;top:50%;width:260px;aspect-ratio:1;transform:translateY(-50%);border-radius:50%;
+  background:radial-gradient(circle at 70% 64%,rgba(90,59,196,.45) 0 9%,transparent 10%),radial-gradient(circle at 34% 34%,rgba(90,59,196,.4) 0 7%,transparent 8%),radial-gradient(circle at 36% 30%,#f1ebff,#b9a4ff 55%,#6b46e0);box-shadow:0 0 90px rgba(139,92,246,.6);opacity:.9}
+.final h2{max-width:17ch;position:relative;z-index:1}
+.final .lede,.final .cta,.final ol{position:relative;z-index:1}
+.final .free-line{margin:16px 0 28px;color:var(--mint);font-weight:700;font-size:20px;text-shadow:0 0 18px rgba(63,224,160,.35)}
+@media (max-width:700px){.final .box{padding:40px 24px 200px}.final .box::after{top:auto;bottom:-110px;right:50%;transform:translateX(50%);width:240px}}
+
+footer{padding:48px 0 110px;color:var(--muted);font-size:14px}
+footer .row{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;margin-bottom:18px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
+
+.dock{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:none;gap:8px;padding:8px;border-radius:999px;background:rgba(21,16,50,.92);border:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transform:translateY(140%);transition:transform .3s ease}
+.dock.show{transform:none}
+.dock .btn{flex:1;padding:14px 12px;font-size:15px}
+@media (max-width:760px){.dock{display:flex}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/logo.jpg" alt="" width="34" height="34">MoonTrade</a>
+    <nav aria-label="Розділи">
+      <a href="#inside">Що всередині</a>
+      <a href="#mod">Мод і бот</a>
+      <a href="#reviews">Відгуки</a>
+      <a href="#faq">Питання</a>
+      <a href="https://learn.moontrade.community/" target="_blank" rel="noopener">Навчання</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Долучитися</a>
+    <button class="burger" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Розділи сайту" hidden>
+    <a href="#inside">Що всередині</a>
+    <a href="#team">Логіка руху ціни</a>
+    <a href="#mod">Мод і бот</a>
+    <a href="#youtube">Ефіри й відео</a>
+    <a href="#reviews">Відгуки</a>
+    <a href="#faq">Питання</a>
+    <a href="https://learn.moontrade.community/" target="_blank" rel="noopener">Навчання</a>
+    <a class="btn btn-primary" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener"><svg class="tg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.3 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.4-1.4ZM8.7 13.9l9.4-5.9c.5-.3.9-.1.5.2l-8 7.3-.3 3.4-1.6-5Z"/></svg>Долучитися в Telegram — безкоштовно</a>
+  </nav>
+  <div class="progress" aria-hidden="true"><i id="prog"></i><b id="prog-dot"></b></div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="h-a">
+      <h1>Спільнота трейдерів, де пояснюють кожне рішення</h1>
+    </div>
+    <div class="stage" id="moon-stage" role="group" aria-label="Місяць MoonTrade: на ньому позначено, що є в спільноті">
+      <canvas class="ring-back"></canvas>
+      <div class="css-moon"></div>
+      <canvas class="moon-gl"></canvas>
+      <canvas class="ring-front"></canvas>
+      <a class="pin pin-tg" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener" data-lat="18" data-lon="0"><i></i><span>Telegram-спільнота<small>долучитися безкоштовно</small></span></a>
+      <a class="pin" href="https://learn.moontrade.community/" data-lat="-20" data-lon="52" target="_blank" rel="noopener"><i></i><span>Навчання з нуля<small>42 уроки</small></span></a>
+      <a class="pin" href="#team" data-lat="24" data-lon="103"><i></i><span>Логіка руху ціни<small>SMC і теханаліз</small></span></a>
+      <a class="pin" href="#mod" data-lat="-16" data-lon="154"><i></i><span>Мод для платформи<small>зручно з телефону</small></span></a>
+      <a class="pin" href="#bot" data-lat="22" data-lon="206"><i></i><span>Бот за Боллінджером<small>шукає ситуації</small></span></a>
+      <a class="pin" href="#youtube" data-lat="-22" data-lon="257"><i></i><span>Ефіри<small>1 000+ у записі</small></span></a>
+      <a class="pin" href="#reviews" data-lat="16" data-lon="308"><i></i><span>Відгуки<small>що кажуть учасники</small></span></a>
+    </div>
+    <div class="h-b">
+      <p class="lede">MoonTrade — україномовна спільнота. Торгуємо в прямому ефірі, розбираємо логіку руху ціни і даємо безкоштовне навчання, з яким розбереться кожен.</p>
+      <div class="facts"><span class="st"><b>3+</b> роки каналу</span><span class="st"><b>4 600+</b> учасників</span><span class="tag">Безкоштовно</span></div>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener"><svg class="tg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.3 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.4-1.4ZM8.7 13.9l9.4-5.9c.5-.3.9-.1.5.2l-8 7.3-.3 3.4-1.6-5Z"/></svg>Долучитися в Telegram</a>
+        <a class="btn btn-ghost" href="https://learn.moontrade.community/" target="_blank" rel="noopener">Безкоштовне навчання</a>
+      </div>
+      <details class="free"><summary>Чому це безкоштовно?</summary><p>Ми не продаємо курси, сигнали чи підписки. Наша робота — трейдинг, а мета MoonTrade — якісне й доступне навчання для кожного.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec band" id="inside" aria-labelledby="inside-h">
+  <div class="wrap">
+    <h2 id="inside-h">Що вже є всередині</h2>
+        <div class="bento">
+      <a class="tile t-learn" href="https://learn.moontrade.community/" target="_blank" rel="noopener"><span class="chip">Безкоштовно</span><div class="num">42</div><h3>уроки «Трейдинг з нуля»</h3><p>Від основ до стратегій, у своєму темпі.</p><span class="go">Відкрити навчання</span></a>
+      <a class="tile t-live" href="#team"><h3>Логіка руху ціни</h3><p>SMC і теханаліз простою мовою.</p><span class="go">Подивитися розбір</span></a>
+      <a class="tile t-live2" href="#youtube"><h3>Прямі ефіри</h3><p>1 000+ ефірів у записі.</p><span class="go">Дивитися ефіри</span></a>
+      <div class="tile t-help"><div><h3>Підтримка</h3><p>Питання ставиш напряму — відповідаємо особисто.</p><p class="help-note">Просимо цінувати наш час: більшість відповідей уже є в навчанні, тож спершу загляни туди.</p></div><a class="btn btn-primary" href="https://t.me/mo0ntrade" target="_blank" rel="noopener">Задати питання</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="pain-h" style="padding-top:72px;padding-bottom:40px">
+  <div class="wrap">
+    <h2 id="pain-h">Чому більшість новачків зливають депозит</h2>
+    <div class="pains">
+      <div class="pain"><p class="was">Торгуєш на відчуттях</p><p>«Здається, зараз піде вгору» — і кожна угода стає лотереєю.</p></div>
+      <div class="pain"><p class="was">Після мінуса хочеш відігратися</p><p>Збільшуєш суму, заходиш без підтвердження — і за вечір від балансу лишається половина.</p></div>
+      <div class="pain"><p class="was">Не знаєш, скільки ризикувати</p><p>Заходиш на «відчутну» суму, і одна серія мінусів забирає весь депозит.</p></div>
+      <div class="pain"><p class="was">Не розумієш, чому ціна рухається</p><p>Бачиш свічки, але не бачиш логіки. Тому кожен рух — несподіванка.</p></div>
+      <div class="pain"><p class="was">Купував сигнали чи курси</p><p>Гроші витрачено на «секретні стратегії», а системи як не було, так і немає.</p></div>
+      <div class="pain"><p class="was">Сам на сам із графіком</p><p>Немає кого спитати, тому ті самі помилки повторюються знову й знову.</p></div>
+    </div>
+    <div class="pains-end"><p>Якщо впізнав себе хоч в одному пункті — MoonTrade може допомогти розібратися.</p><a class="btn btn-primary" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Долучитися безкоштовно</a></div>
+  </div>
+</section>
+
+<section class="sec" id="team" aria-labelledby="team-h" style="padding-top:40px">
+  <div class="wrap">
+    <h2 id="team-h">Торгуємо й розбираємо логіку руху ціни</h2>
+    <p class="lede" style="margin-top:16px">Стратегії на індикаторах — лише частина. Основа всього — розуміти, чому ціна рухається саме так: структура, ліквідність, зони інтересу. Smart Money Concepts і технічний аналіз простою мовою — на ефірах, у команді й у навчанні.</p>
+    <div class="logic">
+      <div class="lg-chart" id="logic"><canvas role="img" aria-label="Анімований розбір: низхідна структура, зняття ліквідності під рівними мінімумами, злам структури, повернення в імбаланс і вхід із підтвердженням"></canvas></div>
+      <div class="lg-side">
+        <div class="lg-steps" role="tablist" aria-label="Кроки розбору">
+          <button type="button" role="tab" aria-selected="true">Структура</button>
+          <button type="button" role="tab" aria-selected="false">Ліквідність</button>
+          <button type="button" role="tab" aria-selected="false">Злам</button>
+          <button type="button" role="tab" aria-selected="false">Зона інтересу</button>
+          <button type="button" role="tab" aria-selected="false">Сценарій</button>
+        </div>
+        <p class="lg-cap" id="lg-cap" aria-live="polite"></p>
+        <ul class="lg-topics"><li>Структура ринку: BOS і CHoCH</li><li>Ліквідність і де стоять стопи</li><li>Order Block та імбаланс (FVG)</li><li>Рівні, Фібоначчі, аналіз з кількох таймфреймів</li></ul>
+        <div class="cta"><a class="btn btn-primary" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Розбори щодня — у Telegram</a><a class="btn btn-ghost" href="https://learn.moontrade.community/" target="_blank" rel="noopener">Вчитися з нуля</a></div>
+        <p class="note">Приклад навчальний. Рішення завжди приймаєш ти: за своїми правилами й зі своїм ризиком.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec band" id="mod" aria-labelledby="mod-h">
+  <div class="wrap">
+    <span class="eyebrow-mod">Мод MoonTrade · безкоштовно</span>
+    <h2 id="mod-h">Торгувати з телефону — нарешті зручно</h2>
+    <p class="lede" style="margin-top:16px">Без мода торгувати з телефону — мука: дрібні кнопки, актив шукаєш у довгому списку, а меню закривають графік. Мод додає панель під палець, і телефон стає повноцінним робочим місцем. На ПК теж працює.</p>
+    <div class="mtabs" role="tablist" aria-label="Пристрій"><button type="button" role="tab" data-v="ph" aria-selected="true">📱 Телефон</button><button type="button" role="tab" data-v="pc" aria-selected="false">💻 ПК</button></div>
+    <div class="mp-wrap" id="mod-ph">
+      <div class="mp" id="mp">
+        <div class="mp-screen">
+          <div class="mp-top"><span class="mp-asset"></span><span class="mp-pay"></span><span class="mp-tf"></span></div>
+          <button type="button" class="mp-sig" aria-expanded="true">Сигнали <b>0</b></button>
+          <div class="mp-cards"></div>
+          <div class="mp-chart"><canvas aria-label="Демо-графік"></canvas>
+            <div class="mp-panel" aria-label="Панель мода">
+              <button type="button" data-a="up" aria-label="Попередній актив">▲</button>
+              <button type="button" data-a="down" aria-label="Наступний актив">▼</button>
+              <button type="button" data-a="more" aria-label="Таймфрейми й малювання">⋯</button>
+              <button type="button" data-a="send" aria-label="Надіслати угоду команді">📣</button>
+              <button type="button" data-a="menu" aria-label="Меню мода">☰</button>
+              <span class="mp-on" title="Мод підключений"><i></i><span></span></span>
+            </div>
+            <div class="mp-hud" aria-live="polite"></div>
+            <div class="mp-pop" hidden>
+              <div class="mp-row"><button type="button" data-tf="0" aria-pressed="true">M1</button><button type="button" data-tf="1">M2</button><button type="button" data-tf="2">M3</button><button type="button" data-tf="3">M5</button><button type="button" data-tf="4">M15</button></div>
+              <button type="button" class="mp-draw" data-draw>— Горизонтальна лінія</button>
+            </div>
+            <div class="mp-sheet" hidden>
+              <b>Меню мода</b>
+              <label><span>Стиль MoonTrade</span><input type="checkbox" name="style" checked></label>
+              <label><span>Чистий інтерфейс</span><input type="checkbox" name="clean" checked></label>
+              <label><span>Підказка з виплатою</span><input type="checkbox" name="hud" checked></label>
+            </div>
+            <div class="mp-toast" role="status"></div>
+          </div>
+          <div class="mp-clutter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="mp-trade"><span>Сума 10 <em>×2</em></span><span>1:00</span><button type="button" class="b">Вгору</button><button type="button" class="s">Вниз</button></div>
+        </div>
+      </div>
+      <div class="mp-side">
+        <p class="mp-hint">Це робочий прототип — натискай кнопки на панелі телефона або пункти нижче.</p>
+        <ul class="mp-feat">
+          <li><button type="button" data-mp="arrows"><i>▲▼</i><span><b>Актив і виплата — одним дотиком</b>Стрілки перемикають активи, підказка одразу показує виплату. Низькі виплати мод пропускає.</span></button></li>
+          <li><button type="button" data-mp="more"><i>⋯</i><span><b>Таймфрейми й лінії під пальцем</b>M1–M15 і малювання в один дотик, без пошуку в меню.</span></button></li>
+          <li><button type="button" data-mp="send"><i>📣</i><span><b>«Надіслати» угоду команді</b>Учасники з модом бачать твій актив і виплату й відкривають його одним дотиком.</span></button></li>
+          <li><button type="button" data-mp="bot"><i>🔔</i><span><b>Сповіщення бота</b>Бот стежить за стратегіями Боллінджера і SuperTrend + CCI та підказує, куди подивитися.</span></button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mod" id="mod-pc" hidden>
+      <div class="term" id="term">
+        <div class="term-bar"><b>Активи</b>
+          <label class="minpay">мін. виплата <select id="minpay"><option value="0">будь-яка</option><option value="70">70%</option><option value="80" selected>80%</option><option value="85">85%</option></select></label>
+          <div class="seg" role="group" aria-label="Фільтр активів">
+            <button type="button" data-f="all" aria-pressed="true">Усі</button><button type="button" data-f="otc" aria-pressed="false">OTC</button><button type="button" data-f="ex" aria-pressed="false">Біржові</button>
+          </div>
+        </div>
+        <ul class="assets" id="assets" tabindex="0" aria-label="Список активів, клавіші вгору і вниз перемикають актив"></ul>
+        <div class="term-foot"><button type="button" id="prev" aria-label="Попередній актив">↑</button><button type="button" id="next" aria-label="Наступний актив">↓</button><span id="cur"></span></div>
+      </div>
+      <ul class="feat">
+        <li><b>Гортання активів стрілками</b><span>Перемикаєш пари з клавіатури, не шукаючи їх у списку.</span></li>
+        <li><b>Мінімальна виплата для гортання</b><span>Задаєш поріг, наприклад 80%, і стрілки самі пропускають активи, які за цим критерієм тобі не цікаві. Колір назви одразу показує рівень виплати.</span></li>
+        <li><b>OTC окремо від біржових</b><span>Перемикач між OTC та звичайним ринком.</span></li>
+        <li><b>Торгівля в команді</b><span>Натискаєш «Надіслати» — і в усіх, хто в лайві, з'являється твоя ситуація. Один клік, і актив відкритий: зручно торгувати разом.</span></li>
+        <li><b>Таймфрейми клавішами</b><span>Швидке перемикання таймфреймів і налаштування графічних елементів.</span></li>
+      </ul>
+    </div>
+    <div class="try">
+      <div><h3>Встанови за 2 хвилини</h3><p>Безкоштовно для iPhone, Android і ПК. Покрокова інструкція з відео — на сторінці мода.</p><p class="mod-online" id="mod-online" hidden><i></i><b></b> трейдерів з модом зараз онлайн</p></div>
+      <a class="btn btn-primary" href="https://learn.moontrade.community/mod/" target="_blank" rel="noopener">Інструкція з встановлення</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="bot" aria-labelledby="bot-h">
+  <div class="wrap">
+    <h2 id="bot-h">Бот для однієї з наших стратегій</h2>
+    <div class="bot">
+      <div class="persp"><div class="bb-demo" id="bb-demo" role="img" aria-label="Анімований графік зі смугами Боллінджера: коли свічка закривається за смугою, бот надсилає сповіщення"><canvas></canvas><div class="bb-toast" aria-hidden="true"></div></div></div>
+      <div>
+        <p class="lede">Півтора року тому ми помітили закономірність у тому, як ціна поводиться біля смуг Боллінджера на OTC, і поділилися нею з командою. Відтоді торгуємо за цією стратегією, а бот у моді бере на себе пошук ситуацій.</p>
+        <ol class="bb-steps">
+          <li><div><b>Ціна підходить до смуги, але ще не торкається</b><br><span>Це потенційна ситуація. Бот пише «Можливий дотик» — можна готуватися.</span></div></li>
+          <li><div><b>Свічка закривається з дотиком</b><br><span>Бот підтверджує: «Перетин підтверджено».</span></div></li>
+          <li><div><b>Ти перевіряєш другу ознаку</b><br><span>За правилами з уроку вирішуєш: входити чи пропустити.</span></div></li>
+        </ol>
+        <div class="bb-facts"><span><b>1,5+</b> року торгуємо за стратегією</span><span><b>1 000+</b> прямих ефірів на YouTube</span></div>
+        <div class="cta"><a class="btn btn-primary" href="https://learn.moontrade.community/?open=bb-moon-2026#chapter-14" target="_blank" rel="noopener">Відкрити урок зі стратегією</a><a class="btn btn-ghost" href="https://youtu.be/Y9Kqd9yzdbE" target="_blank" rel="noopener">Відео про стратегію</a></div>
+      </div>
+    </div>
+    <div class="shot">
+      <img src="assets/bot-alerts.jpg" alt="Сповіщення бота в моді: «Перетин підтверджено» для USD/INR OTC і Microsoft OTC, «Можливий дотик» для Netflix OTC" width="1250" height="516" loading="lazy">
+      <div><h3>Так сповіщення виглядають у моді</h3><p>Зелене — свічка вже закрилася з дотиком, жовте — ціна тільки підходить до смуги.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec band" id="youtube" aria-labelledby="yt-h">
+  <div class="wrap">
+    <h2 id="yt-h">Понад 1 000 ефірів і 300+ навчальних відео</h2>
+    <div class="yt">
+      <a class="video" href="https://youtu.be/Y9Kqd9yzdbE" target="_blank" rel="noopener"><div class="th"><img src="https://i.ytimg.com/vi/Y9Kqd9yzdbE/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Y9Kqd9yzdbE/hqdefault.jpg'" alt="" loading="lazy"></div><p>Стратегія на Боллінджері для опціонів: 2 ознаки і 1 пастка</p></a>
+      <div class="yt-side">
+        <h3>Навчальні відео й прямі ефіри</h3>
+        <p style="margin-top:10px">Від основ до стратегій — коротко й по суті. А на Moon Live — живі ефіри з торгівлею.</p>
+        <div class="yt-ch">
+          <a class="btn btn-primary btn-sm" href="https://www.youtube.com/@Moon_trade1" target="_blank" rel="noopener">Навчання від Муна</a>
+          <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/channel/UCSQZDr8CWxoGt7k-144Di5g" target="_blank" rel="noopener">Ефіри Moon Live</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reviews" aria-labelledby="rv-h">
+  <div class="wrap">
+    <h2 id="rv-h">Що кажуть учасники</h2>
+    <p class="lede" style="margin-top:14px">Повідомлення з нашого Telegram і коментарі на YouTube. Скоротили, але слова залишили авторські. Результати в трейдингу індивідуальні.</p>
+    <div class="rv-grid">
+      <figure class="rv"><span class="rv-tag">Сесії та стріми</span><blockquote>«З минулого року пробуємо себе з чоловіком у трейдингу. Ваш канал — справжня скарбничка знань. Дуже подобаються спокійні, інформативні сесії та відео Іллі, а також емоційні, але не менш навчальні стріми Ігоря.»</blockquote><figcaption><span class="av sm" aria-hidden="true">С</span><span><b>Світлана</b><small>Telegram</small></span></figcaption></figure>
+      <figure class="rv"><span class="rv-tag">Ризик</span><blockquote>«Тепер заходжу з тією сумою, яку баланс реально може витримати, — і стало набагато спокійніше. Дякую, що постійно наголошуєш на ризиках і вчиш трішки подумати, а не просто гнатися за прибутком.»</blockquote><figcaption><span class="av sm" aria-hidden="true">M</span><span><b>Maks</b><small>Telegram</small></span></figcaption></figure>
+      <figure class="rv"><span class="rv-tag">Навчання</span><blockquote>«Ходив на платні курси з трейдингу — за місяць засвоїв набагато менше корисної інформації, ніж з вами за пару тижнів. Там набагато більше теорії, ніж практики, а у вас навпаки.»</blockquote><figcaption><span class="av sm" aria-hidden="true">D</span><span><b>DOS</b><small>Telegram</small></span></figcaption></figure>
+      <figure class="rv"><span class="rv-tag">Дисципліна</span><blockquote>«На реальному рахунку двічі втрачала депозит. Потім зрозуміла чому: спочатку порушила ризик-менеджмент, далі — інші правила. Тепер їх більше не порушую. Дякую за прості, щирі й зрозумілі навчальні відео.»</blockquote><figcaption><span class="av sm" aria-hidden="true">У</span><span><b>Учасниця команди</b><small>Telegram</small></span></figcaption></figure>
+      <figure class="rv"><span class="rv-tag">Підтримка</span><blockquote>«Вже кілька місяців вчуся в Ігоря та Іллі правильно торгувати: за ризик-менеджментом, планомірно. Але важливіше за торгівлю — підтримка. Хлопці завжди на зв’язку, радять, допомагають.»</blockquote><figcaption><span class="av sm" aria-hidden="true">А</span><span><b>АйкіАлекс</b><small>YouTube</small></span></figcaption></figure>
+      <figure class="rv"><span class="rv-tag">Самостійність</span><blockquote>«Завдяки вашим відеоурокам на YouTube і торгівлі в ефірах я вже сам роблю аналіз і торгую на вихідних, коли ви відпочиваєте. Головне — холодна голова й правильний ризик-менеджмент.»</blockquote><figcaption><span class="av sm" aria-hidden="true">О</span><span><b>Остап</b><small>Telegram</small></span></figcaption></figure>
+      <figure class="rv"><span class="rv-tag">Українською</span><blockquote>«Раніше ставився до торгівлі трохи несерйозно, зараз — з розумінням. Заходжу на твої ефіри, слухаю пояснення, і потроху складається картина. І приємно, що все українською.»</blockquote><figcaption><span class="av sm" aria-hidden="true">N</span><span><b>Nikitos</b><small>Telegram</small></span></figcaption></figure>
+      <figure class="rv"><span class="rv-tag">Розбори</span><blockquote>«Я лише кілька місяців у цій ніші, тому більше торгую на демо. Але вчитися набагато легше, бо кожну ситуацію, в яку заходимо, розбирають на скріні.»</blockquote><figcaption><span class="av sm" aria-hidden="true">У</span><span><b>Учасник команди</b><small>Telegram</small></span></figcaption></figure>
+      <figure class="rv"><span class="rv-tag">Дисципліна</span><blockquote>«Спочатку трохи злив. Але коли прочитав про психологію й мані-менеджмент і почав вмикати холодну голову — все почало виходити. Головне — дисципліна.»</blockquote><figcaption><span class="av sm" aria-hidden="true">П</span><span><b>Паша</b><small>Telegram</small></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec band" aria-labelledby="who-h">
+  <div class="wrap">
+    <h2 id="who-h">Хто веде MoonTrade</h2>
+    <p class="lede" style="margin-top:16px">Ми — Ілля та Ігор, трейдери й засновники MoonTrade. Наша робота — трейдинг. А мета MoonTrade — створити якісне й доступне навчання, з яким розбереться кожен. Наша торгівля в лайві — підтвердження цього.</p>
+    <div class="people">
+      <div class="person"><div class="av" aria-hidden="true">І</div><div><h3>Ілля</h3><p>Засновник навчання «Трейдинг з нуля». Здебільшого торгує на сесіях у команді.</p></div></div>
+      <div class="person"><div class="av" aria-hidden="true">І</div><div><h3>Ігор</h3><p>Стабільно торгує на прямих ефірах нашого YouTube-каналу.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="path" aria-labelledby="path-h">
+  <div class="wrap">
+    <h2 id="path-h">Як це працює</h2>
+    <p class="lede" style="margin-top:16px">Чотири фази, як у Місяця. Почни з будь-якої — але радимо по черзі.</p>
+    <ol class="path">
+      <li><svg class="phase" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="22" fill="#211a4a" stroke="#4b3f8a" stroke-width="2"/></svg>
+        <div><h3>Будь у курсі ефірів</h3><p>Анонси ефірів — у нашій Telegram-спільноті. А понад 1 000 ефірів уже в записі.</p><div class="links"><a class="link" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Telegram-спільнота</a><a class="link" href="#youtube">Ефіри на YouTube</a></div></div></li>
+      <li><svg class="phase" viewBox="0 0 56 56" aria-hidden="true"><defs><mask id="ph1"><circle cx="28" cy="28" r="22" fill="#fff"/><circle cx="20" cy="28" r="22" fill="#000"/></mask></defs><circle cx="28" cy="28" r="22" fill="#211a4a" stroke="#4b3f8a" stroke-width="2"/><circle cx="28" cy="28" r="22" fill="#cdbdff" mask="url(#ph1)"/></svg>
+        <div><h3>Пройди навчання</h3><p>42 уроки з нуля: ризик, логіка ціни, стратегії, психологія. З тестами й прикладами з ефірів.</p><a class="link" href="https://learn.moontrade.community/" target="_blank" rel="noopener">Відкрити перший урок</a></div></li>
+      <li><svg class="phase" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="22" fill="#211a4a" stroke="#4b3f8a" stroke-width="2"/><path d="M28 6a22 22 0 0 1 0 44z" fill="#cdbdff"/></svg>
+        <div><h3>Вчися в команді</h3><p>Розбираємо ситуації на графіку разом: де ризик, чому вхід саме тут і коли краще пропустити. Питання ставиш напряму.</p><a class="link" href="#team">Як виглядає розбір</a></div></li>
+      <li><svg class="phase" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="22" fill="#cdbdff"/><circle cx="21" cy="22" r="4" fill="#a48ef0"/><circle cx="34" cy="33" r="5" fill="#a48ef0"/></svg>
+        <div><h3>Торгуй за своїми правилами</h3><p>Своя стратегія, свій ризик і спокій у рішеннях. Команда й підтримка поруч.</p><a class="link" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Долучитися до спільноти</a></div></li>
+    </ol>
+    <div class="fit">
+      <div class="yes"><h3>Це для тебе, якщо</h3><ul><li>хочеш розуміти ринок, а не вгадувати</li><li>ти новачок або вже торгуєш, але без системи</li><li>готовий вчитися й відпрацьовувати на демо</li><li>шукаєш спільноту, де пояснюють кожне рішення</li></ul></div>
+      <div class="no"><h3>Не для тебе, якщо</h3><ul><li>шукаєш гарантований прибуток</li><li>хочеш готові сигнали без розуміння</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="choose-h" style="padding-top:0">
+  <div class="wrap">
+    <h2 id="choose-h">Що ближче тобі зараз?</h2>
+    <div class="choose">
+      <a href="https://learn.moontrade.community/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 56 56" aria-hidden="true"><defs><mask id="cm1"><circle cx="28" cy="28" r="22" fill="#fff"/><circle cx="20" cy="28" r="22" fill="#000"/></mask></defs><circle cx="28" cy="28" r="22" fill="#211a4a" stroke="#4b3f8a" stroke-width="2"/><circle cx="28" cy="28" r="22" fill="#cdbdff" mask="url(#cm1)"/></svg>
+        <h3>Я тільки починаю</h3><p>Хочу розібратися з основами: як працює платформа, що таке ризик і як читати графік.</p><span class="go">Почати з першого уроку</span></a>
+      <a href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">
+        <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="22" fill="#cdbdff"/><circle cx="21" cy="22" r="4" fill="#a48ef0"/><circle cx="34" cy="33" r="5" fill="#a48ef0"/></svg>
+        <h3>Я вже торгую</h3><p>Хочу системності: розбори в команді, стратегії, мод і бот.</p><span class="go">Перейти в Telegram</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec band" id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <h2 id="faq-h">Відповіді на головні питання</h2>
+    <div class="faq">
+      <details><summary>Чому все безкоштовно? В чому підвох?</summary><p>Ми не продаємо курси, сигнали чи підписки. Наша робота — трейдинг, а мета MoonTrade — якісне й доступне навчання, з яким розбереться кожен.</p></details>
+      <details><summary>Чи будуть потім платні пакети?</summary><p>Ні. Навчання, спільнота, мод і бот — безкоштовні, і так залишиться.</p></details>
+      <details><summary>Це не скам?</summary><p>Ми не просимо грошей і не керуємо чужими рахунками. Понад 1 000 наших ефірів із живою торгівлею — у записі на YouTube, а історію торгівлі ми ведемо понад півтора року. Можеш спершу подивитися, як ми торгуємо, і лише потім вирішувати. У команді є люди, які долучилися після пів року спостереження, — і це нормально.</p></details>
+      <details><summary>Мені підійде, якщо я зовсім новачок?</summary><p>Так. Навчання починається з нуля: платформа, ризик-менеджмент, робота з грошима. Практику радимо починати на демо-рахунку.</p></details>
+      <details><summary>Який депозит потрібен?</summary><p>Для старту — жодного: усе можна відпрацювати на демо. Переходь на реальний рахунок лише з сумою, втрату якої готовий пережити.</p></details>
+      <details><summary>Яких результатів чекати?</summary><p>Гарантій прибутку немає ні в кого. Ми даємо розуміння, правила і практику з поясненнями. Результат залежить від дисципліни й того, скільки часу ти приділяєш навчанню.</p></details>
+      <details><summary>Як не натрапити на шахраїв від вашого імені?</summary><p>Ми ніколи не пишемо першими. Єдиний чат із нами в Telegram — <a class="link" href="https://t.me/mo0ntrade" target="_blank" rel="noopener">@mo0ntrade</a>. Якщо хтось пише від імені MoonTrade першим або просить гроші — це шахраї.</p></details>
+      <details><summary>Ви даєте сигнали?</summary><p>Ми не продаємо сигнали. У команді розбираємо кожну ситуацію на графіку: чому вхід саме тут і коли краще пропустити. Рішення ти приймаєш сам за своїми правилами.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec final" aria-labelledby="final-h">
+  <div class="wrap">
+    <div class="box">
+      <h2 id="final-h">Почни з першого уроку або одразу приходь у спільноту</h2>
+      <p class="lede free-line">Обидва шляхи безкоштовні.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener"><svg class="tg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.3 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.8-1.4-1.4ZM8.7 13.9l9.4-5.9c.5-.3.9-.1.5.2l-8 7.3-.3 3.4-1.6-5Z"/></svg>Долучитися в Telegram</a>
+        <a class="btn btn-ghost" href="https://learn.moontrade.community/" target="_blank" rel="noopener">Безкоштовне навчання</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <a class="brand" href="#top"><img src="assets/logo.jpg" alt="" width="34" height="34">MoonTrade</a>
+      <a href="https://learn.moontrade.community/" target="_blank" rel="noopener">Навчання</a>
+      <a href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://www.youtube.com/@Moon_trade1" target="_blank" rel="noopener">Навчання від Муна</a>
+      <a href="https://www.youtube.com/channel/UCSQZDr8CWxoGt7k-144Di5g" target="_blank" rel="noopener">Moon Live</a>
+      <a href="risk.html">Ризики</a>
+      <a href="privacy.html">Конфіденційність</a>
+    </div>
+    <p class="risk">Торгівля на фінансових ринках пов’язана з високим ризиком втрати коштів. Матеріали MoonTrade мають освітній характер і не є інвестиційною порадою. Результати інших людей і минулі результати не гарантують твого результату. Торгуй лише тими коштами, втрату яких готовий пережити.</p>
+    <p>© 2026 MoonTrade</p>
+  </div>
+</footer>
+
+<nav class="dock" id="dock" aria-label="Швидкі дії">
+  <a class="btn btn-primary" href="https://t.me/+ubz6helIhwsxMGVi" target="_blank" rel="noopener">Telegram</a>
+  <a class="btn btn-ghost" href="https://learn.moontrade.community/" target="_blank" rel="noopener">Навчання</a>
+</nav>
+
+<script src="assets/moon.js" defer></script>
+<script src="assets/bb.js" defer></script>
+<script src="assets/logic.js" defer></script>
+<script src="assets/modphone.js" defer></script>
+<script>
+(function(){
+  // mod demo: assets come pre-sorted by payout; the threshold makes the arrows skip what isn't interesting
+  var data=[['EUR/USD OTC',92,1],['AUD/CAD OTC',92,1],['GBP/JPY',88,0],['EUR/CHF OTC',86,1],['AUD/USD',83,0],['USD/JPY',79,0],['Apple OTC',76,1],['EUR/GBP',71,0],['Tesla OTC',64,1],['USD/CHF',58,0]];
+  var list=document.getElementById('assets'),f='all',sel=0,shown=[],minp=document.getElementById('minpay');
+  function cls(p){return p>=85?'hi':p>=70?'md':'lo';}
+  function ok(i){return shown[i][1]>=+minp.value;}
+  function render(){
+    shown=data.filter(function(d){return f==='all'||(f==='otc'?d[2]:!d[2]);});
+    if(sel>=shown.length)sel=0; if(!ok(sel)){for(var k=0;k<shown.length;k++){if(ok(k)){sel=k;break;}}}
+    list.innerHTML=shown.map(function(d,i){return '<li class="'+cls(d[1])+(i===sel?' sel':'')+(ok(i)?'':' skip')+'"><span>'+d[0]+'<small>'+(d[2]?'OTC':'Біржовий')+'</small></span><span class="pay">'+d[1]+'%</span></li>';}).join('');
+    document.getElementById('cur').textContent='Відкрито: '+shown[sel][0]+' — виплата '+shown[sel][1]+'%';
+    var li=list.children[sel];if(li){list.scrollTop=Math.max(0,li.offsetTop-list.clientHeight/2+li.clientHeight/2);}
+  }
+  function move(d){var n=shown.length,i=sel;for(var k=0;k<n;k++){i=(i+d+n)%n;if(ok(i))break;}sel=i;render();}
+  document.getElementById('prev').addEventListener('click',function(){move(-1);});
+  document.getElementById('next').addEventListener('click',function(){move(1);});
+  minp.addEventListener('change',render);
+  list.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){e.preventDefault();move(1);}else if(e.key==='ArrowUp'){e.preventDefault();move(-1);}});
+  [].forEach.call(document.querySelectorAll('.seg button'),function(b){b.addEventListener('click',function(){
+    f=b.getAttribute('data-f');sel=0;[].forEach.call(document.querySelectorAll('.seg button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});render();});});
+  render();
+
+  // mobile menu
+  var bur=document.querySelector('.burger'),mn=document.getElementById('mnav');
+  function setMenu(o){bur.setAttribute('aria-expanded',o?'true':'false');bur.setAttribute('aria-label',o?'Закрити меню':'Відкрити меню');mn.hidden=!o;document.body.classList.toggle('menu-open',o);}
+  bur.addEventListener('click',function(){setMenu(mn.hidden);});
+  mn.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+  addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+
+  // reading progress under the header + active menu item
+  var prog=document.getElementById('prog'),dot=document.getElementById('prog-dot'),ticking=false;
+  var navs=[].slice.call(document.querySelectorAll('.top nav a[href^="#"]')).map(function(a){return [a,document.querySelector(a.getAttribute('href'))];});
+  function onScroll(){
+    ticking=false;
+    var h=document.documentElement,max=h.scrollHeight-innerHeight,k=max>0?Math.min(1,Math.max(0,scrollY/max)):0;
+    prog.style.transform='scaleX('+k.toFixed(4)+')';dot.style.left=(k*100).toFixed(2)+'%';dot.style.opacity=k>0.002&&k<0.998?1:0;
+    var cur=null;navs.forEach(function(n){if(n[1]&&n[1].getBoundingClientRect().top<innerHeight*0.35)cur=n[0];});
+    navs.forEach(function(n){n[0].classList.toggle('on',n[0]===cur);});
+  }
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll);}},{passive:true});
+  addEventListener('resize',onScroll);onScroll();
+
+  // sticky mobile CTA after the hero
+  var dock=document.getElementById('dock'),hero=document.querySelector('.hero'),fin=document.querySelector('.final');
+  if('IntersectionObserver' in window){
+    var heroVis=true,finVis=false;function upd(){dock.classList.toggle('show',!heroVis&&!finVis);}
+    new IntersectionObserver(function(e){heroVis=e[0].isIntersecting;upd();}).observe(hero);
+    new IntersectionObserver(function(e){finVis=e[0].isIntersecting;upd();}).observe(fin);
+  }
+})();
+</script>
+<script defer type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9b325ebbe6dd4bb7acda78a19dff78ff"}'></script>
+</body>
+</html>
