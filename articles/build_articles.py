@@ -38,7 +38,18 @@ TODAY = datetime.date.today().isoformat()
 # Перша публікація статей — FIRST; змінив статтю — додай у її JSON "modified": "РРРР-ММ-ДД".
 # Змінив головну, risk або privacy — онови PAGES_MODIFIED.
 FIRST = '2026-10-10'
-PAGES_MODIFIED = '2026-10-10'
+PAGES_MODIFIED = '2026-10-12'
+
+
+def newtab(h):
+    """зовнішні посилання (Telegram, навчання, мод) відкриваються в новій вкладці; сам сайт moontrade.community — у тій самій"""
+    import re as _r
+    def r(m):
+        tag = m.group(0)
+        if 'target=' in tag or _r.match(r'https?://(www\.)?moontrade\.community(/|$)', m.group(1)):
+            return tag
+        return _r.sub(r'\s+rel="[^"]*"', '', tag)[:-1] + ' target="_blank" rel="noopener">'
+    return _r.sub(r'<a\b[^>]*\bhref="(https?://[^"]*)"[^>]*>', r, h)
 
 def esc(t): return html.escape(t, quote=True)
 
@@ -199,7 +210,7 @@ def page(a, all_meta):
 <section id="quiz"><h2>Перевір себе</h2><div class="quiz">{quiz}</div></section>
 <aside class="cta">
 <div><h2>Хочеш розібратися глибше?</h2><p>Цю тему ми детально розбираємо в безкоштовному навчанні «Трейдинг з нуля»{(" — урок " + esc(lesson)) if lesson else ""}. А в Telegram-спільноті — розбори на живому ринку й відповіді на питання.</p></div>
-<div class="cta-b"><a class="btn btn-primary" href="{LEARN}">Безкоштовне навчання</a><a class="btn btn-ghost" href="{TG}" target="_blank" rel="noopener">Telegram-спільнота</a></div>
+<div class="cta-b"><a class="btn btn-primary" href="{LEARN}" target="_blank" rel="noopener">Безкоштовне навчання</a><a class="btn btn-ghost" href="{TG}" target="_blank" rel="noopener">Telegram-спільнота</a></div>
 </aside>
 {('<section class="related"><h2>Далі за темою</h2><div class="rels">' + rel + '</div></section>') if rel else ''}
 <p class="risk">Матеріал має освітній характер і не є інвестиційною порадою. Торгівля на фінансових ринках пов’язана з високим ризиком втрати коштів. Приклади на схемах навчальні.</p>
@@ -217,7 +228,7 @@ def main():
     meta = {a['slug']: a for a in arts}
     for a in arts:
         d = os.path.join(SITE, 'statti', a['slug']); os.makedirs(d, exist_ok=True)
-        open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page(a, meta))
+        open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(newtab(page(a, meta)))
     # sitemap: keep base pages, add articles
     base = [(BASE + '/', PAGES_MODIFIED), ('https://learn.moontrade.community/', PAGES_MODIFIED), (BASE + '/risk.html', PAGES_MODIFIED), (BASE + '/privacy.html', PAGES_MODIFIED)]
     urls = base + [(f'{BASE}/statti/{a["slug"]}/', a.get('modified', a.get('date', FIRST))) for a in arts]
