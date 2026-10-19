@@ -152,6 +152,7 @@
       if (k === 'keys') { group(1); }
       if (k === 'send') send();
       if (k === 'bot') bot();
+      if (k === 'ind') toast('Volume Profile з POC і імбаланс вмикаються кнопкою «Індикатори моду» над графіком');
       if (k === 'stats') { var s = $('.pc-stats'); s.classList.remove('flash'); void s.offsetWidth; s.classList.add('flash'); }
       root.focus({ preventScroll: true });
     });
