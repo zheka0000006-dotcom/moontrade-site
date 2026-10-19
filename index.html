@@ -409,12 +409,12 @@ a.tile:hover{border-color:rgba(205,189,255,.5)}
 .pc-keys button{min-width:34px;height:32px;font:700 13px var(--body);color:var(--ink);background:var(--deep);border:1px solid var(--line);border-bottom-width:3px;border-radius:8px;cursor:pointer;transition:transform .1s}
 .pc-keys button.hit{transform:translateY(2px);border-color:var(--moon)}
 .pc-keys small{flex-basis:100%;font-size:13px}
-.pc-feat{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.pc-feat button{display:grid;gap:10px;height:100%;text-align:left;font:inherit;color:var(--ink);background:var(--deep);border:1px solid var(--line);border-radius:18px;padding:16px;cursor:pointer;transition:border-color .2s,background .2s}
+.pc-feat{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.pc-feat button{display:grid;gap:10px;width:100%;height:100%;text-align:left;font:inherit;color:var(--ink);background:var(--deep);border:1px solid var(--line);border-radius:18px;padding:16px;cursor:pointer;transition:border-color .2s,background .2s}
 .pc-feat button:hover,.pc-feat button.on{border-color:rgba(205,189,255,.45);background:#1a1440}
 .pc-feat i{width:40px;height:40px;display:grid;place-items:center;font-style:normal;border-radius:12px;background:#231a4f}
 .pc-feat b{display:block;margin-bottom:3px}.pc-feat span{color:var(--muted);font-size:14px}
-@media (max-width:900px){.pc-feat{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.pc-feat{grid-template-columns:1fr 1fr}.pc-feat li:last-child{grid-column:1/-1}}
 @media (max-width:700px){.pc-app{grid-template-columns:1fr}.pc-main{border-right:0}.pc-side{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr}.pc-under{grid-template-columns:1fr}.pc-send{justify-self:start}.pc-asset,.pc-pay{font-size:17px}.pc-tfs{margin-left:0}.pc-chart{min-height:200px}}
 @media (max-width:480px){.pc-side{grid-template-columns:1fr}.pc-feat{grid-template-columns:1fr}}
 
@@ -719,6 +719,7 @@ footer .risk{max-width:80ch;font-size:13px;line-height:1.6}
         <li><button type="button" data-mpc="send"><i>📣</i><span><b>«Надіслати» угоду команді</b>Один клік — і твій актив з виплатою бачать усі з модом.</span></button></li>
         <li><button type="button" data-mpc="bot"><i>🔔</i><span><b>Сповіщення бота зі звуком</b>Чути, навіть коли вкладка неактивна. Клік по картці відкриває актив.</span></button></li>
         <li><button type="button" data-mpc="stats"><i>📊</i><span><b>Статистика за день</b>Угоди, плюс / мінус і вінрейт — завжди перед очима.</span></button></li>
+        <li><button type="button" data-mpc="ind"><i>📈</i><span><b>Індикатори на графіку PO</b>Volume Profile з POC, імбаланс (FVG), пензлик і траєкторія. Без TradingView.</span></button></li>
       </ul>
     </div>
     <div class="try">
