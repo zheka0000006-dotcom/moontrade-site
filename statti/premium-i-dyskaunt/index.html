@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Premium і Discount (преміум і дисконт) у трейдингу — MoonTrade</title>
+<meta name="description" content="Premium і discount (преміум і дисконт) простими словами: як побудувати dealing range (дилінг рендж), знайти рівень 50% і де шукати покупки та продажі.">
+<link rel="canonical" href="https://moontrade.community/statti/premium-i-dyskaunt/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0d0a1f">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="MoonTrade">
+<meta property="og:title" content="Premium і Discount (преміум і дисконт) у SMC (смарт мані): де купувати дешево, а продавати дорого">
+<meta property="og:description" content="Premium і discount (преміум і дисконт) простими словами: як побудувати dealing range (дилінг рендж), знайти рівень 50% і де шукати покупки та продажі.">
+<meta property="og:url" content="https://moontrade.community/statti/premium-i-dyskaunt/">
+<meta property="og:image" content="https://moontrade.community/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Premium і Discount (преміум і дисконт) у SMC (смарт мані): де купувати дешево, а продавати дорого", "description": "Premium і discount (преміум і дисконт) простими словами: як побудувати dealing range (дилінг рендж), знайти рівень 50% і де шукати покупки та продажі.", "inLanguage": "uk", "mainEntityOfPage": "https://moontrade.community/statti/premium-i-dyskaunt/", "datePublished": "2026-10-21", "dateModified": "2026-10-21", "author": {"@type": "Organization", "name": "MoonTrade", "url": "https://moontrade.community/"}, "publisher": {"@type": "Organization", "name": "MoonTrade", "logo": {"@type": "ImageObject", "url": "https://moontrade.community/assets/logo.jpg"}}, "image": "https://moontrade.community/assets/og.jpg"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Що таке premium і discount у SMC?", "acceptedAnswer": {"@type": "Answer", "text": "Premium — верхня половина останнього руху ціни, де ціна дорога. Discount — нижня половина, де ціна дешева. Межа між ними — рівень 50% (0,5)."}}, {"@type": "Question", "name": "Ціна виросла зі 100 до 112. Де закінчується discount?", "acceptedAnswer": {"@type": "Answer", "text": "На рівні 106: це середина руху (100 + 12 / 2). Усе нижче 106 — discount, усе вище — premium."}}, {"@type": "Question", "name": "Чи можна купувати в premium?", "acceptedAnswer": {"@type": "Answer", "text": "За цим підходом краще ні. У висхідному тренді я чекаю відкату в discount, а в premium шукаю продажі лише тоді, коли структура низхідна."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "MoonTrade", "item": "https://moontrade.community/"}, {"@type": "ListItem", "position": 2, "name": "Premium і Discount (преміум і дисконт) у SMC (смарт мані): де купувати дешево, а продавати дорого", "item": "https://moontrade.community/statti/premium-i-dyskaunt/"}]}]}</script>
+<style>:root{--night:#0d0a1f;--deep:#151032;--line:#2c2554;--moon:#cdbdff;--violet:#8b5cf6;--violet-2:#6d3df0;--ink:#f1ecff;--muted:#a99fcc;--mint:#3fe0a0;--rose:#ff6b8a;--amber:#ffc85c;--display:"Unbounded",system-ui,sans-serif;--body:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font:400 18px/1.75 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--moon)}
+:focus-visible{outline:2px solid var(--moon);outline-offset:3px;border-radius:6px}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+.top{position:sticky;top:0;z-index:10;background:rgba(13,10,31,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{max-width:1080px;display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:700 17px/1 var(--display)}
+.brand img{border-radius:9px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 16px/1 var(--body);text-decoration:none;padding:16px 22px;border-radius:999px;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--violet-2),var(--violet));color:#fff;box-shadow:0 10px 30px rgba(109,61,240,.35)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn-sm{padding:10px 16px;font-size:14px}
+.art{padding-top:28px;padding-bottom:40px}
+.crumbs{font-size:14px;color:var(--muted)}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs span{margin:0 4px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.01em;line-height:1.2;margin:0}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:700;margin:16px 0 18px}
+h2{font-size:clamp(21px,2.6vw,27px);font-weight:700;margin:52px 0 16px}
+h3{font-size:19px;font-weight:500;margin:28px 0 10px}
+p{margin:0 0 16px}
+.lead{font-size:20px;color:var(--ink);padding:18px 20px;border-left:3px solid var(--violet);background:linear-gradient(90deg,rgba(139,92,246,.12),transparent);border-radius:0 12px 12px 0}
+.toc{margin:28px 0 8px;padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:var(--deep);font-size:16px}
+.toc b{display:block;margin-bottom:6px}
+.toc ol{margin:0;padding-left:20px}
+.toc a{color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--ink)}
+ul,ol{padding-left:22px}
+li{margin-bottom:8px}
+strong{color:#fff}
+.note{padding:14px 18px;border-radius:14px;background:rgba(63,224,160,.08);border:1px solid rgba(63,224,160,.3);font-size:16.5px}
+.warn{padding:14px 18px;border-radius:14px;background:rgba(255,107,138,.08);border:1px solid rgba(255,107,138,.3);font-size:16.5px}
+table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:16px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--moon);font-weight:700}
+.fig{margin:22px 0 26px}
+.fig svg{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.fig figcaption{color:var(--muted);font-size:15px;margin-top:10px}
+.mist{list-style:none;padding:0}
+.mist li{position:relative;padding:12px 16px 12px 40px;border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.mist li::before{content:"";position:absolute;left:16px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--rose);box-shadow:0 0 10px rgba(255,107,138,.6)}
+.quiz details{border:1px solid var(--line);border-radius:14px;background:var(--deep);margin-bottom:10px}
+.quiz summary{cursor:pointer;list-style:none;padding:14px 46px 14px 18px;font-weight:700;position:relative}
+.quiz summary::-webkit-details-marker{display:none}
+.quiz summary::after{content:"+";position:absolute;right:16px;top:9px;font:500 24px/1 var(--display);color:var(--moon)}
+.quiz details[open] summary::after{content:"−"}
+.quiz details p{padding:0 18px 14px;margin:0;color:var(--muted)}
+.cta{margin:56px 0 10px;padding:30px;border-radius:24px;border:1px solid var(--line);background:radial-gradient(circle at 92% 10%,rgba(205,189,255,.2),transparent 45%),linear-gradient(135deg,#251a5a,#151032);display:grid;gap:18px}
+.cta h2{margin:0 0 8px;font-size:22px}
+.cta p{color:var(--muted);margin:0}
+.cta-b{display:flex;flex-wrap:wrap;gap:10px}
+.related h2{font-size:20px;margin-top:44px}
+.rels{display:grid;gap:12px}
+.rel{display:block;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:var(--deep);text-decoration:none;color:var(--ink)}
+.rel b{display:block;margin-bottom:4px}
+.rel span{color:var(--muted);font-size:15px}
+.rel:hover{border-color:var(--moon)}
+.risk{margin-top:40px;color:var(--muted);font-size:13.5px;line-height:1.6}
+.foot{display:flex;justify-content:space-between;align-items:center;padding:30px 22px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);max-width:800px}
+@media (max-width:600px){.fig{margin-left:-14px;margin-right:-14px}.fig svg{border-radius:12px}.fig figcaption{padding:0 14px}body{font-size:17px}.lead{font-size:18px}.cta{padding:22px}.btn{width:100%}.top .btn{width:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="32" height="32">MoonTrade</a>
+<a class="btn btn-primary btn-sm" href="https://t.me/+qmdQe3VskkA5OTcy" target="_blank" rel="noopener">Долучитися</a></div></header>
+<main class="wrap art">
+<nav class="crumbs" aria-label="Навігація"><a href="/">MoonTrade</a> <span>/</span> <a href="/statti/">Статті</a></nav>
+<h1>Premium і Discount (преміум і дисконт) у SMC (смарт мані): де купувати дешево, а продавати дорого</h1>
+<p class="lead">Premium — це верхня, дорожча половина останнього руху ціни, а discount — нижня, дешевша. Межа між ними — рівень 50% цього руху. У висхідному тренді я шукаю покупки в discount, у низхідному продажі — в premium, і поєдную це зі структурою, order block, FVG та Фібоначчі.</p>
+<nav class="toc" aria-label="Зміст"><b>У статті</b><ol><li><a href="#s1">Що таке premium і discount простими словами</a></li><li><a href="#s2">Як побудувати dealing range і знайти рівень 50%</a></li><li><a href="#s3">Купувати в discount, продавати в premium: чому це працює</a></li><li><a href="#s4">Premium і discount разом зі структурою ринку</a></li><li><a href="#s5">Як поєднати з order block, FVG і Фібоначчі</a></li><li><a href="#s6">Як я використовую premium і discount на практиці</a></li><li><a href="#mistakes">Типові помилки</a></li><li><a href="#quiz">Перевір себе</a></li></ol></nav>
+<section id="s1"><h2>Що таке premium і discount простими словами</h2><p>Уяви магазин, де той самий товар за тиждень коштував і 100, і 112. Купувати його за 111 не хочеться: ти знаєш, що зовсім нещодавно він був помітно дешевшим. Premium і discount переносять цю звичайну логіку на графік.</p><p>Я беру останній помітний рух ціни — від мінімуму до максимуму — і ділю його навпіл. Виходить дві половини:</p><ul><li><strong>Premium (преміум)</strong> — верхня половина. Відносно цього руху ціна тут дорога.</li><li><strong>Discount (дисконт)</strong> — нижня половина. Тут ціна дешева відносно того ж руху.</li></ul><p>Важливо, що «дорого» і «дешево» тут завжди відносні. Ціна 106 може бути premium для руху 100–108 і discount для руху 100–120. Тому без конкретного руху ці слова нічого не означають, і перше питання завжди одне: відносно чого я міряю?</p><p>Межа між ними — рівень 50%, або 0,5. У SMC його ще називають <strong>equilibrium (еквілібріум)</strong>, тобто рівновага. Над ним ринок «переплачує», під ним — дає знижку.</p><p>Сама ідея не нова. Купити дешевше і продати дорожче хоче кожен, просто SMC дає цьому чітку мірку: не «здається, вже високо», а конкретний рівень на конкретному русі. Тому premium і discount — частина базової розмітки в <a href="/statti/smc-ukrainskoiu/">Smart Money Concepts</a>, а не окрема стратегія.</p><p class="note">Premium і discount не кажуть, куди піде ціна. Вони лише показують, чи вигідна поточна ціна для угоди, яку ти й так плануєш за напрямком ринку.</p></section><section id="s2"><h2>Як побудувати dealing range і знайти рівень 50%</h2><p>Відрізок, який я ділю навпіл, називають <strong>dealing range (дилінг рендж)</strong> — робочий діапазон. Від того, як правильно ти його обереш, залежить усе інше.</p><ol><li><strong>Визначаю <a href="/statti/struktura-rynku/">структуру ринку</a>.</strong> Висхідна, низхідна чи боковик. Без цього незрозуміло, який рух брати.</li><li><strong>Знаходжу останній завершений імпульс.</strong> У висхідній структурі — від мінімуму, звідки почався рух, до максимуму, який він оновив. У низхідній — навпаки, від максимуму до мінімуму.</li><li><strong>Ставлю межі за крайніми точками</strong>, тобто за тінями свічок, а не за тілами.</li><li><strong>Ділю відстань навпіл.</strong> Рахую вручну або тягну сітку <a href="/statti/fibonacci/">Фібоначчі</a> і дивлюся на рівень 0,5.</li></ol><p>Приклад на схемі. Ціна виросла зі 100 до 112. Розмір руху — 12, половина — 6, отже середина: 100 + 6 = 106. Усе вище 106 — premium, усе нижче — discount. Після імпульсу ціна відкотилася до 103,8, тобто зайшла в discount, і звідти продовжила зростання.</p><p>Діапазон не вічний. Коли ціна оновлює максимум і робить новий BOS, я перемальовую dealing range на новий імпульс. Старий 50% у цей момент уже нічого не означає.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Dealing range від мінімуму 100 до максимуму 112. Середина — 106. Відкат дійшов у discount, звідти ціна пішла вгору." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="79.0" y="63.8" width="531.0" height="124.2" fill="#ff6b8a" fill-opacity=".16" stroke="#ff6b8a" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<rect x="79.0" y="188.0" width="531.0" height="124.2" fill="#3fe0a0" fill-opacity=".16" stroke="#3fe0a0" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<line x1="34.8" x2="34.8" y1="270.8" y2="293.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="26.5" y="275.0" width="16.5" height="14.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="64.2" x2="64.2" y1="283.3" y2="308.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="56.0" y="289.5" width="16.5" height="12.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="93.8" x2="93.8" y1="293.6" y2="312.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="85.5" y="297.7" width="16.5" height="4.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="123.2" x2="123.2" y1="262.5" y2="299.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="115.0" y="266.7" width="16.5" height="31.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="152.8" x2="152.8" y1="227.3" y2="270.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="144.5" y="231.5" width="16.5" height="35.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="182.2" x2="182.2" y1="196.3" y2="235.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="174.0" y="202.5" width="16.5" height="29.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="211.8" x2="211.8" y1="154.9" y2="206.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="203.5" y="161.1" width="16.5" height="41.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="241.2" x2="241.2" y1="117.6" y2="167.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="233.0" y="123.8" width="16.5" height="37.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="270.8" x2="270.8" y1="84.5" y2="130.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="262.5" y="90.7" width="16.5" height="33.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="300.2" x2="300.2" y1="63.8" y2="96.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="292.0" y="76.2" width="16.5" height="14.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="329.8" x2="329.8" y1="72.0" y2="105.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="321.5" y="76.2" width="16.5" height="22.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="359.2" x2="359.2" y1="94.8" y2="134.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="351.0" y="99.0" width="16.5" height="29.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="388.8" x2="388.8" y1="121.7" y2="163.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="380.5" y="127.9" width="16.5" height="29.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="418.2" x2="418.2" y1="152.8" y2="196.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="410.0" y="156.9" width="16.5" height="33.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="447.8" x2="447.8" y1="185.9" y2="233.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="439.5" y="190.1" width="16.5" height="33.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="477.2" x2="477.2" y1="194.2" y2="229.4" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="469.0" y="198.4" width="16.5" height="24.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="506.8" x2="506.8" y1="156.9" y2="202.5" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="498.5" y="163.2" width="16.5" height="35.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="536.2" x2="536.2" y1="125.9" y2="167.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="528.0" y="132.1" width="16.5" height="31.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="565.8" x2="565.8" y1="96.9" y2="136.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="557.5" y="103.1" width="16.5" height="29.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="595.2" x2="595.2" y1="74.1" y2="109.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="587.0" y="80.3" width="16.5" height="22.8" rx="1.5" fill="#3fe0a0"/>
+<line x1="285.5" x2="610.0" y1="63.8" y2="63.8" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="580.5" x2="610.0" y1="127.9" y2="127.9" stroke="#ff6b8a" stroke-width="1.8"/>
+<line x1="79.0" x2="610.0" y1="188.0" y2="188.0" stroke="#ffc85c" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="580.5" x2="610.0" y1="250.1" y2="250.1" stroke="#3fe0a0" stroke-width="1.8"/>
+<line x1="79.0" x2="610.0" y1="312.2" y2="312.2" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="447.8" cy="233.6" r="6" fill="none" stroke="#3fe0a0" stroke-width="2"/>
+<rect x="618.0" y="48.8" width="38.2" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="69.3" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">112</text>
+<rect x="618.0" y="112.9" width="79.1" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="627.0" y="133.4" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">premium</text>
+<rect x="618.0" y="173.0" width="42.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="627.0" y="193.5" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0,5</text>
+<rect x="618.0" y="235.1" width="88.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="627.0" y="255.6" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">discount</text>
+<rect x="618.0" y="297.2" width="42.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="317.7" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">100</text>
+<rect x="365.6" y="240.6" width="164.2" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="374.6" y="261.1" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">відкат у discount</text>
+</svg><figcaption>Dealing range від мінімуму 100 до максимуму 112. Середина — 106. Відкат дійшов у discount, звідти ціна пішла вгору.</figcaption></figure></section><section id="s3"><h2>Купувати в discount, продавати в premium: чому це працює</h2><p>Головне правило звучить просто: <strong>у висхідному тренді покупки шукаю в discount, у низхідному продажі — в premium</strong>. Тобто я чекаю, поки ціна відкотиться проти руху принаймні за середину.</p><p>Чому так? Після сильного імпульсу частина учасників фіксує прибуток, і ціна відкочується. Великі покупці, які вели рух угору, не хочуть доплачувати на вершині — вони чекають вигіднішої ціни, а вона якраз нижче середини. Там же часто лишаються їхні невиконані заявки, ті самі <a href="/statti/order-block/">order block</a> і імбаланси.</p><p>Друга причина — арифметика угоди. Якщо купити біля 111 в русі 100–112, до максимуму лишається зовсім мало простору, а відкат до 106 тебе вже сильно зачепить. Якщо купити біля 104, до попереднього максимуму далеко, а місце, де ідея ламається, — поруч.</p><p>Є і третя, психологічна причина. Купуючи в discount, ти входиш тоді, коли більшість уже злякалася відкату, а не тоді, коли всі в захваті від зростання. Це незручно, але саме такі входи зазвичай мають кращу ціну.</p><p>Для низхідного руху все дзеркально. На схемі ціна впала зі 112 до 100, середина знову 106. Відскок дійшов до 107,9 — це premium. Саме там продавці повернулися, і падіння продовжилося.</p><p class="warn">Не кожен відкат доходить до discount. Якщо ціна розвернулася вище середини, я пропускаю цей рух, а не наздоганяю його. Краща ціна іноді не настає, і це нормально.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="Низхідний рух від 112 до 100. Відскок дійшов вище 106 — у premium, і там продавці повели ціну далі вниз." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="79.0" y="63.8" width="531.0" height="124.2" fill="#ff6b8a" fill-opacity=".16" stroke="#ff6b8a" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<rect x="79.0" y="188.0" width="531.0" height="124.2" fill="#3fe0a0" fill-opacity=".16" stroke="#3fe0a0" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<line x1="34.8" x2="34.8" y1="84.5" y2="107.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="26.5" y="88.6" width="16.5" height="12.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="64.2" x2="64.2" y1="70.0" y2="94.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="56.0" y="76.2" width="16.5" height="12.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="93.8" x2="93.8" y1="63.8" y2="86.5" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="85.5" y="76.2" width="16.5" height="6.2" rx="1.5" fill="#ff6b8a"/>
+<line x1="123.2" x2="123.2" y1="78.3" y2="121.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="115.0" y="82.4" width="16.5" height="33.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="152.8" x2="152.8" y1="111.4" y2="159.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="144.5" y="115.5" width="16.5" height="37.3" rx="1.5" fill="#ff6b8a"/>
+<line x1="182.2" x2="182.2" y1="136.2" y2="156.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="174.0" y="142.4" width="16.5" height="10.4" rx="1.5" fill="#3fe0a0"/>
+<line x1="211.8" x2="211.8" y1="138.3" y2="196.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="203.5" y="142.4" width="16.5" height="47.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="241.2" x2="241.2" y1="185.9" y2="241.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="233.0" y="190.1" width="16.5" height="45.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="270.8" x2="270.8" y1="231.5" y2="285.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="262.5" y="235.6" width="16.5" height="43.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="300.2" x2="300.2" y1="272.9" y2="312.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="292.0" y="279.1" width="16.5" height="20.7" rx="1.5" fill="#ff6b8a"/>
+<line x1="329.8" x2="329.8" y1="266.7" y2="304.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="321.5" y="272.9" width="16.5" height="26.9" rx="1.5" fill="#3fe0a0"/>
+<line x1="359.2" x2="359.2" y1="237.7" y2="277.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="351.0" y="243.9" width="16.5" height="29.0" rx="1.5" fill="#3fe0a0"/>
+<line x1="388.8" x2="388.8" y1="204.6" y2="248.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="380.5" y="210.8" width="16.5" height="33.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="418.2" x2="418.2" y1="171.4" y2="214.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="410.0" y="177.6" width="16.5" height="33.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="447.8" x2="447.8" y1="148.7" y2="181.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="439.5" y="163.2" width="16.5" height="14.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="477.2" x2="477.2" y1="159.0" y2="192.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="469.0" y="163.2" width="16.5" height="24.8" rx="1.5" fill="#ff6b8a"/>
+<line x1="506.8" x2="506.8" y1="183.9" y2="223.2" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="498.5" y="188.0" width="16.5" height="29.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="536.2" x2="536.2" y1="210.8" y2="254.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="528.0" y="217.0" width="16.5" height="31.1" rx="1.5" fill="#ff6b8a"/>
+<line x1="565.8" x2="565.8" y1="243.9" y2="283.3" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="557.5" y="248.1" width="16.5" height="29.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="595.2" x2="595.2" y1="270.8" y2="299.8" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="587.0" y="277.0" width="16.5" height="16.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="79.0" x2="610.0" y1="63.8" y2="63.8" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="580.5" x2="610.0" y1="125.9" y2="125.9" stroke="#ff6b8a" stroke-width="1.8"/>
+<line x1="79.0" x2="610.0" y1="188.0" y2="188.0" stroke="#ffc85c" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="580.5" x2="610.0" y1="237.7" y2="237.7" stroke="#3fe0a0" stroke-width="1.8"/>
+<line x1="285.5" x2="610.0" y1="312.2" y2="312.2" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="447.8" cy="148.7" r="6" fill="none" stroke="#ff6b8a" stroke-width="2"/>
+<rect x="618.0" y="48.8" width="38.2" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="69.3" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">112</text>
+<rect x="618.0" y="110.9" width="79.1" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="627.0" y="131.4" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">premium</text>
+<rect x="618.0" y="173.0" width="42.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="627.0" y="193.5" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0,5</text>
+<rect x="618.0" y="222.7" width="88.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="627.0" y="243.2" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">discount</text>
+<rect x="618.0" y="297.2" width="42.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="317.7" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">100</text>
+<rect x="365.6" y="111.7" width="164.2" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="374.6" y="132.2" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">відскок у premium</text>
+</svg><figcaption>Низхідний рух від 112 до 100. Відскок дійшов вище 106 — у premium, і там продавці повели ціну далі вниз.</figcaption></figure></section><section id="s4"><h2>Premium і discount разом зі структурою ринку</h2><p>Premium і discount — не самостійний інструмент. Без напрямку вони дають лише дві половини, і в кожній можна знайти «причину» для будь-якої угоди. Тому порядок у мене завжди однаковий: спершу структура, потім діапазон.</p><table><thead><tr><th>Що на графіку</th><th>Що роблю з premium і discount</th></tr></thead><tbody><tr><td>Висхідна структура (HH і HL)</td><td>Покупки — лише в discount, premium для покупок ігнорую</td></tr><tr><td>Низхідна структура (LH і LL)</td><td>Продажі — лише в premium, discount для продажів ігнорую</td></tr><tr><td>Боковик</td><td>Діапазон — це сам боковик: біля нижньої межі дивлюся на покупки, біля верхньої — на продажі</td></tr><tr><td>Щойно був CHoCH</td><td>Старий діапазон втратив сенс, будую новий на імпульсі, що зламав структуру</td></tr></tbody></table><p>Окреме питання — таймфрейм. На годинному графіку ціна може бути в discount, а на п’ятихвилинному — в premium свого маленького руху. Обидва висновки правильні, просто стосуються різних рухів. Я беру напрямок і великий діапазон зі старшого графіка, а на молодшому шукаю точку, де ціна відкотилася в discount уже малого імпульсу. Так працює <a href="/statti/top-down-analiz/">top-down аналіз</a>.</p><p>Ще момент: discount у низхідному тренді — не знижка, а пастка. Ціна «дешева» тому, що її продають. Купувати там лише через те, що «вже низько», — одна з найчастіших помилок, з якою я стикаюся в розборах учнів.</p><p>Злам рахую так само, як у статті про <a href="/statti/bos-choch/">BOS і CHoCH</a>: лише за закриттям тіла свічки. Тінь за межею діапазону ще не змінює картину.</p></section><section id="s5"><h2>Як поєднати з order block, FVG і Фібоначчі</h2><p>Сама половина графіка — надто широка зона, щоб у ній входити. Discount підказує, <strong>де</strong> шукати, а точне місце дають інші інструменти. Найсильніше працюють збіги:</p><ul><li><strong>Order block у discount.</strong> Для покупки такий блок вагоміший, ніж такий самий у premium. Він стоїть там, де покупцеві вигідно добирати позицію.</li><li><strong>FVG у discount.</strong> <a href="/statti/imbalans-fvg/">Імбаланс</a> у нижній половині руху — хороша зона інтересу. FVG у premium для покупки слабший: ціна часто проходить його наскрізь.</li><li><strong>Глибина за Фібоначчі.</strong> Discount — це все нижче 0,5. Найглибша його частина, область 0,236–0,382 (якщо 0 стоїть на початку руху), дає ще кращу ціну, але ціна доходить туди рідше.</li><li><strong>Ліквідність під мінімумами.</strong> Якщо в discount ціна спершу зняла <a href="/statti/likvidnist/">ліквідність</a> під рівними мінімумами, а потім повернулася — місце стає ще цікавішим.</li></ul><p>На схемі видно, як це виглядає. Під час імпульсу 100–112 лишилися дві зони: FVG біля 108 і order block біля 103–104. FVG стоїть у premium, і на відкаті ціна пройшла його наскрізь. Order block лежить у discount — саме там відкат зупинився, і ціна пішла до попереднього максимуму.</p><p>Для продажу логіка дзеркальна: ведмежий order block або FVG у premium важить більше, ніж такі самі зони в discount.</p><figure class="fig"><svg viewBox="0 0 720 380" role="img" aria-label="FVG у premium ціна пройшла наскрізь. Order block у discount зупинив відкат — для покупки ця зона вагоміша." xmlns="http://www.w3.org/2000/svg">
+<rect width="720" height="380" rx="18" fill="#0b0820"/>
+<line x1="0" x2="720" y1="65.0" y2="65.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="106.0" y2="106.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="147.0" y2="147.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="188.0" y2="188.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="229.0" y2="229.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="270.0" y2="270.0" stroke="rgba(205,189,255,.06)"/>
+<line x1="0" x2="720" y1="311.0" y2="311.0" stroke="rgba(205,189,255,.06)"/>
+<line y1="0" y2="380" x1="60.0" x2="60.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="120.0" x2="120.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="180.0" x2="180.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="240.0" x2="240.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="300.0" x2="300.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="360.0" x2="360.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="420.0" x2="420.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="480.0" x2="480.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="540.0" x2="540.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="600.0" x2="600.0" stroke="rgba(205,189,255,.05)"/>
+<line y1="0" y2="380" x1="660.0" x2="660.0" stroke="rgba(205,189,255,.05)"/>
+<rect x="197.0" y="134.2" width="206.5" height="20.7" fill="#ffc85c" fill-opacity=".16" stroke="#ffc85c" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<rect x="138.0" y="225.3" width="472.0" height="24.8" fill="#8b5cf6" fill-opacity=".16" stroke="#8b5cf6" stroke-opacity=".6" stroke-dasharray="5 4"/>
+<line x1="34.8" x2="34.8" y1="275.0" y2="304.0" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="26.5" y="279.1" width="16.5" height="18.6" rx="1.5" fill="#ff6b8a"/>
+<line x1="64.2" x2="64.2" y1="291.5" y2="312.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="56.0" y="295.7" width="16.5" height="2.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="93.8" x2="93.8" y1="258.4" y2="299.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="85.5" y="262.5" width="16.5" height="33.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="123.2" x2="123.2" y1="223.2" y2="266.7" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="115.0" y="229.4" width="16.5" height="33.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="152.8" x2="152.8" y1="225.3" y2="250.1" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="144.5" y="229.4" width="16.5" height="14.5" rx="1.5" fill="#ff6b8a"/>
+<line x1="182.2" x2="182.2" y1="196.3" y2="246.0" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="174.0" y="200.4" width="16.5" height="43.5" rx="1.5" fill="#3fe0a0"/>
+<line x1="211.8" x2="211.8" y1="154.9" y2="204.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="203.5" y="161.1" width="16.5" height="39.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="241.2" x2="241.2" y1="105.2" y2="165.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="233.0" y="111.4" width="16.5" height="49.7" rx="1.5" fill="#3fe0a0"/>
+<line x1="270.8" x2="270.8" y1="63.8" y2="134.2" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="262.5" y="74.1" width="16.5" height="37.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="300.2" x2="300.2" y1="67.9" y2="92.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="292.0" y="74.1" width="16.5" height="12.4" rx="1.5" fill="#ff6b8a"/>
+<line x1="329.8" x2="329.8" y1="82.4" y2="117.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="321.5" y="86.5" width="16.5" height="26.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="359.2" x2="359.2" y1="109.3" y2="148.7" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="351.0" y="113.5" width="16.5" height="29.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="388.8" x2="388.8" y1="136.2" y2="177.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="380.5" y="142.4" width="16.5" height="29.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="418.2" x2="418.2" y1="167.3" y2="204.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="410.0" y="171.4" width="16.5" height="26.9" rx="1.5" fill="#ff6b8a"/>
+<line x1="447.8" x2="447.8" y1="194.2" y2="233.6" stroke="#ff6b8a" stroke-width="1.6"/>
+<rect x="439.5" y="198.4" width="16.5" height="29.0" rx="1.5" fill="#ff6b8a"/>
+<line x1="477.2" x2="477.2" y1="217.0" y2="241.8" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="469.0" y="221.1" width="16.5" height="6.2" rx="1.5" fill="#3fe0a0"/>
+<line x1="506.8" x2="506.8" y1="181.8" y2="225.3" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="498.5" y="188.0" width="16.5" height="33.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="536.2" x2="536.2" y1="144.5" y2="192.1" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="528.0" y="150.7" width="16.5" height="37.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="565.8" x2="565.8" y1="105.2" y2="154.9" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="557.5" y="111.4" width="16.5" height="39.3" rx="1.5" fill="#3fe0a0"/>
+<line x1="595.2" x2="595.2" y1="72.0" y2="117.6" stroke="#3fe0a0" stroke-width="1.6"/>
+<rect x="587.0" y="78.3" width="16.5" height="33.1" rx="1.5" fill="#3fe0a0"/>
+<line x1="256.0" x2="610.0" y1="63.8" y2="63.8" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="403.5" x2="433.0" y1="144.5" y2="144.5" stroke="#ffc85c" stroke-width="1.8"/>
+<line x1="580.5" x2="610.0" y1="125.9" y2="125.9" stroke="#ff6b8a" stroke-width="1.8"/>
+<line x1="49.5" x2="610.0" y1="188.0" y2="188.0" stroke="#ffc85c" stroke-width="1.8" stroke-dasharray="6 5"/>
+<line x1="580.5" x2="610.0" y1="262.5" y2="262.5" stroke="#3fe0a0" stroke-width="1.8"/>
+<line x1="49.5" x2="610.0" y1="312.2" y2="312.2" stroke="#cdbdff" stroke-width="1.8" stroke-dasharray="6 5"/>
+<path d="M506.8 261.3 V235.3 M500.8 243.3 L506.8 235.3 L512.8 243.3" stroke="#3fe0a0" stroke-width="2.2" fill="none"/>
+<rect x="142.0" y="267.1" width="112.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#8b5cf6" stroke-width="1.2"/>
+<text x="151.0" y="287.6" fill="#8b5cf6" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">order block</text>
+<rect x="618.0" y="48.8" width="38.2" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="69.3" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">112</text>
+<rect x="441.0" y="129.5" width="52.6" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="450.0" y="150.0" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">FVG</text>
+<rect x="618.0" y="110.9" width="79.1" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ff6b8a" stroke-width="1.2"/>
+<text x="627.0" y="131.4" fill="#ff6b8a" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">premium</text>
+<rect x="618.0" y="173.0" width="42.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#ffc85c" stroke-width="1.2"/>
+<text x="627.0" y="193.5" fill="#ffc85c" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">0,5</text>
+<rect x="618.0" y="247.5" width="88.4" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#3fe0a0" stroke-width="1.2"/>
+<text x="627.0" y="268.0" fill="#3fe0a0" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">discount</text>
+<rect x="618.0" y="297.2" width="42.0" height="30" rx="8" fill="#0d0a1f" fill-opacity=".94" stroke="#cdbdff" stroke-width="1.2"/>
+<text x="627.0" y="317.7" fill="#cdbdff" font-family="Manrope,system-ui,sans-serif" font-size="16" font-weight="700">100</text>
+</svg><figcaption>FVG у premium ціна пройшла наскрізь. Order block у discount зупинив відкат — для покупки ця зона вагоміша.</figcaption></figure></section><section id="s6"><h2>Як я використовую premium і discount на практиці</h2><p>На графіку я проходжу ті самі кроки щоразу, щоб не підганяти розмітку під бажану угоду:</p><ol><li><strong>Напрямок.</strong> На старшому таймфреймі визначаю структуру. Якщо вона незрозуміла — не торгую.</li><li><strong>Діапазон.</strong> Позначаю останній завершений імпульс за напрямком і рахую середину.</li><li><strong>Половина.</strong> Перевіряю, де зараз ціна. Якщо в premium, а я шукаю покупку, — просто чекаю.</li><li><strong>Зона.</strong> У потрібній половині шукаю order block, FVG або <a href="/statti/rivni-pidtrymky-i-oporu/">рівень</a>, від якого можна чекати реакцію.</li><li><strong>Реакція.</strong> Дотику мало. Чекаю, що зробить ціна в зоні, і перевіряю умови своєї стратегії.</li></ol><p>Найчастіше з цього списку відсіюються угоди на третьому кроці. Ціна в premium, хочеться купити «поки росте», а правило каже чекати. Саме ця пауза і є головною користю premium і discount: вони не дають наздоганяти ринок.</p><p>І пам’ятай про ризик. Навіть ідеальний збіг у discount за трендом іноді не спрацьовує. Тому розмір угоди завжди однаковий і невеликий, а як його порахувати — у статті про <a href="/statti/ryzyk-menedzhment/">ризик-менеджмент</a>.</p><p>Ще одна звичка, яка мені допомагає, — записувати діапазон прямо в план угоди: «рух 100–112, середина 106, покупки шукаю нижче». Коли межі записані цифрами, важче переконати себе, що 109 — це теж «майже discount».</p><p class="note">Вправа: на демо-графіку знайди п’ять висхідних імпульсів, поділи кожен навпіл і запиши, скільки відкатів дійшли до discount і що ціна зробила далі. Так ти побачиш поведінку свого активу, а не чужі ідеальні приклади.</p></section>
+<section id="mistakes"><h2>Типові помилки новачків</h2><ul class="mist"><li>Будувати діапазон на випадкових точках, а не на останньому завершеному імпульсі за структурою.</li><li>Купувати в discount низхідного тренду лише тому, що ціна «вже низько».</li><li>Входити від самої половини графіка без зони й реакції ціни.</li><li>Не перемальовувати dealing range після нового BOS і рахувати середину від старого руху.</li><li>Наздоганяти ціну, коли відкат розвернувся в premium і до discount не дійшов.</li></ul></section>
+<section id="quiz"><h2>Перевір себе</h2><div class="quiz"><details><summary>Що таке premium і discount у SMC?</summary><p>Premium — верхня половина останнього руху ціни, де ціна дорога. Discount — нижня половина, де ціна дешева. Межа між ними — рівень 50% (0,5).</p></details><details><summary>Ціна виросла зі 100 до 112. Де закінчується discount?</summary><p>На рівні 106: це середина руху (100 + 12 / 2). Усе нижче 106 — discount, усе вище — premium.</p></details><details><summary>Чи можна купувати в premium?</summary><p>За цим підходом краще ні. У висхідному тренді я чекаю відкату в discount, а в premium шукаю продажі лише тоді, коли структура низхідна.</p></details></div></section>
+<aside class="cta">
+<div><h2>Хочеш розібратися глибше?</h2><p>Цю тему ми детально розбираємо в безкоштовному навчанні «Трейдинг з нуля» — уроки 25–26. А в Telegram-спільноті — розбори на живому ринку й відповіді на питання.</p></div>
+<div class="cta-b"><a class="btn btn-primary" href="https://learn.moontrade.community/" target="_blank" rel="noopener">Безкоштовне навчання</a><a class="btn btn-ghost" href="https://t.me/+qmdQe3VskkA5OTcy" target="_blank" rel="noopener">Telegram-спільнота</a></div>
+</aside>
+<section class="related"><h2>Далі за темою</h2><div class="rels"><a class="rel" href="/statti/smc-ukrainskoiu/"><b>SMC українською: основи Smart Money Concepts (смарт мані) простими словами</b><span>SMC простими словами: що таке Smart Money Concepts, словник термінів (BOS, CHoCH, order block, FVG, ліквідніст…</span></a><a class="rel" href="/statti/fibonacci/"><b>Фібоначчі в трейдингу: як дочекатися кращої ціни</b><span>Як будувати сітку Фібоначчі: від якої точки тягнути, які рівні важливі, що таке область 0,236–0,382 і як не пр…</span></a><a class="rel" href="/statti/order-block/"><b>Order Block (ордер блок): що це і як знайти</b><span>Order block простими словами: що це за зона, як знайти бичачий і ведмежий ордер-блок, як відрізнити сильний ві…</span></a></div></section>
+<p class="risk">Матеріал має освітній характер і не є інвестиційною порадою. Торгівля на фінансових ринках пов’язана з високим ризиком втрати коштів. Приклади на схемах навчальні.</p>
+</main>
+<footer class="wrap foot"><a class="brand" href="/"><img src="/assets/logo.jpg" alt="" width="28" height="28">MoonTrade</a><span>© 2026 MoonTrade (Мунтрейд)</span></footer>
+<script defer type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9b325ebbe6dd4bb7acda78a19dff78ff"}'></script>
+</body>
+</html>
