@@ -47,6 +47,7 @@ a { color: var(--moon); text-underline-offset: 3px; }
 :focus-visible { outline: 2px solid var(--moon); outline-offset: 3px; border-radius: 6px; }
 b, strong { color: #fff; font-weight: 700; }
 .num { font-variant-numeric: tabular-nums; }
+.nw { white-space: nowrap; }
 .lead { font-size: 19px; color: var(--muted); }
 .note { font-size: 15px; color: var(--muted); }
 
@@ -97,6 +98,7 @@ section { display: grid; gap: 20px; min-width: 0; scroll-margin-top: 80px; }
 
 .pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
 .card { display: grid; gap: 14px; align-content: start; }
+.card .btn { justify-self: start; white-space: normal; text-align: left; line-height: 1.3; }
 .card h3 { display: flex; align-items: center; gap: 10px; }
 .card.v1 { border-top: 3px solid var(--v1); } .card.m1 { border-top: 3px solid var(--m1); }
 dl.rows { margin: 0; display: grid; gap: 12px; }
@@ -394,10 +396,12 @@ details summary { cursor: pointer; color: var(--moon); font-size: 15px; font-wei
     <div class="panel card">
       <h3><span class="ln course" aria-hidden="true"></span>Драбина курсу</h3>
       <dl class="rows">
-        <div><dt>Кроки</dt><dd>S1: 1-3-6-12-24-54. Після програної S1 йде S2: 2-6-12-24-48-108, поки не повернеш програне</dd></div>
-        <div><dt>Перший крок</dt><dd>1/300 рахунку, як у курсі: на 10 000 $ це 33 $</dd></div>
+        <div><dt>Що це</dt><dd>Перекриття з уроку 11 мого курсу. Депозит ділиш на три рівні частини: перша йде на шість кроків S1, дві інші лишаються запасом, щоб повернути програну S1.</dd></div>
+        <div><dt>Кроки</dt><dd>S1: <span class="nw">1-3-6-12-24-54</span>. Після програної S1 йде S2: <span class="nw">2-6-12-24-48-108</span>, поки не повернеш програне</dd></div>
+        <div><dt>Перший крок</dt><dd>1/300 рахунку (≈0,33%) на початку S1, як у курсі: на 10 000 $ це 33 $</dd></div>
         <div><dt>Ліміт</dt><dd>програна S2 закриває весь депозит драбини, 300 перших кроків</dd></div>
       </dl>
+      <a class="btn btn-ghost" href="https://learn.moontrade.community/#chapter-08" target="_blank" rel="noopener">Урок 11: як працює драбина</a>
     </div>
   </div>
   <p id="ov-why"></p>
@@ -405,6 +409,7 @@ details summary { cursor: pointer; color: var(--moon); font-size: 15px; font-wei
     <span class="note">Перший крок 1-3-6</span>
     <div class="seg" role="group" aria-label="Перший крок 1-3-6" id="ovsteps"></div>
   </div>
+  <p class="note">Перемикач змінює лише 1-3-6. Драбина курсу завжди від 1/300 рахунку (≈0,33%), як в уроці 11, тому від перемикача не залежить, а фікса завжди 1%. Перший крок і 1-3-6, і драбини рахується від поточного рахунку на початку серії, не від стартових 10 000 $.</p>
   <div class="ov-legend"><span><i class="ln flat"></i>Фікса 1%</span><span><i class="ln l136"></i>1-3-6</span><span><i class="ln course"></i>Драбина курсу</span></div>
   <div class="curves">
     <figure class="panel" data-ov="v1">
@@ -440,7 +445,7 @@ details summary { cursor: pointer; color: var(--moon); font-size: 15px; font-wei
   <div class="panel">
     <ol class="rules">
       <li><div><b>0,5–1% депозиту на угоду</b><span>1% є верхньою межею. З 2% одна погана смуга, як уже бували, забирає майже половину рахунку.</span></div></li>
-      <li><div><b>Або перекриття 1-3-6 від 0,25–0,5% рахунку</b><span>Окрема серія для 15 хв і для 5 хв. Драбину курсу став лише на 15 хв.</span></div></li>
+      <li><div><b>Або перекриття 1-3-6 від 0,25–0,5% рахунку</b><span>Окрема серія для 15 хв і для 5 хв. Драбину курсу (<a href="https://learn.moontrade.community/#chapter-08" target="_blank" rel="noopener">урок 11</a>) став лише на 15 хв.</span></div></li>
       <li><div><b>Виплата нижче порогу з поста: пропускай</b><span>68% для 15 хв, 79% для 5 хв. Нижче порогу угода в мінусі на дистанції навіть з тією ж часткою плюсів.</span></div></li>
       <li><div><b>3 мінуси поспіль: пауза до кінця дня</b><span>На історії ця пауза майже не змінила ні результат, ні глибину падіння. Вона береже голову: після серії не хочеться відігруватись угодами поза каналом.</span></div></li>
     </ol>
@@ -806,7 +811,7 @@ function ovText() {
     `у плюс закінчились ${a.l136_025.months_plus} місяців з ${a.l136_025.months} проти ${a.flat1.months_plus}, а найдовше без нового максимуму ${span(a.l136_025.under_days)} проти ${span(a.flat1.under_days)} у фікси. ` +
     `З першим кроком 1% падіння доходило до −${Math.round(a.l136_1.maxdd)}%, тому верхня межа 0,5%.`;
   document.getElementById('ov-course').innerHTML =
-    `<b>Драбина курсу підходить для 15 хв.</b> Там найдовша серія 5 мінусів, і S1 за 3 роки жодного разу не програна: ${v.months_plus} місяців з ${v.months} у плюс, найдовше без нового максимуму ${v.under_days} днів. ` +
+    `<b>Драбина курсу підходить для 15 хв.</b> Як вона працює, розписано в <a href="https://learn.moontrade.community/#chapter-08" target="_blank" rel="noopener">уроці 11</a>. На 15 хв найдовша серія 5 мінусів, і S1 за 3 роки жодного разу не програна: ${v.months_plus} місяців з ${v.months} у плюс, найдовше без нового максимуму ${v.under_days} днів. ` +
     `На 5 хв бувають серії до 11 мінусів поспіль, довші за драбину, і за 3 роки S2 там програвалась ${mc.blown} рази. Тому на 5 хв бери 1-3-6.`;
 }
 const oseg = document.getElementById('ovsteps');
