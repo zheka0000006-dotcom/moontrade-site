@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Стратегії каналу VIP 3: логіка входу, перевірка за 3 роки і крива балансу залежно від ставки.">
+<meta name="theme-color" content="#0d0a1f">
+<link rel="canonical" href="https://moontrade.community/vip3/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Стратегії VIP 3 · MoonTrade">
+<meta property="og:description" content="Стратегії каналу VIP 3: логіка входу, перевірка за 3 роки і крива балансу залежно від ставки.">
+<meta property="og:url" content="https://moontrade.community/vip3/">
+<meta property="og:image" content="https://moontrade.community/assets/logo.jpg">
+<title>Стратегії VIP 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap">
+<style>
+/* MoonTrade look (moontrade.community): night violet, Unbounded + Manrope, star field in the hero.
+   One reading column (max 860px): text, then each chart at full column width; the two strategies sit side by side and stack on a phone.
+   The site has no light theme, so the page is dark in both modes. */
+:root {
+  --night: #0d0a1f; --deep: #151032; --deep-2: #1c1542; --line: #2c2554; --moon: #cdbdff; --violet: #8b5cf6; --violet-2: #6d3df0;
+  --ink: #f1ecff; --ink-2: #cfc6ee; --muted: #a99fcc; --mint: #3fe0a0; --rose: #ff6b8a; --amber: #ffc85c;
+  --surface: var(--deep); --axis: #463d7c; --faint: #3b3468; --chip: rgba(139,92,246,.14);
+  --v1: #3987e5; --m1: #d95926; --all: #199e70; --up: var(--mint); --down: var(--rose);
+  --display: "Unbounded", system-ui, sans-serif; --body: "Manrope", system-ui, sans-serif;
+  color-scheme: dark;
+}
+:root[data-theme="light"], :root[data-theme="dark"] { color-scheme: dark; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--night); color: var(--ink); font: 400 17px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 860px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); letter-spacing: -.015em; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(34px, 7vw, 60px); font-weight: 700; line-height: 1.06; }
+h2 { font-size: clamp(23px, 3.4vw, 32px); font-weight: 700; line-height: 1.15; }
+h3 { font-size: 17px; font-weight: 500; line-height: 1.3; }
+p { margin: 0; max-width: 66ch; }
+a { color: var(--moon); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--moon); outline-offset: 3px; border-radius: 6px; }
+b, strong { color: #fff; font-weight: 700; }
+.num { font-variant-numeric: tabular-nums; }
+.lead { font-size: 19px; color: var(--muted); }
+.note { font-size: 15px; color: var(--muted); }
+
+/* header bar */
+.top { position: sticky; top: 0; z-index: 10; background: rgba(13,10,31,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(44,37,84,.7); }
+.top .wrap { max-width: 1080px; display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font: 700 18px/1 var(--display); }
+.brand img { width: 34px; height: 34px; border-radius: 10px; display: block; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 700 15px/1 var(--body); text-decoration: none; padding: 12px 18px; border-radius: 999px; border: 1px solid transparent; white-space: nowrap; }
+.btn-primary { background: linear-gradient(135deg, var(--violet-2), var(--violet)); color: #fff; box-shadow: 0 10px 30px rgba(109,61,240,.35); }
+.btn-ghost { border-color: var(--line); color: var(--ink); background: rgba(255,255,255,.03); }
+.btn-ghost:hover { border-color: var(--moon); }
+.tgi { width: 17px; height: 17px; flex: none; }
+@media (max-width: 420px) { .top .btn span { display: none; } }
+
+/* hero with the star field */
+.hero { position: relative; overflow: hidden; padding: 56px 0 60px; border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(1px 1px at 12% 22%, #fff8 50%, transparent 51%), radial-gradient(1px 1px at 28% 78%, #fff6 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 44% 12%, #fff9 50%, transparent 51%), radial-gradient(1px 1px at 63% 64%, #fff5 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 18%, #fff7 50%, transparent 51%), radial-gradient(1.5px 1.5px at 91% 52%, #fff6 50%, transparent 51%),
+    radial-gradient(1px 1px at 6% 88%, #fff5 50%, transparent 51%), radial-gradient(1px 1px at 55% 92%, #fff4 50%, transparent 51%),
+    radial-gradient(620px 380px at 92% 8%, rgba(139,92,246,.30), transparent 70%),
+    radial-gradient(520px 320px at 0% 100%, rgba(109,61,240,.16), transparent 70%), var(--night); }
+.hero .wrap { display: grid; gap: 20px; position: relative; }
+.hero-moon { position: absolute; right: max(-60px, calc(50% - 560px)); top: -30px; width: 240px; height: 240px; border-radius: 50%; pointer-events: none; opacity: .55;
+  background: radial-gradient(circle at 34% 30%, #f3edff 0%, #cdbdff 24%, #8b5cf6 62%, #3b2a86 100%); box-shadow: 0 0 90px 10px rgba(139,92,246,.35); }
+@media (max-width: 700px) { .hero-moon { width: 150px; height: 150px; right: -50px; top: -40px; opacity: .4; } }
+.chip { justify-self: start; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--moon); background: var(--chip); border-radius: 999px; padding: 6px 12px; letter-spacing: .02em; }
+.chip .dot { width: 12px; height: 12px; border-radius: 50%; box-shadow: inset -4px -1px 0 0 var(--moon); }
+.stats { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; padding: 18px 22px; border: 1px solid var(--line); border-radius: 18px; background: rgba(21,16,50,.72); justify-self: start; max-width: 100%; }
+.stats div { display: flex; align-items: baseline; gap: 8px; }
+.stats b { font: 700 26px/1 var(--display); color: var(--moon); letter-spacing: -.02em; }
+.stats span { font-size: 14px; color: var(--muted); }
+
+/* sections */
+main.wrap { display: grid; gap: 76px; padding-top: 64px; padding-bottom: 72px; }
+section { display: grid; gap: 20px; min-width: 0; scroll-margin-top: 80px; }
+.kicker { font: 700 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--mint); margin-bottom: -6px; }
+.dia { display: inline-block; width: 10px; height: 10px; transform: rotate(45deg); border-radius: 2px; flex: none; }
+.dia.v1 { background: var(--v1); } .dia.m1 { background: var(--m1); } .dia.all { background: var(--all); transform: none; border-radius: 50%; }
+
+.panel { background: var(--deep); border: 1px solid var(--line); border-radius: 18px; padding: 20px; min-width: 0; }
+.scheme { background: linear-gradient(180deg, var(--deep-2), var(--deep)); }
+.scheme svg { display: block; width: 100%; max-width: 560px; height: auto; margin: 0 auto; }
+.scheme text { font-family: var(--body); font-size: 13px; fill: var(--muted); }
+.scheme .strong { fill: var(--ink); font-weight: 700; }
+
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.card { display: grid; gap: 14px; align-content: start; }
+.card h3 { display: flex; align-items: center; gap: 10px; }
+.card.v1 { border-top: 3px solid var(--v1); } .card.m1 { border-top: 3px solid var(--m1); }
+dl.rows { margin: 0; display: grid; gap: 12px; }
+dl.rows div { display: grid; gap: 2px; }
+dl.rows dt { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+dl.rows dd { margin: 0; font-size: 16px; }
+dl.kv { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 10px 16px; align-items: baseline; }
+dl.kv dt { color: var(--muted); font-size: 16px; }
+dl.kv dd { margin: 0; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+ul.plain { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 16px; }
+ul.plain li::marker { color: var(--violet); }
+
+ol.flow { list-style: none; margin: 0; padding: 0; display: grid; counter-reset: s; }
+ol.flow li { display: grid; grid-template-columns: 36px 1fr; gap: 4px 12px; padding: 16px 0; border-top: 1px solid var(--line); }
+ol.flow li:first-child { border-top: 0; padding-top: 0; }
+ol.flow li:last-child { padding-bottom: 0; }
+ol.flow .ic { font-size: 20px; line-height: 1.3; grid-row: span 2; }
+ol.flow .t { font-weight: 700; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+ol.flow .tag { font-size: 11px; font-weight: 700; color: var(--moon); background: var(--chip); border-radius: 999px; padding: 3px 8px; letter-spacing: .06em; }
+ol.flow p { color: var(--muted); font-size: 16px; }
+
+.stack { display: grid; gap: 16px; }
+.stack .row { display: grid; gap: 6px; }
+.stack .lbl { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.bar { display: flex; gap: 2px; height: 14px; }
+.bar span { border-radius: 4px; min-width: 2px; }
+.keys { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 14px; color: var(--muted); }
+.keys i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.tile { background: var(--deep); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 4px; }
+.tile b { font: 700 24px/1.15 var(--display); color: var(--moon); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.tile span { font-size: 14px; color: var(--muted); }
+
+figure { margin: 0; display: grid; gap: 12px; min-width: 0; }
+figure .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 14px; }
+figure .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 14px; color: var(--muted); }
+figure .legend span { display: inline-flex; align-items: center; gap: 6px; }
+.chart { position: relative; min-width: 0; touch-action: pan-y; }
+.chart svg { display: block; overflow: visible; }
+.chart text { font-family: var(--body); font-size: 11.5px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+.chart .endlbl { font-size: 12px; fill: var(--muted); }
+.chart .endlbl.on { fill: var(--ink); font-weight: 700; }
+.tip { position: absolute; top: 0; left: 0; pointer-events: none; background: var(--deep-2); color: var(--ink); border: 1px solid var(--axis);
+  border-radius: 10px; padding: 8px 11px; font-size: 13.5px; line-height: 1.45; box-shadow: 0 12px 34px rgba(0,0,0,.45); white-space: nowrap; z-index: 2; }
+.tip .d { color: var(--muted); font-size: 12.5px; }
+.tip i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.seg { display: inline-flex; flex-wrap: wrap; background: var(--deep); border: 1px solid var(--line); border-radius: 999px; padding: 4px; gap: 2px; }
+.seg button { font: 700 14px/1 var(--body); color: var(--muted); background: transparent; border: 0; border-radius: 999px; padding: 10px 14px; cursor: pointer; font-variant-numeric: tabular-nums; }
+.seg button:hover { color: var(--ink); }
+.seg button[aria-pressed="true"] { background: linear-gradient(135deg, var(--violet-2), var(--violet)); color: #fff; box-shadow: 0 6px 18px rgba(109,61,240,.35); }
+.curves { display: grid; gap: 22px; }
+.sum { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; border-top: 1px solid var(--line); padding-top: 14px; }
+.sum div { display: grid; gap: 2px; }
+.sum b { font: 700 17px/1.25 var(--display); letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.sum span { font-size: 13px; color: var(--muted); }
+
+.tbl { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { padding: 10px 10px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+thead th { font-size: 13px; font-weight: 700; color: var(--moon); letter-spacing: .02em; }
+thead th span { display: inline-flex; align-items: center; gap: 6px; }
+tbody td { font-variant-numeric: tabular-nums; font-weight: 600; }
+tbody td small { display: block; color: var(--muted); font-size: 12.5px; font-weight: 500; }
+tbody tr { cursor: pointer; }
+tbody tr.on td { background: rgba(139,92,246,.16); }
+tbody tr.on td:first-child { border-radius: 10px 0 0 10px; } tbody tr.on td:last-child { border-radius: 0 10px 10px 0; }
+details summary { cursor: pointer; color: var(--moon); font-size: 15px; font-weight: 600; }
+
+.rules { margin: 0; padding: 0; list-style: none; display: grid; gap: 16px; counter-reset: r; }
+.rules li { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; }
+.rules li::before { counter-increment: r; content: counter(r); font: 700 14px/34px var(--display); text-align: center; width: 34px; height: 34px; border-radius: 50%; color: #fff; background: linear-gradient(135deg, var(--violet-2), var(--violet)); }
+.rules b { display: block; margin-bottom: 2px; }
+.rules span { color: var(--muted); font-size: 16px; }
+.calc { display: grid; gap: 12px; }
+.calc label { font-weight: 700; }
+.calc input { font: 700 20px var(--body); width: 180px; max-width: 100%; padding: 11px 14px; border-radius: 12px; border: 1px solid var(--axis); background: var(--night); color: var(--ink); font-variant-numeric: tabular-nums; }
+.calc input:focus { border-color: var(--moon); outline: none; box-shadow: 0 0 0 3px rgba(205,189,255,.18); }
+.calc .out { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.calm { padding: 16px 20px; border-left: 3px solid var(--mint); background: linear-gradient(90deg, rgba(63,224,160,.09), transparent); border-radius: 0 14px 14px 0; }
+.foot { border-top: 1px solid var(--line); padding-block: 26px 40px; display: grid; gap: 8px; font-size: 14px; color: var(--muted); }
+.foot .brand { font-size: 15px; margin-bottom: 6px; }
+@media (max-width: 640px) { body { font-size: 16px; } main.wrap { gap: 60px; padding-top: 48px; } .hero { padding: 40px 0 44px; } .panel { padding: 16px; } .stats { gap: 12px 22px; } .stats b { font-size: 22px; } }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="https://moontrade.community/"><img src="/assets/logo.jpg" alt="" width="34" height="34">MoonTrade</a>
+  <a class="btn btn-ghost" href="https://t.me/mo0ntrade" target="_blank" rel="noopener"><svg class="tgi" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.6 20c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L5.9 13.6l-4.9-1.5c-1.1-.3-1.1-1.1.2-1.6L20.4 3c.9-.3 1.7.2 1.5 1.3Z"/></svg><span>Питання</span> @mo0ntrade</a>
+</div></header>
+
+<section class="hero" aria-labelledby="h1"><div class="hero-moon" aria-hidden="true"></div><div class="wrap">
+  <div class="chip"><span class="dot" aria-hidden="true"></span>VIP 3 · стратегії каналу</div>
+  <h1 id="h1">Розворот від рівня</h1>
+  <p class="lead">Як працюють дві стратегії каналу, що показала їх перевірка за 3 роки і скільки ставити, щоб спокійно пройти погані смуги.</p>
+  <div class="stats">
+    <div><b>3</b><span>роки перевірки</span></div>
+    <div><b class="num">3302</b><span>угоди</span></div>
+    <div><b>14</b><span>біржових пар</span></div>
+  </div>
+  <p class="note">Пн–Пт, 13:00–23:00 за Києвом. Усі цифри взяті з перевірки на котируваннях з жовтня 2023 по жовтень 2026. Це історія, і вона не обіцяє такий самий результат у майбутньому.</p>
+</div></section>
+
+<main class="wrap">
+<section id="logic">
+  <div class="kicker">01 · Логіка</div>
+  <h2>Як працює стратегія</h2>
+  <p>Ціна робить кілька великих свічок в один бік і впирається в рівень, від якого вже відскакувала. RSI 14 у цей момент вище 70 або нижче 30, тобто рух перегрітий. Щойно свічка закрилась, я входжу проти руху: ставка на відкат від рівня.</p>
+  <div class="panel scheme">
+    <svg viewBox="0 0 440 300" role="img" aria-label="Схема сетапу: рівень, великі свічки руху до нього, RSI вище 70 і вхід вниз після закриття свічки">
+      <line x1="16" y1="56" x2="432" y2="56" stroke="var(--moon)" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <text x="16" y="44"><tspan class="strong">① Рівень:</tspan> ціна вже відскакувала від нього</text>
+      <g id="candles"></g>
+      <text x="118" y="100" class="strong">② Свічки руху</text>
+      <text x="118" y="117">більші за звичайні</text>
+      <line x1="226" y1="122" x2="240" y2="134" stroke="var(--muted)" stroke-width="1"/>
+      <path d="M298 66 L298 98" stroke="var(--ink)" stroke-width="2"/>
+      <path d="M292 92 L298 102 L304 92 Z" fill="var(--ink)"/>
+      <text x="312" y="84" class="strong">④ Вхід ВНИЗ</text>
+      <text x="312" y="101">після закриття</text>
+      <path d="M298 186 L298 192 L428 192 L428 186" fill="none" stroke="var(--muted)" stroke-width="1"/>
+      <text x="363" y="180" text-anchor="middle">угода 15 або 5 хв</text>
+      <rect x="16" y="210" width="416" height="80" rx="8" fill="none" stroke="var(--axis)"/>
+      <line x1="16" y1="230" x2="432" y2="230" stroke="var(--faint)" stroke-dasharray="3 3"/>
+      <line x1="16" y1="270" x2="432" y2="270" stroke="var(--faint)" stroke-dasharray="3 3"/>
+      <text x="22" y="226">70</text>
+      <text x="22" y="284">30</text>
+      <path id="rsi" fill="none" stroke="var(--moon)" stroke-width="2" stroke-linejoin="round"/>
+      <text x="312" y="224" class="strong">③ RSI 14 вище 70</text>
+      <text x="312" y="241">рух перегрітий</text>
+    </svg>
+  </div>
+  <p class="note">На схемі рух вгору і вхід ВНИЗ. Дзеркально те саме: свічки вниз до рівня, RSI нижче 30, вхід ВГОРУ. Звичайна свічка означає середню за розміром серед 60 попередніх.</p>
+
+  <div class="pair">
+    <div class="panel card v1">
+      <h3><span class="dia v1" aria-hidden="true"></span>Розворот 15 хв</h3>
+      <dl class="rows">
+        <div><dt>Графік</dt><dd>M3, угода на 15 хв</dd></div>
+        <div><dt>Свічки руху</dt><dd>кожна від 2× звичайної, разом від 4×</dd></div>
+        <div><dt>Рівень</dt><dd>свінг останніх 3 годин, від якого ціна вже відходила на 1,5 ATR</dd></div>
+        <div><dt>Фільтр</dt><dd>якщо за 15 хв до сигналу був інший такий сигнал на будь-якій парі, угоду пропускаю</dd></div>
+        <div><dt>Поріг виплати</dt><dd class="num">68%</dd></div>
+      </dl>
+    </div>
+    <div class="panel card m1">
+      <h3><span class="dia m1" aria-hidden="true"></span>Розворот 5 хв</h3>
+      <dl class="rows">
+        <div><dt>Графік</dt><dd>M1, угода на 5 хв</dd></div>
+        <div><dt>Свічки руху</dt><dd>кожна від 1,5× звичайної, разом від 3×</dd></div>
+        <div><dt>Рівень</dt><dd>максимум чи мінімум попереднього дня, сьогоднішній (старший за годину) або годинний рівень за 5 днів</dd></div>
+        <div><dt>Фільтр</dt><dd>якщо за пів години до руху була новинна свічка, угоду пропускаю</dd></div>
+        <div><dt>Поріг виплати</dt><dd class="num">79%</dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="panel card">
+    <h3>Для обох стратегій</h3>
+    <ul class="plain">
+      <li>14 біржових пар, Пн–Пт, дві сесії за Києвом: 13:00–17:00 і 17:00–23:00.</li>
+      <li>Одна угода стратегії за раз, до 4 угод на сесію.</li>
+      <li>Повтор на тій самій парі в той самий бік протягом 5 свічок не беру.</li>
+      <li>Виплата нижче порогу: угоду пропускаю. Поріг означає виплату, при якій стратегія за 3 роки вийшла б у нуль.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="signals">
+  <div class="kicker">02 · Сигнали</div>
+  <h2>Як приходить сигнал</h2>
+  <div class="panel">
+    <ol class="flow">
+      <li><span class="ic" aria-hidden="true">⚡️</span><div class="t">Готуйся <span class="tag">ЗІ ЗВУКОМ</span></div><p>Приблизно за хвилину до можливого входу. Відкрий пару, постав час і суму.</p></li>
+      <li><span class="ic" aria-hidden="true">🔴</span><div class="t">Вхід ▼ ВНИЗ або ▲ ВГОРУ <span class="tag">ЗІ ЗВУКОМ</span></div><p>Свічка закрилась, усі умови виконані. Тисни SELL або BUY до 10-ї секунди.</p></li>
+      <li><span class="ic" aria-hidden="true">✅</span><div class="t">Результат <span class="tag">ТИХО</span></div><p>Приходить відповіддю на вхід, коли угода закрилась: лише ✅ ПЛЮС, ❌ МІНУС або ➖ НІЧИЯ. Рахунок дня в підсумку о 23:20.</p></li>
+      <li><span class="ic" aria-hidden="true">⚪️</span><div class="t">Відбій <span class="tag">ТИХО</span></div><p>Угоди не буде. «Готуйся» змінюється на відбій з причиною і за 5 хвилин зникає, щоб у каналі лишались тільки угоди.</p></li>
+    </ol>
+  </div>
+  <p>Щоб попередити за хвилину, бот дивиться на рух раніше, ніж закрилась сигнальна свічка. За цю хвилину ціна часто не доходить до рівня, RSI не дотягує до 70 чи 30 або свічка виходить замала. Тому угодою стає приблизно кожен десятий «Готуйся». Краще відкрити пару і не зайти, ніж не встигнути на вхід.</p>
+  <figure class="panel">
+    <div class="head"><h3>Як бот попереджав про угоди в історії</h3></div>
+    <div class="stack" id="warn"></div>
+    <p class="note">Решта угод приходила одразу входом: сетап складався за одну свічку, і попередити не було коли. Угоди з «Готуйся» і без нього закінчувались у плюс однаково часто: 58–61% у 15 хв і 56% у 5 хв.</p>
+  </figure>
+</section>
+
+<section id="history">
+  <div class="kicker">03 · Аналітика</div>
+  <h2>Що показала перевірка</h2>
+  <p>Жовтень 2023 – жовтень 2026, 14 пар, свічка за свічкою, з тими самими правилами відбору, що в боті.</p>
+  <div class="pair">
+    <div class="panel card v1">
+      <h3><span class="dia v1" aria-hidden="true"></span>Розворот 15 хв</h3>
+      <dl class="kv">
+        <dt>Угод за 3 роки</dt><dd>416</dd>
+        <dt>У плюс</dt><dd>59,7%</dd>
+        <dt>Угод на тиждень</dt><dd>≈2,7</dd>
+        <dt>Найдовша серія мінусів</dt><dd>5</dd>
+        <dt>Найслабший місяць</dt><dd>2 з 8</dd>
+      </dl>
+    </div>
+    <div class="panel card m1">
+      <h3><span class="dia m1" aria-hidden="true"></span>Розворот 5 хв</h3>
+      <dl class="kv">
+        <dt>Угод за 3 роки</dt><dd>2886</dd>
+        <dt>У плюс</dt><dd>55,8%</dd>
+        <dt>Угод на тиждень</dt><dd>≈18</dd>
+        <dt>Найдовша серія мінусів</dt><dd>11</dd>
+        <dt>Найслабший місяць</dt><dd>33 з 72</dd>
+      </dl>
+    </div>
+  </div>
+  <figure class="panel">
+    <div class="head">
+      <h3>Частка угод у плюс по кварталах</h3>
+      <div class="legend"><span><span class="dia v1"></span>15 хв</span><span><span class="dia m1"></span>5 хв</span></div>
+    </div>
+    <div class="chart" id="quarters"></div>
+    <details>
+      <summary>Таблиця по кварталах</summary>
+      <div class="tbl"><table id="qtable"></table></div>
+    </details>
+  </figure>
+  <p class="note">У каналі угод менше, ніж в історії: бот пропускає угоди з виплатою нижче порогу, а в історії виплата невідома. Найслабші місяці: жовтень 2023 у 15 хв і січень 2026 у 5 хв.</p>
+
+  <h3>Найважче за 3 роки, обидві стратегії разом</h3>
+  <div class="tiles">
+    <div class="tile"><b>−7</b><span>ставок за найгірший день</span></div>
+    <div class="tile"><b>−13</b><span>ставок за найгірший тиждень</span></div>
+    <div class="tile"><b>−16</b><span>ставок за найгірший місяць</span></div>
+    <div class="tile"><b>45%</b><span>тижнів закінчились у мінус</span></div>
+  </div>
+  <figure class="panel">
+    <div class="head"><h3>Серії мінусів поспіль за 3 роки</h3></div>
+    <div class="chart" id="streaks"></div>
+    <p class="note">Найдовша серія на обох разом: 8 мінусів поспіль. Лише 5 хв: до 11, лише 15 хв: до 5. Результат стратегії видно на відстані місяців, а не днів.</p>
+  </figure>
+</section>
+
+<section id="curves">
+  <div class="kicker">04 · Ризик-менеджмент</div>
+  <h2>Крива балансу і розмір ставки</h2>
+  <p>Старт з 10 000 $, кожна угода займає однаковий відсоток від поточного рахунку. Виплата 75% для 15 хв і 82% для 5 хв. Обери ставку: її крива кольорова, інші ставки сірі.</p>
+  <div class="controls">
+    <span class="note">Ставка на угоду</span>
+    <div class="seg" role="group" aria-label="Ставка на угоду" id="stakes"></div>
+  </div>
+  <div class="curves">
+    <figure class="panel" data-group="v1">
+      <div class="head"><h3 style="display:flex;align-items:center;gap:10px"><span class="dia v1"></span>Розворот 15 хв</h3></div>
+      <div class="chart"></div>
+      <div class="sum"></div>
+    </figure>
+    <figure class="panel" data-group="m1">
+      <div class="head"><h3 style="display:flex;align-items:center;gap:10px"><span class="dia m1"></span>Розворот 5 хв</h3></div>
+      <div class="chart"></div>
+      <div class="sum"></div>
+    </figure>
+    <figure class="panel" data-group="all">
+      <div class="head"><h3 style="display:flex;align-items:center;gap:10px"><span class="dia all"></span>Обидві стратегії разом</h3></div>
+      <div class="chart"></div>
+      <div class="sum"></div>
+    </figure>
+  </div>
+  <figure class="panel">
+    <div class="head"><h3>Найглибше падіння рахунку від його максимуму</h3></div>
+    <div class="tbl"><table id="rm"></table></div>
+    <p class="note">Під відсотком падіння: рахунок у кінці 3 років. Натисни на рядок, щоб показати цю ставку на кривих.</p>
+  </figure>
+  <p id="takeaway"></p>
+  <p class="note">Якщо виплата весь час рівно на порозі (68% і 79%), стратегія за 3 роки виходить у нуль, а падіння глибші: при 1% до −35%, при 2% до −65%.</p>
+</section>
+
+<section id="stake">
+  <div class="kicker">05 · Ставка</div>
+  <h2>Скільки ставити</h2>
+  <div class="panel">
+    <ol class="rules">
+      <li><div><b>0,5–1% депозиту на угоду</b><span>1% є верхньою межею. З 2% одна погана смуга, як уже бували, забирає майже половину рахунку.</span></div></li>
+      <li><div><b>Виплата нижче порогу з поста: пропускай</b><span>68% для 15 хв, 79% для 5 хв. Нижче порогу угода в мінусі на дистанції навіть з тією ж часткою плюсів.</span></div></li>
+      <li><div><b>3 мінуси поспіль: пауза до кінця дня</b><span>На історії ця пауза майже не змінила ні результат, ні глибину падіння. Вона береже голову: після серії не хочеться відігруватись угодами поза каналом.</span></div></li>
+    </ol>
+  </div>
+  <div class="panel calc">
+    <label for="dep">Твій депозит, $</label>
+    <div class="in"><input id="dep" type="number" inputmode="decimal" min="0" step="10" value="1000"></div>
+    <div class="out">
+      <div class="tile"><b id="s05">5 $</b><span>ставка при 0,5%</span></div>
+      <div class="tile"><b id="s1">10 $</b><span>ставка при 1%, верхня межа</span></div>
+    </div>
+    <p class="note">Перераховуй суму, коли депозит помітно змінився, наприклад раз на тиждень.</p>
+  </div>
+  <p class="calm">Хочеш спокійніше, бери лише <b>Розворот 15 хв</b>: угод менше, 2–3 на тиждень, найдовша серія 5 мінусів, а падіння при 1% на угоду до −12%.</p>
+</section>
+
+</main>
+
+<footer class="foot"><div class="wrap">
+  <a class="brand" href="https://moontrade.community/"><img src="/assets/logo.jpg" alt="" width="28" height="28">MoonTrade</a>
+  <p>Це не фінансова порада і не обіцянка результату. Торгуй лише сумою, яку готовий втратити. <a href="https://telegra.ph/Disklejmer-09-27-2" target="_blank" rel="noopener">Дисклеймер</a></p>
+  <p>Питання: <a href="https://t.me/mo0ntrade" target="_blank" rel="noopener">@mo0ntrade</a></p>
+</div></footer>
+
+<script>
+const D = {"days":["2023-10-10","2023-10-11","2023-10-12","2023-10-13","2023-10-16","2023-10-17","2023-10-18","2023-10-19","2023-10-20","2023-10-23","2023-10-24","2023-10-25","2023-10-26","2023-10-27","2023-10-30","2023-10-31","2023-11-01","2023-11-02","2023-11-03","2023-11-06","2023-11-07","2023-11-08","2023-11-09","2023-11-10","2023-11-13","2023-11-14","2023-11-15","2023-11-16","2023-11-17","2023-11-20","2023-11-21","2023-11-22","2023-11-23","2023-11-24","2023-11-27","2023-11-28","2023-11-29","2023-11-30","2023-12-01","2023-12-04","2023-12-05","2023-12-06","2023-12-07","2023-12-08","2023-12-11","2023-12-12","2023-12-13","2023-12-14","2023-12-15","2023-12-18","2023-12-19","2023-12-20","2023-12-21","2023-12-22","2023-12-26","2023-12-27","2023-12-28","2023-12-29","2024-01-02","2024-01-03","2024-01-04","2024-01-05","2024-01-08","2024-01-09","2024-01-10","2024-01-11","2024-01-12","2024-01-15","2024-01-16","2024-01-17","2024-01-18","2024-01-19","2024-01-22","2024-01-23","2024-01-24","2024-01-25","2024-01-26","2024-01-29","2024-01-30","2024-01-31","2024-02-01","2024-02-02","2024-02-06","2024-02-07","2024-02-08","2024-02-09","2024-02-12","2024-02-13","2024-02-14","2024-02-15","2024-02-16","2024-02-19","2024-02-20","2024-02-21","2024-02-22","2024-02-23","2024-02-26","2024-02-27","2024-02-28","2024-02-29","2024-03-01","2024-03-04","2024-03-05","2024-03-06","2024-03-07","2024-03-08","2024-03-11","2024-03-12","2024-03-13","2024-03-14","2024-03-15","2024-03-18","2024-03-19","2024-03-20","2024-03-21","2024-03-22","2024-03-25","2024-03-26","2024-03-27","2024-03-28","2024-03-29","2024-04-01","2024-04-02","2024-04-03","2024-04-04","2024-04-05","2024-04-08","2024-04-09","2024-04-10","2024-04-11","2024-04-12","2024-04-15","2024-04-16","2024-04-17","2024-04-18","2024-04-19","2024-04-22","2024-04-23","2024-04-24","2024-04-25","2024-04-26","2024-04-29","2024-04-30","2024-05-01","2024-05-02","2024-05-03","2024-05-06","2024-05-07","2024-05-08","2024-05-09","2024-05-10","2024-05-13","2024-05-14","2024-05-15","2024-05-16","2024-05-17","2024-05-20","2024-05-21","2024-05-22","2024-05-23","2024-05-24","2024-05-27","2024-05-28","2024-05-29","2024-05-30","2024-05-31","2024-06-03","2024-06-04","2024-06-05","2024-06-06","2024-06-07","2024-06-10","2024-06-11","2024-06-12","2024-06-13","2024-06-14","2024-06-17","2024-06-18","2024-06-19","2024-06-20","2024-06-21","2024-06-24","2024-06-26","2024-06-27","2024-06-28","2024-07-01","2024-07-02","2024-07-03","2024-07-04","2024-07-05","2024-07-08","2024-07-09","2024-07-10","2024-07-11","2024-07-12","2024-07-15","2024-07-16","2024-07-18","2024-07-19","2024-07-22","2024-07-23","2024-07-24","2024-07-26","2024-07-29","2024-07-30","2024-07-31","2024-08-01","2024-08-02","2024-08-05","2024-08-06","2024-08-08","2024-08-09","2024-08-12","2024-08-13","2024-08-14","2024-08-15","2024-08-16","2024-08-19","2024-08-20","2024-08-21","2024-08-22","2024-08-23","2024-08-26","2024-08-27","2024-08-28","2024-08-29","2024-08-30","2024-09-02","2024-09-03","2024-09-04","2024-09-05","2024-09-06","2024-09-10","2024-09-11","2024-09-12","2024-09-13","2024-09-16","2024-09-17","2024-09-18","2024-09-19","2024-09-20","2024-09-23","2024-09-24","2024-09-25","2024-09-26","2024-09-27","2024-09-30","2024-10-01","2024-10-02","2024-10-03","2024-10-04","2024-10-07","2024-10-08","2024-10-09","2024-10-10","2024-10-11","2024-10-14","2024-10-15","2024-10-16","2024-10-17","2024-10-18","2024-10-21","2024-10-22","2024-10-23","2024-10-24","2024-10-25","2024-10-29","2024-10-30","2024-10-31","2024-11-01","2024-11-04","2024-11-05","2024-11-06","2024-11-07","2024-11-08","2024-11-11","2024-11-12","2024-11-13","2024-11-14","2024-11-15","2024-11-18","2024-11-19","2024-11-20","2024-11-21","2024-11-22","2024-11-25","2024-11-26","2024-11-27","2024-11-29","2024-12-02","2024-12-03","2024-12-04","2024-12-05","2024-12-06","2024-12-09","2024-12-10","2024-12-11","2024-12-12","2024-12-13","2024-12-16","2024-12-17","2024-12-18","2024-12-19","2024-12-20","2024-12-23","2024-12-24","2024-12-26","2024-12-27","2024-12-30","2024-12-31","2025-01-02","2025-01-06","2025-01-07","2025-01-08","2025-01-10","2025-01-13","2025-01-14","2025-01-15","2025-01-16","2025-01-17","2025-01-20","2025-01-21","2025-01-22","2025-01-23","2025-01-24","2025-01-27","2025-01-28","2025-01-29","2025-01-30","2025-01-31","2025-02-03","2025-02-04","2025-02-05","2025-02-06","2025-02-07","2025-02-10","2025-02-11","2025-02-12","2025-02-13","2025-02-14","2025-02-17","2025-02-18","2025-02-19","2025-02-20","2025-02-21","2025-02-24","2025-02-25","2025-02-26","2025-02-27","2025-02-28","2025-03-03","2025-03-04","2025-03-05","2025-03-06","2025-03-07","2025-03-10","2025-03-11","2025-03-12","2025-03-13","2025-03-14","2025-03-17","2025-03-18","2025-03-19","2025-03-20","2025-03-21","2025-03-24","2025-03-25","2025-03-26","2025-03-27","2025-03-28","2025-03-31","2025-04-01","2025-04-02","2025-04-04","2025-04-07","2025-04-08","2025-04-09","2025-04-10","2025-04-11","2025-04-14","2025-04-15","2025-04-16","2025-04-17","2025-04-18","2025-04-21","2025-04-22","2025-04-23","2025-04-24","2025-04-25","2025-04-28","2025-04-29","2025-04-30","2025-05-01","2025-05-05","2025-05-06","2025-05-07","2025-05-08","2025-05-09","2025-05-12","2025-05-13","2025-05-14","2025-05-15","2025-05-16","2025-05-19","2025-05-20","2025-05-21","2025-05-22","2025-05-23","2025-05-26","2025-05-27","2025-05-28","2025-05-29","2025-05-30","2025-06-02","2025-06-03","2025-06-04","2025-06-05","2025-06-06","2025-06-09","2025-06-10","2025-06-11","2025-06-12","2025-06-13","2025-06-16","2025-06-17","2025-06-18","2025-06-19","2025-06-20","2025-06-23","2025-06-24","2025-06-25","2025-06-26","2025-06-27","2025-06-30","2025-07-01","2025-07-02","2025-07-03","2025-07-04","2025-07-07","2025-07-08","2025-07-09","2025-07-10","2025-07-11","2025-07-14","2025-07-15","2025-07-16","2025-07-17","2025-07-18","2025-07-21","2025-07-22","2025-07-23","2025-07-24","2025-07-25","2025-07-28","2025-07-29","2025-07-30","2025-07-31","2025-08-01","2025-08-04","2025-08-05","2025-08-06","2025-08-07","2025-08-08","2025-08-11","2025-08-12","2025-08-13","2025-08-14","2025-08-15","2025-08-18","2025-08-19","2025-08-20","2025-08-21","2025-08-22","2025-08-25","2025-08-26","2025-08-27","2025-08-28","2025-08-29","2025-09-01","2025-09-02","2025-09-03","2025-09-04","2025-09-05","2025-09-08","2025-09-09","2025-09-10","2025-09-11","2025-09-12","2025-09-15","2025-09-16","2025-09-17","2025-09-18","2025-09-19","2025-09-22","2025-09-23","2025-09-24","2025-09-25","2025-09-26","2025-09-29","2025-09-30","2025-10-01","2025-10-02","2025-10-03","2025-10-06","2025-10-07","2025-10-08","2025-10-09","2025-10-10","2025-10-13","2025-10-14","2025-10-15","2025-10-16","2025-10-17","2025-10-20","2025-10-21","2025-10-22","2025-10-23","2025-10-24","2025-10-27","2025-10-28","2025-10-29","2025-10-30","2025-10-31","2025-11-03","2025-11-04","2025-11-05","2025-11-06","2025-11-07","2025-11-11","2025-11-12","2025-11-13","2025-11-14","2025-11-17","2025-11-18","2025-11-19","2025-11-20","2025-11-21","2025-11-24","2025-11-25","2025-11-26","2025-11-27","2025-11-28","2025-12-01","2025-12-02","2025-12-03","2025-12-04","2025-12-05","2025-12-08","2025-12-10","2025-12-11","2025-12-12","2025-12-15","2025-12-16","2025-12-17","2025-12-18","2025-12-19","2025-12-22","2025-12-23","2025-12-24","2025-12-25","2025-12-26","2025-12-29","2025-12-30","2025-12-31","2026-01-02","2026-01-05","2026-01-06","2026-01-07","2026-01-08","2026-01-09","2026-01-12","2026-01-13","2026-01-14","2026-01-15","2026-01-16","2026-01-19","2026-01-21","2026-01-22","2026-01-23","2026-01-26","2026-01-27","2026-01-28","2026-01-29","2026-01-30","2026-02-02","2026-02-03","2026-02-04","2026-02-05","2026-02-06","2026-02-09","2026-02-10","2026-02-11","2026-02-12","2026-02-13","2026-02-16","2026-02-17","2026-02-18","2026-02-19","2026-02-20","2026-02-23","2026-02-24","2026-02-25","2026-02-26","2026-02-27","2026-03-02","2026-03-03","2026-03-04","2026-03-05","2026-03-06","2026-03-09","2026-03-10","2026-03-11","2026-03-12","2026-03-13","2026-03-16","2026-03-17","2026-03-18","2026-03-19","2026-03-20","2026-03-23","2026-03-24","2026-03-25","2026-03-26","2026-03-27","2026-03-30","2026-03-31","2026-04-01","2026-04-02","2026-04-03","2026-04-06","2026-04-07","2026-04-08","2026-04-09","2026-04-10","2026-04-13","2026-04-14","2026-04-15","2026-04-16","2026-04-17","2026-04-20","2026-04-21","2026-04-22","2026-04-23","2026-04-24","2026-04-27","2026-04-28","2026-04-29","2026-04-30","2026-05-01","2026-05-04","2026-05-05","2026-05-06","2026-05-07","2026-05-08","2026-05-11","2026-05-12","2026-05-13","2026-05-14","2026-05-15","2026-05-18","2026-05-19","2026-05-20","2026-05-21","2026-05-22","2026-05-25","2026-05-26","2026-05-27","2026-05-28","2026-05-29","2026-06-01","2026-06-02","2026-06-03","2026-06-04","2026-06-05","2026-06-08","2026-06-09","2026-06-10","2026-06-11","2026-06-12","2026-06-15","2026-06-16","2026-06-17","2026-06-18","2026-06-19","2026-06-22","2026-06-23","2026-06-24","2026-06-25","2026-06-26","2026-06-29","2026-06-30","2026-07-01","2026-07-02","2026-07-03","2026-07-06","2026-07-07","2026-07-08","2026-07-09","2026-07-10","2026-07-13","2026-07-14","2026-07-15","2026-07-17","2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-24","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-03","2026-08-04","2026-08-05","2026-08-06","2026-08-07","2026-08-11","2026-08-12","2026-08-13","2026-08-14","2026-08-17","2026-08-18","2026-08-19","2026-08-20","2026-08-21","2026-08-24","2026-08-25","2026-08-26","2026-08-27","2026-08-28","2026-08-31","2026-09-01","2026-09-02","2026-09-03","2026-09-04","2026-09-07","2026-09-08","2026-09-09","2026-09-10","2026-09-11","2026-09-14","2026-09-15","2026-09-16","2026-09-17","2026-09-18","2026-09-21","2026-09-22","2026-09-23","2026-09-24","2026-09-25","2026-09-28","2026-09-29","2026-09-30","2026-10-01","2026-10-02","2026-10-05","2026-10-06","2026-10-07","2026-10-08","2026-10-09","2026-10-12","2026-10-13","2026-10-14"],"groups":{"v1":{"0.5":{"curve":[10000,10000,10000,9900,9900,9937,9937,9937,9937,9937,9937,9975,9925,9875,9777,9777,9764,9801,9703,9739,9739,9739,9739,9739,9776,9764,9800,9800,9800,9800,9800,9800,9800,9800,9800,9800,9800,9837,9837,9788,9788,9788,9788,9739,9739,9739,9629,9569,9569,9569,9569,9569,9521,9557,9545,9545,9581,9617,9617,9653,9653,9604,9604,9604,9604,9556,9556,9592,9628,9628,9628,9628,9628,9628,9628,9580,9616,9616,9616,9592,9592,9544,9544,9544,9544,9544,9544,9496,9496,9496,9496,9496,9496,9496,9532,9532,9532,9532,9484,9472,9424,9424,9460,9460,9460,9495,9495,9495,9495,9531,9531,9531,9531,9567,9567,9567,9567,9567,9567,9567,9603,9603,9555,9507,9365,9471,9542,9494,9435,9470,9470,9470,9470,9423,9423,9423,9423,9493,9493,9481,9481,9481,9588,9624,9624,9528,9528,9528,9528,9528,9528,9528,9564,9564,9564,9564,9564,9516,9516,9516,9516,9516,9516,9516,9552,9588,9588,9588,9660,9648,9684,9684,9684,9708,9659,9659,9659,9695,9732,9732,9768,9768,9792,9792,9829,9780,9780,9817,9817,9817,9817,9817,9768,9755,9792,9792,9792,9792,9792,9792,9792,9829,9865,9816,9816,9890,9927,9964,10002,10002,9902,9939,9939,9926,9964,9864,9864,9938,9938,9889,9889,10000,10000,10000,10000,9900,9900,9900,9888,9888,9925,9912,9912,9950,10024,10024,10024,10062,10049,10049,10049,10049,10049,10049,10087,10087,10087,10125,10125,10125,10112,10112,10112,10112,10150,10150,10099,10099,10099,10175,10175,10175,10175,10213,10213,10213,10290,10225,10225,10302,10302,10251,10251,10289,10289,10289,10289,10366,10366,10405,10405,10405,10405,10444,10470,10470,10470,10470,10509,10509,10509,10509,10509,10457,10457,10457,10496,10496,10496,10496,10496,10444,10444,10483,10483,10483,10483,10483,10483,10483,10483,10417,10417,10417,10456,10456,10495,10391,10391,10339,10223,10223,10223,10223,10223,10223,10223,10299,10248,10235,10260,10260,10209,10209,10247,10247,10247,10286,10221,10170,10170,10170,10170,10170,10208,10208,10208,10208,10208,10285,10285,10285,10285,10285,10324,10362,10311,10311,10311,10311,10259,10297,10284,10284,10233,10233,10233,10182,10182,10220,10220,10220,10258,10207,10245,10245,10143,10143,10143,10143,10143,10143,10181,10181,10181,10181,10219,10219,10219,10219,10219,10219,10219,10219,10219,10206,10206,10206,10206,10206,10206,10206,10206,10206,10206,10206,10193,10232,10232,10232,10232,10232,10232,10232,10232,10257,10244,10193,10193,10193,10193,10193,10193,10193,10193,10193,10193,10193,10193,10142,10142,10142,10129,10129,10129,10116,10103,10103,10053,10053,10053,10053,10053,10053,10040,10027,10027,10027,10027,10065,10065,10065,10065,10065,10103,10204,10204,10191,10191,10191,10229,10229,10267,10216,10165,10165,10114,10114,10114,10063,10139,10177,10076,10076,10076,10076,10113,10113,10113,10113,10113,10151,10189,10189,10189,10189,10138,10138,10176,10176,10215,10253,10291,10291,10330,10330,10330,10330,10330,10330,10369,10317,10317,10317,10317,10356,10356,10252,10291,10239,10188,10188,10188,10188,10188,10226,10226,10226,10226,10226,10162,10162,10162,10200,10200,10200,10200,10187,10187,10187,10187,10226,10226,10226,10226,10213,10213,10213,10251,10251,10251,10251,10251,10251,10289,10328,10276,10276,10225,10225,10225,10225,10225,10225,10302,10302,10340,10340,10289,10289,10289,10289,10289,10289,10289,10289,10289,10289,10289,10276,10276,10276,10276,10224,10224,10224,10224,10263,10211,10211,10211,10160,10059,10059,10059,10059,10059,10097,10097,10097,10172,10249,10249,10249,10249,10249,10249,10249,10287,10287,10326,10326,10326,10313,10313,10313,10313,10313,10313,10351,10351,10390,10390,10390,10390,10390,10325,10364,10364,10442,10442,10442,10442,10442,10442,10481,10481,10481,10520,10520,10520,10520,10560,10560,10599,10599,10599,10599,10626,10626,10665,10612,10692,10638,10638,10638,10678,10625,10665,10665,10665,10665,10665,10665,10705,10705,10705,10705,10705,10651,10638,10718,10718,10758,10758,10758,10704,10597,10597,10544,10544,10584,10584,10531,10531,10570,10517,10504,10504,10504,10504,10491,10530,10570,10517,10517,10517,10412,10451,10451,10451,10438,10477,10477,10477,10477,10477,10477,10464,10503,10542,10542,10542,10542,10542,10542,10582,10582,10582,10582,10608,10594,10581,10581,10528,10528,10528,10528,10528,10607,10607,10554,10554,10594,10673,10673,10673,10713,10713,10794,10794,10875,10916,10916,10916,10916,10998,10998,10998,10943,10943,10984,10929,10929,10820,10820,10766,10766,10806,10806,10806,10806,10806,10698,10738,10819,10860,10860,10900,10900,10846,10846,10846,10927,10914],"end":10914,"maxdd":6.4,"under_days":497,"low":9365,"peak":10998},"1":{"curve":[10000,10000,10000,9801,9801,9875,9875,9875,9875,9875,9875,9949,9849,9751,9557,9557,9532,9603,9412,9483,9483,9483,9483,9483,9554,9529,9601,9601,9601,9601,9601,9601,9601,9601,9601,9601,9601,9673,9673,9576,9576,9576,9576,9480,9480,9480,9268,9152,9152,9152,9152,9152,9060,9128,9104,9104,9173,9242,9242,9311,9311,9218,9218,9218,9218,9126,9126,9194,9263,9263,9263,9263,9263,9263,9263,9170,9239,9239,9239,9192,9192,9100,9100,9100,9100,9100,9100,9009,9009,9009,9009,9009,9009,9009,9076,9076,9076,9076,8985,8962,8873,8873,8939,8939,8939,9006,9006,9006,9006,9074,9074,9074,9074,9142,9142,9142,9142,9142,9142,9142,9210,9210,9118,9027,8759,8958,9093,9002,8889,8955,8955,8955,8955,8866,8866,8866,8866,8999,8999,8976,8976,8976,9180,9248,9248,9064,9064,9064,9064,9064,9064,9064,9132,9132,9132,9132,9132,9041,9041,9041,9041,9041,9041,9041,9109,9177,9177,9177,9315,9291,9361,9361,9361,9407,9313,9313,9313,9383,9453,9453,9524,9524,9571,9571,9642,9546,9546,9618,9618,9618,9618,9618,9521,9497,9568,9568,9568,9568,9568,9568,9568,9640,9712,9615,9615,9760,9833,9907,9981,9981,9782,9856,9856,9830,9904,9707,9707,9853,9853,9755,9755,9976,9976,9976,9976,9777,9777,9777,9752,9752,9825,9800,9800,9873,10022,10022,10022,10097,10071,10071,10071,10071,10071,10071,10147,10147,10147,10223,10223,10223,10197,10197,10197,10197,10273,10273,10170,10170,10170,10324,10324,10324,10324,10401,10401,10401,10558,10425,10425,10582,10582,10476,10476,10555,10555,10555,10555,10714,10714,10794,10794,10794,10794,10875,10928,10928,10928,10928,11010,11010,11010,11010,11010,10900,10900,10900,10982,10982,10982,10982,10982,10872,10872,10954,10954,10954,10954,10954,10954,10954,10954,10816,10816,10816,10897,10897,10979,10761,10761,10653,10414,10414,10414,10414,10414,10414,10414,10571,10465,10438,10489,10489,10385,10385,10462,10462,10462,10541,10409,10305,10305,10305,10305,10305,10382,10382,10382,10382,10382,10538,10538,10538,10538,10538,10617,10697,10590,10590,10590,10590,10484,10563,10535,10535,10430,10430,10430,10326,10326,10403,10403,10403,10481,10376,10454,10454,10246,10246,10246,10246,10246,10246,10323,10323,10323,10323,10400,10400,10400,10400,10400,10400,10400,10400,10400,10374,10374,10374,10374,10374,10374,10374,10374,10374,10374,10374,10347,10425,10425,10425,10425,10425,10425,10425,10425,10476,10449,10344,10344,10344,10344,10344,10344,10344,10344,10344,10344,10344,10344,10241,10241,10241,10214,10214,10214,10188,10162,10162,10060,10060,10060,10060,10060,10060,10034,10008,10008,10008,10008,10084,10084,10084,10084,10084,10159,10363,10363,10336,10336,10336,10414,10414,10492,10387,10283,10283,10180,10180,10180,10078,10230,10307,10102,10102,10102,10102,10177,10177,10177,10177,10177,10254,10331,10331,10331,10331,10227,10227,10304,10304,10381,10459,10538,10538,10617,10617,10617,10617,10617,10617,10696,10589,10589,10589,10589,10669,10669,10456,10535,10429,10325,10325,10325,10325,10325,10403,10403,10403,10403,10403,10272,10272,10272,10349,10349,10349,10349,10322,10322,10322,10322,10400,10400,10400,10400,10373,10373,10373,10451,10451,10451,10451,10451,10451,10529,10608,10502,10502,10397,10397,10397,10397,10397,10397,10554,10554,10633,10633,10526,10526,10526,10526,10526,10526,10526,10526,10526,10526,10526,10499,10499,10499,10499,10394,10394,10394,10394,10472,10368,10368,10368,10264,10060,10060,10060,10060,10060,10135,10135,10135,10288,10443,10443,10443,10443,10443,10443,10443,10521,10521,10600,10600,10600,10573,10573,10573,10573,10573,10573,10652,10652,10732,10732,10732,10732,10732,10597,10677,10677,10837,10837,10837,10837,10837,10837,10919,10919,10919,11000,11000,11000,11000,11083,11083,11166,11166,11166,11166,11221,11221,11305,11192,11360,11247,11247,11247,11331,11218,11302,11302,11302,11302,11302,11302,11387,11387,11387,11387,11387,11273,11244,11413,11413,11499,11499,11499,11384,11157,11157,11046,11046,11129,11129,11017,11017,11100,10989,10961,10961,10961,10961,10932,11014,11097,10986,10986,10986,10767,10848,10848,10848,10820,10901,10901,10901,10901,10901,10901,10873,10955,11037,11037,11037,11037,11037,11037,11120,11120,11120,11120,11174,11146,11117,11117,11006,11006,11006,11006,11006,11171,11171,11060,11060,11143,11310,11310,11310,11395,11395,11567,11567,11741,11829,11829,11829,11829,12007,12007,12007,11887,11887,11976,11856,11856,11620,11620,11504,11504,11591,11591,11591,11591,11591,11360,11445,11617,11705,11705,11792,11792,11674,11674,11674,11850,11820],"end":11820,"maxdd":12.4,"under_days":497,"low":8759,"peak":12007},"2":{"curve":[10000,10000,10000,9604,9604,9748,9748,9748,9748,9748,9748,9894,9696,9502,9126,9126,9078,9214,8849,8982,8982,8982,8982,8982,9117,9068,9204,9204,9204,9204,9204,9204,9204,9204,9204,9204,9204,9342,9342,9155,9155,9155,9155,8972,8972,8972,8571,8355,8355,8355,8355,8355,8188,8311,8267,8267,8391,8517,8517,8645,8645,8472,8472,8472,8472,8302,8302,8427,8553,8553,8553,8553,8553,8553,8553,8382,8508,8508,8508,8418,8418,8250,8250,8250,8250,8250,8250,8085,8085,8085,8085,8085,8085,8085,8206,8206,8206,8206,8042,7999,7839,7839,7957,7957,7957,8076,8076,8076,8076,8197,8197,8197,8197,8320,8320,8320,8320,8320,8320,8320,8445,8445,8276,8111,7634,7982,8224,8059,7856,7974,7974,7974,7974,7815,7815,7815,7815,8051,8051,8008,8008,8008,8374,8499,8499,8163,8163,8163,8163,8163,8163,8163,8285,8285,8285,8285,8285,8120,8120,8120,8120,8120,8120,8120,8241,8365,8365,8365,8618,8572,8701,8701,8701,8784,8609,8609,8609,8738,8869,8869,9002,9002,9089,9089,9225,9040,9040,9176,9176,9176,9176,9176,8993,8945,9079,9079,9079,9079,9079,9079,9079,9215,9353,9166,9166,9443,9585,9729,9875,9875,9484,9626,9626,9575,9719,9334,9334,9616,9616,9424,9424,9854,9854,9854,9854,9464,9464,9464,9414,9414,9555,9504,9504,9647,9938,9938,9938,10087,10034,10034,10034,10034,10034,10034,10184,10184,10184,10337,10337,10337,10282,10282,10282,10282,10437,10437,10228,10228,10228,10537,10537,10537,10537,10695,10695,10695,11018,10741,10741,11065,11065,10844,10844,11007,11007,11007,11007,11339,11339,11510,11510,11510,11510,11682,11795,11795,11795,11795,11972,11972,11972,11972,11972,11732,11732,11732,11908,11908,11908,11908,11908,11670,11670,11845,11845,11845,11845,11845,11845,11845,11845,11547,11547,11547,11720,11720,11896,11424,11424,11196,10696,10696,10696,10696,10696,10696,10696,11019,10799,10741,10845,10845,10628,10628,10787,10787,10787,10949,10673,10460,10460,10460,10460,10460,10617,10617,10617,10617,10617,10937,10937,10937,10937,10937,11101,11268,11043,11043,11043,11043,10822,10984,10926,10926,10707,10707,10707,10493,10493,10651,10651,10651,10810,10594,10753,10753,10327,10327,10327,10327,10327,10327,10482,10482,10482,10482,10639,10639,10639,10639,10639,10639,10639,10639,10639,10583,10583,10583,10583,10583,10583,10583,10583,10583,10583,10583,10527,10685,10685,10685,10685,10685,10685,10685,10685,10788,10730,10516,10516,10516,10516,10516,10516,10516,10516,10516,10516,10516,10516,10306,10306,10306,10251,10251,10251,10197,10143,10143,9940,9940,9940,9940,9940,9940,9887,9835,9835,9835,9835,9982,9982,9982,9982,9982,10132,10539,10539,10483,10483,10483,10640,10640,10800,10584,10372,10372,10164,10164,10164,9961,10262,10416,10004,10004,10004,10004,10154,10154,10154,10154,10154,10306,10461,10461,10461,10461,10251,10251,10405,10405,10561,10720,10880,10880,11044,11044,11044,11044,11044,11044,11209,10985,10985,10985,10985,11150,11150,10708,10869,10652,10439,10439,10439,10439,10439,10595,10595,10595,10595,10595,10328,10328,10328,10483,10483,10483,10483,10428,10428,10428,10428,10584,10584,10584,10584,10528,10528,10528,10686,10686,10686,10686,10686,10686,10846,11009,10789,10789,10573,10573,10573,10573,10573,10573,10892,10892,11056,11056,10835,10835,10835,10835,10835,10835,10835,10835,10835,10835,10835,10777,10777,10777,10777,10562,10562,10562,10562,10720,10506,10506,10506,10296,9888,9888,9888,9888,9888,10036,10036,10036,10340,10652,10652,10652,10652,10652,10652,10652,10812,10812,10974,10974,10974,10916,10916,10916,10916,10916,10916,11080,11080,11246,11246,11246,11246,11246,10963,11127,11127,11463,11463,11463,11463,11463,11463,11635,11635,11635,11810,11810,11810,11810,11987,11987,12167,12167,12167,12167,12284,12284,12468,12219,12588,12336,12336,12336,12521,12271,12455,12455,12455,12455,12455,12455,12642,12642,12642,12642,12642,12389,12323,12696,12696,12886,12886,12886,12628,12128,12128,11886,11886,12064,12064,11823,11823,12000,11760,11698,11698,11698,11698,11636,11810,11987,11748,11748,11748,11282,11452,11452,11452,11391,11562,11562,11562,11562,11562,11562,11501,11673,11848,11848,11848,11848,11848,11848,12026,12026,12026,12026,12142,12077,12013,12013,11773,11773,11773,11773,11773,12129,12129,11886,11886,12065,12429,12429,12429,12616,12616,12997,12997,13390,13591,13591,13591,13591,14001,14001,14001,13721,13721,13927,13649,13649,13108,13108,12846,12846,13039,13039,13039,13039,13039,12522,12710,13094,13291,13291,13490,13490,13220,13220,13220,13620,13548],"end":13548,"maxdd":23.7,"under_days":503,"low":7634,"peak":14001},"3":{"curve":[10000,10000,10000,9409,9409,9621,9621,9621,9621,9621,9621,9837,9542,9256,8709,8709,8638,8832,8310,8497,8497,8497,8497,8497,8688,8617,8811,8811,8811,8811,8811,8811,8811,8811,8811,8811,8811,9009,9009,8739,8739,8739,8739,8477,8477,8477,7911,7611,7611,7611,7611,7611,7382,7548,7487,7487,7655,7827,7827,8003,8003,7763,7763,7763,7763,7530,7530,7700,7873,7873,7873,7873,7873,7873,7873,7637,7809,7809,7809,7682,7682,7451,7451,7451,7451,7451,7451,7228,7228,7228,7228,7228,7228,7228,7390,7390,7390,7390,7169,7110,6897,6897,7052,7052,7052,7210,7210,7210,7210,7373,7373,7373,7373,7539,7539,7539,7539,7539,7539,7539,7708,7708,7477,7253,6619,7076,7398,7176,6904,7059,7059,7059,7059,6848,6848,6848,6848,7159,7159,7101,7101,7101,7591,7762,7762,7303,7303,7303,7303,7303,7303,7303,7467,7467,7467,7467,7467,7243,7243,7243,7243,7243,7243,7243,7406,7573,7573,7573,7918,7853,8029,8029,8029,8143,7899,7899,7899,8076,8258,8258,8444,8444,8563,8563,8756,8493,8493,8684,8684,8684,8684,8684,8424,8355,8543,8543,8543,8543,8543,8543,8543,8735,8932,8664,8664,9058,9262,9470,9683,9683,9111,9316,9316,9240,9448,8890,8890,9294,9294,9015,9015,9638,9638,9638,9638,9068,9068,9068,8994,8994,9196,9121,9121,9326,9751,9751,9751,9970,9889,9889,9889,9889,9889,9889,10111,10111,10111,10339,10339,10339,10254,10254,10254,10254,10485,10485,10170,10170,10170,10633,10633,10633,10633,10872,10872,10872,11367,10936,10936,11433,11433,11090,11090,11340,11340,11340,11340,11856,11856,12123,12123,12123,12123,12396,12571,12571,12571,12571,12854,12854,12854,12854,12854,12468,12468,12468,12749,12749,12749,12749,12749,12366,12366,12644,12644,12644,12644,12644,12644,12644,12644,12165,12165,12165,12439,12439,12718,11967,11967,11608,10832,10832,10832,10832,10832,10832,10832,11325,10986,10896,11050,11050,10718,10718,10960,10960,10960,11206,10781,10458,10458,10458,10458,10458,10693,10693,10693,10693,10693,11180,11180,11180,11180,11180,11431,11688,11338,11338,11338,11338,10997,11245,11153,11153,10818,10818,10818,10494,10494,10730,10730,10730,10971,10642,10882,10882,10239,10239,10239,10239,10239,10239,10469,10469,10469,10469,10705,10705,10705,10705,10705,10705,10705,10705,10705,10617,10617,10617,10617,10617,10617,10617,10617,10617,10617,10617,10530,10767,10767,10767,10767,10767,10767,10767,10767,10919,10830,10505,10505,10505,10505,10505,10505,10505,10505,10505,10505,10505,10505,10190,10190,10190,10107,10107,10107,10024,9942,9942,9644,9644,9644,9644,9644,9644,9565,9487,9487,9487,9487,9700,9700,9700,9700,9700,9919,10517,10517,10431,10431,10431,10665,10665,10905,10578,10261,10261,9953,9953,9953,9654,10094,10321,9711,9711,9711,9711,9929,9929,9929,9929,9929,10153,10381,10381,10381,10381,10070,10070,10296,10296,10528,10765,11007,11007,11255,11255,11255,11255,11255,11255,11508,11163,11163,11163,11163,11414,11414,10739,10981,10652,10332,10332,10332,10332,10332,10564,10564,10564,10564,10564,10164,10164,10164,10392,10392,10392,10392,10308,10308,10308,10308,10539,10539,10539,10539,10453,10453,10453,10688,10688,10688,10688,10688,10688,10929,11175,10840,10840,10514,10514,10514,10514,10514,10514,10993,10993,11240,11240,10903,10903,10903,10903,10903,10903,10903,10903,10903,10903,10903,10814,10814,10814,10814,10489,10489,10489,10489,10725,10404,10404,10404,10092,9495,9495,9495,9495,9495,9709,9709,9709,10151,10613,10613,10613,10613,10613,10613,10613,10851,10851,11096,11096,11096,11005,11005,11005,11005,11005,11005,11252,11252,11506,11506,11506,11506,11506,11069,11318,11318,11833,11833,11833,11833,11833,11833,12100,12100,12100,12372,12372,12372,12372,12650,12650,12935,12935,12935,12935,13118,13118,13413,13010,13603,13194,13194,13194,13491,13087,13381,13381,13381,13381,13381,13381,13682,13682,13682,13682,13682,13272,13163,13762,13762,14072,14072,14072,13650,12843,12843,12458,12458,12738,12738,12356,12356,12634,12255,12155,12155,12155,12155,12055,12327,12604,12226,12226,12226,11503,11762,11762,11762,11666,11928,11928,11928,11928,11928,11928,11831,12097,12369,12369,12369,12369,12369,12369,12648,12648,12648,12648,12826,12722,12618,12618,12239,12239,12239,12239,12239,12796,12796,12412,12412,12691,13269,13269,13269,13567,13567,14185,14185,14830,15164,15164,15164,15164,15854,15854,15854,15378,15378,15724,15253,15253,14351,14351,13921,13921,14234,14234,14234,14234,14234,13393,13694,14317,14639,14639,14969,14969,14520,14520,14520,15180,15056],"end":15056,"maxdd":33.8,"under_days":511,"low":6619,"peak":15854},"5":{"curve":[10000,10000,10000,9025,9025,9363,9363,9363,9363,9363,9363,9715,9229,8767,7913,7913,7799,8091,7302,7576,7576,7576,7576,7576,7860,7747,8038,8038,8038,8038,8038,8038,8038,8038,8038,8038,8038,8339,8339,7922,7922,7922,7922,7526,7526,7526,6695,6269,6269,6269,6269,6269,5955,6178,6090,6090,6318,6555,6555,6801,6801,6461,6461,6461,6461,6138,6138,6368,6607,6607,6607,6607,6607,6607,6607,6276,6512,6512,6512,6326,6326,6010,6010,6010,6010,6010,6010,5709,5709,5709,5709,5709,5709,5709,5923,5923,5923,5923,5627,5546,5269,5269,5466,5466,5466,5671,5671,5671,5671,5884,5884,5884,5884,6105,6105,6105,6105,6105,6105,6105,6334,6334,6017,5716,4901,5473,5891,5597,5240,5437,5437,5437,5437,5165,5165,5165,5165,5560,5560,5480,5480,5480,6120,6349,6349,5730,5730,5730,5730,5730,5730,5730,5945,5945,5945,5945,5945,5648,5648,5648,5648,5648,5648,5648,5860,6079,6079,6079,6544,6450,6692,6692,6692,6843,6501,6501,6501,6744,6997,6997,7260,7260,7424,7424,7702,7317,7317,7591,7591,7591,7591,7591,7212,7108,7375,7375,7375,7375,7375,7375,7375,7651,7938,7541,7541,8117,8422,8738,9065,9065,8181,8488,8488,8366,8680,7834,7834,8432,8432,8011,8011,8946,8946,8946,8946,8074,8074,8074,7958,7958,8256,8137,8137,8443,9088,9088,9088,9428,9293,9293,9293,9293,9293,9293,9641,9641,9641,10003,10003,10003,9859,9859,9859,9859,10229,10229,9717,9717,9717,10460,10460,10460,10460,10852,10852,10852,11681,10938,10938,11773,11773,11185,11185,11604,11604,11604,11604,12491,12491,12959,12959,12959,12959,13445,13749,13749,13749,13749,14264,14264,14264,14264,14264,13551,13551,13551,14059,14059,14059,14059,14059,13356,13356,13857,13857,13857,13857,13857,13857,13857,13857,12975,12975,12975,13462,13462,13967,12605,12605,11975,10652,10652,10652,10652,10652,10652,10652,11466,10892,10736,10978,10978,10429,10429,10820,10820,10820,11226,10512,9986,9986,9986,9986,9986,10360,10360,10360,10360,10360,11152,11152,11152,11152,11152,11570,12004,11404,11404,11404,11404,10834,11240,11078,11078,10525,10525,10525,9998,9998,10373,10373,10373,10762,10224,10608,10608,9573,9573,9573,9573,9573,9573,9932,9932,9932,9932,10305,10305,10305,10305,10305,10305,10305,10305,10305,10157,10157,10157,10157,10157,10157,10157,10157,10157,10157,10157,10011,10386,10386,10386,10386,10386,10386,10386,10386,10621,10468,9945,9945,9945,9945,9945,9945,9945,9945,9945,9945,9945,9945,9447,9447,9447,9311,9311,9311,9178,9046,9046,8593,8593,8593,8593,8593,8593,8470,8348,8348,8348,8348,8661,8661,8661,8661,8661,8986,9891,9891,9749,9749,9749,10114,10114,10494,9969,9471,9471,8997,8997,8997,8547,9200,9545,8615,8615,8615,8615,8938,8938,8938,8938,8938,9273,9621,9621,9621,9621,9140,9140,9482,9482,9838,10207,10590,10590,10987,10987,10987,10987,10987,10987,11399,10829,10829,10829,10829,11235,11235,10139,10520,9994,9494,9494,9494,9494,9494,9850,9850,9850,9850,9850,9223,9223,9223,9569,9569,9569,9569,9431,9431,9431,9431,9785,9785,9785,9785,9644,9644,9644,10006,10006,10006,10006,10006,10006,10381,10770,10232,10232,9720,9720,9720,9720,9720,9720,10463,10463,10855,10855,10313,10313,10313,10313,10313,10313,10313,10313,10313,10313,10313,10164,10164,10164,10164,9656,9656,9656,9656,10018,9517,9517,9517,9041,8160,8160,8160,8160,8160,8466,8466,8466,9113,9809,9809,9809,9809,9809,9809,9809,10177,10177,10559,10559,10559,10407,10407,10407,10407,10407,10407,10797,10797,11202,11202,11202,11202,11202,10489,10882,10882,11714,11714,11714,11714,11714,11714,12153,12153,12153,12609,12609,12609,12609,13081,13081,13572,13572,13572,13572,13879,13879,14399,13679,14724,13988,13988,13988,14513,13787,14304,14304,14304,14304,14304,14304,14840,14840,14840,14840,14840,14098,13896,14957,14957,15518,15518,15518,14742,13305,13305,12640,12640,13114,13114,12458,12458,12925,12279,12102,12102,12102,12102,11928,12376,12840,12198,12198,12198,11009,11421,11421,11421,11257,11679,11679,11679,11679,11679,11679,11511,11943,12391,12391,12391,12391,12391,12391,12856,12856,12856,12856,13146,12957,12771,12771,12132,12132,12132,12132,12132,13059,13059,12406,12406,12872,13855,13855,13855,14375,14375,15473,15473,16655,17280,17280,17280,17280,18600,18600,18600,17670,17670,18333,17416,17416,15718,15718,14932,14932,15492,15492,15492,15492,15492,13981,14506,15614,16200,16200,16807,16807,15967,15967,15967,17187,16940],"end":16940,"maxdd":51.0,"under_days":517,"low":4901,"peak":18600}},"m1":{"0.5":{"curve":[9991,10073,10156,10045,10077,10192,10040,9981,10021,9863,9845,9827,9898,9871,9893,9974,9974,9925,9965,9997,9897,9929,9861,9852,9824,9718,9797,9642,9633,9585,9664,9695,9677,9690,9681,9624,9615,9519,9588,9570,9689,9719,9702,9693,9684,9609,9661,9740,9674,9665,9608,9581,9612,9642,9607,9580,9611,9720,9566,9519,9558,9676,9627,9649,9689,9710,9750,9644,9626,9578,9569,9513,9401,9478,9469,9460,9366,9311,9417,9429,9382,9421,9459,9481,9433,9550,9628,9628,9698,9650,9641,9584,9654,9764,9746,9601,9631,9750,9741,9683,9754,9785,9807,9789,9731,9731,9753,9873,10027,9959,10041,10197,10281,10271,10313,10327,10317,10402,10331,10397,10549,10467,10544,10419,10254,10152,10133,10014,10005,9896,9927,9959,10031,9972,9953,10108,10049,10112,10177,10167,10200,10274,10204,10195,10227,10269,10301,10189,10180,10254,10101,10032,10032,10014,10045,10128,10202,10234,10257,10322,10398,10431,10412,10340,10289,10237,10186,10135,10218,10190,10443,10434,10467,10510,10396,10292,10189,10189,10110,10050,10050,10023,10188,10220,10243,10285,10225,10225,10280,10407,10398,10516,10540,10478,10458,10578,10752,10733,10777,10659,10543,10673,10697,10688,10702,10638,10629,10576,10576,10566,10643,10537,10474,10517,10465,10455,10531,10618,10695,10783,10709,10797,10842,10832,10704,10704,10772,10665,10689,10679,10713,10757,10835,10717,10761,10805,10829,10668,10595,10489,10418,10365,10356,10431,10507,10498,10374,10440,10421,10359,10444,10392,10477,10311,10241,10274,10203,10175,10166,10198,10305,10338,10328,10371,10404,10417,10417,10304,10234,10113,10145,10168,10251,10242,10131,9970,9952,9974,10015,9947,9847,9969,10092,10134,9932,9905,9887,9959,10114,10178,10017,10008,9989,9971,10094,10044,10034,10158,10284,10307,10349,10288,10237,10279,10311,10180,10194,10259,10189,10253,10286,10123,10013,9814,9765,9796,9698,9689,9760,9782,9813,9804,9706,9938,9979,10011,10002,10116,10037,10143,10258,10188,10036,9977,10009,10091,10206,10127,10285,10327,10224,10173,10094,10126,10149,9898,9970,9942,9785,9718,9477,9413,9404,9395,9434,9464,9438,9429,9442,9480,9433,9510,9407,9484,9514,9614,9596,9570,9505,9644,9635,9560,9709,9740,9713,9793,9945,9986,10068,10040,9940,10022,9913,9966,10048,9980,10177,10302,10283,10410,10297,10372,10311,10428,10471,10348,10509,10291,10188,10230,10253,10337,10370,10455,10393,10313,10326,10163,10331,10364,10396,10515,10572,10563,10533,10663,10775,10765,10499,10489,10480,10566,10356,10234,10445,10608,10622,10699,10670,10694,10782,10870,10930,10999,11044,11044,11226,11241,11210,11144,11123,11103,11027,11108,11327,11239,11172,11300,11382,11305,11284,11413,11392,11371,11360,11191,11135,11160,11206,11185,10953,11033,11123,10947,10937,10982,10927,10818,10754,10778,10946,10936,10981,10995,11086,11202,11227,11060,10939,10820,10909,10944,10879,11048,11028,10898,10977,11148,11128,11265,11358,11326,11270,11249,11321,11403,11279,11269,11212,11294,11387,11273,11449,11324,11453,11642,11563,11437,11437,11626,11442,11410,11400,11343,11332,11255,11224,11305,11320,11403,11372,11248,11206,11242,11278,11406,11226,11195,11230,11164,11088,11057,11037,10927,11016,11107,11234,11259,11341,11377,11424,11507,11429,11407,11397,11376,11319,11298,11324,11370,11303,11385,11411,11400,11447,11520,11710,11652,11630,11572,11446,11508,11534,11341,11274,11207,11243,11268,11454,11490,11480,11527,11553,11427,11360,11406,11226,11226,10893,10873,10843,10715,10598,10676,10666,10710,10700,10670,10738,10816,10689,10865,10934,11049,11094,11018,11008,11088,11215,11307,11447,11447,11369,11556,11582,11514,11503,11778,11816,11676,11502,11633,11612,11496,11543,11591,11771,11632,11611,11579,11547,11631,11599,11683,11614,11420,11467,11285,11311,11233,11372,11294,11366,11345,11304,11293,11339,11195,11221,11144,11103,11037,10997,10725,10725,10715,10793,10827,10656,10540,10530,10650,10568,10742,10810,10944,10989,11048,11038,11220,11189,11169,11128,11347,11373,11456,11529,11518,11697,11654,11739,11884,11873,12058,12146,11965,11905,11970,11828,11818,11748,11796,11774,11752,11672,11383,11373,11608,11682,11555,11649,11628,11628,11607,11643,11402,11543,11485,11428,11558,11490,11411,11401,11323,11369,11405,11384,11457,11436,11415,11404,11430,11238,11274,11187,11222,11156,11045,11105,11175,11155,11089,11134,11170,11297,11287,11323,11416,11302,11348,11420,11410,11540,11529,11451,11430,11466,11409,11597,11718,11852,11950,11643,11585,11611,11495,11427,11417,11558,11536,11573,11505,11578,11662,11795,12077,12066,12154,12022,12110,12137,12114,11983,12010,12108],"end":12108,"maxdd":14.0,"under_days":284,"low":9264,"peak":12215},"1":{"curve":[9981,10146,10313,10088,10152,10384,10076,9956,10038,9721,9685,9648,9789,9734,9777,9938,9938,9838,9919,9981,9783,9844,9709,9691,9636,9427,9582,9280,9263,9170,9321,9380,9344,9368,9350,9239,9222,9038,9170,9136,9362,9421,9386,9368,9350,9205,9304,9457,9327,9309,9199,9147,9205,9263,9193,9142,9199,9410,9113,9022,9096,9321,9228,9269,9345,9386,9463,9257,9222,9130,9113,9005,8793,8937,8920,8904,8727,8623,8820,8842,8754,8826,8898,8937,8848,9067,9217,9217,9351,9257,9240,9130,9263,9475,9440,9159,9217,9445,9428,9316,9451,9511,9553,9517,9404,9404,9446,9680,9982,9845,10008,10320,10490,10471,10557,10583,10563,10737,10590,10724,11038,10866,11024,10764,10425,10217,10179,9939,9920,9705,9766,9827,9970,9852,9815,10122,10002,10128,10256,10237,10301,10451,10308,10289,10353,10438,10504,10276,10256,10406,10097,9958,9958,9921,9983,10147,10295,10360,10406,10537,10691,10758,10718,10571,10465,10360,10257,10154,10321,10263,10778,10758,10826,10915,10677,10465,10257,10257,10097,9977,9977,9921,10250,10315,10360,10445,10321,10321,10432,10691,10671,10915,10963,10833,10792,11039,11406,11363,11456,11207,10963,11235,11285,11263,11292,11158,11137,11025,11025,11005,11165,10943,10813,10902,10793,10772,10929,11109,11271,11456,11299,11485,11579,11557,11285,11285,11428,11200,11250,11228,11299,11392,11558,11306,11399,11492,11543,11200,11047,10827,10678,10571,10552,10705,10861,10840,10585,10719,10678,10552,10725,10618,10793,10453,10309,10374,10232,10174,10155,10219,10433,10499,10479,10565,10632,10658,10658,10427,10284,10041,10104,10149,10316,10297,10073,9755,9718,9761,9841,9706,9513,9749,9991,10073,9676,9621,9585,9725,10029,10156,9835,9817,9780,9743,9985,9885,9866,10111,10362,10408,10493,10368,10265,10349,10414,10149,10175,10304,10162,10291,10356,10029,9811,9424,9330,9389,9202,9185,9318,9360,9419,9401,9214,9658,9737,9799,9780,10004,9848,10054,10284,10143,9842,9725,9787,9948,10175,10017,10330,10415,10207,10105,9948,10011,10055,9562,9701,9646,9342,9214,8763,8642,8626,8610,8680,8735,8686,8670,8691,8763,8675,8818,8626,8768,8823,9008,8974,8924,8801,9059,9042,8901,9180,9238,9186,9337,9629,9708,9867,9812,9617,9775,9562,9665,9824,9689,10074,10324,10285,10540,10311,10461,10337,10574,10660,10409,10734,10292,10087,10170,10215,10383,10448,10620,10494,10331,10357,10030,10363,10429,10495,10735,10850,10829,10768,11035,11267,11245,10694,10674,10654,10830,10403,10157,10581,10912,10939,11098,11036,11084,11267,11452,11575,11722,11818,11818,12210,12241,12172,12028,11982,11937,11774,11945,12419,12226,12081,12357,12537,12365,12318,12600,12553,12506,12482,12111,11990,12043,12142,12096,11598,11767,11960,11583,11561,11656,11540,11310,11176,11225,11576,11554,11649,11678,11871,12119,12173,11811,11554,11303,11489,11562,11425,11782,11737,11461,11627,11991,11946,12242,12444,12373,12250,12204,12358,12538,12265,12242,12120,12296,12499,12250,12633,12358,12641,13061,12881,12601,12601,13020,12609,12538,12515,12389,12366,12196,12128,12304,12335,12515,12444,12174,12082,12158,12235,12515,12120,12052,12128,11984,11820,11753,11709,11476,11665,11857,12128,12181,12359,12437,12539,12721,12547,12499,12476,12429,12305,12258,12312,12413,12266,12445,12500,12476,12578,12737,13160,13029,12980,12850,12570,12705,12761,12336,12190,12045,12121,12174,12579,12658,12634,12738,12794,12516,12367,12469,12075,12075,11369,11326,11262,10997,10757,10914,10893,10983,10962,10900,11038,11199,10935,11298,11441,11680,11776,11614,11593,11761,12030,12228,12532,12532,12360,12770,12827,12674,12651,13261,13344,13030,12643,12932,12883,12627,12730,12835,13236,12924,12875,12803,12731,12916,12843,13030,12875,12446,12548,12152,12206,12038,12337,12168,12322,12275,12183,12160,12260,11948,12001,11836,11747,11608,11521,10956,10956,10936,11095,11165,10813,10578,10558,10799,10631,10984,11123,11399,11492,11616,11594,11979,11911,11866,11777,12245,12299,12478,12636,12612,13006,12909,13097,13421,13396,13815,14016,13600,13464,13608,13287,13262,13105,13212,13163,13113,12933,12299,12276,12788,12950,12668,12877,12828,12828,12780,12861,12331,12636,12510,12385,12668,12518,12346,12323,12154,12254,12331,12284,12440,12393,12346,12323,12377,11965,12040,11852,11927,11786,11551,11675,11823,11778,11639,11734,11808,12078,12055,12131,12331,12086,12185,12339,12316,12597,12574,12401,12355,12432,12308,12717,12983,13280,13499,12813,12685,12741,12487,12339,12316,12621,12574,12653,12503,12661,12845,13139,13773,13747,13947,13644,13843,13904,13851,13550,13610,13834],"end":13834,"maxdd":26.8,"under_days":287,"low":8537,"peak":14088},"2":{"curve":[9961,10290,10630,10169,10296,10768,10135,9893,10055,9427,9353,9279,9549,9437,9516,9831,9831,9634,9792,9914,9521,9639,9372,9336,9226,8826,9118,8548,8514,8344,8620,8727,8658,8697,8663,8456,8423,8090,8324,8259,8672,8780,8711,8677,8643,8370,8546,8828,8584,8550,8346,8248,8351,8454,8322,8224,8326,8708,8164,8001,8132,8539,8368,8439,8577,8649,8791,8410,8344,8177,8145,7951,7576,7826,7796,7765,7458,7280,7614,7648,7495,7618,7743,7808,7652,8035,8300,8300,8541,8370,8337,8138,8375,8759,8690,8179,8281,8695,8661,8454,8699,8807,8881,8812,8602,8602,8674,9108,9682,9414,9725,10339,10680,10638,10813,10861,10819,11176,10867,11138,11794,11422,11754,11200,10500,10084,10005,9533,9496,9084,9197,9311,9581,9353,9279,9864,9629,9869,10116,10076,10201,10497,10206,10166,10292,10461,10591,10132,10092,10385,9774,9503,9503,9429,9546,9861,10148,10273,10360,10619,10927,11062,10976,10672,10458,10249,10044,9843,10169,10050,11080,11036,11173,11356,10864,10434,10021,10021,9705,9473,9473,9362,9992,10116,10201,10368,10121,10121,10333,10850,10807,11303,11398,11126,11039,11546,12322,12225,12426,11887,11371,11940,12041,11993,12047,11760,11713,11479,11479,11434,11766,11300,11030,11211,10987,10944,11261,11634,11971,12367,12025,12422,12626,12577,11984,11984,12283,11797,11896,11849,11996,12193,12547,12003,12200,12400,12504,11769,11443,10990,10686,10472,10431,10733,11045,11001,10483,10745,10660,10406,10750,10535,10884,10203,9921,10044,9766,9651,9613,9733,10139,10265,10225,10393,10521,10568,10568,10110,9830,9367,9483,9563,9879,9841,9414,8825,8756,8830,8975,8726,8381,8800,9240,9391,8662,8561,8494,8740,9291,9523,8928,8893,8823,8754,9192,9008,8972,9421,9892,9976,10139,9897,9699,9859,9981,9473,9515,9753,9483,9720,9840,9225,8825,8140,7977,8076,7756,7726,7950,8017,8117,8085,7765,8527,8667,8774,8740,9141,8853,9223,9646,9379,8827,8617,8724,9012,9426,9129,9704,9864,9473,9284,8991,9103,9179,8297,8538,8438,7911,7692,6953,6760,6734,6707,6817,6902,6821,6794,6824,6936,6797,7022,6718,6940,7026,7319,7262,7177,6978,7389,7360,7128,7577,7671,7581,7832,8326,8462,8742,8639,8297,8572,8200,8372,8649,8409,9086,9540,9465,9939,9508,9784,9550,9988,10152,9674,10284,9448,9074,9223,9300,9608,9727,10049,9809,9500,9543,8946,9548,9666,9786,10235,10449,10408,10286,10801,11252,11208,10131,10091,10051,10384,9578,9126,9900,10524,10571,10877,10750,10840,11199,11569,11811,12106,12305,12305,13132,13191,13036,12725,12625,12526,12180,12533,13542,13115,12802,13390,13778,13397,13292,13901,13792,13684,13631,12829,12572,12678,12886,12785,11746,12087,12487,11706,11660,11852,11615,11155,10889,10980,11673,11627,11818,11870,12263,12775,12883,12125,11599,11096,11463,11605,11329,12043,11948,11385,11716,12454,12356,12974,13403,13246,12981,12879,13201,13584,12995,12944,12685,13053,13485,12951,13767,13170,13774,14700,14293,13673,13673,14593,13681,13520,13467,13198,13146,12782,12632,12998,13056,13435,13277,12701,12503,12658,12815,13403,12566,12418,12572,12272,11933,11793,11700,11237,11608,11992,12542,12648,13015,13177,13393,13781,13400,13295,13242,13139,12876,12775,12883,13094,12782,13152,13263,13211,13428,13763,14688,14395,14282,13996,13389,13670,13785,12872,12565,12266,12418,12523,13365,13530,13477,13698,13814,13215,12899,13111,12291,12291,10888,10803,10676,10173,9732,10014,9975,10138,10099,9980,10229,10526,10030,10704,10971,11430,11617,11296,11251,11578,12109,12509,13135,13135,12771,13630,13745,13417,13364,14677,14859,14159,13326,13937,13828,13280,13498,13720,14585,13897,13788,13626,13466,13857,13694,14092,13756,12845,13056,12240,12343,12001,12601,12253,12559,12460,12265,12217,12418,11786,11885,11556,11376,11104,10931,9881,9881,9842,10127,10253,9612,9195,9159,9580,9278,9902,10149,10656,10831,11058,11014,11755,11617,11526,11346,12259,12362,12721,13039,12987,13806,13590,13985,14684,14626,15548,16000,15059,14757,15066,14356,14300,13959,14188,14077,13966,13580,12275,12227,13263,13594,13004,13434,13329,13329,13224,13389,12301,12916,12658,12404,12974,12664,12314,12265,11926,12121,12272,12175,12479,12382,12285,12236,12339,11523,11666,11298,11438,11166,10723,10948,11221,11133,10868,11046,11183,11696,11650,11795,12185,11702,11894,12191,12143,12701,12651,12301,12204,12356,12108,12922,13462,14080,14546,13097,12835,12943,12430,12134,12086,12691,12591,12747,12443,12754,13124,13726,15074,15015,15450,14780,15209,15337,15217,14557,14680,15165],"end":15165,"maxdd":48.4,"under_days":310,"low":6625,"peak":16063},"3":{"curve":[9939,10434,10953,10243,10430,11150,10176,9811,10052,9118,9006,8896,9282,9112,9222,9681,9681,9391,9622,9798,9219,9388,8995,8939,8776,8206,8615,7815,7767,7534,7909,8054,7955,8002,7952,7667,7619,7169,7480,7388,7947,8093,7994,7945,7896,7519,7749,8135,7794,7746,7468,7331,7465,7602,7417,7281,7415,7927,7190,6974,7146,7686,7456,7546,7731,7824,8017,7497,7405,7183,7139,6882,6396,6715,6674,6633,6241,6016,6432,6469,6275,6429,6588,6667,6467,6956,7303,7303,7619,7391,7345,7081,7388,7898,7802,7120,7251,7799,7751,7473,7797,7939,8035,7937,7651,7651,7744,8329,9123,8741,9177,10051,10552,10487,10745,10808,10742,11277,10805,11204,12197,11614,12118,11262,10216,9612,9494,8824,8770,8201,8351,8504,8872,8553,8449,9254,8921,9251,9593,9534,9709,10130,9706,9646,9823,10064,10249,9584,9525,9938,9070,8690,8690,8584,8741,9176,9574,9750,9867,10232,10676,10871,10738,10288,9980,9680,9390,9108,9562,9387,10860,10794,10991,11262,10531,9909,9323,9323,8878,8559,8559,8402,9260,9430,9543,9778,9426,9426,9715,10450,10385,11102,11236,10832,10700,11438,12606,12452,12758,11930,11156,12000,12145,12070,12141,11704,11633,11284,11284,11214,11701,11009,10613,10874,10548,10483,10938,11483,11981,12577,12051,12651,12962,12882,11973,11973,12415,11682,11822,11750,11965,12259,12791,11961,12255,12557,12708,11599,11113,10456,10018,9718,9658,10077,10514,10449,9711,10070,9947,9589,10067,9765,10251,9299,8909,9073,8693,8534,8481,8636,9176,9344,9287,9515,9689,9746,9746,9114,8732,8115,8264,8364,8780,8726,8160,7402,7311,7400,7582,7264,6835,7352,7908,8102,7173,7042,6955,7257,7949,8243,7477,7431,7340,7250,7798,7564,7518,8087,8698,8803,9020,8695,8434,8642,8800,8129,8176,8478,8123,8423,8578,7781,7276,6441,6248,6362,5986,5950,6208,6282,6398,6358,5982,6879,7048,7177,7133,7626,7262,7715,8248,7902,7212,6953,7080,7433,7946,7567,8288,8492,7990,7750,7380,7515,7606,6531,6815,6690,6068,5814,4993,4784,4754,4725,4841,4930,4840,4810,4838,4957,4809,5048,4721,4956,5046,5362,5296,5199,4981,5423,5390,5132,5621,5724,5620,5899,6462,6621,6951,6823,6420,6740,6303,6495,6819,6533,7332,7887,7790,8379,7836,8176,7882,8426,8633,8023,8788,7732,7275,7454,7544,7920,8065,8467,8162,7773,7818,7092,7815,7959,8104,8664,8929,8874,8712,9370,9956,9895,8497,8445,8393,8811,7800,7249,8186,8966,9019,9410,9238,9349,9815,10304,10619,11011,11282,11282,12434,12507,12278,11836,11691,11548,11065,11545,12956,12338,11894,12715,13266,12711,12555,13422,13258,13095,13015,11878,11522,11661,11948,11802,10384,10834,11374,10317,10253,10506,10191,9588,9244,9355,10247,10184,10434,10495,11018,11706,11848,10813,10111,9456,9926,10108,9745,10674,10543,9799,10223,11198,11061,11898,12490,12261,11894,11748,12182,12711,11886,11813,11459,11955,12551,11809,12935,12096,12931,14251,13654,12768,12768,14072,12764,12530,12454,12080,12006,11503,11293,11782,11851,12365,12139,11351,11075,11278,11484,12277,11136,10932,11133,10732,10283,10095,9971,9382,9849,10340,11054,11187,11672,11886,12178,12706,12174,12025,11951,11805,11451,11311,11447,11729,11307,11797,11940,11866,12158,12608,13895,13478,13313,12913,12076,12445,12595,11355,10946,10553,10746,10876,11986,12205,12131,12429,12579,11763,11340,11619,10539,10539,8779,8671,8513,7912,7398,7719,7672,7860,7812,7669,7953,8297,7712,8499,8813,9363,9594,9192,9136,9532,10190,10697,11506,11506,11024,12150,12297,11854,11782,13547,13796,12821,11702,12509,12356,11626,11912,12205,13369,12425,12273,12048,11827,12340,12114,12640,12185,10985,11255,10209,10333,9900,10649,10203,10580,10450,10196,10134,10383,9590,9706,9300,9073,8747,8534,7329,7329,7284,7600,7739,7020,6564,6524,6974,6641,7319,7590,8164,8365,8620,8568,9442,9269,9156,8933,10026,10146,10586,10978,10910,11950,11660,12165,13085,13005,14245,14862,13564,13158,13560,12602,12525,12075,12372,12220,12071,11565,9932,9871,11146,11558,10808,11346,11208,11208,11070,11273,9919,10669,10349,10038,10731,10345,9912,9851,9439,9671,9848,9728,10087,9964,9842,9781,9899,8924,9088,8654,8812,8495,7993,8238,8542,8438,8134,8335,8487,9073,9017,9182,9640,9070,9293,9637,9577,10239,10176,9750,9630,9807,9512,10484,11138,11907,12500,10669,10349,10473,9854,9500,9442,10156,10032,10215,9848,10212,10655,11390,13097,13017,13581,12700,13251,13411,13247,12387,12537,13161],"end":13161,"maxdd":65.1,"under_days":322,"low":4639,"peak":14954},"5":{"curve":[9889,10717,11614,10366,10671,11906,10208,9590,9983,8465,8279,8097,8677,8393,8545,9260,9260,8797,9158,9428,8509,8760,8139,8049,7785,6948,7530,6384,6314,5998,6500,6692,6545,6590,6517,6123,6055,5465,5856,5728,6462,6652,6506,6434,6363,5847,6128,6641,6170,6102,5733,5545,5709,5877,5621,5437,5598,6245,5295,5030,5237,5907,5612,5714,5948,6056,6304,5627,5503,5228,5170,4857,4287,4646,4595,4544,4101,3853,4298,4328,4111,4280,4456,4536,4309,4862,5268,5268,5646,5364,5305,4984,5341,5959,5828,4997,5144,5803,5739,5392,5778,5949,6056,5923,5565,5565,5666,6392,7423,6897,7474,8681,9407,9303,9684,9751,9643,10450,9709,10291,11819,10860,11639,10273,8711,7862,7689,6787,6712,5990,6167,6349,6804,6393,6252,7261,6822,7230,7663,7578,7802,8361,7769,7683,7909,8234,8477,7566,7482,8018,6875,6388,6388,6247,6431,6970,7469,7690,7829,8298,8893,9155,8954,8319,7903,7508,7133,6776,7343,7102,9039,8939,9202,9580,8550,7717,6964,6964,6399,6012,6012,5815,6829,7030,7158,7451,7000,7000,7337,8277,8186,9133,9298,8736,8544,9532,11194,10948,11396,10172,9078,10241,10427,10312,10383,9755,9647,9164,9164,9063,9713,8766,8236,8573,8145,8055,8632,9355,10025,10864,10094,10939,11388,11262,9940,9940,10535,9508,9680,9573,9856,10260,10996,9814,10216,10635,10828,9284,8626,7785,7233,6871,6795,7282,7805,7718,6813,7221,7062,6635,7190,6830,7402,6276,5831,6003,5578,5395,5335,5493,6060,6239,6170,6423,6612,6658,6658,5942,5521,4873,5017,5108,5535,5474,4886,4143,4052,4125,4294,3990,3601,4062,4583,4771,3886,3758,3676,3939,4575,4849,4111,4066,3977,3889,4387,4168,4122,4650,5246,5341,5560,5223,4962,5166,5318,4642,4674,4954,4603,4878,5022,4258,3801,3096,2941,3028,2732,2702,2896,2949,3035,3002,2709,3410,3550,3654,3614,4032,3705,4087,4560,4237,3633,3413,3514,3808,4248,3903,4533,4719,4259,4046,3718,3827,3897,3015,3231,3125,2650,2462,1905,1770,1751,1731,1802,1855,1795,1775,1787,1860,1767,1915,1709,1852,1907,2104,2058,1990,1849,2124,2100,1930,2241,2308,2232,2419,2809,2924,3169,3065,2766,2998,2675,2804,3039,2824,3414,3851,3766,4249,3792,4064,3818,4260,4435,3914,4546,3662,3305,3440,3503,3796,3908,4235,3978,3656,3681,3121,3665,3773,3885,4334,4542,4492,4345,4902,5408,5348,4138,4093,4047,4386,3573,3153,3855,4477,4508,4831,4673,4757,5156,5587,5856,6207,6461,6461,7588,7640,7389,6942,6790,6640,6170,6612,7994,7345,6901,7699,8251,7666,7498,8365,8181,8001,7913,6784,6445,6562,6831,6681,5381,5767,6250,5299,5241,5456,5183,4678,4395,4474,5196,5139,5350,5386,5837,6440,6557,5622,5017,4478,4853,4996,4694,5451,5332,4706,5043,5857,5729,6463,7003,6774,6435,6294,6670,7149,6380,6310,5994,6424,6962,6283,7297,6513,7266,8533,7928,7076,7076,8310,7046,6815,6740,6403,6332,5883,5690,6098,6140,6581,6365,5681,5434,5594,5759,6425,5448,5269,5425,5096,4735,4580,4479,4043,4381,4747,5297,5392,5779,5950,6194,6638,6167,6032,5965,5834,5542,5420,5519,5745,5397,5784,5889,5824,6063,6426,7546,7169,7011,6661,5945,6231,6344,5320,4998,4696,4834,4922,5780,5950,5885,6126,6237,5567,5230,5444,4616,4616,3393,3319,3210,2833,2529,2710,2680,2790,2759,2669,2829,3031,2676,3142,3330,3674,3825,3554,3515,3767,4202,4554,5137,5137,4773,5606,5707,5362,5303,6674,6871,6064,5199,5801,5673,5120,5330,5549,6444,5688,5563,5381,5204,5577,5394,5781,5432,4555,4741,4020,4093,3803,4290,3986,4225,4132,3952,3908,4069,3552,3616,3360,3214,3019,2888,2235,2235,2210,2368,2438,2067,1845,1825,2036,1871,2197,2328,2627,2734,2866,2834,3329,3219,3149,3012,3641,3707,3973,4211,4164,4836,4626,4958,5593,5531,6424,6885,5903,5608,5878,5188,5131,4820,5018,4908,4800,4460,3451,3413,4172,4422,3946,4277,4183,4183,4091,4211,3392,3827,3636,3454,3853,3620,3364,3326,3091,3217,3312,3239,3433,3358,3284,3248,3307,2773,2855,2623,2700,2537,2290,2400,2543,2488,2337,2433,2505,2794,2763,2845,3083,2782,2896,3070,3036,3387,3350,3112,3044,3134,2977,3496,3857,4303,4663,3569,3390,3452,3115,2927,2894,3265,3193,3287,3089,3273,3508,3914,4926,4871,5221,4660,4994,5084,4973,4438,4519,4897],"end":4897,"maxdd":87.2,"under_days":929,"low":1675,"peak":13096}},"all":{"0.5":{"curve":[9991,10073,10156,9945,9976,10128,9977,9918,9959,9801,9783,9802,9824,9748,9672,9752,9739,9727,9669,9736,9639,9670,9604,9595,9604,9488,9602,9450,9441,9394,9471,9501,9483,9496,9487,9431,9423,9364,9432,9367,9483,9513,9496,9439,9431,9358,9303,9321,9257,9248,9194,9168,9152,9215,9169,9144,9208,9348,9200,9188,9226,9293,9246,9267,9305,9280,9318,9251,9268,9222,9214,9159,9051,9125,9117,9063,9006,8953,9055,9044,8999,8991,9028,9048,9003,9114,9189,9143,9210,9163,9155,9101,9167,9272,9290,9151,9180,9293,9238,9172,9193,9222,9277,9260,9205,9240,9261,9375,9521,9492,9570,9718,9798,9826,9866,9879,9870,9951,9883,9946,10130,10051,10074,9905,9603,9614,9669,9507,9439,9371,9401,9431,9499,9396,9379,9525,9468,9600,9661,9640,9671,9741,9784,9812,9843,9785,9816,9709,9700,9771,9625,9559,9595,9577,9608,9686,9757,9739,9761,9823,9895,9926,9908,9840,9828,9815,9766,9717,9871,9831,10113,10104,10136,10203,10041,9941,9842,9879,9839,9781,9818,9790,9977,10008,10069,10059,10000,10037,10092,10216,10207,10324,10295,10221,10241,10358,10529,10509,10552,10437,10324,10490,10553,10491,10505,10521,10551,10538,10577,10567,10538,10472,10410,10440,10427,10313,10388,10552,10629,10663,10590,10798,10842,10832,10704,10597,10665,10558,10569,10559,10632,10662,10740,10663,10787,10831,10856,10734,10647,10541,10469,10416,10407,10483,10599,10589,10464,10570,10551,10488,10561,10508,10595,10427,10394,10427,10304,10276,10267,10377,10485,10519,10509,10592,10625,10639,10719,10536,10464,10419,10452,10423,10508,10538,10423,10258,10239,10340,10382,10350,10247,10373,10501,10584,10399,10371,10352,10427,10629,10697,10527,10518,10498,10427,10555,10503,10532,10662,10794,10818,10863,10744,10691,10775,10809,10672,10686,10754,10680,10748,10782,10545,10431,10223,10211,10243,10179,10068,10141,10113,10032,10022,9922,10160,10201,10234,10224,10419,10286,10381,10526,10454,10246,10185,10256,10340,10458,10416,10512,10503,10398,10346,10266,10298,10360,10104,10177,10149,9989,9995,9748,9681,9672,9663,9739,9807,9731,9722,9735,9775,9677,9793,9674,9754,9736,9838,9820,9744,9677,9856,9847,9770,9960,9941,9951,10033,10087,10129,10212,10184,10082,10165,10092,10147,10230,10160,10400,10528,10509,10639,10523,10600,10537,10657,10701,10561,10726,10503,10398,10441,10464,10550,10584,10671,10608,10526,10526,10398,10570,10604,10637,10759,10817,10807,10777,10937,11038,10973,10701,10691,10682,10769,10556,10431,10647,10812,10827,10906,10876,10846,10935,11025,11070,11141,11186,11172,11342,11357,11269,11203,11182,11161,11085,11166,11372,11270,11203,11331,11413,11378,11357,11487,11466,11444,11477,11419,11362,11373,11419,11398,11204,11285,11421,11184,11117,11163,11052,10941,10877,10847,11098,11130,11064,11079,11170,11287,11355,11185,11063,10943,11033,11109,11085,11258,11237,11104,11129,11303,11324,11464,11601,11613,11598,11577,11694,11779,11651,11640,11582,11667,11807,11630,11811,11683,11816,12056,11974,11725,11769,11904,11657,11625,11614,11556,11545,11509,11478,11561,11577,11661,11556,11430,11388,11467,11504,11635,11451,11405,11441,11373,11295,11307,11286,11173,11265,11343,11473,11498,11626,11663,11710,11796,11715,11694,11727,11749,11632,11610,11578,11626,11557,11641,11668,11657,11793,11868,12109,12048,11966,11906,11776,11840,11867,11668,11599,11531,11567,11593,11785,11807,11796,11845,11871,11683,11614,11662,11477,11520,11123,11103,11072,10887,10661,10738,10729,10773,10763,10773,10842,10921,10873,11135,11206,11324,11370,11293,11282,11364,11537,11632,11820,11820,11739,11918,11945,11874,11863,12147,12185,12087,11906,12087,12065,11945,11994,12043,12154,12055,12033,12090,12057,12145,12111,12199,12127,11969,12018,11828,11899,11818,11964,11882,12002,11980,11981,11970,12019,11866,11922,11841,11842,11713,11757,11409,11409,11399,11525,11504,11364,11240,11230,11358,11270,11456,11572,11715,11763,11827,11816,11951,11903,11970,11926,12207,12235,12324,12340,12206,12396,12289,12378,12578,12566,12698,12791,12647,12521,12573,12425,12413,12340,12375,12398,12422,12275,11972,11961,12086,12208,12076,12175,12137,12182,12160,12199,11945,12093,12033,11957,12139,12113,12030,12019,11937,11986,12024,12047,12123,12101,12079,12097,12109,11891,11929,11778,11815,11745,11628,11691,11854,11832,11703,11751,11833,12058,12047,12085,12230,12108,12249,12327,12408,12597,12585,12499,12476,12610,12547,12754,12823,12970,13125,12725,12661,12563,12438,12302,12291,12489,12466,12506,12432,12511,12477,12666,13067,13104,13199,13104,13200,13164,13139,12996,13123,13214],"end":13214,"maxdd":12.7,"under_days":170,"low":8908,"peak":13296},"1":{"curve":[9981,10146,10313,9888,9950,10254,9949,9831,9912,9599,9563,9599,9641,9491,9343,9497,9472,9448,9336,9465,9277,9335,9207,9190,9207,8983,9200,8910,8893,8804,8949,9005,8971,8994,8977,8871,8854,8743,8870,8748,8965,9022,8988,8881,8865,8727,8622,8654,8536,8520,8419,8371,8340,8455,8370,8323,8438,8696,8422,8400,8469,8592,8506,8544,8614,8565,8636,8511,8543,8457,8441,8341,8144,8279,8263,8165,8063,7967,8149,8128,8046,8031,8097,8133,8051,8251,8387,8303,8424,8340,8324,8225,8345,8536,8568,8313,8365,8573,8471,8349,8386,8439,8540,8508,8407,8470,8507,8718,8991,8934,9081,9365,9519,9572,9651,9675,9657,9816,9681,9804,10167,10008,10052,9717,9131,9152,9255,8947,8818,8691,8745,8801,8929,8735,8702,8974,8867,9115,9230,9189,9247,9381,9462,9515,9575,9462,9521,9314,9297,9432,9152,9026,9094,9060,9117,9267,9402,9367,9408,9527,9665,9726,9690,9557,9532,9508,9413,9318,9614,9536,10090,10071,10134,10267,9944,9746,9552,9624,9545,9431,9502,9449,9810,9872,9990,9971,9853,9927,10033,10282,10263,10498,10438,10288,10326,10562,10913,10872,10961,10723,10490,10831,10960,10830,10857,10890,10951,10923,11005,10984,10922,10785,10657,10717,10689,10457,10609,10946,11105,11175,11022,11457,11551,11530,11258,11034,11173,10951,10971,10950,11102,11164,11326,11163,11424,11518,11569,11309,11125,10904,10754,10647,10627,10781,11020,11000,10740,10958,10916,10787,10936,10827,11005,10658,10591,10658,10406,10348,10328,10550,10771,10839,10818,10989,11058,11086,11253,10870,10721,10625,10692,10632,10807,10868,10631,10296,10258,10458,10544,10477,10269,10523,10784,10954,10574,10515,10475,10627,11042,11182,10829,10809,10768,10620,10884,10775,10835,11104,11379,11429,11523,11273,11160,11336,11407,11117,11145,11286,11131,11272,11343,10848,10612,10194,10167,10231,10103,9883,10027,9971,9809,9790,9595,10058,10141,10205,10185,10575,10306,10495,10788,10640,10221,10099,10239,10408,10646,10559,10752,10732,10518,10413,10251,10315,10439,9927,10071,10015,9699,9710,9234,9107,9090,9073,9216,9344,9198,9181,9204,9279,9095,9314,9088,9238,9203,9396,9360,9214,9088,9425,9407,9260,9621,9585,9603,9761,9866,9947,10110,10053,9853,10016,9871,9977,10142,10002,10478,10738,10697,10962,10724,10880,10751,10997,11087,10798,11135,10676,10464,10550,10596,10771,10839,11017,10886,10717,10716,10456,10803,10872,10940,11190,11310,11289,11226,11560,11772,11633,11062,11042,11021,11202,10761,10507,10945,11287,11316,11480,11416,11351,11538,11728,11824,11973,12071,12040,12408,12439,12245,12100,12055,12009,11844,12017,12462,12236,12091,12368,12548,12468,12421,12706,12658,12610,12681,12551,12425,12448,12550,12503,12077,12253,12548,12031,11888,11986,11747,11514,11377,11313,11842,11909,11767,11797,11991,12242,12389,12021,11759,11504,11693,11855,11802,12171,12125,11839,11892,12263,12309,12614,12918,12942,12908,12860,13120,13311,13021,12997,12867,13054,13369,12972,13377,13086,13386,13934,13743,13176,13275,13579,13019,12946,12921,12792,12768,12687,12616,12799,12832,13018,12783,12505,12411,12583,12662,12952,12543,12441,12519,12370,12201,12223,12177,11935,12131,12299,12580,12636,12916,12997,13104,13295,13112,13063,13136,13185,12923,12874,12801,12906,12753,12939,12996,12971,13275,13443,13993,13853,13663,13526,13232,13374,13433,12985,12831,12679,12759,12815,13241,13290,13265,13374,13433,13009,12855,12960,12552,12646,11787,11742,11676,11287,10822,10979,10959,11048,11028,11048,11187,11350,11249,11798,11947,12197,12297,12129,12106,12282,12657,12866,13284,13284,13101,13501,13561,13400,13375,14020,14108,13879,13467,13878,13826,13551,13662,13774,14026,13798,13746,13875,13796,13997,13918,14121,13953,13589,13701,13269,13427,13243,13571,13385,13656,13605,13604,13578,13690,13342,13466,13281,13280,12992,13088,12322,12322,12299,12572,12525,12221,11955,11932,12205,12015,12414,12665,12980,13086,13227,13202,13504,13393,13543,13442,14080,14143,14348,14384,14072,14512,14259,14466,14936,14908,15220,15442,15096,14795,14916,14564,14536,14364,14444,14498,14552,14209,13512,13487,13769,14048,13743,13969,13881,13985,13932,14020,13442,13775,13638,13467,13878,13816,13627,13601,13414,13524,13609,13660,13833,13781,13729,13770,13795,13301,13385,13044,13127,12971,12713,12849,13208,13158,12872,12978,13157,13661,13635,13721,14052,13772,14094,14272,14460,14901,14873,14669,14614,14928,14778,15269,15433,15786,16166,15192,15040,14806,14511,14195,14169,14629,14574,14666,14492,14675,14592,15038,16001,16091,16325,16090,16324,16232,16171,15819,16128,16351],"end":16351,"maxdd":23.9,"under_days":262,"low":7887,"peak":16561},"2":{"curve":[9961,10290,10630,9767,9888,10497,9879,9644,9802,9189,9117,9181,9259,8967,8685,8972,8924,8877,8665,8904,8552,8658,8418,8385,8411,8004,8392,7868,7837,7680,7934,8032,7969,8005,7974,7783,7753,7558,7777,7562,7940,8038,7975,7785,7754,7510,7325,7376,7172,7144,6974,6892,6838,7026,6880,6799,6987,7417,6953,6917,7030,7234,7089,7149,7266,7181,7299,7087,7137,6994,6967,6800,6480,6694,6668,6509,6345,6194,6478,6438,6309,6284,6388,6441,6313,6628,6847,6710,6905,6767,6740,6580,6771,7081,7131,6712,6795,7135,6965,6763,6820,6904,7067,7011,6844,6947,7005,7356,7820,7717,7972,8475,8755,8852,8997,9037,9001,9299,9042,9267,9960,9646,9728,9084,8015,8049,8228,7683,7460,7244,7334,7425,7640,7309,7251,7708,7525,7945,8144,8069,8169,8406,8547,8641,8748,8539,8645,8270,8238,8477,7978,7757,7874,7812,7909,8171,8408,8342,8412,8622,8872,8982,8912,8665,8619,8574,8402,8234,8763,8615,9640,9602,9722,9976,9353,8982,8626,8756,8607,8402,8528,8428,9081,9194,9410,9373,9150,9287,9482,9956,9917,10372,10250,9952,10022,10482,11187,11099,11281,10792,10324,11003,11262,10994,11043,11105,11227,11168,11335,11291,11158,10877,10618,10735,10678,10215,10511,11187,11511,11654,11332,12241,12442,12393,11809,11341,11624,11164,11199,11155,11462,11589,11925,11579,12124,12323,12427,11872,11482,11027,10722,10508,10466,10770,11249,11204,10676,11107,11020,10757,11054,10833,11191,10492,10354,10483,9989,9871,9833,10255,10684,10816,10774,11115,11253,11303,11645,10859,10558,10365,10494,10370,10713,10831,10361,9714,9638,10013,10177,10044,9646,10128,10635,10971,10217,10097,10018,10309,11123,11400,10688,10646,10562,10270,10784,10568,10684,11219,11780,11879,12074,11550,11319,11677,11822,11221,11271,11552,11233,11513,11656,10652,10190,9399,9349,9465,9227,8827,9083,8976,8681,8647,8305,9120,9270,9385,9348,10072,9560,9907,10461,10171,9382,9158,9411,9722,10168,9995,10358,10317,9908,9710,9404,9521,9745,8809,9065,8958,8398,8413,7604,7394,7365,7336,7568,7777,7532,7502,7536,7659,7356,7713,7340,7582,7523,7837,7776,7531,7322,7870,7839,7592,8191,8127,8152,8422,8598,8739,9028,8922,8569,8852,8595,8775,9066,8815,9667,10150,10071,10574,10116,10409,10161,10627,10801,10238,10883,9999,9603,9760,9843,10168,10294,10635,10381,10054,10045,9559,10202,10328,10456,10936,11165,11121,10991,11651,12074,11786,10653,10612,10570,10919,10072,9597,10410,11067,11116,11439,11304,11172,11541,11923,12108,12410,12614,12547,13319,13379,12957,12648,12549,12451,12106,12457,13389,12898,12590,13168,13550,13373,13268,13877,13768,13660,13810,13520,13249,13290,13508,13402,12498,12861,13485,12390,12094,12292,11806,11338,11068,10938,11979,12111,11822,11875,12267,12780,13081,12312,11778,11267,11639,11961,11850,12598,12499,11910,12010,12767,12857,13500,14156,14199,14124,14013,14579,15002,14351,14295,14009,14415,15115,14226,15123,14467,15131,16391,15937,14642,14862,15544,14281,14113,14058,13776,13722,13542,13384,13772,13833,14235,13713,13118,12913,13270,13434,14051,13173,12949,13110,12797,12443,12481,12383,11893,12286,12625,13205,13316,13908,14080,14311,14726,14319,14206,14363,14464,13891,13782,13621,13844,13514,13906,14023,13968,14626,14991,16239,15915,15474,15164,14507,14811,14935,13947,13614,13290,13454,13568,14480,14582,14525,14763,14887,13957,13624,13847,12982,13177,11439,11349,11216,10474,9623,9902,9863,10025,9985,10016,10266,10564,10370,11402,11687,12175,12375,12032,11985,12333,13092,13525,14414,14414,14015,14878,15004,14646,14588,16021,16220,15687,14765,15674,15551,14935,15180,15429,15988,15463,15342,15620,15437,15885,15698,16154,15768,14946,15191,14241,14577,14173,14882,14470,15054,14936,14923,14864,15108,14340,14600,14195,14183,13568,13760,12189,12189,12141,12681,12581,11972,11453,11408,11931,11555,12332,12830,13471,13692,13979,13924,14563,14316,14633,14404,15797,15930,16392,16466,15751,16744,16153,16622,17715,17645,18382,18916,18070,17355,17624,16794,16728,16329,16509,16625,16742,15953,14420,14364,14964,15567,14892,15385,15183,15411,15290,15480,14222,14933,14635,14266,15144,15005,14589,14532,14130,14362,14540,14642,15008,14890,14773,14857,14903,13843,14014,13301,13466,13145,12625,12889,13610,13503,12918,13130,13492,14538,14480,14660,15372,14763,15459,15845,16260,17261,17193,16717,16586,17299,16954,18093,18472,19320,20258,17875,17518,16966,16294,15587,15526,16547,16417,16621,16224,16630,16434,17446,19739,19956,20535,19939,20517,20277,20118,19245,19994,20546],"end":20546,"maxdd":43.4,"under_days":289,"low":6070,"peak":21113},"3":{"curve":[9939,10434,10953,9637,9814,10727,9790,9438,9671,8772,8665,8751,8857,8434,8031,8431,8362,8294,7996,8325,7833,7977,7643,7596,7624,7072,7591,6885,6843,6638,6968,7096,7009,7050,7007,6755,6713,6459,6739,6457,6945,7072,6986,6735,6693,6374,6130,6191,5932,5895,5683,5579,5511,5738,5553,5451,5676,6204,5628,5582,5719,5967,5788,5858,6002,5892,6037,5772,5830,5655,5621,5418,5036,5287,5254,5065,4873,4698,5022,4969,4820,4791,4909,4968,4819,5183,5441,5278,5507,5342,5309,5118,5340,5709,5766,5262,5358,5764,5556,5313,5377,5475,5666,5597,5396,5517,5584,6006,6578,6445,6766,7411,7780,7906,8100,8148,8098,8501,8145,8446,9401,8952,9060,8168,6762,6802,7024,6332,6055,5789,5895,6003,6263,5857,5785,6337,6109,6623,6868,6770,6894,7193,7367,7487,7624,7350,7485,6999,6956,7258,6624,6346,6489,6410,6527,6852,7149,7062,7147,7411,7733,7874,7778,7452,7391,7331,7111,6898,7571,7371,8720,8667,8826,9171,8318,7827,7364,7530,7332,7068,7227,7095,7930,8075,8356,8305,8006,8186,8437,9075,9019,9642,9465,9050,9141,9772,10769,10638,10899,10192,9531,10482,10848,10458,10519,10602,10774,10686,10926,10859,10661,10256,9887,10048,9966,9319,9723,10672,11135,11339,10864,12192,12492,12416,11539,10857,11258,10593,10633,10568,11003,11182,11667,11155,11950,12244,12391,11564,10989,10340,9907,9609,9550,9965,10631,10565,9819,10411,10284,9914,10323,10013,10512,9535,9341,9512,8841,8679,8625,9183,9757,9935,9874,10345,10534,10596,11078,9967,9549,9279,9449,9276,9738,9896,9254,8394,8291,8773,8989,8806,8286,8912,9586,10043,9017,8852,8744,9123,10217,10595,9610,9551,9434,9039,9723,9431,9584,10309,11089,11223,11499,10753,10430,10927,11127,10278,10338,10720,10271,10651,10846,9465,8851,7836,7772,7914,7614,7120,7428,7293,6930,6888,6480,7452,7635,7775,7727,8636,7977,8406,9114,8732,7730,7453,7760,8146,8709,8479,8935,8880,8356,8105,7718,7859,8133,6984,7287,7154,6489,6500,5582,5348,5315,5283,5534,5762,5487,5454,5486,5620,5288,5677,5265,5527,5459,5801,5730,5456,5228,5819,5783,5507,6168,6092,6115,6420,6616,6779,7116,6986,6573,6901,6598,6800,7139,6840,7849,8442,8339,8970,8388,8752,8437,9019,9241,8518,9330,8210,7724,7914,8010,8409,8563,8989,8666,8252,8233,7636,8415,8569,8726,9328,9614,9555,9380,10232,10782,10395,8926,8871,8817,9256,8194,7616,8600,9419,9475,9885,9704,9527,10001,10499,10732,11129,11403,11309,12362,12434,11841,11415,11275,11137,10671,11134,12393,11704,11284,12063,12586,12330,12179,13020,12860,12703,12909,12492,12117,12163,12462,12310,11075,11555,12403,10913,10521,10780,10143,9543,9200,9032,10343,10511,10133,10192,10700,11368,11764,10737,10040,9389,9856,10263,10116,11081,10945,10172,10295,11276,11389,12250,13150,13199,13091,12931,13711,14305,13377,13295,12896,13456,14444,13182,14439,13502,14434,16266,15585,13712,14021,14989,13188,12947,12867,12481,12404,12152,11930,12447,12520,13063,12338,11537,11256,11721,11935,12759,11573,11269,11475,11062,10599,10639,10509,9888,10381,10808,11555,11694,12475,12704,13016,13581,13012,12853,13061,13192,12412,12260,12036,12332,11889,12404,12554,12477,13365,13859,15618,15149,14515,14080,13166,13569,13733,12380,11935,11506,11716,11858,13068,13199,13118,13441,13603,12339,11895,12188,11055,11304,9133,9021,8856,7984,7025,7329,7284,7464,7418,7446,7721,8056,7828,9019,9353,9937,10181,9755,9695,10116,11057,11608,12767,12767,12232,13371,13532,13046,12965,14909,15182,14427,13167,14393,14217,13377,13706,14043,14798,14062,13890,14257,13996,14603,14335,14957,14419,13291,13618,12353,12783,12248,13174,12623,13384,13220,13188,13107,13430,12405,12732,12199,12170,11381,11609,9670,9670,9611,10253,10127,9393,8784,8730,9332,8887,9794,10384,11170,11445,11795,11722,12531,12202,12601,12294,14108,14278,14897,14984,14012,15348,14525,15155,16668,16566,17600,18364,17137,16124,16482,15318,15224,14676,14915,15064,15214,14140,12142,12068,12821,13594,12713,13346,13075,13369,13205,13447,11831,12726,12344,11876,12982,12797,12261,12185,11675,11962,12181,12303,12758,12602,12447,12546,12594,11260,11466,10591,10785,10398,9783,10082,10931,10797,10096,10345,10771,12039,11965,12184,13079,12306,13182,13669,14204,15526,15430,14784,14603,15548,15081,16621,17129,18312,19656,16273,15784,15031,14142,13225,13144,14456,14279,14540,14018,14536,14270,15598,18752,19056,19882,19011,19835,19472,19234,17986,19031,19816],"end":19816,"maxdd":59.6,"under_days":308,"low":4557,"peak":20695},"5":{"curve":[9889,10717,11614,9355,9631,11148,9558,8980,9348,7926,7752,7866,8008,7358,6761,7327,7222,7118,6687,7143,6446,6636,6166,6098,6119,5383,6052,5132,5075,4821,5225,5379,5261,5297,5238,4921,4867,4557,4884,4538,5119,5270,5154,4842,4789,4400,4103,4163,3868,3825,3594,3476,3400,3631,3423,3311,3537,4093,3471,3421,3561,3817,3626,3691,3843,3717,3869,3583,3636,3454,3416,3209,2832,3069,3036,2852,2670,2509,2799,2738,2601,2572,2678,2726,2590,2922,3166,3008,3223,3062,3028,2845,3049,3402,3452,2960,3047,3437,3229,2990,3044,3134,3311,3238,3042,3156,3213,3625,4210,4058,4398,5108,5535,5679,5912,5953,5887,6380,5927,6282,7486,6879,7003,5872,4269,4303,4530,3798,3517,3257,3353,3452,3699,3302,3229,3750,3524,4020,4260,4153,4275,4582,4754,4878,5022,4718,4857,4335,4287,4595,3939,3660,3797,3714,3824,4143,4441,4343,4422,4686,5022,5171,5057,4699,4631,4564,4336,4119,4805,4581,6048,5982,6158,6555,5558,5016,4527,4697,4478,4207,4365,4221,5069,5219,5513,5452,5122,5314,5570,6284,6214,6933,6706,6209,6301,7029,8255,8073,8404,7501,6695,7836,8277,7776,7830,7918,8124,8008,8308,8216,7947,7441,6991,7173,7070,6310,6762,7888,8454,8703,8086,9786,10187,10075,8893,8026,8506,7677,7703,7618,8137,8349,8948,8286,9284,9665,9840,8753,8016,7234,6721,6385,6315,6768,7525,7442,6569,7223,7064,6637,7089,6734,7298,6188,5965,6141,5420,5243,5185,5745,6339,6526,6454,6970,7176,7225,7777,6500,6039,5738,5907,5713,6191,6352,5670,4807,4702,5153,5364,5171,4667,5264,5939,6414,5342,5167,5054,5416,6526,6917,5865,5800,5672,5270,5945,5648,5795,6538,7375,7509,7817,6977,6628,7158,7369,6433,6477,6865,6378,6760,6959,5525,4931,4017,3959,4076,3816,3406,3650,3531,3233,3198,2886,3632,3781,3892,3849,4623,4035,4388,5006,4651,3789,3559,3802,4120,4596,4382,4765,4712,4253,4040,3712,3822,4037,3124,3348,3238,2746,2746,2125,1974,1952,1931,2085,2227,2047,2024,2038,2121,1915,2153,1894,2052,2007,2214,2166,1990,1849,2203,2179,2002,2412,2359,2367,2566,2689,2799,3034,2934,2648,2870,2657,2785,3018,2804,3518,3968,3881,4378,3908,4188,3935,4390,4570,3976,4617,3719,3357,3494,3557,3855,3969,4301,4041,3713,3685,3241,3807,3919,4034,4501,4718,4666,4513,5206,5661,5319,4115,4070,4025,4362,3553,3136,3834,4452,4483,4804,4647,4494,4871,5278,5453,5779,6016,5930,6864,6911,6350,5966,5835,5706,5302,5682,6771,6132,5761,6427,6888,6640,6494,7245,7086,6930,7111,6710,6375,6397,6659,6513,5443,5833,6559,5283,4963,5167,4663,4208,3954,3824,4781,4905,4608,4640,5028,5548,5860,5024,4484,4002,4337,4633,4516,5245,5129,4527,4609,5353,5432,6128,6890,6914,6814,6665,7329,7854,7010,6932,6586,7058,7936,6804,7902,7053,7868,9587,8907,7175,7444,8305,6689,6470,6399,6079,6012,5795,5605,6007,6048,6482,5870,5239,5012,5353,5511,6148,5213,4970,5116,4807,4466,4481,4383,3956,4287,4579,5108,5201,5783,5953,6197,6642,6171,6035,6192,6283,5671,5546,5364,5584,5246,5623,5724,5661,6344,6723,8192,7782,7231,6869,6131,6426,6543,5486,5154,4842,4985,5076,5961,6048,5981,6227,6339,5375,5050,5257,4457,4625,3230,3159,3055,2562,2063,2211,2187,2277,2252,2259,2395,2566,2438,3082,3267,3604,3752,3486,3448,3695,4277,4635,5424,5424,5040,5834,5939,5580,5518,6945,7150,6548,5614,6498,6355,5736,5971,6215,6759,6190,6054,6303,6096,6533,6319,6772,6362,5535,5762,4886,5161,4795,5409,5026,5526,5405,5364,5305,5522,4820,5018,4663,4627,4130,4252,3126,3126,3091,3437,3362,2957,2639,2610,2912,2676,3142,3455,3898,4058,4253,4206,4693,4474,4710,4505,5651,5753,6166,6208,5541,6435,5847,6267,7335,7254,8003,8577,7629,6886,7113,6279,6209,5834,5986,6074,6163,5440,4209,4163,4593,5050,4507,4885,4709,4885,4778,4919,3962,4470,4246,3976,4602,4486,4168,4122,3830,3987,4104,4164,4414,4317,4222,4270,4284,3541,3645,3182,3276,3078,2778,2911,3322,3249,2899,3018,3224,3871,3829,3942,4432,4000,4482,4750,5056,5853,5788,5378,5260,5828,5537,6502,6816,7604,8549,6215,5904,5425,4896,4370,4322,5058,4947,5093,4785,5071,4905,5677,7691,7892,8458,7832,8393,8118,7940,7086,7766,8295],"end":8295,"maxdd":84.1,"under_days":1098,"low":1849,"peak":11614}}},"quarters":{"v1":{"2023Q4":[34,44.1],"2024Q1":[23,56.5],"2024Q2":[46,63.0],"2024Q3":[42,64.3],"2024Q4":[29,72.4],"2025Q1":[40,50.0],"2025Q2":[21,52.4],"2025Q3":[38,63.2],"2025Q4":[27,55.6],"2026Q1":[26,65.4],"2026Q2":[39,56.4],"2026Q3":[40,65.0],"2026Q4":[9,77.8]},"m1":{"2023Q4":[200,53.5],"2024Q1":[198,59.6],"2024Q2":[222,53.6],"2024Q3":[190,55.8],"2024Q4":[233,54.5],"2025Q1":[234,52.1],"2025Q2":[266,60.5],"2025Q3":[249,56.2],"2025Q4":[248,55.2],"2026Q1":[242,55.4],"2026Q2":[283,55.8],"2026Q3":[230,55.7],"2026Q4":[42,61.9]}}};
+const STAKES = ['0.5', '1', '2', '3', '5'];
+const NAME = { v1: 'Розворот 15 хв', m1: 'Розворот 5 хв', all: 'Обидві разом' };
+const NS = 'http://www.w3.org/2000/svg';
+const nf0 = new Intl.NumberFormat('uk-UA', { maximumFractionDigits: 0 });
+const nf1 = new Intl.NumberFormat('uk-UA', { maximumFractionDigits: 1 });
+const money = v => nf0.format(v) + ' $';
+const sl = s => s.replace('.', ',') + '%';
+const T = D.days.map(d => Date.parse(d + 'T12:00:00Z'));
+const ddmm = i => { const [y, m, d] = D.days[i].split('-'); return `${d}.${m}.${y}`; };
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+let stake = '1';
+try { const s = localStorage.getItem('vip3-stake'); if (STAKES.includes(s)) stake = s; } catch (e) {}
+
+function el(tag, attrs, parent, text) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text != null) e.textContent = text;
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function niceStep(range, n) {
+  const raw = range / n, p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p;
+  return (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p;
+}
+function tipFor(box) {
+  let t = box.querySelector('.tip');
+  if (!t) { t = document.createElement('div'); t.className = 'tip'; t.hidden = true; box.appendChild(t); }
+  return t;
+}
+function placeTip(box, t, px, py) {
+  const W = box.clientWidth, w = t.offsetWidth, h = t.offsetHeight;
+  let x = px + 14; if (x + w > W) x = px - w - 14; if (x < 0) x = Math.max(0, Math.min(W - w, px - w / 2));
+  let y = py - h - 10; if (y < 0) y = py + 14;
+  t.style.transform = `translate(${x}px, ${y}px)`;
+}
+function spread(labels, top, bottom, gap) {
+  labels.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < labels.length; i++) labels[i].y = Math.max(labels[i].y, labels[i - 1].y + gap);
+  const over = labels.length ? labels[labels.length - 1].y - bottom : 0;
+  if (over > 0) for (const l of labels) l.y -= over;
+  for (let i = 0; i < labels.length; i++) labels[i].y = Math.max(labels[i].y, top + i * gap);
+  return labels;
+}
+
+/* ── schematic candles and RSI ─────────────────────────────── */
+(function scheme() {
+  const g = document.getElementById('candles');
+  const C = [[30,150,128],[46,128,100],[62,100,70,58],[78,70,96,60],[94,96,118],[110,118,140],[126,140,150],
+    [142,150,158],[158,158,152],[174,152,160],[190,160,155],[206,155,163],[222,163,157],[238,157,166],[254,166,160],[270,160,168],
+    [290,168,130],[310,130,92],[330,92,60,54]];
+  for (const [x0, o, c, hiY] of C) {
+    const x = 24 + (x0 - 30) * 0.85;
+    const up = c < o, col = up ? 'var(--up)' : 'var(--down)';
+    const top = Math.min(o, c), bot = Math.max(o, c), big = x0 >= 290;
+    el('line', { x1: x, x2: x, y1: hiY ?? top - 4, y2: bot + 4, stroke: col, 'stroke-width': 1.5 }, g);
+    el('rect', { x: x - (big ? 7 : 5), y: top, width: big ? 14 : 10, height: Math.max(2, bot - top), rx: 1.5, fill: col }, g);
+  }
+  const R = [[30,52],[46,58],[62,67],[78,61],[94,54],[110,48],[126,45],[142,43],[158,46],[174,44],[190,47],[206,45],[222,48],[238,45],[254,48],[270,46],[290,58],[310,71],[330,82]];
+  document.getElementById('rsi').setAttribute('d', R.map(([x, r], i) => (i ? 'L' : 'M') + (24 + (x - 30) * 0.85).toFixed(1) + ' ' + (230 + (70 - r)).toFixed(1)).join(' '));
+})();
+
+/* ── how trades were warned ────────────────────────────────── */
+(function warn() {
+  const box = document.getElementById('warn');
+  const rows = [['v1', 'Розворот 15 хв', [58, 0, 42]], ['m1', 'Розворот 5 хв', [32, 33, 35]]];
+  const keys = ['за хвилину', 'за 15 секунд', 'одразу входом'];
+  for (const [st, name, v] of rows) {
+    const shades = [`var(--${st})`, `color-mix(in oklab, var(--${st}) 55%, var(--surface))`, 'var(--faint)'];
+    const r = document.createElement('div'); r.className = 'row';
+    r.innerHTML = `<div class="lbl"><span class="dia ${st}"></span>${name}</div>`;
+    const bar = document.createElement('div'); bar.className = 'bar';
+    bar.setAttribute('role', 'img');
+    bar.setAttribute('aria-label', `${name}: ` + keys.map((k, i) => `${k} ${v[i]}%`).join(', '));
+    v.forEach((p, i) => { if (!p) return; const s = document.createElement('span'); s.style.flex = p; s.style.background = shades[i]; s.title = `${keys[i]}: ${p}%`; bar.appendChild(s); });
+    const k = document.createElement('div'); k.className = 'keys';
+    k.innerHTML = v.map((p, i) => p ? `<span><i style="background:${shades[i]}"></i>${keys[i]} <b class="num">${p}%</b></span>` : '').join('');
+    r.append(bar, k); box.appendChild(r);
+  }
+})();
+
+/* ── quarterly win rate ────────────────────────────────────── */
+const Q = Object.keys(D.quarters.v1);
+const qName = q => `${q.slice(5)} кв. ${q.slice(0, 4)}`;
+const qNote = q => q === '2023Q4' ? ' (з 10 жовтня)' : q === '2026Q4' ? ' (1–14 жовтня)' : '';
+function drawQuarters() {
+  const box = document.getElementById('quarters'); box.querySelectorAll('svg').forEach(s => s.remove());
+  const W = box.clientWidth, H = W < 480 ? 200 : 230, m = { l: 34, r: 44, t: 10, b: 26 };
+  const lo = 40, hi = 80;
+  const x = i => m.l + (i + 0.5) * (W - m.l - m.r) / Q.length;
+  const y = v => m.t + (hi - v) / (hi - lo) * (H - m.t - m.b);
+  const svg = el('svg', { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Частка угод у плюс по кварталах для 15 хв і 5 хв' });
+  for (let v = lo; v <= hi; v += 10) {
+    el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: v === lo ? 'var(--axis)' : 'var(--line)', 'stroke-width': 1 }, svg);
+    el('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, svg, v + '%');
+  }
+  Q.forEach((q, i) => { if (q.endsWith('Q1')) el('text', { x: x(i), y: H - 8, 'text-anchor': 'middle' }, svg, q.slice(0, 4)); });
+  const cross = el('line', { y1: m.t, y2: H - m.b, stroke: 'var(--axis)', 'stroke-width': 1, visibility: 'hidden' }, svg);
+  const ends = [];
+  for (const st of ['m1', 'v1']) {
+    const pts = Q.map((q, i) => [x(i), y(D.quarters[st][q][1])]);
+    el('path', { d: pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' '), fill: 'none', stroke: `var(--${st})`, 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+    pts.forEach(([px, py], i) => el('circle', { cx: px, cy: py, r: 4, fill: Q[i] === '2026Q4' ? 'var(--surface)' : `var(--${st})`, stroke: Q[i] === '2026Q4' ? `var(--${st})` : 'var(--surface)', 'stroke-width': 2 }, svg));
+    ends.push({ y: pts[pts.length - 1][1] + 4, text: st === 'v1' ? '15 хв' : '5 хв' });
+  }
+  spread(ends, m.t + 8, H - m.b, 13).forEach(l => el('text', { x: W - m.r + 8, y: l.y, class: 'endlbl' }, svg, l.text));
+  const hit = el('rect', { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: 'transparent' }, svg);
+  box.prepend(svg);
+  const tip = tipFor(box);
+  const move = e => {
+    const r = svg.getBoundingClientRect(), px = e.clientX - r.left;
+    const i = Math.max(0, Math.min(Q.length - 1, Math.floor((px - m.l) / ((W - m.l - m.r) / Q.length))));
+    const q = Q[i];
+    cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i)); cross.setAttribute('visibility', 'visible');
+    tip.innerHTML = `<div class="d">${qName(q)}${qNote(q)}</div>` + ['v1', 'm1'].map(st => {
+      const [n, w] = D.quarters[st][q];
+      return `<div><i style="background:var(--${st})"></i>${st === 'v1' ? '15 хв' : '5 хв'}: <b class="num">${nf1.format(w)}%</b> з ${n} угод</div>`;
+    }).join('');
+    tip.hidden = false; placeTip(box, tip, x(i), Math.min(y(D.quarters.v1[q][1]), y(D.quarters.m1[q][1])));
+  };
+  hit.addEventListener('pointermove', move); hit.addEventListener('pointerdown', move);
+  hit.addEventListener('pointerleave', () => { tip.hidden = true; cross.setAttribute('visibility', 'hidden'); });
+}
+(function qtable() {
+  const t = document.getElementById('qtable');
+  t.innerHTML = '<thead><tr><th>Квартал</th><th>15 хв</th><th>5 хв</th></tr></thead><tbody>' +
+    Q.map(q => `<tr><td>${qName(q)}${qNote(q)}</td>` + ['v1', 'm1'].map(st => `<td>${nf1.format(D.quarters[st][q][1])}%<small>${D.quarters[st][q][0]} угод</small></td>`).join('') + '</tr>').join('') + '</tbody>';
+})();
+
+/* ── loss streaks ──────────────────────────────────────────── */
+const STREAKS = [[3, 139, 'майже щотижня'], [4, 55, 'раз на 3 тижні'], [5, 28, 'раз на 5–6 тижнів'], [6, 13, 'раз на 3 місяці'], [7, 7, 'раз на 5 місяців'], [8, 4, '4 рази за 3 роки']];
+function drawStreaks() {
+  const box = document.getElementById('streaks'); box.querySelectorAll('svg').forEach(s => s.remove());
+  const W = box.clientWidth, rowH = 34, m = { l: 92, r: 44, t: 4 }, H = m.t + STREAKS.length * rowH;
+  const x = v => m.l + v / 140 * (W - m.l - m.r);
+  const svg = el('svg', { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Скільки разів траплялись серії мінусів поспіль за 3 роки' });
+  el('line', { x1: m.l, x2: m.l, y1: 0, y2: H, stroke: 'var(--axis)' }, svg);
+  const tip = tipFor(box);
+  STREAKS.forEach(([k, n, how], i) => {
+    const cy = m.t + i * rowH + rowH / 2;
+    el('text', { x: m.l - 10, y: cy + 4, 'text-anchor': 'end', class: 'endlbl' }, svg, `${k}+ поспіль`);
+    const w = Math.max(4, x(n) - m.l);
+    el('path', { d: `M${m.l} ${cy - 6} h${w - 4} a4 4 0 0 1 4 4 v4 a4 4 0 0 1 -4 4 h${-(w - 4)} Z`, fill: 'var(--all)' }, svg);
+    el('text', { x: m.l + w + 6, y: cy + 4, class: 'endlbl on' }, svg, n);
+    const hit = el('rect', { x: 0, y: cy - rowH / 2, width: W, height: rowH, fill: 'transparent' }, svg);
+    const show = () => { tip.innerHTML = `<div><b>${k} і більше мінусів поспіль</b></div><div>${n} разів за 3 роки, ${how}</div>`; tip.hidden = false; placeTip(box, tip, m.l + w, cy - 6); };
+    hit.addEventListener('pointerenter', show); hit.addEventListener('pointerdown', show);
+    hit.addEventListener('pointerleave', () => { tip.hidden = true; });
+  });
+  box.prepend(svg);
+}
+
+/* ── balance curves ────────────────────────────────────────── */
+const PEAKS = {};
+for (const g in D.groups) {
+  PEAKS[g] = {};
+  for (const s of STAKES) { let p = 0; PEAKS[g][s] = D.groups[g][s].curve.map(v => (p = Math.max(p, v, 10000))); }
+}
+const span = d => d >= 60 ? `≈${Math.round(d / 30.4)} міс.` : `${d} дн.`;
+function drawCurve(fig) {
+  const g = fig.dataset.group, G = D.groups[g], box = fig.querySelector('.chart');
+  box.querySelectorAll('svg').forEach(s => s.remove());
+  const W = box.clientWidth, H = W < 480 ? 210 : 250, m = { l: 50, r: 42, t: 10, b: 26 };
+  let lo = Infinity, hi = -Infinity;
+  for (const s of STAKES) for (const v of G[s].curve) { if (v < lo) lo = v; if (v > hi) hi = v; }
+  const step = niceStep(hi - lo, 4); lo = Math.floor(lo / step) * step; hi = Math.ceil(hi / step) * step;
+  const x = i => m.l + (T[i] - T[0]) / (T[T.length - 1] - T[0]) * (W - m.l - m.r);
+  const y = v => m.t + (hi - v) / (hi - lo) * (H - m.t - m.b);
+  const svg = el('svg', { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': `${NAME[g]}: крива балансу від 10 000 $ при ставці ${sl(stake)}` });
+  for (let v = lo; v <= hi + 1e-6; v += step) {
+    el('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: v === lo ? 'var(--axis)' : 'var(--line)', 'stroke-width': 1 }, svg);
+    el('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, svg, `${nf1.format(v / 1000)} тис.`);
+  }
+  el('line', { x1: m.l, x2: W - m.r, y1: y(10000), y2: y(10000), stroke: 'var(--muted)', 'stroke-width': 1, 'stroke-dasharray': '4 4' }, svg);
+  for (const yr of [2024, 2025, 2026]) {
+    const t = Date.parse(yr + '-01-01T00:00:00Z'), px = m.l + (t - T[0]) / (T[T.length - 1] - T[0]) * (W - m.l - m.r);
+    el('line', { x1: px, x2: px, y1: H - m.b, y2: H - m.b + 4, stroke: 'var(--axis)' }, svg);
+    el('text', { x: px, y: H - 8, 'text-anchor': 'middle' }, svg, yr);
+  }
+  const path = c => c.map((v, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(v).toFixed(1)).join(' ');
+  const ends = [];
+  for (const s of STAKES) {
+    if (s === stake) continue;
+    el('path', { d: path(G[s].curve), fill: 'none', stroke: 'var(--faint)', 'stroke-width': 1.25, 'stroke-linejoin': 'round' }, svg);
+    ends.push({ y: y(G[s].curve.at(-1)) + 4, text: sl(s), on: false });
+  }
+  const c = G[stake].curve;
+  el('path', { d: path(c), fill: 'none', stroke: `var(--${g})`, 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+  el('circle', { cx: x(c.length - 1), cy: y(c.at(-1)), r: 4, fill: `var(--${g})`, stroke: 'var(--surface)', 'stroke-width': 2 }, svg);
+  ends.push({ y: y(c.at(-1)) + 4, text: sl(stake), on: true });
+  spread(ends, m.t + 8, H - m.b, 12).forEach(l => el('text', { x: W - m.r + 8, y: l.y, class: 'endlbl' + (l.on ? ' on' : '') }, svg, l.text));
+  const cross = el('line', { y1: m.t, y2: H - m.b, stroke: 'var(--axis)', visibility: 'hidden' }, svg);
+  const dot = el('circle', { r: 4, fill: `var(--${g})`, stroke: 'var(--surface)', 'stroke-width': 2, visibility: 'hidden' }, svg);
+  const hit = el('rect', { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: 'transparent' }, svg);
+  box.prepend(svg);
+  const tip = tipFor(box);
+  const move = e => {
+    const r = svg.getBoundingClientRect(), px = e.clientX - r.left;
+    const t = T[0] + (px - m.l) / (W - m.l - m.r) * (T[T.length - 1] - T[0]);
+    let a = 0, b = T.length - 1;
+    while (b - a > 1) { const mid = (a + b) >> 1; if (T[mid] < t) a = mid; else b = mid; }
+    const i = Math.abs(T[a] - t) < Math.abs(T[b] - t) ? a : b;
+    const v = c[i], dd = 100 * (1 - v / PEAKS[g][stake][i]);
+    cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i)); cross.setAttribute('visibility', 'visible');
+    dot.setAttribute('cx', x(i)); dot.setAttribute('cy', y(v)); dot.setAttribute('visibility', 'visible');
+    tip.innerHTML = `<div class="d">${ddmm(i)} · ставка ${sl(stake)}</div><div><i style="background:var(--${g})"></i>Рахунок <b class="num">${money(v)}</b></div>` +
+      `<div>Від максимуму <b class="num">${dd < 0.05 ? 'на максимумі' : '−' + nf1.format(dd) + '%'}</b></div>`;
+    tip.hidden = false; placeTip(box, tip, x(i), y(v));
+  };
+  hit.addEventListener('pointermove', move); hit.addEventListener('pointerdown', move);
+  hit.addEventListener('pointerleave', () => { tip.hidden = true; cross.setAttribute('visibility', 'hidden'); dot.setAttribute('visibility', 'hidden'); });
+  const S = G[stake];
+  fig.querySelector('.sum').innerHTML =
+    `<div><b>${money(S.end)}</b><span>рахунок у кінці</span></div>` +
+    `<div><b>−${nf1.format(S.maxdd)}%</b><span>найглибше падіння</span></div>` +
+    `<div><b>${span(S.under_days)}</b><span>без нового максимуму</span></div>`;
+}
+function rmTable() {
+  const t = document.getElementById('rm');
+  t.innerHTML = '<thead><tr><th>Ставка</th>' + ['v1', 'm1', 'all'].map(g => `<th><span><span class="dia ${g}"></span>${g === 'v1' ? '15 хв' : g === 'm1' ? '5 хв' : 'Разом'}</span></th>`).join('') + '</tr></thead><tbody>' +
+    STAKES.map(s => `<tr data-s="${s}" class="${s === stake ? 'on' : ''}"><td>${sl(s)}</td>` + ['v1', 'm1', 'all'].map(g => `<td>−${Math.round(D.groups[g][s].maxdd)}%<small>${money(D.groups[g][s].end)}</small></td>`).join('') + '</tr>').join('') + '</tbody>';
+  t.querySelectorAll('tbody tr').forEach(tr => tr.addEventListener('click', () => setStake(tr.dataset.s)));
+}
+function takeaway() {
+  const A = D.groups.all;
+  document.getElementById('takeaway').innerHTML =
+    `Більша ставка не дає більшого рахунку. На обох стратегіях разом 3% закінчили нижче, ніж 2%, а 5% закінчили в мінусі, <b class="num">${money(A['5'].end)}</b>, бо після падіння на ${Math.round(A['5'].maxdd)}% рахунок уже не відновився. ` +
+    `При 1% найглибше падіння було −${Math.round(A['1'].maxdd)}%, тому 1% і є верхньою межею.`;
+}
+const segBox = document.getElementById('stakes');
+STAKES.forEach(s => { const b = document.createElement('button'); b.type = 'button'; b.id = 'stake-' + s.replace('.', '_'); b.textContent = sl(s); b.dataset.s = s; b.addEventListener('click', () => setStake(s)); segBox.appendChild(b); });
+const figs = [...document.querySelectorAll('#curves figure[data-group]')];
+function setStake(s) {
+  stake = s;
+  try { localStorage.setItem('vip3-stake', s); } catch (e) {}
+  segBox.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.s === s)));
+  document.querySelectorAll('#rm tbody tr').forEach(tr => tr.classList.toggle('on', tr.dataset.s === s));
+  figs.forEach(drawCurve);
+}
+
+/* ── stake calculator ──────────────────────────────────────── */
+const dep = document.getElementById('dep');
+function calc() {
+  const v = Math.max(0, parseFloat(String(dep.value).replace(',', '.')) || 0);
+  const f = x => nf1.format(Math.round(x * 10) / 10) + ' $';
+  document.getElementById('s05').textContent = f(v * 0.005);
+  document.getElementById('s1').textContent = f(v * 0.01);
+}
+dep.addEventListener('input', calc);
+
+function drawAll() { drawQuarters(); drawStreaks(); figs.forEach(drawCurve); }
+rmTable(); takeaway(); calc(); setStake(stake); drawQuarters(); drawStreaks();
+let raf = 0, lastW = document.querySelector('main.wrap').clientWidth;
+new ResizeObserver(() => {
+  const w = document.querySelector('main.wrap').clientWidth; if (w === lastW) return; lastW = w;
+  cancelAnimationFrame(raf); raf = requestAnimationFrame(drawAll);
+}).observe(document.querySelector('main.wrap'));
+</script>
+</body>
+</html>
